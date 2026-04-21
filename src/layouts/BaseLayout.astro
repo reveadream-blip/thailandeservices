@@ -1,0 +1,129 @@
+---
+import '../styles/global.css'
+import { translations, type Lang } from '../i18n/translations'
+import { CONTACT, SITE, SEO_DEFAULT_OG_IMAGE } from '../config'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import FloatingWhatsapp from '../components/FloatingWhatsapp.astro'
+import {
+  absoluteUrl,
+  absoluteAssetUrl,
+  truncateMeta,
+  buildBaseSchemaGraph,
+  serializeJsonLd,
+} from '../lib/seo'
+
+export interface Props {
+  lang: Lang
+  /** Surcharge titre / description (pages articles, catégories). */
+  pageTitle?: string
+  metaDescription?: string
+  /** Path canonique explicite (ex. `/slug/`). Sinon dérivé de l’URL courante. */
+  canonicalPath?: string
+  /** Uniquement sur les pages d’accueil FR / EN / TH — liens hreflang cohérents. */
+  homeHreflang?: boolean
+  ogType?: 'website' | 'article'
+  /** Path `/...` ou URL absolue pour og:image / Twitter. */
+  ogImage?: string
+  articlePublishedTime?: string
+  articleModifiedTime?: string
+  /** Schémas JSON-LD supplémentaires (article, catégorie…). */
+  jsonLdExtra?: Record<string, unknown>[]
+}
+
+const {
+  lang,
+  pageTitle,
+  metaDescription,
+  canonicalPath,
+  homeHreflang = false,
+  ogType = 'website',
+  ogImage,
+  articlePublishedTime,
+  articleModifiedTime,
+  jsonLdExtra = [],
+} = Astro.props
+
+const t = translations[lang]
+const rawTitle = pageTitle ? `${pageTitle} — ${SITE.name}` : t.meta.title
+const docTitle = truncateMeta(rawTitle, 65)
+const docDesc = truncateMeta(metaDescription ?? t.meta.description)
+
+const pathRaw = Astro.url.pathname
+const normalized =
+  canonicalPath ??
+  (pathRaw === '/' || pathRaw.endsWith('/') ? pathRaw : `${pathRaw}/`)
+const canonicalUrl = absoluteUrl(normalized === '/' ? '/' : normalized)
+
+const ogImageResolved = ogImage ?? SEO_DEFAULT_OG_IMAGE
+const ogImageAbs = ogImageResolved.startsWith('http')
+  ? ogImageResolved
+  : absoluteAssetUrl(ogImageResolved)
+
+const ogLocale = lang === 'fr' ? 'fr_FR' : lang === 'en' ? 'en_US' : 'th_TH'
+
+const schemaGraph = [...buildBaseSchemaGraph(), ...jsonLdExtra]
+const schemaJson = serializeJsonLd({
+  '@context': 'https://schema.org',
+  '@graph': schemaGraph,
+})
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="googlebot" content="index, follow" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png" />
+    <link rel="apple-touch-icon" href="/images/favicon-192.png" />
+    <meta name="theme-color" content="#0e7490" />
+    <meta name="description" content={docDesc} />
+    <title>{rawTitle}</title>
+    <link rel="canonical" href={canonicalUrl} />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={rawTitle} />
+    <meta property="og:description" content={docDesc} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:image" content={ogImageAbs} />
+    <meta property="og:image:alt" content={pageTitle ?? SITE.name} />
+    <meta property="og:locale" content={ogLocale} />
+    {ogType === 'article' && articlePublishedTime && (
+      <meta property="article:published_time" content={new Date(articlePublishedTime).toISOString()} />
+    )}
+    {ogType === 'article' && (articleModifiedTime ?? articlePublishedTime) && (
+      <meta
+        property="article:modified_time"
+        content={new Date(articleModifiedTime ?? articlePublishedTime!).toISOString()}
+      />
+    )}
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={rawTitle} />
+    <meta name="twitter:description" content={docDesc} />
+    <meta name="twitter:image" content={ogImageAbs} />
+
+    {homeHreflang && (
+      <>
+        <link rel="alternate" hreflang="fr" href={`${SITE.baseUrl}/`} />
+        <link rel="alternate" hreflang="en" href={`${SITE.baseUrl}/en/`} />
+        <link rel="alternate" hreflang="th" href={`${SITE.baseUrl}/th/`} />
+        <link rel="alternate" hreflang="x-default" href={`${SITE.baseUrl}/`} />
+      </>
+    )}
+
+    <script type="application/ld+json" set:html={schemaJson} />
+  </head>
+  <body>
+    <Header lang={lang} />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+    <FloatingWhatsapp whatsappLink={CONTACT.whatsappLink} label={t.nav.whatsapp} />
+  </body>
+</html>

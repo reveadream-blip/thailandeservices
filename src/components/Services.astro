@@ -1,0 +1,184 @@
+---
+import { translations, type Lang } from '../i18n/translations'
+import { contactFormHref } from '../config'
+
+export interface Props {
+  lang: Lang
+}
+const { lang } = Astro.props
+const t = translations[lang]
+
+const cards = [
+  {
+    key: 'realEstate' as const,
+    image: '/images/service-immobilier.jpg',
+  },
+  {
+    key: 'insurance' as const,
+    image: '/images/service-assurance.jpg',
+  },
+  {
+    key: 'interpreter' as const,
+    image: '/images/service-interprete.jpg',
+  },
+]
+---
+
+<section id="services" class="section services">
+  <div class="container">
+    <header class="section-head" data-reveal>
+      <span class="section-eyebrow">{t.services.subtitle}</span>
+      <h2>{t.services.title}</h2>
+    </header>
+
+    <div class="services-grid">
+      {cards.map((c, i) => (
+        <article class="service-card" data-reveal style={`animation-delay:${i * 0.08}s`}>
+          <div class="service-photo">
+            <img src={c.image} alt="" loading="lazy" width="600" height="352" />
+            <div class="service-photo-scrim"></div>
+            <div class="service-photo-text">
+              <span class="service-tag">{t.services[c.key].tagline}</span>
+              <h3>{t.services[c.key].title}</h3>
+            </div>
+          </div>
+          <div class="service-body">
+            <p class="desc">{t.services[c.key].description}</p>
+            <a href={contactFormHref(lang)} class="service-cta">
+              {t.services[c.key].cta}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M13 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    background: transparent;
+  }
+
+  .section-head {
+    text-align: center;
+    max-width: 680px;
+    margin-inline: auto;
+    margin-bottom: 3rem;
+  }
+
+  .section-head h2 {
+    font-family: var(--font-display);
+    background: linear-gradient(135deg, var(--color-ocean-dark) 0%, var(--color-ocean-mid) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .services-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 900px) {
+    .services-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .service-card {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 1px solid color-mix(in srgb, var(--color-ocean-light) 18%, var(--color-border));
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg), 0 0 0 1px color-mix(in srgb, var(--color-coral) 25%, transparent);
+    border-color: color-mix(in srgb, var(--color-ocean-light) 45%, transparent);
+  }
+
+  .service-photo {
+    position: relative;
+    aspect-ratio: 600 / 352;
+    overflow: hidden;
+  }
+
+  .service-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .service-photo-scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 30%, rgba(14, 83, 110, 0.92) 100%);
+  }
+
+  .service-photo-text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 1.25rem 1.35rem;
+    color: #fff;
+  }
+
+  .service-tag {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #fef08a;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+    margin-bottom: 0.35rem;
+  }
+
+  .service-photo-text h3 {
+    font-family: var(--font-display);
+    color: #fff;
+    font-size: 1.15rem;
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  .service-body {
+    padding: 1.5rem 1.35rem 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex-grow: 1;
+  }
+
+  .desc {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    flex-grow: 1;
+  }
+
+  .service-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--color-ocean);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: gap 0.2s ease;
+  }
+
+  .service-cta:hover {
+    gap: 0.65rem;
+    color: var(--color-coral);
+  }
+</style>

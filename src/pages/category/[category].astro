@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import data from '../../data/articles.json'
+import { CATEGORY_LABELS } from '../../data/navigation'
+import { absoluteUrl, buildCategorySchemaGraph, truncateMeta } from '../../lib/seo'
+import { SITE } from '../../config'
+
+export function getStaticPaths() {
+  return data.categories.map((c) => ({
+    params: { category: c.slug },
+  }))
+}
+
+const { category } = Astro.params
+const cat = data.categories.find((c) => c.slug === category)
+if (!cat) {
+  return Astro.redirect('/')
+}
+
+const title = CATEGORY_LABELS[category] ?? cat.slug
+const lang = 'fr'
+const catPath = `/category/${category}/`
+const catUrl = absoluteUrl(catPath)
+const metaDesc = truncateMeta(
+  `${title} — guides et adresses utiles pour les francophones à Phuket. ${SITE.name}.`,
+)
+const articleUrls = cat.posts.map((p) => absoluteUrl(`/${p.slug}/`))
+const jsonLdExtra = buildCategorySchemaGraph({
+  name: title,
+  description: metaDesc,
+  url: catUrl,
+  articleUrls,
+})
+---
+
+<BaseLayout
+  lang={lang}
+  pageTitle={title}
+  metaDescription={metaDesc}
+  canonicalPath={catPath}
+  jsonLdExtra={jsonLdExtra}
+>
+  <div class="category-page">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <a href="/">Accueil</a>
+        <span class="bc-sep" aria-hidden="true">/</span>
+        <span class="bc-current">{title}</span>
+      </nav>
+      <header class="cat-header">
+        <h1>{title}</h1>
+        <p class="cat-count">{cat.posts.length} article{cat.posts.length > 1 ? 's' : ''}</p>
+      </header>
+      <ul class="post-list">
+        {cat.posts.map((p) => (
+          <li>
+            <a href={`/${p.slug}/`} class="post-card">
+              <span class="post-title">{p.title}</span>
+              {p.excerpt && <span class="post-excerpt">{p.excerpt}…</span>}
+              <time datetime={p.date}>
+                {new Date(p.date).toLocaleDateString('fr-FR', {
+                  year: 'numeric',
+                  month: 'short',
+                  day: 'numeric',
+                })}
+              </time>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .category-page {
+    padding-block: clamp(2rem, 5vw, 3.5rem);
+    background: var(--color-cream);
+    min-height: 50vh;
+  }
+
+  .breadcrumb {
+    font-size: 0.88rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-ink-muted);
+  }
+
+  .breadcrumb a {
+    color: var(--color-ocean);
+    font-weight: 500;
+  }
+
+  .bc-sep {
+    margin: 0 0.4rem;
+    opacity: 0.6;
+  }
+
+  .cat-header {
+    margin-bottom: 2rem;
+  }
+
+  .cat-header h1 {
+    color: var(--color-ocean);
+    font-size: clamp(1.65rem, 4vw, 2.1rem);
+  }
+
+  .cat-count {
+    margin-top: 0.35rem;
+    color: var(--color-ink-muted);
+    font-size: 0.95rem;
+  }
+
+  .post-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .post-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1.15rem 1.25rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .post-card:hover {
+    border-color: var(--color-ocean);
+    box-shadow: var(--shadow-md);
+  }
+
+  .post-title {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--color-ocean);
+  }
+
+  .post-excerpt {
+    font-size: 0.92rem;
+    color: var(--color-ink-soft);
+    line-height: 1.5;
+  }
+
+  .post-card time {
+    font-size: 0.82rem;
+    color: var(--color-ink-muted);
+  }
+</style>

@@ -1,0 +1,313 @@
+---
+import { translations, type Lang } from '../i18n/translations'
+import { WP_PAGES } from '../config'
+
+export interface Props {
+  lang: Lang
+}
+const { lang } = Astro.props
+const t = translations[lang]
+
+const slides = [
+  {
+    image: '/images/slide-interprete.jpg',
+    mode: 'simple' as const,
+    title: t.homeSlider.slide1.title,
+    subtitle: t.homeSlider.slide1.subtitle,
+    cta: t.homeSlider.slide1.cta,
+    href: WP_PAGES.interpreteArticle,
+  },
+  {
+    image: '/images/slide-immobilier.png',
+    mode: 'immo' as const,
+    eyebrow: t.homeSlider.slide2.eyebrow,
+    title: t.homeSlider.slide2.title,
+    body: t.homeSlider.slide2.body,
+    cta: t.homeSlider.slide2.cta,
+    href: WP_PAGES.expatriationImmobilier,
+  },
+  {
+    image: '/images/slide-assurance.jpg',
+    mode: 'simple' as const,
+    title: t.homeSlider.slide3.title,
+    subtitle: t.homeSlider.slide3.subtitle,
+    cta: t.homeSlider.slide3.cta,
+    href: WP_PAGES.assuranceArticle,
+  },
+]
+---
+
+<section class="hero-slider" aria-roledescription="carousel" data-hero-slider>
+  <div class="slides">
+    {slides.map((s, i) => (
+      <article
+        class:list={['slide', { active: i === 0 }]}
+        data-slide={i}
+        aria-hidden={i === 0 ? 'false' : 'true'}
+      >
+        <img src={s.image} alt="" class="slide-bg" loading={i === 0 ? 'eager' : 'lazy'} />
+        <div class="slide-scrim" aria-hidden="true"></div>
+        <div class="container slide-inner">
+          {s.mode === 'simple' ? (
+            <div class="slide-content">
+              <h1>{s.title}</h1>
+              <p class="slide-sub">{s.subtitle}</p>
+              <a href={s.href} class="btn btn-primary slide-cta">
+                {s.cta}
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          ) : (
+            <div class="slide-content slide-content--wide">
+              <p class="slide-eyebrow">{s.eyebrow}</p>
+              <h1>{s.title}</h1>
+              <p class="slide-body">{s.body}</p>
+              <a href={s.href} class="btn btn-primary slide-cta">
+                {s.cta}
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          )}
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <div class="slider-ui">
+    <button type="button" class="slider-btn prev" aria-label={t.homeSlider.prev} data-slider-prev>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+        <path d="M15 18l-6-6 6-6"></path>
+      </svg>
+    </button>
+    <button type="button" class="slider-btn next" aria-label={t.homeSlider.next} data-slider-next>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+        <path d="M9 18l6-6-6-6"></path>
+      </svg>
+    </button>
+    <div class="dots" role="tablist" aria-label="Slides">
+      {slides.map((_, i) => (
+        <button
+          type="button"
+          role="tab"
+          aria-selected={i === 0 ? 'true' : 'false'}
+          aria-label={`${i + 1} / ${slides.length}`}
+          data-slider-dot={i}
+          class:list={['dot', { active: i === 0 }]}
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const root = document.querySelector('[data-hero-slider]')
+  if (root) {
+    const slides = Array.from(root.querySelectorAll('[data-slide]'))
+    const prev = root.querySelector('[data-slider-prev]')
+    const next = root.querySelector('[data-slider-next]')
+    const dots = Array.from(root.querySelectorAll('[data-slider-dot]'))
+    let idx = 0
+    const n = slides.length
+
+    const go = (i) => {
+      idx = ((i % n) + n) % n
+      slides.forEach((el, j) => {
+        const on = j === idx
+        el.classList.toggle('active', on)
+        el.setAttribute('aria-hidden', on ? 'false' : 'true')
+      })
+      dots.forEach((d, j) => {
+        d.classList.toggle('active', j === idx)
+        d.setAttribute('aria-selected', j === idx ? 'true' : 'false')
+      })
+    }
+
+    prev?.addEventListener('click', () => go(idx - 1))
+    next?.addEventListener('click', () => go(idx + 1))
+    dots.forEach((d, i) => d.addEventListener('click', () => go(i)))
+
+    let timer = window.setInterval(() => go(idx + 1), 7000)
+    root.addEventListener('mouseenter', () => clearInterval(timer))
+    root.addEventListener('mouseleave', () => {
+      clearInterval(timer)
+      timer = window.setInterval(() => go(idx + 1), 7000)
+    })
+  }
+</script>
+
+<style>
+  .hero-slider {
+    position: relative;
+    min-height: min(78vh, 720px);
+    background: linear-gradient(160deg, #0c4a6e 0%, #164e63 40%, #0f172a 100%);
+  }
+
+  .slides {
+    position: relative;
+    min-height: inherit;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.7s ease, visibility 0.7s;
+  }
+
+  .slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+  }
+
+  .slide-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .slide-scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      115deg,
+      rgba(8, 47, 73, 0.92) 0%,
+      rgba(14, 116, 144, 0.45) 42%,
+      rgba(15, 23, 42, 0.25) 100%
+    );
+    z-index: 1;
+  }
+
+  .slide-scrim::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 50% at 20% 40%, rgba(34, 211, 238, 0.12) 0%, transparent 55%);
+    pointer-events: none;
+  }
+
+  .slide-inner {
+    position: relative;
+    z-index: 2;
+    min-height: min(78vh, 720px);
+    display: flex;
+    align-items: center;
+    padding-block: clamp(4rem, 10vw, 6rem);
+  }
+
+  .slide-content {
+    max-width: 640px;
+    color: #fff;
+  }
+
+  .slide-content--wide {
+    max-width: 720px;
+  }
+
+  .slide-content h1 {
+    font-family: var(--font-display);
+    color: #fff;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    margin-bottom: 0.75rem;
+    text-shadow: 0 4px 32px rgba(0, 0, 0, 0.45), 0 0 40px rgba(34, 211, 238, 0.15);
+  }
+
+  .slide-eyebrow {
+    font-family: var(--font-display);
+    font-size: 0.92rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #fde68a 0%, #fb923c 50%, #fb7185 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.6rem;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35));
+  }
+
+  .slide-sub {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: rgba(255, 255, 255, 0.92);
+    margin-bottom: 1.75rem;
+    line-height: 1.5;
+  }
+
+  .slide-body {
+    font-size: clamp(1rem, 1.6vw, 1.15rem);
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.75rem;
+    line-height: 1.65;
+  }
+
+  .slide-cta {
+    box-shadow: var(--shadow-coral);
+  }
+
+  .slider-ui {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .slider-btn {
+    width: 46px;
+    height: 46px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff;
+    border: 2px solid rgba(34, 211, 238, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .slider-btn:hover {
+    background: rgba(34, 211, 238, 0.25);
+    transform: scale(1.06);
+    box-shadow: 0 6px 28px rgba(34, 211, 238, 0.25);
+  }
+
+  .dots {
+    display: flex;
+    gap: 0.45rem;
+    padding: 0 0.5rem;
+  }
+
+  .dot {
+    width: 11px;
+    height: 11px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.35);
+    border: 2px solid transparent;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .dot.active {
+    background: linear-gradient(135deg, #fb7185 0%, #f43f5e 100%);
+    transform: scale(1.2);
+    box-shadow: 0 0 0 3px rgba(251, 113, 133, 0.45);
+  }
+
+  @media (min-width: 900px) {
+    .slider-ui {
+      bottom: 2rem;
+    }
+  }
+</style>

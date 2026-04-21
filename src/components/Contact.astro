@@ -1,0 +1,350 @@
+---
+import { translations, type Lang } from '../i18n/translations'
+import { CONTACT, WEB3FORMS_ACCESS_KEY } from '../config'
+
+export interface Props {
+  lang: Lang
+}
+const { lang } = Astro.props
+const t = translations[lang]
+---
+
+<section id="contact" class="section contact">
+  <div class="container contact-inner">
+    <div class="contact-side" data-reveal>
+      <span class="section-eyebrow">{t.nav.contact}</span>
+      <h2>{t.contact.title}</h2>
+      <p class="contact-sub">{t.contact.subtitle}</p>
+
+      <div class="direct-links">
+        <p class="direct-heading">{t.contact.directContact}</p>
+
+        <a href={CONTACT.whatsappLink} target="_blank" rel="noopener" class="direct-link whatsapp">
+          <span class="dl-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+              <path d="M17.5 14.4c-.3-.2-1.7-.9-2-1s-.5-.2-.6.2c-.2.3-.7 1-.9 1.2s-.3.2-.6.1c-.3-.2-1.2-.5-2.3-1.4-.8-.7-1.4-1.6-1.6-1.9s0-.4.1-.6c.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5s0-.4 0-.5-.6-1.5-.9-2.1c-.2-.5-.5-.4-.6-.4h-.6c-.2 0-.5 0-.8.3s-1 1-1 2.4 1 2.8 1.2 3 2.1 3.2 5 4.5c.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.2-.1-.4-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z" />
+            </svg>
+          </span>
+          <span class="dl-body">
+            <strong>{t.contact.whatsapp}</strong>
+            <small>{CONTACT.phoneDisplay}</small>
+          </span>
+        </a>
+
+        <a href="#contact-form" class="direct-link written">
+          <span class="dl-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </span>
+          <span class="dl-body">
+            <strong>{t.contact.writtenMessage}</strong>
+            <small>{t.contact.writtenMessageSub}</small>
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <form
+      class="contact-form"
+      id="contact-form"
+      data-reveal
+      data-captcha-hint={t.contact.form.captchaRequired}
+      style="animation-delay:0.1s"
+    >
+      <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
+      <input type="hidden" name="from_name" value="Thaïlande Services" />
+      <input type="hidden" name="subject" value="Nouveau message — thailande-services.fr" />
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
+
+      <div class="field-row">
+        <label class="field">
+          <span>{t.contact.form.name} *</span>
+          <input type="text" name="name" required autocomplete="name" />
+        </label>
+        <label class="field">
+          <span>{t.contact.form.email} *</span>
+          <input type="email" name="email" required autocomplete="email" />
+        </label>
+      </div>
+
+      <div class="field-row">
+        <label class="field">
+          <span>{t.contact.form.phone}</span>
+          <input type="tel" name="phone" autocomplete="tel" />
+        </label>
+        <label class="field">
+          <span>{t.contact.form.subject} *</span>
+          <select name="topic" required>
+            <option value="realEstate">{t.contact.form.subjectOptions.realEstate}</option>
+            <option value="insurance">{t.contact.form.subjectOptions.insurance}</option>
+            <option value="interpreter">{t.contact.form.subjectOptions.interpreter}</option>
+            <option value="emergency">{t.contact.form.subjectOptions.emergency}</option>
+            <option value="other">{t.contact.form.subjectOptions.other}</option>
+          </select>
+        </label>
+      </div>
+
+      <label class="field">
+        <span>{t.contact.form.message} *</span>
+        <textarea name="message" rows="5" required></textarea>
+      </label>
+
+      <div class="h-captcha" data-captcha="true" aria-label="Anti-spam"></div>
+
+      <button type="submit" class="btn btn-primary submit-btn">
+        <span class="btn-label">{t.contact.form.submit}</span>
+        <span class="btn-label-sending" hidden>{t.contact.form.sending}</span>
+      </button>
+
+      <p class="form-feedback" data-success hidden>{t.contact.form.success}</p>
+      <p class="form-feedback error" data-error hidden>{t.contact.form.error}</p>
+    </form>
+  </div>
+</section>
+
+<script src="https://web3forms.com/client/script.js" async defer></script>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault()
+      const captchaHint = form.getAttribute('data-captcha-hint') || 'Please complete the captcha.'
+      const ta = form.querySelector('textarea[name="h-captcha-response"]')
+      const token = ta instanceof HTMLTextAreaElement ? ta.value.trim() : ''
+      if (!token) {
+        alert(captchaHint)
+        return
+      }
+
+      const btn = form.querySelector('.submit-btn') as HTMLButtonElement | null
+      const labelSend = form.querySelector('.btn-label') as HTMLElement | null
+      const labelSending = form.querySelector('.btn-label-sending') as HTMLElement | null
+      const success = form.querySelector('[data-success]') as HTMLElement | null
+      const errorEl = form.querySelector('[data-error]') as HTMLElement | null
+
+      success?.setAttribute('hidden', '')
+      errorEl?.setAttribute('hidden', '')
+      btn?.setAttribute('disabled', 'true')
+      labelSend?.setAttribute('hidden', '')
+      labelSending?.removeAttribute('hidden')
+
+      try {
+        const data = new FormData(form)
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: data,
+        })
+        const json = await res.json()
+        if (json.success) {
+          success?.removeAttribute('hidden')
+          form.reset()
+        } else {
+          errorEl?.removeAttribute('hidden')
+        }
+      } catch {
+        errorEl?.removeAttribute('hidden')
+      } finally {
+        btn?.removeAttribute('disabled')
+        labelSend?.removeAttribute('hidden')
+        labelSending?.setAttribute('hidden', '')
+      }
+    })
+  }
+</script>
+
+<style>
+  .contact {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--color-gold) 8%, transparent) 0%, var(--color-sand-light) 100%);
+  }
+
+  .contact-inner {
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  @media (min-width: 900px) {
+    .contact-inner {
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 4rem;
+    }
+  }
+
+  .contact-side h2 {
+    font-family: var(--font-display);
+    background: linear-gradient(135deg, var(--color-ocean-dark) 0%, var(--color-ocean-mid) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1rem;
+  }
+
+  .contact-sub {
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+  }
+
+  .direct-heading {
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+    margin-bottom: 1rem;
+  }
+
+  .direct-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .direct-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #fff;
+    padding: 1rem 1.2rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .direct-link:hover {
+    transform: translateX(4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .dl-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .direct-link.whatsapp .dl-icon {
+    background: #25d366;
+  }
+
+  .direct-link.written .dl-icon {
+    background: linear-gradient(135deg, var(--color-ocean) 0%, var(--color-ocean-dark) 100%);
+  }
+
+  .dl-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .dl-body strong {
+    color: var(--color-ink);
+    font-weight: 600;
+  }
+
+  .dl-body small {
+    color: var(--color-ink-muted);
+    font-size: 0.88rem;
+  }
+
+  /* ===== Form ===== */
+  .contact-form {
+    background: #fff;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .field-row {
+    display: grid;
+    gap: 1.1rem;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 640px) {
+    .field-row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .field > span {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--color-ink);
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: #fff;
+    font-family: inherit;
+    font-size: 0.98rem;
+    color: var(--color-ink);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    outline: none;
+    border-color: var(--color-ocean-mid);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-ocean-light) 22%, transparent);
+  }
+
+  .field textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .h-captcha {
+    margin-top: 0.25rem;
+  }
+
+  .submit-btn {
+    align-self: flex-start;
+    margin-top: 0.5rem;
+  }
+
+  .submit-btn[disabled] {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .form-feedback {
+    padding: 0.9rem 1rem;
+    border-radius: var(--radius-md);
+    font-size: 0.94rem;
+    background: rgba(16, 185, 129, 0.12);
+    color: #065f46;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+  }
+
+  .form-feedback.error {
+    background: rgba(239, 68, 68, 0.1);
+    color: #991b1b;
+    border-color: rgba(239, 68, 68, 0.3);
+  }
+</style>
