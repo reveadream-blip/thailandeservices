@@ -7,6 +7,10 @@ export interface Props {
 }
 const { lang } = Astro.props
 const t = translations[lang]
+const hasWeb3FormsKey =
+  typeof WEB3FORMS_ACCESS_KEY === 'string' &&
+  WEB3FORMS_ACCESS_KEY.trim().length > 0 &&
+  WEB3FORMS_ACCESS_KEY !== 'YOUR-WEB3FORMS-ACCESS-KEY'
 ---
 
 <section id="contact" class="section contact">
@@ -51,6 +55,7 @@ const t = translations[lang]
       id="contact-form"
       data-reveal
       data-captcha-hint={t.contact.form.captchaRequired}
+      data-form-enabled={hasWeb3FormsKey ? 'true' : 'false'}
       style="animation-delay:0.1s"
     >
       <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
@@ -124,9 +129,14 @@ const t = translations[lang]
       const labelSending = form.querySelector('.btn-label-sending') as HTMLElement | null
       const success = form.querySelector('[data-success]') as HTMLElement | null
       const errorEl = form.querySelector('[data-error]') as HTMLElement | null
+      const formEnabled = form.getAttribute('data-form-enabled') === 'true'
 
       success?.setAttribute('hidden', '')
       errorEl?.setAttribute('hidden', '')
+      if (!formEnabled) {
+        errorEl?.removeAttribute('hidden')
+        return
+      }
       btn?.setAttribute('disabled', 'true')
       labelSend?.setAttribute('hidden', '')
       labelSending?.removeAttribute('hidden')

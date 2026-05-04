@@ -50,7 +50,8 @@ export const WP_PAGES = {
  * Clé Web3Forms pour le formulaire de contact.
  * https://web3forms.com — activer hCaptcha dans le tableau de bord du formulaire.
  */
-export const WEB3FORMS_ACCESS_KEY = 'YOUR-WEB3FORMS-ACCESS-KEY'
+export const WEB3FORMS_ACCESS_KEY =
+  import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || 'YOUR-WEB3FORMS-ACCESS-KEY'
 
 function siteBaseUrl(): string {
   const u = import.meta.env.PUBLIC_SITE_URL

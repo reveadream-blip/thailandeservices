@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config'
 import sitemap from '@astrojs/sitemap'
+import react from '@astrojs/react'
 import { loadEnv } from 'vite'
 
 /**
@@ -16,6 +17,7 @@ const siteUrl =
 export default defineConfig({
   site: siteUrl,
   integrations: [
+    react(),
     sitemap({
       filter: (page) => !page.includes('/404'),
     }),

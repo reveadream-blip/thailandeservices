@@ -5,6 +5,7 @@ import { CONTACT, SITE, SEO_DEFAULT_OG_IMAGE } from '../config'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import FloatingWhatsapp from '../components/FloatingWhatsapp.astro'
+import Chatbot from '../components/Chatbot.tsx'
 import {
   absoluteUrl,
   absoluteAssetUrl,
@@ -125,5 +126,6 @@ const schemaJson = serializeJsonLd({
     </main>
     <Footer lang={lang} />
     <FloatingWhatsapp whatsappLink={CONTACT.whatsappLink} label={t.nav.whatsapp} />
+    <Chatbot client:load />
   </body>
 </html>
