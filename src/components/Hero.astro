@@ -310,4 +310,26 @@ const slides = [
       bottom: 2rem;
     }
   }
+
+  @media (max-width: 639px) {
+    .hero-slider,
+    .slide-inner {
+      min-height: min(72vh, 560px);
+    }
+
+    .slide-inner {
+      padding-block: clamp(3rem, 12vw, 4.5rem);
+      padding-bottom: max(4.5rem, calc(env(safe-area-inset-bottom, 0px) + 3.5rem));
+    }
+
+    .slider-ui {
+      bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+      gap: 0.65rem;
+    }
+
+    .slider-btn {
+      width: 44px;
+      height: 44px;
+    }
+  }
 </style>

@@ -487,25 +487,13 @@ const Chatbot: React.FC = () => {
     return (
       <button
         type="button"
+        className="chatbot-launcher"
         onClick={() => setMinimized(false)}
         aria-expanded={false}
         aria-label="Ouvrir l’assistant assurance"
         style={{
-          position: 'fixed',
-          bottom: '20px',
-          right: '20px',
-          zIndex: 1000,
-          padding: '12px 18px',
-          borderRadius: '999px',
-          border: '1px solid rgba(148, 163, 184, 0.35)',
-          background: '#0f172a',
-          color: '#f8fafc',
           fontWeight: 700,
           cursor: 'pointer',
-          boxShadow: '0 12px 32px rgba(15, 23, 42, 0.35)',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '8px',
         }}
       >
         <span aria-hidden>💬</span>
@@ -515,24 +503,7 @@ const Chatbot: React.FC = () => {
   }
 
   return (
-    <div
-      style={{
-        position: 'fixed',
-        bottom: '20px',
-        right: '20px',
-        width: '320px',
-        height: '420px',
-        borderRadius: '18px',
-        border: '1px solid rgba(15, 23, 42, 0.15)',
-        background: '#0f172a',
-        color: '#f8fafc',
-        boxShadow: '0 20px 50px rgba(15, 23, 42, 0.25)',
-        zIndex: 1000,
-        overflow: 'hidden',
-        display: 'flex',
-        flexDirection: 'column',
-      }}
-    >
+    <div className="chatbot-panel">
       <div
         style={{
           padding: '10px 12px',
