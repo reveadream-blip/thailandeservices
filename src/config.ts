@@ -53,6 +53,18 @@ export const WP_PAGES = {
 export const WEB3FORMS_ACCESS_KEY =
   import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || 'YOUR-WEB3FORMS-ACCESS-KEY'
 
+/**
+ * Clé Web3Forms pour le chatbot (envoi **sans** hCaptcha dans l’UI).
+ * Si `PUBLIC_CHATBOT_WEB3FORMS_ACCESS_KEY` est défini : utiliser un 2ᵉ formulaire Web3Forms **sans** hCaptcha
+ * (même boîte mail de notification). Sinon, retombe sur `PUBLIC_WEB3FORMS_ACCESS_KEY` (alors le chatbot
+ * n’envoie pas si hCaptcha est obligatoire pour cette clé — créer un 2ᵉ formulaire sans captcha recommandé).
+ */
+const chatbotKeyRaw = import.meta.env.PUBLIC_CHATBOT_WEB3FORMS_ACCESS_KEY
+export const CHATBOT_WEB3FORMS_ACCESS_KEY =
+  typeof chatbotKeyRaw === 'string' && chatbotKeyRaw.trim().length > 0
+    ? chatbotKeyRaw.trim()
+    : import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || 'YOUR-WEB3FORMS-ACCESS-KEY'
+
 function siteBaseUrl(): string {
   const u = import.meta.env.PUBLIC_SITE_URL
   if (typeof u === 'string' && u.trim().length > 0) {
