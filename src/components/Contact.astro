@@ -93,7 +93,12 @@ const hasWeb3FormsKey = isConfiguredWeb3FormsAccessKey(WEB3FORMS_ACCESS_KEY)
         <textarea name="message" rows="5" required></textarea>
       </label>
 
-      <div class="h-captcha" data-captcha="true" aria-label="Anti-spam"></div>
+      <div
+        class="h-captcha"
+        data-captcha="true"
+        data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
+        aria-label="Anti-spam"
+      ></div>
 
       <button type="submit" class="btn btn-primary submit-btn">
         <span class="btn-label">{t.contact.form.submit}</span>
@@ -106,16 +111,21 @@ const hasWeb3FormsKey = isConfiguredWeb3FormsAccessKey(WEB3FORMS_ACCESS_KEY)
   </div>
 </section>
 
-<script src="https://web3forms.com/client/script.js" async defer></script>
+<script defer src="https://web3forms.com/client/script.js"></script>
 
 <script>
+  import { parseWeb3FormsSubmitResponse } from '../lib/web3formsSubmit.ts'
+
   const form = document.getElementById('contact-form') as HTMLFormElement | null
   if (form) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault()
       const captchaHint = form.getAttribute('data-captcha-hint') || 'Please complete the captcha.'
-      const ta = form.querySelector('textarea[name="h-captcha-response"]')
-      const token = ta instanceof HTMLTextAreaElement ? ta.value.trim() : ''
+      const captchaField = form.querySelector('[name="h-captcha-response"]') as
+        | HTMLTextAreaElement
+        | HTMLInputElement
+        | null
+      const token = captchaField?.value?.trim() ?? ''
       if (!token) {
         alert(captchaHint)
         return
@@ -147,20 +157,18 @@ const hasWeb3FormsKey = isConfiguredWeb3FormsAccessKey(WEB3FORMS_ACCESS_KEY)
           body: data,
         })
         const raw = await res.text()
-        let json: { success?: boolean; message?: string } = {}
-        try {
-          json = JSON.parse(raw) as { success?: boolean; message?: string }
-        } catch {
-          /* réponse non-JSON (proxy, erreur réseau) */
-        }
-        if (json.success) {
+        const parsed = parseWeb3FormsSubmitResponse(raw)
+        if (parsed.success) {
           success?.removeAttribute('hidden')
           form.reset()
         } else {
           errorEl?.removeAttribute('hidden')
           if (errorEl && defaultErrorMsg) {
-            const apiMsg = typeof json.message === 'string' && json.message.trim() ? ` — ${json.message.trim()}` : ''
-            errorEl.textContent = defaultErrorMsg + apiMsg
+            const bits: string[] = [defaultErrorMsg]
+            if (parsed.message) bits.push(parsed.message)
+            else if (!res.ok) bits.push(`HTTP ${res.status}`)
+            else if (raw.trim()) bits.push(raw.trim().slice(0, 160))
+            errorEl.textContent = bits.join(' — ')
           }
         }
       } catch {

@@ -4,6 +4,7 @@ import {
   CONTACT,
   isConfiguredWeb3FormsAccessKey,
 } from '../config'
+import { parseWeb3FormsSubmitResponse } from '../lib/web3formsSubmit'
 
 const WELCOME =
   "Bonjour ! Je suis votre assistant virtuel pour les demandes d'assurance en Thaïlande. Appuyez sur 'Commencer' pour démarrer."
@@ -152,6 +153,7 @@ const Chatbot: React.FC = () => {
   const [minimized, setMinimized] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const formRef = useRef<HTMLFormElement>(null)
+  const answerFieldRef = useRef<HTMLInputElement | HTMLTextAreaElement>(null)
 
   const needsTextInput =
     isStarted &&
@@ -207,6 +209,20 @@ const Chatbot: React.FC = () => {
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages, minimized])
+
+  /** Remettre le focus dans le champ de réponse après Entrée / envoi (question suivante ou erreur de validation). */
+  useLayoutEffect(() => {
+    if (!needsTextInput || minimized || isSending) return
+    answerFieldRef.current?.focus()
+  }, [
+    needsTextInput,
+    phase,
+    currentPersonIndex,
+    currentPersonField,
+    minimized,
+    isSending,
+    messages.length,
+  ])
 
   const handleStart = () => {
     if (!isConfiguredWeb3FormsAccessKey(web3AccessKey)) {
@@ -322,13 +338,8 @@ const Chatbot: React.FC = () => {
         body: fd,
       })
       const text = await res.text()
-      let json: { success?: boolean; message?: string } = {}
-      try {
-        json = JSON.parse(text) as { success?: boolean; message?: string }
-      } catch {
-        /* ignore */
-      }
-      if (json.success) {
+      const parsed = parseWeb3FormsSubmitResponse(text)
+      if (parsed.success) {
         setMessages((prev) => [
           ...prev,
           {
@@ -339,7 +350,11 @@ const Chatbot: React.FC = () => {
         ])
         window.setTimeout(() => setMinimized(true), 1800)
       } else {
-        const detail = json.message ? ` (${json.message})` : ''
+        const parts: string[] = []
+        if (parsed.message) parts.push(parsed.message)
+        if (!res.ok) parts.push(`HTTP ${res.status}`)
+        else if (!parsed.message && text.trim()) parts.push(text.trim().slice(0, 120))
+        const detail = parts.length ? ` (${parts.join(' — ')})` : ''
         setMessages((prev) => [
           ...prev,
           {
@@ -660,6 +675,7 @@ const Chatbot: React.FC = () => {
         >
           {useTextarea ? (
             <textarea
+              ref={answerFieldRef}
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => {
@@ -682,6 +698,7 @@ const Chatbot: React.FC = () => {
             />
           ) : (
             <input
+              ref={answerFieldRef}
               type={inputType}
               value={input}
               onChange={(e) => setInput(e.target.value)}
