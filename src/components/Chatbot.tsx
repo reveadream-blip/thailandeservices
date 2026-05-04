@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const questions = [
   { key: 'nom', question: 'Quel est votre nom ?', type: 'text' },
@@ -16,6 +16,7 @@ const Chatbot: React.FC = () => {
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<Array<{ text: string; sender: 'bot' | 'user' }>>([]);
   const [isStarted, setIsStarted] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Load from localStorage
@@ -30,9 +31,8 @@ const Chatbot: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    // Add welcome message
-    setMessages([{ text: 'Bonjour ! Je suis votre assistant virtuel pour les demandes d\'assurance en Thaïlande. Je vais vous poser quelques questions pour mieux vous aider.', sender: 'bot' }]);
-  }, []);
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
 
   useEffect(() => {
     if (isStarted && currentQuestion < questions.length) {
@@ -70,6 +70,7 @@ const Chatbot: React.FC = () => {
             <p>{msg.text}</p>
           </div>
         ))}
+        <div ref={messagesEndRef} />
       </div>
       {messages.length > 0 && !isStarted && (
         <div style={{ padding: '10px', borderTop: '1px solid #ccc' }}>
@@ -82,6 +83,7 @@ const Chatbot: React.FC = () => {
             <textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSubmit(e as any); } }}
               placeholder="Votre réponse..."
               style={{ width: '100%', padding: '5px', height: '60px' }}
             />
