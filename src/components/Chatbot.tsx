@@ -15,6 +15,7 @@ const Chatbot: React.FC = () => {
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<Array<{ text: string; sender: 'bot' | 'user' }>>([]);
+  const [isStarted, setIsStarted] = useState(false);
 
   useEffect(() => {
     // Load from localStorage
@@ -29,9 +30,14 @@ const Chatbot: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (currentQuestion < questions.length) {
+    // Add welcome message
+    setMessages([{ text: 'Bonjour ! Je suis votre assistant virtuel pour les demandes d\'assurance en Thaïlande. Je vais vous poser quelques questions pour mieux vous aider.', sender: 'bot' }]);
+  }, []);
+
+  useEffect(() => {
+    if (isStarted && currentQuestion < questions.length) {
       setMessages(prev => [...prev, { text: questions[currentQuestion].question, sender: 'bot' }]);
-    } else {
+    } else if (isStarted && currentQuestion >= questions.length) {
       setMessages(prev => [...prev, { text: 'Merci pour vos réponses. Nous allons traiter votre demande d\'assurance.', sender: 'bot' }]);
       // Send data to backend
       fetch('https://thailandeservices.contact-applimanagement.workers.dev/chatbot', {
@@ -40,7 +46,7 @@ const Chatbot: React.FC = () => {
         body: JSON.stringify(answers),
       }).catch(console.error);
     }
-  }, [currentQuestion]);
+  }, [currentQuestion, isStarted]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -65,7 +71,12 @@ const Chatbot: React.FC = () => {
           </div>
         ))}
       </div>
-      {currentQuestion < questions.length && (
+      {messages.length > 0 && !isStarted && (
+        <div style={{ padding: '10px', borderTop: '1px solid #ccc' }}>
+          <button onClick={() => setIsStarted(true)} style={{ padding: '5px 10px' }}>Commencer</button>
+        </div>
+      )}
+      {isStarted && currentQuestion < questions.length && (
         <form onSubmit={handleSubmit} style={{ padding: '10px', borderTop: '1px solid #ccc' }}>
           {questions[currentQuestion].type === 'textarea' ? (
             <textarea
