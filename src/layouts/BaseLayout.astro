@@ -1,10 +1,9 @@
 ---
 import '../styles/global.css'
 import { translations, type Lang } from '../i18n/translations'
-import { CONTACT, SITE, SEO_DEFAULT_OG_IMAGE, normalizeWeb3FormsAccessKey } from '../config'
+import { SITE, SEO_DEFAULT_OG_IMAGE, normalizeWeb3FormsAccessKey } from '../config'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
-import FloatingWhatsapp from '../components/FloatingWhatsapp.astro'
 import Chatbot from '../components/Chatbot.tsx'
 import {
   absoluteUrl,
@@ -129,7 +128,6 @@ const web3formsKeyMeta = normalizeWeb3FormsAccessKey(import.meta.env.PUBLIC_WEB3
       <slot />
     </main>
     <Footer lang={lang} />
-    <FloatingWhatsapp whatsappLink={CONTACT.whatsappLink} label={t.nav.whatsapp} />
     <Chatbot client:load />
   </body>
 </html>
