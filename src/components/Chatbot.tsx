@@ -1,5 +1,9 @@
+import HCaptcha from '@hcaptcha/react-hcaptcha'
 import React, { useEffect, useRef, useState } from 'react'
 import { WEB3FORMS_ACCESS_KEY } from '../config'
+
+/** Clé site hCaptcha « zero-config » Web3Forms (plan gratuit). */
+const WEB3FORMS_HCAPTCHA_SITEKEY = '50b2fe65-b00b-4b9e-ad62-3ba471098be2'
 
 const questions = [
   { key: 'nom', question: 'Quel est votre nom ?', type: 'text' },
@@ -22,8 +26,6 @@ const questions = [
 
 const WELCOME =
   "Bonjour ! Je suis votre assistant virtuel pour les demandes d'assurance en Thaïlande. Appuyez sur 'Commencer' pour démarrer."
-
-const WEB3FORMS_SCRIPT_ID = 'web3forms-chatbot-script'
 
 function hasWeb3FormsKey(): boolean {
   return (
@@ -56,8 +58,11 @@ const Chatbot: React.FC = () => {
   ])
   const [isStarted, setIsStarted] = useState(false)
   const [isSending, setIsSending] = useState(false)
+  const [hcaptchaToken, setHcaptchaToken] = useState<string | null>(null)
+  const [captchaHint, setCaptchaHint] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const formRef = useRef<HTMLFormElement>(null)
+  const hcaptchaRef = useRef<InstanceType<typeof HCaptcha>>(null)
 
   const isLastQuestion = currentQuestion === questions.length - 1
 
@@ -81,17 +86,13 @@ const Chatbot: React.FC = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])
 
-  /** Web3Forms injecte hCaptcha : charger le script quand la dernière question s’affiche. */
   useEffect(() => {
-    if (!isStarted || !isLastQuestion) return
-    if (document.getElementById(WEB3FORMS_SCRIPT_ID)) return
-    const s = document.createElement('script')
-    s.id = WEB3FORMS_SCRIPT_ID
-    s.src = 'https://web3forms.com/client/script.js'
-    s.async = true
-    s.defer = true
-    document.body.appendChild(s)
-  }, [isStarted, isLastQuestion])
+    if (!isLastQuestion) {
+      setHcaptchaToken(null)
+      setCaptchaHint(false)
+      hcaptchaRef.current?.resetCaptcha()
+    }
+  }, [isLastQuestion])
 
   const handleStart = () => {
     setIsStarted(true)
@@ -107,13 +108,6 @@ const Chatbot: React.FC = () => {
     const newAnswers = { ...answers, [q.key]: userText }
 
     if (isLastQuestion) {
-      const form = formRef.current ?? e.currentTarget
-      const ta = form.querySelector('textarea[name="h-captcha-response"]')
-      const token = ta instanceof HTMLTextAreaElement ? ta.value.trim() : ''
-      if (!token) {
-        alert('Merci de valider la case anti-robot avant d’envoyer.')
-        return
-      }
       if (!hasWeb3FormsKey()) {
         setMessages((prev) => [
           ...prev,
@@ -130,6 +124,11 @@ const Chatbot: React.FC = () => {
         localStorage.setItem('chatbot_question', String(questions.length))
         return
       }
+      if (!hcaptchaToken) {
+        setCaptchaHint(true)
+        return
+      }
+      setCaptchaHint(false)
     }
 
     setMessages((prev) => [...prev, { text: userText, sender: 'user' }])
@@ -148,7 +147,6 @@ const Chatbot: React.FC = () => {
 
     setIsSending(true)
     try {
-      const form = formRef.current ?? e.currentTarget
       const fd = new FormData()
       fd.append('access_key', WEB3FORMS_ACCESS_KEY)
       fd.append('name', `${newAnswers.prenom ?? ''} ${newAnswers.nom ?? ''}`.trim() || 'Chatbot')
@@ -156,16 +154,21 @@ const Chatbot: React.FC = () => {
       fd.append('subject', "Demande d'assurance — assistant chatbot")
       fd.append('from_name', 'Thailande-services — chatbot assurance')
       fd.append('message', buildChatbotMessage(newAnswers))
-      const ta = form.querySelector('textarea[name="h-captcha-response"]')
-      if (ta instanceof HTMLTextAreaElement && ta.value.trim()) {
-        fd.append('h-captcha-response', ta.value.trim())
+      if (hcaptchaToken) {
+        fd.append('h-captcha-response', hcaptchaToken)
       }
 
       const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         body: fd,
       })
-      const json = (await res.json()) as { success?: boolean }
+      const text = await res.text()
+      let json: { success?: boolean; message?: string } = {}
+      try {
+        json = JSON.parse(text) as { success?: boolean; message?: string }
+      } catch {
+        /* ignore */
+      }
       if (json.success) {
         setMessages((prev) => [
           ...prev,
@@ -176,10 +179,11 @@ const Chatbot: React.FC = () => {
           },
         ])
       } else {
+        const detail = json.message ? ` (${json.message})` : ''
         setMessages((prev) => [
           ...prev,
           {
-            text: "⚠️ L'envoi a échoué. Merci de réessayer ou de nous écrire sur WhatsApp.",
+            text: `⚠️ L'envoi a échoué.${detail} Merci de réessayer ou de nous écrire sur WhatsApp.`,
             sender: 'bot',
           },
         ])
@@ -201,6 +205,9 @@ const Chatbot: React.FC = () => {
     setCurrentQuestion(0)
     setAnswers({})
     setInput('')
+    setHcaptchaToken(null)
+    setCaptchaHint(false)
+    hcaptchaRef.current?.resetCaptcha()
     setMessages([{ text: WELCOME, sender: 'bot' }])
     setIsStarted(false)
     localStorage.removeItem('chatbot_answers')
@@ -326,12 +333,25 @@ const Chatbot: React.FC = () => {
             />
           )}
           {isLastQuestion && (
-            <div
-              className="h-captcha"
-              data-captcha="true"
-              style={{ marginTop: '10px', minHeight: '70px' }}
-              aria-label="Anti-spam"
-            />
+            <div style={{ marginTop: '10px' }}>
+              <HCaptcha
+                ref={hcaptchaRef}
+                sitekey={WEB3FORMS_HCAPTCHA_SITEKEY}
+                reCaptchaCompat={false}
+                theme="dark"
+                size="compact"
+                onVerify={(token) => {
+                  setHcaptchaToken(token)
+                  setCaptchaHint(false)
+                }}
+                onExpire={() => setHcaptchaToken(null)}
+              />
+              {captchaHint && (
+                <p style={{ margin: '8px 0 0', fontSize: '0.82rem', color: '#fca5a5' }}>
+                  Merci de valider la case anti-robot ci-dessus avant d’envoyer.
+                </p>
+              )}
+            </div>
           )}
           <button
             type="submit"

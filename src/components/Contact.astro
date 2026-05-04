@@ -104,7 +104,7 @@ const hasWeb3FormsKey =
       </button>
 
       <p class="form-feedback" data-success hidden>{t.contact.form.success}</p>
-      <p class="form-feedback error" data-error hidden>{t.contact.form.error}</p>
+      <p class="form-feedback error" data-error hidden data-default-message={t.contact.form.error}>{t.contact.form.error}</p>
     </form>
   </div>
 </section>
@@ -130,9 +130,11 @@ const hasWeb3FormsKey =
       const success = form.querySelector('[data-success]') as HTMLElement | null
       const errorEl = form.querySelector('[data-error]') as HTMLElement | null
       const formEnabled = form.getAttribute('data-form-enabled') === 'true'
+      const defaultErrorMsg = errorEl?.dataset.defaultMessage ?? ''
 
       success?.setAttribute('hidden', '')
       errorEl?.setAttribute('hidden', '')
+      if (errorEl && defaultErrorMsg) errorEl.textContent = defaultErrorMsg
       if (!formEnabled) {
         errorEl?.removeAttribute('hidden')
         return
@@ -147,12 +149,22 @@ const hasWeb3FormsKey =
           method: 'POST',
           body: data,
         })
-        const json = await res.json()
+        const raw = await res.text()
+        let json: { success?: boolean; message?: string } = {}
+        try {
+          json = JSON.parse(raw) as { success?: boolean; message?: string }
+        } catch {
+          /* réponse non-JSON (proxy, erreur réseau) */
+        }
         if (json.success) {
           success?.removeAttribute('hidden')
           form.reset()
         } else {
           errorEl?.removeAttribute('hidden')
+          if (errorEl && defaultErrorMsg) {
+            const apiMsg = typeof json.message === 'string' && json.message.trim() ? ` — ${json.message.trim()}` : ''
+            errorEl.textContent = defaultErrorMsg + apiMsg
+          }
         }
       } catch {
         errorEl?.removeAttribute('hidden')
