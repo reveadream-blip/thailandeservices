@@ -157,7 +157,7 @@ export const translations = {
       },
       directContact: 'Ou contactez-nous directement',
       writtenMessage: 'Message écrit',
-      writtenMessageSub: 'Utilisez le formulaire à droite — l’adresse e-mail n’est pas affichée (anti-spam).',
+      writtenMessageSub: 'Utilisez le formulaire à droite.',
       whatsapp: 'WhatsApp',
     },
     footer: {
@@ -318,7 +318,7 @@ export const translations = {
       },
       directContact: 'Or contact us directly',
       writtenMessage: 'Written message',
-      writtenMessageSub: 'Use the form on the right — we don’t show our email address (spam protection).',
+      writtenMessageSub: 'Use the form on the right.',
       whatsapp: 'WhatsApp',
     },
     footer: {
@@ -479,7 +479,7 @@ export const translations = {
       },
       directContact: 'หรือติดต่อเราโดยตรง',
       writtenMessage: 'ข้อความทางอีเมล',
-      writtenMessageSub: 'ใช้แบบฟอร์มทางขวา — เราไม่แสดงที่อยู่อีเมลบนเว็บ (ป้องกันสแปม)',
+      writtenMessageSub: 'ใช้แบบฟอร์มทางขวา',
       whatsapp: 'วอทส์แอป',
     },
     footer: {
