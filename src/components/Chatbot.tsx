@@ -14,7 +14,7 @@ const Chatbot: React.FC = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [input, setInput] = useState('');
-  const [messages, setMessages] = useState<Array<{ text: string; sender: 'bot' | 'user' }>>([]);
+  const [messages, setMessages] = useState<Array<{ text: string; sender: 'bot' | 'user' }>>([{ text: 'Bonjour ! Je suis votre assistant virtuel pour les demandes d\'assurance en Thaïlande. Je vais vous poser quelques questions pour mieux vous aider.', sender: 'bot' }]);
   const [isStarted, setIsStarted] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -74,7 +74,7 @@ const Chatbot: React.FC = () => {
       </div>
       {messages.length > 0 && !isStarted && (
         <div style={{ padding: '10px', borderTop: '1px solid #ccc' }}>
-          <button onClick={() => setIsStarted(true)} style={{ padding: '5px 10px' }}>Commencer</button>
+          <button onClick={() => setIsStarted(true)} style={{ padding: '5px 10px', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '5px' }}>Commencer</button>
         </div>
       )}
       {isStarted && currentQuestion < questions.length && (
