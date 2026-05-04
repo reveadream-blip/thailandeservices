@@ -12,3 +12,4 @@ npm-debug.log*
 worker/.wrangler/
 worker/versions.txt
 worker/versions-utf8.txt
+worker/tmp-body.json

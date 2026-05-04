@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { chatbotSubmitUrl } from '../config'
+import { WEB3FORMS_ACCESS_KEY } from '../config'
 
 const questions = [
   { key: 'nom', question: 'Quel est votre nom ?', type: 'text' },
@@ -23,6 +23,30 @@ const questions = [
 const WELCOME =
   "Bonjour ! Je suis votre assistant virtuel pour les demandes d'assurance en Thaïlande. Appuyez sur 'Commencer' pour démarrer."
 
+const WEB3FORMS_SCRIPT_ID = 'web3forms-chatbot-script'
+
+function hasWeb3FormsKey(): boolean {
+  return (
+    typeof WEB3FORMS_ACCESS_KEY === 'string' &&
+    WEB3FORMS_ACCESS_KEY.trim().length > 0 &&
+    WEB3FORMS_ACCESS_KEY !== 'YOUR-WEB3FORMS-ACCESS-KEY'
+  )
+}
+
+function buildChatbotMessage(data: Record<string, string>): string {
+  return [
+    "Nouvelle demande d'assurance (chatbot)",
+    '',
+    `Nom : ${data.nom ?? ''}`,
+    `Prénom : ${data.prenom ?? ''}`,
+    `Email : ${data.email ?? ''}`,
+    `Adresse / expatriation : ${data.adresse ?? ''}`,
+    `Visa : ${data.visa ?? ''}`,
+    `Âge : ${data.age ?? ''}`,
+    `Antécédents : ${data.antecedents ?? ''}`,
+  ].join('\n')
+}
+
 const Chatbot: React.FC = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [answers, setAnswers] = useState<Record<string, string>>({})
@@ -33,6 +57,9 @@ const Chatbot: React.FC = () => {
   const [isStarted, setIsStarted] = useState(false)
   const [isSending, setIsSending] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
+  const formRef = useRef<HTMLFormElement>(null)
+
+  const isLastQuestion = currentQuestion === questions.length - 1
 
   useEffect(() => {
     const savedAnswers = localStorage.getItem('chatbot_answers')
@@ -54,18 +81,56 @@ const Chatbot: React.FC = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])
 
+  /** Web3Forms injecte hCaptcha : charger le script quand la dernière question s’affiche. */
+  useEffect(() => {
+    if (!isStarted || !isLastQuestion) return
+    if (document.getElementById(WEB3FORMS_SCRIPT_ID)) return
+    const s = document.createElement('script')
+    s.id = WEB3FORMS_SCRIPT_ID
+    s.src = 'https://web3forms.com/client/script.js'
+    s.async = true
+    s.defer = true
+    document.body.appendChild(s)
+  }, [isStarted, isLastQuestion])
+
   const handleStart = () => {
     setIsStarted(true)
     setMessages((prev) => [...prev, { text: questions[0].question, sender: 'bot' }])
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (!input.trim() || currentQuestion >= questions.length) return
 
     const q = questions[currentQuestion]
     const userText = input.trim()
     const newAnswers = { ...answers, [q.key]: userText }
+
+    if (isLastQuestion) {
+      const form = formRef.current ?? e.currentTarget
+      const ta = form.querySelector('textarea[name="h-captcha-response"]')
+      const token = ta instanceof HTMLTextAreaElement ? ta.value.trim() : ''
+      if (!token) {
+        alert('Merci de valider la case anti-robot avant d’envoyer.')
+        return
+      }
+      if (!hasWeb3FormsKey()) {
+        setMessages((prev) => [
+          ...prev,
+          { text: userText, sender: 'user' },
+          {
+            text: 'Merci pour vos réponses ! La clé Web3Forms n’est pas configurée sur le site. Contactez-nous sur WhatsApp.',
+            sender: 'bot',
+          },
+        ])
+        setInput('')
+        setAnswers(newAnswers)
+        setCurrentQuestion(questions.length)
+        localStorage.setItem('chatbot_answers', JSON.stringify(newAnswers))
+        localStorage.setItem('chatbot_question', String(questions.length))
+        return
+      }
+    }
 
     setMessages((prev) => [...prev, { text: userText, sender: 'user' }])
     setAnswers(newAnswers)
@@ -81,39 +146,32 @@ const Chatbot: React.FC = () => {
       return
     }
 
-    const apiUrl = chatbotSubmitUrl()
-    if (!apiUrl) {
-      if (import.meta.env.DEV) {
-        console.warn(
-          '[Chatbot] Définir PUBLIC_CHATBOT_API_URL dans .env puis sur Cloudflare Pages (URL POST du Worker, ex. https://thailandeservices.<compte>.workers.dev/chatbot).',
-        )
-      }
-      setMessages((prev) => [
-        ...prev,
-        {
-          text: "Merci pour vos réponses ! Nous vous recontactons bientôt. Pour une réponse tout de suite, écrivez-nous sur WhatsApp.",
-          sender: 'bot',
-        },
-      ])
-      return
-    }
-
     setIsSending(true)
     try {
-      const res = await fetch(apiUrl, {
+      const form = formRef.current ?? e.currentTarget
+      const fd = new FormData()
+      fd.append('access_key', WEB3FORMS_ACCESS_KEY)
+      fd.append('name', `${newAnswers.prenom ?? ''} ${newAnswers.nom ?? ''}`.trim() || 'Chatbot')
+      fd.append('email', newAnswers.email ?? '')
+      fd.append('subject', "Demande d'assurance — assistant chatbot")
+      fd.append('from_name', 'Thailande-services — chatbot assurance')
+      fd.append('message', buildChatbotMessage(newAnswers))
+      const ta = form.querySelector('textarea[name="h-captcha-response"]')
+      if (ta instanceof HTMLTextAreaElement && ta.value.trim()) {
+        fd.append('h-captcha-response', ta.value.trim())
+      }
+
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newAnswers),
+        body: fd,
       })
       const json = (await res.json()) as { success?: boolean }
-      if (res.ok && json.success) {
+      if (json.success) {
         setMessages((prev) => [
           ...prev,
           {
             text:
-              "✅ Merci pour vos réponses ! Nous avons reçu votre demande d'assurance. Un email de confirmation a été envoyé à " +
-              (newAnswers.email ?? '') +
-              ' et nous vous contacterons bientôt.',
+              "✅ Merci pour vos réponses ! Nous avons bien reçu votre demande d'assurance. Nous vous contacterons bientôt.",
             sender: 'bot',
           },
         ])
@@ -121,7 +179,7 @@ const Chatbot: React.FC = () => {
         setMessages((prev) => [
           ...prev,
           {
-            text: "⚠️ Vos réponses sont enregistrées localement, mais l'envoi au serveur a échoué. Merci de réessayer plus tard ou de nous contacter via WhatsApp.",
+            text: "⚠️ L'envoi a échoué. Merci de réessayer ou de nous écrire sur WhatsApp.",
             sender: 'bot',
           },
         ])
@@ -130,7 +188,7 @@ const Chatbot: React.FC = () => {
       setMessages((prev) => [
         ...prev,
         {
-          text: "⚠️ Erreur réseau lors de l'envoi. Merci de réessayer ou de nous contacter via WhatsApp.",
+          text: "⚠️ Erreur réseau. Merci de réessayer ou de nous contacter via WhatsApp.",
           sender: 'bot',
         },
       ])
@@ -220,6 +278,7 @@ const Chatbot: React.FC = () => {
       )}
       {isStarted && currentQuestion < questions.length && (
         <form
+          ref={formRef}
           onSubmit={handleSubmit}
           style={{
             padding: '12px',
@@ -234,7 +293,7 @@ const Chatbot: React.FC = () => {
               onKeyDown={(e) => {
                 if (e.key === 'Enter' && !e.shiftKey) {
                   e.preventDefault()
-                  void handleSubmit(e as unknown as React.FormEvent)
+                  formRef.current?.requestSubmit()
                 }
               }}
               placeholder="Votre réponse..."
@@ -264,6 +323,14 @@ const Chatbot: React.FC = () => {
                 background: '#111827',
                 color: '#f8fafc',
               }}
+            />
+          )}
+          {isLastQuestion && (
+            <div
+              className="h-captcha"
+              data-captcha="true"
+              style={{ marginTop: '10px', minHeight: '70px' }}
+              aria-label="Anti-spam"
             />
           )}
           <button

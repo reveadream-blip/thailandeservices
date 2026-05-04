@@ -19,7 +19,10 @@ function jsonResponse(body: unknown, status: number): Response {
   })
 }
 
-async function sendEmail(accessKey: string, data: Record<string, string>): Promise<boolean> {
+async function sendEmail(
+  accessKey: string,
+  data: Record<string, string>,
+): Promise<{ ok: boolean; detail?: string }> {
   try {
     const formData = new FormData();
     formData.append('access_key', accessKey);
@@ -48,11 +51,23 @@ Antécédents médicaux: ${data.antecedents}
       method: 'POST',
       body: formData,
     });
-
-    return response.ok;
+    const text = await response.text();
+    let json: { success?: boolean; message?: string };
+    try {
+      json = JSON.parse(text) as { success?: boolean; message?: string };
+    } catch {
+      console.error('Web3Forms non-JSON response:', text.slice(0, 500));
+      return { ok: false, detail: `non-json (${response.status})` };
+    }
+    if (!json.success) {
+      const detail = json.message ?? `HTTP ${response.status}`;
+      console.error('Web3Forms admin mail rejected:', detail);
+      return { ok: false, detail };
+    }
+    return { ok: true };
   } catch (error) {
     console.error('Web3Forms error:', error);
-    return false;
+    return { ok: false, detail: error instanceof Error ? error.message : 'fetch error' };
   }
 }
 
@@ -80,8 +95,18 @@ L'équipe Thailand Services
       method: 'POST',
       body: formData,
     });
-
-    return response.ok;
+    const text = await response.text();
+    let json: { success?: boolean; message?: string };
+    try {
+      json = JSON.parse(text) as { success?: boolean; message?: string };
+    } catch {
+      console.error('Web3Forms confirmation non-JSON:', text.slice(0, 500));
+      return false;
+    }
+    if (!json.success) {
+      console.error('Web3Forms confirmation mail rejected:', json.message ?? response.status);
+    }
+    return Boolean(json.success);
   } catch (error) {
     console.error('Confirmation email error:', error);
     return false;
@@ -111,7 +136,7 @@ export default {
         const data = await request.json();
         
         // Send email to admin via Web3Forms
-        const emailSent = await sendEmail(env.WEB3FORMS_KEY, data);
+        const { ok: emailSent, detail } = await sendEmail(env.WEB3FORMS_KEY, data);
 
         // Send confirmation email to client
         await sendConfirmationEmail(env.WEB3FORMS_KEY, data.email);
@@ -119,6 +144,7 @@ export default {
         if (emailSent) {
           return jsonResponse({ success: true }, 200);
         } else {
+          console.error('Chatbot /chatbot send failed:', detail);
           return jsonResponse({ error: 'Failed to send email' }, 500);
         }
       } catch (error) {

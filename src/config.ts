@@ -53,19 +53,6 @@ export const WP_PAGES = {
 export const WEB3FORMS_ACCESS_KEY =
   import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || 'YOUR-WEB3FORMS-ACCESS-KEY'
 
-/**
- * URL POST du Worker Cloudflare qui relaie vers Web3Forms (ex. `https://<nom>.<sousdomaine>.workers.dev/chatbot`).
- * À définir après `wrangler deploy` dans `worker/`. Sans cette variable, le chatbot affiche la fin du questionnaire
- * mais n’envoie pas les données au serveur.
- */
-export function chatbotSubmitUrl(): string | undefined {
-  const u = import.meta.env.PUBLIC_CHATBOT_API_URL
-  if (typeof u === 'string' && u.trim().length > 0) {
-    return u.trim()
-  }
-  return undefined
-}
-
 function siteBaseUrl(): string {
   const u = import.meta.env.PUBLIC_SITE_URL
   if (typeof u === 'string' && u.trim().length > 0) {
