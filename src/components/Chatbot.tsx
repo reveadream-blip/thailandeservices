@@ -11,7 +11,7 @@ const WELCOME =
 
 const STORAGE_KEY = 'chatbot_v2_state'
 
-type PersonField = 'nom' | 'prenom' | 'age' | 'antecedents'
+type PersonField = 'nom' | 'prenom' | 'age' | 'taille' | 'poids' | 'antecedents'
 
 type FlowPhase =
   | 'choose_household'
@@ -34,7 +34,7 @@ type PersistedState = {
   isStarted: boolean
 }
 
-const PERSON_FIELDS: PersonField[] = ['nom', 'prenom', 'age', 'antecedents']
+const PERSON_FIELDS: PersonField[] = ['nom', 'prenom', 'age', 'taille', 'poids', 'antecedents']
 
 const SHARED_LABELS = {
   email: 'Quelle est votre adresse e-mail pour recevoir les informations ?',
@@ -57,6 +57,10 @@ function questionForPerson(nb: number, personIndex: number, field: PersonField):
       return `${prefix}Quel est le prénom ?`
     case 'age':
       return `${prefix}Quel âge cette personne a-t-elle ?`
+    case 'taille':
+      return `${prefix}Quelle est sa taille ? (ex. 175 cm ou 1,75 m)`
+    case 'poids':
+      return `${prefix}Quel est son poids ? (ex. 70 kg)`
     case 'antecedents':
       return `${prefix}A-t-elle des antécédents médicaux ? Si oui, veuillez les décrire.`
     default:
@@ -121,6 +125,8 @@ function buildChatbotMessage(answers: Record<string, string>, nbPersonnes: numbe
     lines.push(`Nom : ${answers[personKeys(i, 'nom')] ?? ''}`)
     lines.push(`Prénom : ${answers[personKeys(i, 'prenom')] ?? ''}`)
     lines.push(`Âge : ${answers[personKeys(i, 'age')] ?? ''}`)
+    lines.push(`Taille : ${answers[personKeys(i, 'taille')] ?? ''}`)
+    lines.push(`Poids : ${answers[personKeys(i, 'poids')] ?? ''}`)
     lines.push(`Antécédents : ${answers[personKeys(i, 'antecedents')] ?? ''}`)
     lines.push('')
   }
@@ -250,8 +256,8 @@ const Chatbot: React.FC = () => {
       {
         text:
           n > 1
-            ? `Très bien. Nous allons d’abord recueillir l’e-mail, l’adresse et le type de visa (communs au dossier), puis pour chacune des ${n} personnes : nom, prénom, âge et antécédents médicaux.`
-            : 'Parfait. Nous allons d’abord recueillir vos coordonnées (e-mail, adresse, visa), puis votre nom, prénom, âge et antécédents médicaux.',
+            ? `Très bien. Nous allons d’abord recueillir l’e-mail, l’adresse et le type de visa (communs au dossier), puis pour chacune des ${n} personnes : nom, prénom, âge, taille, poids et antécédents médicaux.`
+            : 'Parfait. Nous allons d’abord recueillir vos coordonnées (e-mail, adresse, visa), puis votre nom, prénom, âge, taille, poids et antécédents médicaux.',
         sender: 'bot',
       },
       { text: SHARED_LABELS.email, sender: 'bot' },
