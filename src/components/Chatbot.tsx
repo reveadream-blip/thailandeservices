@@ -46,7 +46,7 @@ const Chatbot: React.FC = () => {
     if (isStarted && currentQuestion < questions.length) {
       setMessages(prev => [...prev, { text: questions[currentQuestion].question, sender: 'bot' }]);
     } else if (isStarted && currentQuestion >= questions.length) {
-      setMessages(prev => [...prev, { text: 'Merci pour vos réponses. Nous allons traiter votre demande d\'assurance.', sender: 'bot' }]);
+      setMessages(prev => [...prev, { text: '✅ Merci pour vos réponses ! Nous avons reçu votre demande d\'assurance. Un email de confirmation a été envoyé à ' + answers.email + ' et nous vous contacterons bientôt.', sender: 'bot' }]);
       // Send data to backend
       fetch('https://thailandeservices.contact-applimanagement.workers.dev/chatbot', {
         method: 'POST',
@@ -54,7 +54,7 @@ const Chatbot: React.FC = () => {
         body: JSON.stringify(answers),
       }).catch(console.error);
     }
-  }, [currentQuestion, isStarted]);
+  }, [currentQuestion, isStarted, answers]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
