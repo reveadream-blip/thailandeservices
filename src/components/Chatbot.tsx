@@ -344,7 +344,7 @@ const Chatbot: React.FC = () => {
           ...prev,
           {
             text:
-              "✅ Merci pour vos réponses ! Nous avons bien reçu votre demande d'assurance. Nous vous contacterons bientôt. Vous pouvez réduire cette fenêtre.",
+              "✅ Merci pour vos réponses ! Nous avons bien reçu votre demande d'assurance. Nous vous contacterons bientôt. Vous pouvez réduire cette fenêtre.\n\nSi vous ne voyez pas d’email de confirmation : regardez les indésirables (spam) et l’onglet Promotions ; l’expéditeur peut être Web3Forms.",
             sender: 'bot',
           },
         ])

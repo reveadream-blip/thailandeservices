@@ -150,6 +150,8 @@ export const translations = {
         submit: 'Envoyer le message',
         sending: 'Envoi en cours…',
         success: 'Message envoyé ! Nous vous répondons très vite.',
+        successSpamHint:
+          'Si vous ne recevez rien : vérifiez les indésirables (spam), l’onglet Promotions (Gmail), et attendez quelques minutes. L’expéditeur peut être Web3Forms ou une adresse « no-reply ». Le propriétaire du site doit aussi vérifier sur app.web3forms.com que la clé du formulaire est active et que l’email de notification est confirmé.',
         error: 'Erreur lors de l\'envoi. Merci d\'utiliser WhatsApp ou de réessayer.',
         captchaRequired: 'Merci de valider la case anti-robot avant d’envoyer.',
       },
@@ -309,6 +311,8 @@ export const translations = {
         submit: 'Send message',
         sending: 'Sending…',
         success: 'Message sent! We will reply very soon.',
+        successSpamHint:
+          'If nothing arrives: check spam / Promotions (Gmail) and wait a few minutes. The sender may be Web3Forms or a no-reply address. The site owner should verify on app.web3forms.com that the form key is active and the notification email is confirmed.',
         error: 'Error while sending. Please use WhatsApp or try again.',
         captchaRequired: 'Please complete the anti-spam check before sending.',
       },
@@ -468,6 +472,8 @@ export const translations = {
         submit: 'ส่งข้อความ',
         sending: 'กำลังส่ง…',
         success: 'ส่งข้อความสำเร็จ! เราจะตอบกลับเร็ว ๆ นี้',
+        successSpamHint:
+          'หากไม่ได้รับอีเมล: ตรวจสอบสแปม / โปรโมชัน (Gmail) และรอสักครู่ ผู้ส่งอาจเป็น Web3Forms หรือ no-reply เจ้าของเว็บควรตรวจที่ app.web3forms.com ว่าคีย์ฟอร์มใช้งานได้และอีเมลแจ้งเตือนยืนยันแล้ว',
         error: 'เกิดข้อผิดพลาดในการส่ง กรุณาใช้วอทส์แอปหรือลองใหม่อีกครั้ง',
         captchaRequired: 'กรุณายืนยันช่องป้องกันสแปมก่อนส่ง',
       },

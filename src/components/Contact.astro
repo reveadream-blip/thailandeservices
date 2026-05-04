@@ -93,12 +93,7 @@ const hasWeb3FormsKey = isConfiguredWeb3FormsAccessKey(WEB3FORMS_ACCESS_KEY)
         <textarea name="message" rows="5" required></textarea>
       </label>
 
-      <div
-        class="h-captcha"
-        data-captcha="true"
-        data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
-        aria-label="Anti-spam"
-      ></div>
+      <div class="h-captcha" data-captcha="true" aria-label="Anti-spam"></div>
 
       <button type="submit" class="btn btn-primary submit-btn">
         <span class="btn-label">{t.contact.form.submit}</span>
@@ -106,6 +101,9 @@ const hasWeb3FormsKey = isConfiguredWeb3FormsAccessKey(WEB3FORMS_ACCESS_KEY)
       </button>
 
       <p class="form-feedback" data-success hidden>{t.contact.form.success}</p>
+      <p class="form-feedback form-feedback-followup" data-success-followup hidden>
+        {t.contact.form.successSpamHint}
+      </p>
       <p class="form-feedback error" data-error hidden data-default-message={t.contact.form.error}>{t.contact.form.error}</p>
     </form>
   </div>
@@ -135,11 +133,13 @@ const hasWeb3FormsKey = isConfiguredWeb3FormsAccessKey(WEB3FORMS_ACCESS_KEY)
       const labelSend = form.querySelector('.btn-label') as HTMLElement | null
       const labelSending = form.querySelector('.btn-label-sending') as HTMLElement | null
       const success = form.querySelector('[data-success]') as HTMLElement | null
+      const successFollowup = form.querySelector('[data-success-followup]') as HTMLElement | null
       const errorEl = form.querySelector('[data-error]') as HTMLElement | null
       const formEnabled = form.getAttribute('data-form-enabled') === 'true'
       const defaultErrorMsg = errorEl?.dataset.defaultMessage ?? ''
 
       success?.setAttribute('hidden', '')
+      successFollowup?.setAttribute('hidden', '')
       errorEl?.setAttribute('hidden', '')
       if (errorEl && defaultErrorMsg) errorEl.textContent = defaultErrorMsg
       if (!formEnabled) {
@@ -160,6 +160,7 @@ const hasWeb3FormsKey = isConfiguredWeb3FormsAccessKey(WEB3FORMS_ACCESS_KEY)
         const parsed = parseWeb3FormsSubmitResponse(raw)
         if (parsed.success) {
           success?.removeAttribute('hidden')
+          successFollowup?.removeAttribute('hidden')
           form.reset()
         } else {
           errorEl?.removeAttribute('hidden')
@@ -373,5 +374,14 @@ const hasWeb3FormsKey = isConfiguredWeb3FormsAccessKey(WEB3FORMS_ACCESS_KEY)
     background: rgba(239, 68, 68, 0.1);
     color: #991b1b;
     border-color: rgba(239, 68, 68, 0.3);
+  }
+
+  .form-feedback-followup {
+    margin-top: 0.5rem;
+    font-size: 0.88rem;
+    line-height: 1.45;
+    background: rgba(16, 185, 129, 0.08);
+    color: #0f5132;
+    border-color: rgba(16, 185, 129, 0.22);
   }
 </style>
