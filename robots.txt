@@ -1,0 +1,5 @@
+# https://thailande-services.fr
+User-agent: *
+Allow: /
+
+Sitemap: https://thailande-services.fr/sitemap-index.xml
