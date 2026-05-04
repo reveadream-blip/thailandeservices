@@ -557,7 +557,18 @@ const Chatbot: React.FC = () => {
                 borderTopRightRadius: msg.sender === 'user' ? '4px' : '16px',
               }}
             >
-              <p style={{ margin: 0, whiteSpace: 'pre-wrap', lineHeight: '1.5', color: '#ffffff' }}>{msg.text}</p>
+              <p
+                style={{
+                  margin: 0,
+                  whiteSpace: 'pre-wrap',
+                  overflowWrap: 'anywhere',
+                  wordBreak: 'break-word',
+                  lineHeight: '1.5',
+                  color: '#ffffff',
+                }}
+              >
+                {msg.text}
+              </p>
             </div>
           </div>
         ))}

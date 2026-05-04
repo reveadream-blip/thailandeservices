@@ -188,6 +188,10 @@ const localeHref = (target: Lang) => (target === 'fr' ? '/' : `/${target}/`)
     position: sticky;
     top: 0;
     z-index: 50;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding-top: env(safe-area-inset-top, 0px);
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.97) 0%, rgba(240, 253, 250, 0.92) 100%);
     backdrop-filter: saturate(200%) blur(16px);
     -webkit-backdrop-filter: saturate(200%) blur(16px);

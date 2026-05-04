@@ -68,6 +68,9 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -80,6 +83,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* Évite débordements flex/grid (mobile surtout) */
+#main-content {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  display: block;
 }
 
 img,
@@ -133,6 +147,7 @@ p {
 .container {
   width: 100%;
   max-width: var(--container);
+  min-width: 0;
   margin-inline: auto;
   padding-inline: clamp(1.25rem, 4vw, 2.5rem);
 }
@@ -350,7 +365,9 @@ html[lang='th'] {
   bottom: max(1rem, env(safe-area-inset-bottom, 0px));
   right: max(0.75rem, env(safe-area-inset-right, 0px));
   left: auto;
-  width: min(320px, calc(100vw - 1.5rem - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px)));
+  /* 100% = largeur viewport pour fixed ; évite 100vw (barre défilement / bugs iOS) */
+  width: min(320px, calc(100% - 1.5rem - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px)));
+  max-width: calc(100% - 1rem - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px));
   height: min(420px, calc(100dvh - 6.5rem - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)));
   min-height: 260px;
   border-radius: 18px;
@@ -385,17 +402,14 @@ html[lang='th'] {
   display: flex;
   align-items: center;
   gap: 8px;
-  max-width: calc(100vw - 1.25rem - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px));
+  max-width: calc(100% - 1.25rem - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px));
 }
 
 /* ============== Mobile / petits écrans ============== */
 @media (max-width: 639px) {
-  html {
-    padding-left: env(safe-area-inset-left, 0px);
-    padding-right: env(safe-area-inset-right, 0px);
-  }
-
+  /* fixed + WebKit : évite décalage fond / contenu et bandes vides */
   body {
+    background-attachment: scroll;
     font-size: 16px;
     line-height: 1.6;
   }
