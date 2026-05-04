@@ -83,10 +83,15 @@ const Chatbot: React.FC = () => {
 
     const apiUrl = chatbotSubmitUrl()
     if (!apiUrl) {
+      if (import.meta.env.DEV) {
+        console.warn(
+          '[Chatbot] Définir PUBLIC_CHATBOT_API_URL dans .env puis sur Cloudflare Pages (URL POST du Worker, ex. https://thailandeservices.<compte>.workers.dev/chatbot).',
+        )
+      }
       setMessages((prev) => [
         ...prev,
         {
-          text: "✅ Merci pour vos réponses ! Pour finaliser l’envoi, configurez PUBLIC_CHATBOT_API_URL sur l’hébergement (URL POST du Worker). En attendant, vous pouvez nous écrire via WhatsApp.",
+          text: "Merci pour vos réponses ! Nous vous recontactons bientôt. Pour une réponse tout de suite, écrivez-nous sur WhatsApp.",
           sender: 'bot',
         },
       ])
