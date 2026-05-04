@@ -46,24 +46,36 @@ export const WP_PAGES = {
   consulat: '/consulat-de-france-a-phuket/',
 }
 
+/** Chaîne utilisable pour Web3Forms, ou `''` si absente / placeholder. */
+export function normalizeWeb3FormsAccessKey(raw: unknown): string {
+  if (typeof raw !== 'string') return ''
+  const t = raw.trim()
+  if (!t || t === 'YOUR-WEB3FORMS-ACCESS-KEY') return ''
+  return t
+}
+
+/** `true` si la clé peut être utilisée (contact ou chatbot). */
+export function isConfiguredWeb3FormsAccessKey(key: string): boolean {
+  return normalizeWeb3FormsAccessKey(key).length > 0
+}
+
+const normalizedPublicWeb3 = normalizeWeb3FormsAccessKey(import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY)
+
 /**
  * Clé Web3Forms pour le formulaire de contact.
  * https://web3forms.com — activer hCaptcha dans le tableau de bord du formulaire.
  */
-export const WEB3FORMS_ACCESS_KEY =
-  import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || 'YOUR-WEB3FORMS-ACCESS-KEY'
+export const WEB3FORMS_ACCESS_KEY = normalizedPublicWeb3 || 'YOUR-WEB3FORMS-ACCESS-KEY'
 
 /**
  * Clé Web3Forms pour le chatbot (envoi **sans** hCaptcha dans l’UI).
- * Si `PUBLIC_CHATBOT_WEB3FORMS_ACCESS_KEY` est défini : utiliser un 2ᵉ formulaire Web3Forms **sans** hCaptcha
- * (même boîte mail de notification). Sinon, retombe sur `PUBLIC_WEB3FORMS_ACCESS_KEY` (alors le chatbot
- * n’envoie pas si hCaptcha est obligatoire pour cette clé — créer un 2ᵉ formulaire sans captcha recommandé).
+ * Si `PUBLIC_CHATBOT_WEB3FORMS_ACCESS_KEY` est défini **et valide** : 2ᵉ formulaire Web3Forms **sans** hCaptcha.
+ * Sinon retombe sur la même clé que le contact. Si `PUBLIC_CHATBOT_*` vaut un placeholder ou une erreur
+ * (souvent sur Cloudflare), elle est ignorée pour ne pas bloquer le chatbot alors que `PUBLIC_WEB3FORMS_*` est correcte.
  */
-const chatbotKeyRaw = import.meta.env.PUBLIC_CHATBOT_WEB3FORMS_ACCESS_KEY
+const normalizedChatbotOnly = normalizeWeb3FormsAccessKey(import.meta.env.PUBLIC_CHATBOT_WEB3FORMS_ACCESS_KEY)
 export const CHATBOT_WEB3FORMS_ACCESS_KEY =
-  typeof chatbotKeyRaw === 'string' && chatbotKeyRaw.trim().length > 0
-    ? chatbotKeyRaw.trim()
-    : import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || 'YOUR-WEB3FORMS-ACCESS-KEY'
+  normalizedChatbotOnly || normalizedPublicWeb3 || 'YOUR-WEB3FORMS-ACCESS-KEY'
 
 function siteBaseUrl(): string {
   const u = import.meta.env.PUBLIC_SITE_URL

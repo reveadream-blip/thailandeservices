@@ -1,16 +1,13 @@
 ---
 import { translations, type Lang } from '../i18n/translations'
-import { CONTACT, WEB3FORMS_ACCESS_KEY } from '../config'
+import { CONTACT, WEB3FORMS_ACCESS_KEY, isConfiguredWeb3FormsAccessKey } from '../config'
 
 export interface Props {
   lang: Lang
 }
 const { lang } = Astro.props
 const t = translations[lang]
-const hasWeb3FormsKey =
-  typeof WEB3FORMS_ACCESS_KEY === 'string' &&
-  WEB3FORMS_ACCESS_KEY.trim().length > 0 &&
-  WEB3FORMS_ACCESS_KEY !== 'YOUR-WEB3FORMS-ACCESS-KEY'
+const hasWeb3FormsKey = isConfiguredWeb3FormsAccessKey(WEB3FORMS_ACCESS_KEY)
 ---
 
 <section id="contact" class="section contact">

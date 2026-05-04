@@ -1,5 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { CHATBOT_WEB3FORMS_ACCESS_KEY, CONTACT } from '../config'
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import {
+  CHATBOT_WEB3FORMS_ACCESS_KEY,
+  CONTACT,
+  isConfiguredWeb3FormsAccessKey,
+} from '../config'
 
 const WELCOME =
   "Bonjour ! Je suis votre assistant virtuel pour les demandes d'assurance en Thaïlande. Appuyez sur 'Commencer' pour démarrer."
@@ -59,12 +63,21 @@ function questionForPerson(nb: number, personIndex: number, field: PersonField):
   }
 }
 
-function hasChatbotWeb3Key(): boolean {
-  return (
-    typeof CHATBOT_WEB3FORMS_ACCESS_KEY === 'string' &&
-    CHATBOT_WEB3FORMS_ACCESS_KEY.trim().length > 0 &&
-    CHATBOT_WEB3FORMS_ACCESS_KEY !== 'YOUR-WEB3FORMS-ACCESS-KEY'
-  )
+/**
+ * Clé embarquée au build + repli sur le champ caché du formulaire contact (même page d’accueil),
+ * utile si une variable Cloudflare « chatbot » est invalide ou si un vieux bundle JS est en cache.
+ */
+function readWeb3KeyForChatbot(): string {
+  if (typeof window === 'undefined') return CHATBOT_WEB3FORMS_ACCESS_KEY
+  if (isConfiguredWeb3FormsAccessKey(CHATBOT_WEB3FORMS_ACCESS_KEY)) {
+    return CHATBOT_WEB3FORMS_ACCESS_KEY
+  }
+  const el = document.querySelector('#contact-form input[name="access_key"]') as HTMLInputElement | null
+  const fromDom = el?.value?.trim() ?? ''
+  if (isConfiguredWeb3FormsAccessKey(fromDom)) return fromDom
+  const meta = document.querySelector('meta[name="web3forms-access-key"]')?.getAttribute('content')?.trim() ?? ''
+  if (isConfiguredWeb3FormsAccessKey(meta)) return meta
+  return CHATBOT_WEB3FORMS_ACCESS_KEY
 }
 
 /** Bloc commun : comment joindre le site + rappel config (détail selon dev / prod). */
@@ -124,6 +137,7 @@ function displayNameFromAnswers(answers: Record<string, string>, nb: number): st
 }
 
 const Chatbot: React.FC = () => {
+  const [web3AccessKey, setWeb3AccessKey] = useState(readWeb3KeyForChatbot)
   const [phase, setPhase] = useState<FlowPhase>('choose_household')
   const [nbPersonnes, setNbPersonnes] = useState(1)
   const [currentPersonIndex, setCurrentPersonIndex] = useState(0)
@@ -146,6 +160,18 @@ const Chatbot: React.FC = () => {
       phase === 'shared_adresse' ||
       phase === 'shared_visa' ||
       phase === 'person_fields')
+
+  useLayoutEffect(() => {
+    if (isConfiguredWeb3FormsAccessKey(web3AccessKey)) return
+    const el = document.querySelector('#contact-form input[name="access_key"]') as HTMLInputElement | null
+    const fromDom = el?.value?.trim() ?? ''
+    if (isConfiguredWeb3FormsAccessKey(fromDom)) {
+      setWeb3AccessKey(fromDom)
+      return
+    }
+    const meta = document.querySelector('meta[name="web3forms-access-key"]')?.getAttribute('content')?.trim() ?? ''
+    if (isConfiguredWeb3FormsAccessKey(meta)) setWeb3AccessKey(meta)
+  }, [web3AccessKey])
 
   useEffect(() => {
     const raw = localStorage.getItem(STORAGE_KEY)
@@ -183,7 +209,7 @@ const Chatbot: React.FC = () => {
   }, [messages, minimized])
 
   const handleStart = () => {
-    if (!hasChatbotWeb3Key()) {
+    if (!isConfiguredWeb3FormsAccessKey(web3AccessKey)) {
       setIsStarted(true)
       setPhase('missing_key')
       setMessages((prev) => [...prev, { text: missingKeyAtStartText(), sender: 'bot' }])
@@ -269,7 +295,7 @@ const Chatbot: React.FC = () => {
     setAnswers(newAnswers)
     setPhase('done')
 
-    if (!hasChatbotWeb3Key()) {
+    if (!isConfiguredWeb3FormsAccessKey(web3AccessKey)) {
       setMessages((prev) => [
         ...prev,
         {
@@ -284,7 +310,7 @@ const Chatbot: React.FC = () => {
     setIsSending(true)
     try {
       const fd = new FormData()
-      fd.append('access_key', CHATBOT_WEB3FORMS_ACCESS_KEY)
+      fd.append('access_key', web3AccessKey)
       fd.append('name', displayNameFromAnswers(newAnswers, nbPersonnes))
       fd.append('email', newAnswers.email ?? '')
       fd.append('subject', "Demande d'assurance — assistant chatbot")

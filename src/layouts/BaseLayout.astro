@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css'
 import { translations, type Lang } from '../i18n/translations'
-import { CONTACT, SITE, SEO_DEFAULT_OG_IMAGE } from '../config'
+import { CONTACT, SITE, SEO_DEFAULT_OG_IMAGE, normalizeWeb3FormsAccessKey } from '../config'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import FloatingWhatsapp from '../components/FloatingWhatsapp.astro'
@@ -68,12 +68,16 @@ const schemaJson = serializeJsonLd({
   '@context': 'https://schema.org',
   '@graph': schemaGraph,
 })
+
+/** Même clé que le formulaire contact : repli runtime pour le chatbot (pages sans #contact-form). */
+const web3formsKeyMeta = normalizeWeb3FormsAccessKey(import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY)
 ---
 
 <!doctype html>
 <html lang={lang}>
   <head>
     <meta charset="UTF-8" />
+    {web3formsKeyMeta && <meta name="web3forms-access-key" content={web3formsKeyMeta} />}
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="googlebot" content="index, follow" />
