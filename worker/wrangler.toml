@@ -1,3 +1,14 @@
+# Worker « thailandeservices » — ne pas confondre avec Cloudflare PAGES (site Astro).
+#
+# Le chatbot sur le site lit PUBLIC_WEB3FORMS_ACCESS_KEY au BUILD sur PAGES
+# (Workers & Pages → [projet Pages] → Settings → Environment variables), PAS ici.
+#
+# Si tu ajoutes des variables uniquement dans le tableau de bord Worker puis que tu
+# lances `wrangler deploy`, Cloudflare peut réaligner la config sur ce fichier : les
+# clés absentes de wrangler.toml / non posées en secret peuvent disparaître.
+# Pour ce Worker : préférer `wrangler secret put NOM_DU_SECRET` (valeur hors Git)
+# ou définir des [vars] non sensibles explicitement ci-dessous.
+
 name = "thailandeservices"
 main = "src/index.ts"
 compatibility_date = "2024-01-01"
