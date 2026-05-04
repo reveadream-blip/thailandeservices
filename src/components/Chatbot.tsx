@@ -70,6 +70,21 @@ const Chatbot: React.FC = () => {
     }
   };
 
+  const handleReset = () => {
+    setCurrentQuestion(0);
+    setAnswers({});
+    setInput('');
+    setMessages([
+      {
+        text: "Bonjour ! Je suis votre assistant virtuel pour les demandes d'assurance en Thaïlande. Appuyez sur 'Commencer' pour démarrer.",
+        sender: 'bot',
+      },
+    ]);
+    setIsStarted(false);
+    localStorage.removeItem('chatbot_answers');
+    localStorage.removeItem('chatbot_question');
+  };
+
   return (
     <div
       style={{
@@ -179,6 +194,25 @@ const Chatbot: React.FC = () => {
             Envoyer
           </button>
         </form>
+      )}
+      {isStarted && currentQuestion >= questions.length && (
+        <div style={{ padding: '12px', borderTop: '1px solid rgba(148, 163, 184, 0.2)' }}>
+          <button
+            onClick={handleReset}
+            style={{
+              width: '100%',
+              padding: '10px 12px',
+              borderRadius: '999px',
+              border: 'none',
+              background: '#38bdf8',
+              color: '#0f172a',
+              fontWeight: '700',
+              cursor: 'pointer',
+            }}
+          >
+            Recommencer
+          </button>
+        </div>
       )}
     </div>
   );
