@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 const questions = [
   { key: 'nom', question: 'Quel est votre nom ?', type: 'text' },
   { key: 'prenom', question: 'Quel est votre prénom ?', type: 'text' },
+  { key: 'email', question: 'Quelle est votre adresse e-mail pour recevoir les informations ?', type: 'email' },
   { key: 'adresse', question: 'Quelle est votre adresse actuelle en Thaïlande ou avez-vous prévu de vous expatrier en Thaïlande ?', type: 'textarea' },
   { key: 'visa', question: 'Quel type de visa avez-vous ou prévoyez-vous ?', type: 'text' },
   { key: 'age', question: 'Quel âge avez-vous ?', type: 'number' },
@@ -105,14 +106,14 @@ const Chatbot: React.FC = () => {
               style={{
                 maxWidth: '80%',
                 background: msg.sender === 'user' ? '#2563eb' : '#1f2937',
-                color: msg.sender === 'user' ? '#f8fafc' : '#e2e8f0',
+                color: '#ffffff',
                 padding: '10px 12px',
                 borderRadius: '16px',
                 borderTopLeftRadius: msg.sender === 'user' ? '16px' : '4px',
                 borderTopRightRadius: msg.sender === 'user' ? '4px' : '16px',
               }}
             >
-              <p style={{ margin: 0, whiteSpace: 'pre-wrap', lineHeight: '1.5' }}>{msg.text}</p>
+              <p style={{ margin: 0, whiteSpace: 'pre-wrap', lineHeight: '1.5', color: '#ffffff' }}>{msg.text}</p>
             </div>
           </div>
         ))}
