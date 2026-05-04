@@ -56,13 +56,13 @@ function questionForPerson(nb: number, personIndex: number, field: PersonField):
     case 'prenom':
       return `${prefix}Quel est le prénom ?`
     case 'age':
-      return `${prefix}Quel âge cette personne a-t-elle ?`
+      return `${prefix}Quel âge avez-vous ?`
     case 'taille':
-      return `${prefix}Quelle est sa taille ? (ex. 175 cm ou 1,75 m)`
+      return `${prefix}Quelle est votre taille ? (ex. 175 cm ou 1,75 m)`
     case 'poids':
-      return `${prefix}Quel est son poids ? (ex. 70 kg)`
+      return `${prefix}Quel est votre poids ? (ex. 70 kg)`
     case 'antecedents':
-      return `${prefix}A-t-elle des antécédents médicaux ? Si oui, veuillez les décrire.`
+      return `${prefix}Avez-vous des antécédents médicaux ? Si oui, veuillez les décrire.`
     default:
       return ''
   }
