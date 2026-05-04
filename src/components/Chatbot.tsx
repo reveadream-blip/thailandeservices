@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { CHATBOT_WEB3FORMS_ACCESS_KEY } from '../config'
+import { CHATBOT_WEB3FORMS_ACCESS_KEY, CONTACT } from '../config'
 
 const WELCOME =
   "Bonjour ! Je suis votre assistant virtuel pour les demandes d'assurance en Thaïlande. Appuyez sur 'Commencer' pour démarrer."
@@ -16,6 +16,8 @@ type FlowPhase =
   | 'shared_visa'
   | 'person_fields'
   | 'done'
+  /** Clé Web3Forms absente au build (ex. variable non définie sur Cloudflare Pages). */
+  | 'missing_key'
 
 type PersistedState = {
   phase: FlowPhase
@@ -62,6 +64,32 @@ function hasChatbotWeb3Key(): boolean {
     typeof CHATBOT_WEB3FORMS_ACCESS_KEY === 'string' &&
     CHATBOT_WEB3FORMS_ACCESS_KEY.trim().length > 0 &&
     CHATBOT_WEB3FORMS_ACCESS_KEY !== 'YOUR-WEB3FORMS-ACCESS-KEY'
+  )
+}
+
+/** Bloc commun : comment joindre le site + rappel config (détail selon dev / prod). */
+function keyMissingActionBlock(): string {
+  const adminLine = import.meta.env.DEV
+    ? '[Développement] Ajoutez PUBLIC_WEB3FORMS_ACCESS_KEY (ou PUBLIC_CHATBOT_WEB3FORMS_ACCESS_KEY) dans .env, ou sur Cloudflare Pages — le nom doit commencer par PUBLIC_, puis redéployez.'
+    : 'Si vous gérez le site : Cloudflare Pages → Settings → Environment variables → ajoutez PUBLIC_WEB3FORMS_ACCESS_KEY (même valeur que Web3Forms), puis relancez un déploiement.'
+  return [
+    `WhatsApp : ${CONTACT.waMeLink}`,
+    '',
+    'Formulaire « Contact » en bas de la page.',
+    '',
+    adminLine,
+  ].join('\n')
+}
+
+function missingKeyAtStartText(): string {
+  return (
+    "L’assistant ne peut pas encore envoyer une demande automatiquement depuis cette version du site.\n\n" + keyMissingActionBlock()
+  )
+}
+
+function missingKeyAfterFlowText(): string {
+  return (
+    "Merci pour vos réponses ! Nous n’avons pas pu envoyer le dossier depuis l’assistant.\n\n" + keyMissingActionBlock()
   )
 }
 
@@ -155,6 +183,12 @@ const Chatbot: React.FC = () => {
   }, [messages, minimized])
 
   const handleStart = () => {
+    if (!hasChatbotWeb3Key()) {
+      setIsStarted(true)
+      setPhase('missing_key')
+      setMessages((prev) => [...prev, { text: missingKeyAtStartText(), sender: 'bot' }])
+      return
+    }
     setIsStarted(true)
     setPhase('choose_household')
     setMessages((prev) => [
@@ -239,7 +273,7 @@ const Chatbot: React.FC = () => {
       setMessages((prev) => [
         ...prev,
         {
-          text: 'Merci pour vos réponses ! La clé Web3Forms du chatbot n’est pas configurée. Contactez-nous sur WhatsApp.',
+          text: missingKeyAfterFlowText(),
           sender: 'bot',
         },
       ])
@@ -657,7 +691,7 @@ const Chatbot: React.FC = () => {
           </button>
         </form>
       )}
-      {isStarted && phase === 'done' && (
+      {isStarted && (phase === 'done' || phase === 'missing_key') && (
         <div style={{ padding: '12px', borderTop: '1px solid rgba(148, 163, 184, 0.2)' }}>
           <button
             type="button"
