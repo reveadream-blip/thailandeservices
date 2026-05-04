@@ -9,3 +9,6 @@ npm-debug.log*
 *.log
 .vscode/
 .idea/
+worker/.wrangler/
+worker/versions.txt
+worker/versions-utf8.txt

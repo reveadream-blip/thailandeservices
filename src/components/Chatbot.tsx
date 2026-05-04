@@ -1,89 +1,148 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react'
+import { chatbotSubmitUrl } from '../config'
 
 const questions = [
   { key: 'nom', question: 'Quel est votre nom ?', type: 'text' },
   { key: 'prenom', question: 'Quel est votre prénom ?', type: 'text' },
   { key: 'email', question: 'Quelle est votre adresse e-mail pour recevoir les informations ?', type: 'email' },
-  { key: 'adresse', question: 'Quelle est votre adresse actuelle en Thaïlande ou avez-vous prévu de vous expatrier en Thaïlande ?', type: 'textarea' },
+  {
+    key: 'adresse',
+    question:
+      'Quelle est votre adresse actuelle en Thaïlande ou avez-vous prévu de vous expatrier en Thaïlande ?',
+    type: 'textarea',
+  },
   { key: 'visa', question: 'Quel type de visa avez-vous ou prévoyez-vous ?', type: 'text' },
   { key: 'age', question: 'Quel âge avez-vous ?', type: 'number' },
-  { key: 'antecedents', question: 'Avez-vous des antécédents médicaux ? Si oui, veuillez les décrire.', type: 'textarea' },
-  // Add more questions as needed
-];
+  {
+    key: 'antecedents',
+    question: 'Avez-vous des antécédents médicaux ? Si oui, veuillez les décrire.',
+    type: 'textarea',
+  },
+] as const
+
+const WELCOME =
+  "Bonjour ! Je suis votre assistant virtuel pour les demandes d'assurance en Thaïlande. Appuyez sur 'Commencer' pour démarrer."
 
 const Chatbot: React.FC = () => {
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState<Record<string, string>>({});
-  const [input, setInput] = useState('');
-  const [messages, setMessages] = useState<Array<{ text: string; sender: 'bot' | 'user' }>>([]);
-  const [isStarted, setIsStarted] = useState(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const [currentQuestion, setCurrentQuestion] = useState(0)
+  const [answers, setAnswers] = useState<Record<string, string>>({})
+  const [input, setInput] = useState('')
+  const [messages, setMessages] = useState<Array<{ text: string; sender: 'bot' | 'user' }>>([
+    { text: WELCOME, sender: 'bot' },
+  ])
+  const [isStarted, setIsStarted] = useState(false)
+  const [isSending, setIsSending] = useState(false)
+  const messagesEndRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    setMessages([
-      {
-        text: "Bonjour ! Je suis votre assistant virtuel pour les demandes d'assurance en Thaïlande. Appuyez sur 'Commencer' pour démarrer.",
-        sender: 'bot',
-      },
-    ]);
-
-    // Load from localStorage
-    const savedAnswers = localStorage.getItem('chatbot_answers');
+    const savedAnswers = localStorage.getItem('chatbot_answers')
     if (savedAnswers) {
-      setAnswers(JSON.parse(savedAnswers));
+      try {
+        setAnswers(JSON.parse(savedAnswers) as Record<string, string>)
+      } catch {
+        /* ignore */
+      }
     }
-    const savedQuestion = localStorage.getItem('chatbot_question');
-    if (savedQuestion) {
-      setCurrentQuestion(parseInt(savedQuestion));
+    const savedQuestion = localStorage.getItem('chatbot_question')
+    if (savedQuestion != null) {
+      const n = parseInt(savedQuestion, 10)
+      if (!Number.isNaN(n)) setCurrentQuestion(n)
     }
-  }, []);
+  }, [])
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages]);
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }, [messages])
 
-  useEffect(() => {
-    if (isStarted && currentQuestion < questions.length) {
-      setMessages(prev => [...prev, { text: questions[currentQuestion].question, sender: 'bot' }]);
-    } else if (isStarted && currentQuestion >= questions.length) {
-      setMessages(prev => [...prev, { text: '✅ Merci pour vos réponses ! Nous avons reçu votre demande d\'assurance. Un email de confirmation a été envoyé à ' + answers.email + ' et nous vous contacterons bientôt.', sender: 'bot' }]);
-      // Send data to backend
-      fetch('https://thailandeservices.contact-applimanagement.workers.dev/chatbot', {
+  const handleStart = () => {
+    setIsStarted(true)
+    setMessages((prev) => [...prev, { text: questions[0].question, sender: 'bot' }])
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!input.trim() || currentQuestion >= questions.length) return
+
+    const q = questions[currentQuestion]
+    const userText = input.trim()
+    const newAnswers = { ...answers, [q.key]: userText }
+
+    setMessages((prev) => [...prev, { text: userText, sender: 'user' }])
+    setAnswers(newAnswers)
+    setInput('')
+    localStorage.setItem('chatbot_answers', JSON.stringify(newAnswers))
+
+    const next = currentQuestion + 1
+    setCurrentQuestion(next)
+    localStorage.setItem('chatbot_question', String(next))
+
+    if (next < questions.length) {
+      setMessages((prev) => [...prev, { text: questions[next].question, sender: 'bot' }])
+      return
+    }
+
+    const apiUrl = chatbotSubmitUrl()
+    if (!apiUrl) {
+      setMessages((prev) => [
+        ...prev,
+        {
+          text: "✅ Merci pour vos réponses ! Pour finaliser l’envoi, configurez PUBLIC_CHATBOT_API_URL sur l’hébergement (URL POST du Worker). En attendant, vous pouvez nous écrire via WhatsApp.",
+          sender: 'bot',
+        },
+      ])
+      return
+    }
+
+    setIsSending(true)
+    try {
+      const res = await fetch(apiUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(answers),
-      }).catch(console.error);
+        body: JSON.stringify(newAnswers),
+      })
+      const json = (await res.json()) as { success?: boolean }
+      if (res.ok && json.success) {
+        setMessages((prev) => [
+          ...prev,
+          {
+            text:
+              "✅ Merci pour vos réponses ! Nous avons reçu votre demande d'assurance. Un email de confirmation a été envoyé à " +
+              (newAnswers.email ?? '') +
+              ' et nous vous contacterons bientôt.',
+            sender: 'bot',
+          },
+        ])
+      } else {
+        setMessages((prev) => [
+          ...prev,
+          {
+            text: "⚠️ Vos réponses sont enregistrées localement, mais l'envoi au serveur a échoué. Merci de réessayer plus tard ou de nous contacter via WhatsApp.",
+            sender: 'bot',
+          },
+        ])
+      }
+    } catch {
+      setMessages((prev) => [
+        ...prev,
+        {
+          text: "⚠️ Erreur réseau lors de l'envoi. Merci de réessayer ou de nous contacter via WhatsApp.",
+          sender: 'bot',
+        },
+      ])
+    } finally {
+      setIsSending(false)
     }
-  }, [currentQuestion, isStarted, answers]);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (input.trim()) {
-      const newAnswers = { ...answers, [questions[currentQuestion].key]: input };
-      setAnswers(newAnswers);
-      setMessages(prev => [...prev, { text: input, sender: 'user' }]);
-      localStorage.setItem('chatbot_answers', JSON.stringify(newAnswers));
-      setInput('');
-      const nextQuestion = currentQuestion + 1;
-      setCurrentQuestion(nextQuestion);
-      localStorage.setItem('chatbot_question', nextQuestion.toString());
-    }
-  };
+  }
 
   const handleReset = () => {
-    setCurrentQuestion(0);
-    setAnswers({});
-    setInput('');
-    setMessages([
-      {
-        text: "Bonjour ! Je suis votre assistant virtuel pour les demandes d'assurance en Thaïlande. Appuyez sur 'Commencer' pour démarrer.",
-        sender: 'bot',
-      },
-    ]);
-    setIsStarted(false);
-    localStorage.removeItem('chatbot_answers');
-    localStorage.removeItem('chatbot_question');
-  };
+    setCurrentQuestion(0)
+    setAnswers({})
+    setInput('')
+    setMessages([{ text: WELCOME, sender: 'bot' }])
+    setIsStarted(false)
+    localStorage.removeItem('chatbot_answers')
+    localStorage.removeItem('chatbot_question')
+  }
 
   return (
     <div
@@ -137,7 +196,8 @@ const Chatbot: React.FC = () => {
       {!isStarted && (
         <div style={{ padding: '12px', borderTop: '1px solid rgba(148, 163, 184, 0.2)' }}>
           <button
-            onClick={() => setIsStarted(true)}
+            type="button"
+            onClick={handleStart}
             style={{
               width: '100%',
               padding: '10px 12px',
@@ -154,19 +214,35 @@ const Chatbot: React.FC = () => {
         </div>
       )}
       {isStarted && currentQuestion < questions.length && (
-        <form onSubmit={handleSubmit} style={{ padding: '12px', borderTop: '1px solid rgba(148, 163, 184, 0.2)', background: '#0f172a' }}>
+        <form
+          onSubmit={handleSubmit}
+          style={{
+            padding: '12px',
+            borderTop: '1px solid rgba(148, 163, 184, 0.2)',
+            background: '#0f172a',
+          }}
+        >
           {questions[currentQuestion].type === 'textarea' ? (
             <textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' && !e.shiftKey) {
-                  e.preventDefault();
-                  handleSubmit(e as any);
+                  e.preventDefault()
+                  void handleSubmit(e as unknown as React.FormEvent)
                 }
               }}
               placeholder="Votre réponse..."
-              style={{ width: '100%', padding: '10px', height: '70px', borderRadius: '12px', border: '1px solid rgba(148, 163, 184, 0.3)', background: '#111827', color: '#f8fafc' }}
+              disabled={isSending}
+              style={{
+                width: '100%',
+                padding: '10px',
+                height: '70px',
+                borderRadius: '12px',
+                border: '1px solid rgba(148, 163, 184, 0.3)',
+                background: '#111827',
+                color: '#f8fafc',
+              }}
             />
           ) : (
             <input
@@ -174,11 +250,20 @@ const Chatbot: React.FC = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Votre réponse..."
-              style={{ width: '100%', padding: '10px', borderRadius: '12px', border: '1px solid rgba(148, 163, 184, 0.3)', background: '#111827', color: '#f8fafc' }}
+              disabled={isSending}
+              style={{
+                width: '100%',
+                padding: '10px',
+                borderRadius: '12px',
+                border: '1px solid rgba(148, 163, 184, 0.3)',
+                background: '#111827',
+                color: '#f8fafc',
+              }}
             />
           )}
           <button
             type="submit"
+            disabled={isSending}
             style={{
               marginTop: '10px',
               width: '100%',
@@ -188,16 +273,18 @@ const Chatbot: React.FC = () => {
               background: '#38bdf8',
               color: '#0f172a',
               fontWeight: '700',
-              cursor: 'pointer',
+              cursor: isSending ? 'wait' : 'pointer',
+              opacity: isSending ? 0.7 : 1,
             }}
           >
-            Envoyer
+            {isSending ? 'Envoi…' : 'Envoyer'}
           </button>
         </form>
       )}
       {isStarted && currentQuestion >= questions.length && (
         <div style={{ padding: '12px', borderTop: '1px solid rgba(148, 163, 184, 0.2)' }}>
           <button
+            type="button"
             onClick={handleReset}
             style={{
               width: '100%',
@@ -215,7 +302,7 @@ const Chatbot: React.FC = () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Chatbot;
+export default Chatbot
