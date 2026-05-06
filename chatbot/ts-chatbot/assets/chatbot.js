@@ -526,7 +526,7 @@
         var submit = document.createElement('button')
         submit.type = 'submit'
         submit.className = 'chatbot-btn-primary'
-        submit.textContent = state.isSending ? 'Envoi…' : isLastQuestion() ? 'Envoyer' : 'Valider'
+        submit.textContent = state.isSending ? 'Envoi…' : isLastQuestion() ? 'Envoyer' : 'Suivant'
         submit.disabled = true
         var refreshSubmitState = function () {
           var hasValue = !!String(field.value || '').trim()
