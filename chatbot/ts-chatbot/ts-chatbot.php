@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Thailande Services — Assistant assurance (chatbot)
  * Description: Widget flottant « Assistant assurance » : collecte multi-personnes et envoi via Web3Forms (sans hCaptcha dans l’UI du chat), comme sur thailande-services.fr.
- * Version: 1.0.3
+ * Version: 1.0.4
  * Author: Thailande-services
  * License: GPLv2 or later
  * Text Domain: ts-chatbot
@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('TS_ASSURANCE_CHATBOT_VERSION', '1.0.3');
+define('TS_ASSURANCE_CHATBOT_VERSION', '1.0.4');
 define('TS_ASSURANCE_CHATBOT_DIR', plugin_dir_path(__FILE__));
 define('TS_ASSURANCE_CHATBOT_URL', plugin_dir_url(__FILE__));
 global $ts_assurance_chatbot_rendered;

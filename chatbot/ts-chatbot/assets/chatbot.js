@@ -7,13 +7,12 @@
   var WELCOME =
     "Bonjour ! Je suis votre assistant virtuel pour les demandes d'assurance en Thaïlande. Appuyez sur 'Commencer' pour démarrer."
 
-  var PERSON_FIELDS = ['nom', 'prenom', 'age', 'taille', 'poids', 'antecedents']
+  var PERSON_FIELDS = ['nom', 'prenom', 'age', 'taille', 'poids', 'visa', 'antecedents']
 
   var SHARED_LABELS = {
     email: 'Quelle est votre adresse e-mail pour recevoir les informations ?',
     adresse:
       'Quelle est votre adresse actuelle en Thaïlande ou avez-vous prévu de vous expatrier en Thaïlande ?',
-    visa: 'Quel type de visa avez-vous ou prévoyez-vous (pour le foyer / la situation principale) ?',
   }
 
   function personKeys(personIndex, field) {
@@ -34,6 +33,8 @@
         return prefix + 'Quelle est votre taille ? (ex. 175 cm ou 1,75 m)'
       case 'poids':
         return prefix + 'Quel est votre poids ? (ex. 70 kg)'
+      case 'visa':
+        return prefix + 'Quel type de visa avez-vous ou prévoyez-vous ?'
       case 'antecedents':
         return prefix + 'Avez-vous des antécédents médicaux ? Si oui, veuillez les décrire.'
       default:
@@ -100,7 +101,6 @@
     lines.push('— Coordonnées et situation —')
     lines.push('Email : ' + (answers.email || ''))
     lines.push('Adresse / expatriation : ' + (answers.adresse || ''))
-    lines.push('Visa : ' + (answers.visa || ''))
     lines.push('')
     for (var i = 0; i < nbPersonnes; i++) {
       lines.push('— Personne ' + (i + 1) + ' —')
@@ -109,6 +109,7 @@
       lines.push('Âge : ' + (answers[personKeys(i, 'age')] || ''))
       lines.push('Taille : ' + (answers[personKeys(i, 'taille')] || ''))
       lines.push('Poids : ' + (answers[personKeys(i, 'poids')] || ''))
+      lines.push('Visa : ' + (answers[personKeys(i, 'visa')] || ''))
       lines.push('Antécédents : ' + (answers[personKeys(i, 'antecedents')] || ''))
       lines.push('')
     }
@@ -178,7 +179,6 @@
         (state.phase === 'ask_count_many' ||
           state.phase === 'shared_email' ||
           state.phase === 'shared_adresse' ||
-          state.phase === 'shared_visa' ||
           state.phase === 'person_fields')
       )
     }
@@ -234,10 +234,10 @@
       state.answers = newAnswers
       var intro =
         n > 1
-          ? "Très bien. Nous allons d’abord recueillir l’e-mail, l’adresse et le type de visa (communs au dossier), puis pour chacune des " +
+          ? "Très bien. Nous allons d’abord recueillir l’e-mail et l’adresse (communs au dossier), puis pour chacune des " +
             n +
-            ' personnes : nom, prénom, âge, taille, poids et antécédents médicaux.'
-          : 'Parfait. Nous allons d’abord recueillir vos coordonnées (e-mail, adresse, visa), puis votre nom, prénom, âge, taille, poids et antécédents médicaux.'
+            ' personnes : nom, prénom, âge, taille, poids, visa et antécédents médicaux.'
+          : 'Parfait. Nous allons d’abord recueillir vos coordonnées (e-mail, adresse), puis votre nom, prénom, âge, taille, poids, visa et antécédents médicaux.'
       state.messages = state.messages.concat([
         { text: intro, sender: 'bot' },
         { text: SHARED_LABELS.email, sender: 'bot' },
@@ -403,15 +403,6 @@
         var na2 = Object.assign({}, state.answers, { adresse: text })
         appendUser(text)
         state.answers = na2
-        state.phase = 'shared_visa'
-        appendBot(SHARED_LABELS.visa)
-        return
-      }
-
-      if (state.phase === 'shared_visa') {
-        var na3 = Object.assign({}, state.answers, { visa: text })
-        appendUser(text)
-        state.answers = na3
         state.phase = 'person_fields'
         state.currentPersonIndex = 0
         state.currentPersonField = 'nom'
