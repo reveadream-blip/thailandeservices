@@ -100,6 +100,7 @@
     var lines = ["Nouvelle demande d'assurance (chatbot)", '', 'Nombre de personnes à assurer : ' + nbPersonnes, '']
     lines.push('— Coordonnées et situation —')
     lines.push('Email : ' + (answers.email || ''))
+    lines.push('Téléphone : ' + (answers.phone || ''))
     lines.push('Adresse / expatriation : ' + (answers.adresse || ''))
     lines.push('')
     for (var i = 0; i < nbPersonnes; i++) {
@@ -179,16 +180,13 @@
         (state.phase === 'ask_count_many' ||
           state.phase === 'shared_email' ||
           state.phase === 'shared_adresse' ||
+          state.phase === 'final_phone' ||
           state.phase === 'person_fields')
       )
     }
 
     function isLastQuestion() {
-      return (
-        state.phase === 'person_fields' &&
-        state.currentPersonIndex === state.nbPersonnes - 1 &&
-        state.currentPersonField === 'antecedents'
-      )
+      return state.phase === 'final_phone'
     }
 
     function scrollMessages(el) {
@@ -262,7 +260,9 @@
         appendBot(questionForPerson(state.nbPersonnes, nextPi, 'nom'))
         return
       }
-      finishWithSubmit(newAnswers)
+      state.answers = newAnswers
+      state.phase = 'final_phone'
+      appendBot('Merci de préciser votre numéro de téléphone pour pouvoir vous joindre plus facilement.')
     }
 
     function finishWithSubmit(newAnswers) {
@@ -416,6 +416,13 @@
         na4[key] = text
         appendUser(text)
         advancePersonField(na4)
+        return
+      }
+
+      if (state.phase === 'final_phone') {
+        var na5 = Object.assign({}, state.answers, { phone: text })
+        appendUser(text)
+        finishWithSubmit(na5)
       }
     }
 
