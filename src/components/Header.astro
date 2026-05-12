@@ -6,11 +6,9 @@ import NavIcon from './NavIcon.astro'
 
 export interface Props {
   lang: Lang
-  /** Défaut : logo standard ; page d’accueil peut surcharger (ex. `/images/logo-home.png`). */
-  logoSrc?: string
 }
 
-const { lang, logoSrc = '/images/logo.png' } = Astro.props
+const { lang } = Astro.props
 const t = translations[lang]
 
 const localeHref = (target: Lang) => (target === 'fr' ? '/' : `/${target}/`)
@@ -23,7 +21,7 @@ const localeHref = (target: Lang) => (target === 'fr' ? '/' : `/${target}/`)
   <div class="header-top">
     <div class="container header-top-inner">
       <a href={localeHref(lang)} class="logo" aria-label={SITE.name}>
-        <img src={logoSrc} width="512" height="512" alt="" class="logo-img" />
+        <img src="/images/logo.png" width="512" height="512" alt="" class="logo-img" />
         <span class="logo-meta">
           <span class="logo-title">{SITE.name}</span>
           <span class="logo-tagline">{SITE.tagline}</span>

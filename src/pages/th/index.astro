@@ -9,12 +9,7 @@ import Contact from '../../components/Contact.astro'
 const lang = 'th' as const
 ---
 
-<BaseLayout
-  lang={lang}
-  homeHreflang={true}
-  logoSrc="/images/logo-home.png"
-  ogImage="/images/logo-home.png"
->
+<BaseLayout lang={lang} homeHreflang={true}>
   <Hero lang={lang} />
   <Services lang={lang} />
   <Emergency lang={lang} />

@@ -29,8 +29,6 @@ export interface Props {
   articleModifiedTime?: string
   /** Schémas JSON-LD supplémentaires (article, catégorie…). */
   jsonLdExtra?: Record<string, unknown>[]
-  /** Logo header (ex. page d’accueil). Défaut : `/images/logo.png`. */
-  logoSrc?: string
 }
 
 const {
@@ -44,7 +42,6 @@ const {
   articlePublishedTime,
   articleModifiedTime,
   jsonLdExtra = [],
-  logoSrc,
 } = Astro.props
 
 const t = translations[lang]
@@ -91,7 +88,7 @@ const web3formsKeyMeta = normalizeWeb3FormsAccessKey(import.meta.env.PUBLIC_WEB3
     <meta name="description" content={docDesc} />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="googlebot" content="index, follow" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
@@ -135,7 +132,7 @@ const web3formsKeyMeta = normalizeWeb3FormsAccessKey(import.meta.env.PUBLIC_WEB3
     <script type="application/ld+json" set:html={schemaJson} />
   </head>
   <body>
-    <Header lang={lang} logoSrc={logoSrc} />
+    <Header lang={lang} />
     <main id="main-content">
       <slot />
     </main>
