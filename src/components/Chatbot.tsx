@@ -11,6 +11,13 @@ const WELCOME =
 
 const STORAGE_KEY = 'chatbot_v2_state'
 
+/** Sous ce seuil, le panneau démarre réduit (launcher) ; desktop reste ouvert par défaut. */
+const MOBILE_MAX_WIDTH = '(max-width: 767px)'
+
+function isMobileChatViewport(): boolean {
+  return typeof window !== 'undefined' && window.matchMedia(MOBILE_MAX_WIDTH).matches
+}
+
 type PersonField = 'nom' | 'prenom' | 'age' | 'taille' | 'poids' | 'antecedents'
 
 type FlowPhase =
@@ -173,6 +180,11 @@ const Chatbot: React.FC = () => {
       phase === 'shared_visa' ||
       phase === 'person_fields' ||
       phase === 'shared_telephone')
+
+  /** Mobile : chat réduit au chargement ; PC : ouvert (comportement inchangé). */
+  useLayoutEffect(() => {
+    if (isMobileChatViewport()) setMinimized(true)
+  }, [])
 
   useLayoutEffect(() => {
     if (isConfiguredWeb3FormsAccessKey(web3AccessKey)) return
@@ -494,7 +506,7 @@ const Chatbot: React.FC = () => {
     setInput('')
     setMessages([{ text: WELCOME, sender: 'bot' }])
     setIsStarted(false)
-    setMinimized(false)
+    setMinimized(isMobileChatViewport())
     localStorage.removeItem(STORAGE_KEY)
     localStorage.removeItem('chatbot_answers')
     localStorage.removeItem('chatbot_question')
