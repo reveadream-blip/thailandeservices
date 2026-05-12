@@ -9,7 +9,8 @@
     "build": "astro build && node scripts/copy-sitemap-xml.mjs",
     "preview": "astro preview",
     "astro": "astro",
-    "import:wp": "node scripts/fetch-wp-articles.mjs"
+    "import:wp": "node scripts/fetch-wp-articles.mjs",
+    "media:wp": "node scripts/fetch-wp-media.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^5.0.4",
