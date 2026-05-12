@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro'
 import Contact from '../components/Contact.astro'
 import data from '../data/articles.json'
+import articleOverrides from '../data/article-overrides.json'
 import { htmlHasEmbeddedForm, stripEmbeddedHtmlForms } from '../lib/article-html'
 import { rewriteInternalLinks } from '../lib/internal-links'
 import { absoluteUrl, buildArticleSchemaGraph, truncateMeta } from '../lib/seo'
@@ -19,6 +20,11 @@ if (!article) {
 }
 
 const hadEmbeddedForm = htmlHasEmbeddedForm(article.content)
+type ArticleOverride = { appendContactForm?: boolean }
+const slugOverride =
+  (articleOverrides as Record<string, ArticleOverride>)[slug ?? ''] ?? {}
+const appendContactForm = Boolean(slugOverride.appendContactForm)
+const showContactBlock = hadEmbeddedForm || appendContactForm
 const html = rewriteInternalLinks(stripEmbeddedHtmlForms(article.content))
 const lang = 'fr'
 const excerpt = truncateMeta(article.excerpt)
@@ -59,7 +65,7 @@ const jsonLdExtra = buildArticleSchemaGraph({
       </header>
       <div class="article-body wp-import" set:html={html} />
     </div>
-    {hadEmbeddedForm && <Contact lang={lang} />}
+    {showContactBlock && <Contact lang={lang} />}
   </article>
 </BaseLayout>
 
