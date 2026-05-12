@@ -29,6 +29,8 @@ export interface Props {
   articleModifiedTime?: string
   /** Schémas JSON-LD supplémentaires (article, catégorie…). */
   jsonLdExtra?: Record<string, unknown>[]
+  /** Logo du header (ex. accueil : `/images/logo-home.png`). */
+  logoSrc?: string
 }
 
 const {
@@ -42,6 +44,7 @@ const {
   articlePublishedTime,
   articleModifiedTime,
   jsonLdExtra = [],
+  logoSrc,
 } = Astro.props
 
 const t = translations[lang]
@@ -132,7 +135,7 @@ const web3formsKeyMeta = normalizeWeb3FormsAccessKey(import.meta.env.PUBLIC_WEB3
     <script type="application/ld+json" set:html={schemaJson} />
   </head>
   <body>
-    <Header lang={lang} />
+    <Header lang={lang} logoSrc={logoSrc} />
     <main id="main-content">
       <slot />
     </main>
