@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
+import Contact from '../components/Contact.astro'
 import data from '../data/articles.json'
+import { htmlHasEmbeddedForm, stripEmbeddedHtmlForms } from '../lib/article-html'
 import { rewriteInternalLinks } from '../lib/internal-links'
 import { absoluteUrl, buildArticleSchemaGraph, truncateMeta } from '../lib/seo'
 
@@ -16,7 +18,8 @@ if (!article) {
   return Astro.redirect('/')
 }
 
-const html = rewriteInternalLinks(article.content)
+const hadEmbeddedForm = htmlHasEmbeddedForm(article.content)
+const html = rewriteInternalLinks(stripEmbeddedHtmlForms(article.content))
 const lang = 'fr'
 const excerpt = truncateMeta(article.excerpt)
 const articleUrl = absoluteUrl(`/${slug}/`)
@@ -56,6 +59,7 @@ const jsonLdExtra = buildArticleSchemaGraph({
       </header>
       <div class="article-body wp-import" set:html={html} />
     </div>
+    {hadEmbeddedForm && <Contact lang={lang} />}
   </article>
 </BaseLayout>
 
