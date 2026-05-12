@@ -1,0 +1,2 @@
+# Trailing slash → URL canonique (fichier XML n’existe qu’en /sitemap.xml)
+/sitemap.xml/ /sitemap.xml 301

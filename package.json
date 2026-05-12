@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/copy-sitemap-xml.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "import:wp": "node scripts/fetch-wp-articles.mjs"
