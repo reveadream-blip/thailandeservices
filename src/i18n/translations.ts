@@ -11,9 +11,13 @@ export const LANG_LABELS: Record<Lang, string> = {
 export const translations = {
   fr: {
     meta: {
-      title: 'Accueil - Thailande-services.fr',
+      title: 'Thailande Services | Assurance, Immobilier & Interprète Français-Thaï à Phuket',
       description:
-        'Phuket, Thaïlande : immobilier, assurance santé AXA, interprète français-anglais-thaï, expatriation et guides pour les francophones.',
+        "Services d'expatriation à Phuket et partout en Thaïlande. Assurance santé, expertise immobilière et interprète Français-Thaï pour vos démarches. Votre partenaire de confiance francophone.",
+      /** Accueil FR uniquement : variantes OG plus courtes (réseaux sociaux). */
+      ogTitle: 'Thailande Services | Assurance, Immobilier & Interprète à Phuket',
+      ogDescription:
+        "Besoin d'une assurance, d'un bien immobilier ou d'un interprète Français-Thaï ? Services experts partout en Thaïlande.",
     },
     nav: {
       services: 'Services',

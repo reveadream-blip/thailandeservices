@@ -46,8 +46,14 @@ const {
 
 const t = translations[lang]
 const rawTitle = pageTitle ? `${pageTitle} — ${SITE.name}` : t.meta.title
-const docTitle = truncateMeta(rawTitle, 65)
-const docDesc = truncateMeta(metaDescription ?? t.meta.description)
+const docDesc = truncateMeta(metaDescription ?? t.meta.description, 170)
+
+/** Variantes OG dédiées (ex. accueil FR) — optionnelles dans `translations.*.meta`. */
+const metaExtras = t.meta as typeof t.meta & { ogTitle?: string; ogDescription?: string }
+const useLocalizedOg =
+  !pageTitle && Boolean(metaExtras.ogTitle?.trim()) && Boolean(metaExtras.ogDescription?.trim())
+const ogTitleSocial = useLocalizedOg ? metaExtras.ogTitle!.trim() : rawTitle
+const ogDescSocial = useLocalizedOg ? truncateMeta(metaExtras.ogDescription!.trim(), 200) : docDesc
 
 const pathRaw = Astro.url.pathname
 const normalized =
@@ -77,20 +83,20 @@ const web3formsKeyMeta = normalizeWeb3FormsAccessKey(import.meta.env.PUBLIC_WEB3
   <head>
     <meta charset="UTF-8" />
     {web3formsKeyMeta && <meta name="web3forms-access-key" content={web3formsKeyMeta} />}
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>{rawTitle}</title>
+    <meta name="description" content={docDesc} />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="googlebot" content="index, follow" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png" />
     <link rel="apple-touch-icon" href="/images/favicon-192.png" />
     <meta name="theme-color" content="#0e7490" />
-    <meta name="description" content={docDesc} />
-    <title>{rawTitle}</title>
     <link rel="canonical" href={canonicalUrl} />
 
     <meta property="og:type" content={ogType} />
-    <meta property="og:title" content={rawTitle} />
-    <meta property="og:description" content={docDesc} />
+    <meta property="og:title" content={ogTitleSocial} />
+    <meta property="og:description" content={ogDescSocial} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:site_name" content={SITE.name} />
     <meta property="og:image" content={ogImageAbs} />
@@ -107,8 +113,8 @@ const web3formsKeyMeta = normalizeWeb3FormsAccessKey(import.meta.env.PUBLIC_WEB3
     )}
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={rawTitle} />
-    <meta name="twitter:description" content={docDesc} />
+    <meta name="twitter:title" content={ogTitleSocial} />
+    <meta name="twitter:description" content={ogDescSocial} />
     <meta name="twitter:image" content={ogImageAbs} />
 
     {homeHreflang && (

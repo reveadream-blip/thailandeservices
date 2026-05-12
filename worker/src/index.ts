@@ -1,4 +1,4 @@
-export interface Env {
+﻿export interface Env {
   WEB3FORMS_KEY: string;
 }
 
@@ -34,12 +34,12 @@ async function sendEmail(
 Nouvelle demande d'assurance :
 
 Nom: ${data.nom}
-Prénom: ${data.prenom}
+Pr├®nom: ${data.prenom}
 Email: ${data.email}
 Adresse: ${data.adresse}
 Type de visa: ${data.visa}
-Âge: ${data.age}
-Antécédents médicaux: ${data.antecedents}
+├ége: ${data.age}
+Ant├®c├®dents m├®dicaux: ${data.antecedents}
     `.trim();
 
     formData.append('message', message);
@@ -76,17 +76,17 @@ async function sendConfirmationEmail(accessKey: string, clientEmail: string): Pr
     const formData = new FormData();
     formData.append('access_key', accessKey);
     formData.append('from_name', 'Thailand Services');
-    formData.append('subject', 'Demande d\'assurance reçue');
+    formData.append('subject', 'Demande d\'assurance re├ºue');
     formData.append('email', clientEmail); // Send to client
 
     const message = `
 Bonjour,
 
-Nous avons bien reçu votre demande d'assurance via notre chatbot.
-Nous vous contacterons bientôt avec les informations nécessaires.
+Nous avons bien re├ºu votre demande d'assurance via notre chatbot.
+Nous vous contacterons bient├┤t avec les informations n├®cessaires.
 
 Cordialement,
-L'équipe Thailand Services
+L'├®quipe Thailand Services
     `.trim();
 
     formData.append('message', message);
