@@ -20,6 +20,7 @@ type FlowPhase =
   | 'shared_adresse'
   | 'shared_visa'
   | 'person_fields'
+  | 'shared_telephone'
   | 'done'
   /** Clé Web3Forms absente au build (ex. variable non définie sur Cloudflare Pages). */
   | 'missing_key'
@@ -41,6 +42,8 @@ const SHARED_LABELS = {
   adresse:
     'Quelle est votre adresse actuelle en Thaïlande ou avez-vous prévu de vous expatrier en Thaïlande ?',
   visa: 'Quel type de visa avez-vous ou prévoyez-vous (pour le foyer / la situation principale) ?',
+  telephone:
+    'Pour finaliser, quel est votre numéro de téléphone (avec indicatif pays, ex. +66 …) afin que nous puissions vous rappeler ?',
 } as const
 
 function personKeys(personIndex: number, field: PersonField): string {
@@ -118,6 +121,7 @@ function buildChatbotMessage(answers: Record<string, string>, nbPersonnes: numbe
   lines.push(`Email : ${answers.email ?? ''}`)
   lines.push(`Adresse / expatriation : ${answers.adresse ?? ''}`)
   lines.push(`Visa : ${answers.visa ?? ''}`)
+  lines.push(`Téléphone : ${answers.telephone ?? ''}`)
   lines.push('')
 
   for (let i = 0; i < nbPersonnes; i++) {
@@ -167,7 +171,8 @@ const Chatbot: React.FC = () => {
       phase === 'shared_email' ||
       phase === 'shared_adresse' ||
       phase === 'shared_visa' ||
-      phase === 'person_fields')
+      phase === 'person_fields' ||
+      phase === 'shared_telephone')
 
   useLayoutEffect(() => {
     if (isConfiguredWeb3FormsAccessKey(web3AccessKey)) return
@@ -256,8 +261,8 @@ const Chatbot: React.FC = () => {
       {
         text:
           n > 1
-            ? `Très bien. Nous allons d’abord recueillir l’e-mail, l’adresse et le type de visa (communs au dossier), puis pour chacune des ${n} personnes : nom, prénom, âge, taille, poids et antécédents médicaux.`
-            : 'Parfait. Nous allons d’abord recueillir vos coordonnées (e-mail, adresse, visa), puis votre nom, prénom, âge, taille, poids et antécédents médicaux.',
+            ? `Très bien. Nous allons d’abord recueillir l’e-mail, l’adresse et le type de visa (communs au dossier), puis pour chacune des ${n} personnes : nom, prénom, âge, taille, poids et antécédents médicaux, puis votre numéro de téléphone pour vous recontacter.`
+            : 'Parfait. Nous allons d’abord recueillir vos coordonnées (e-mail, adresse, visa), puis votre nom, prénom, âge, taille, poids et antécédents médicaux, puis votre numéro de téléphone pour vous recontacter.',
         sender: 'bot',
       },
       { text: SHARED_LABELS.email, sender: 'bot' },
@@ -310,7 +315,9 @@ const Chatbot: React.FC = () => {
       setAnswers(newAnswers)
       return
     }
-    finishWithSubmit(newAnswers)
+    setPhase('shared_telephone')
+    setMessages((prev) => [...prev, { text: SHARED_LABELS.telephone, sender: 'bot' }])
+    setAnswers(newAnswers)
   }
 
   const finishWithSubmit = async (newAnswers: Record<string, string>) => {
@@ -448,6 +455,27 @@ const Chatbot: React.FC = () => {
       return
     }
 
+    if (phase === 'shared_telephone') {
+      const digits = userText.replace(/\D/g, '')
+      if (userText.trim().length < 6 || digits.length < 6) {
+        setMessages((prev) => [
+          ...prev,
+          { text: userText, sender: 'user' },
+          {
+            text: 'Merci d’indiquer un numéro valide avec indicatif (ex. +33612345678 ou +66634432634).',
+            sender: 'bot',
+          },
+        ])
+        setInput('')
+        return
+      }
+      const newAnswers = { ...answers, telephone: userText.trim() }
+      setMessages((prev) => [...prev, { text: userText.trim(), sender: 'user' }])
+      setInput('')
+      void finishWithSubmit(newAnswers)
+      return
+    }
+
     if (phase === 'person_fields') {
       const key = personKeys(currentPersonIndex, currentPersonField)
       const newAnswers = { ...answers, [key]: userText }
@@ -475,9 +503,11 @@ const Chatbot: React.FC = () => {
   const inputType =
     phase === 'shared_email'
       ? 'email'
-      : phase === 'person_fields' && currentPersonField === 'age'
-        ? 'number'
-        : 'text'
+      : phase === 'shared_telephone'
+        ? 'tel'
+        : phase === 'person_fields' && currentPersonField === 'age'
+          ? 'number'
+          : 'text'
 
   const useTextarea =
     phase === 'shared_adresse' ||
