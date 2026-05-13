@@ -96,3 +96,6 @@ export const SITE = {
 
 /** Image Open Graph par défaut (logo ou visuel 1200×630 recommandé en production). */
 export const SEO_DEFAULT_OG_IMAGE = '/images/logo.png'
+
+/** Google Search Console — contenu de la balise `meta name="google-site-verification"`. */
+export const GOOGLE_SITE_VERIFICATION = 'Qn3FzIUrbaU350tyYdJWRBdJKv5InVyvlCQsKRLvlB8'
