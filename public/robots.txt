@@ -1,0 +1,11 @@
+# https://thailande-services.fr — indexation autorisée
+User-agent: *
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+Sitemap: https://thailande-services.fr/sitemap.xml

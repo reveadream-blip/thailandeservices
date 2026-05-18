@@ -19,7 +19,8 @@ export default defineConfig({
   integrations: [
     react(),
     sitemap({
-      filter: (page) => !page.includes('/404'),
+      filter: (page) =>
+        !page.includes('/404') && !page.includes('/api/') && !page.includes('/api/chatbot'),
     }),
   ],
   i18n: {

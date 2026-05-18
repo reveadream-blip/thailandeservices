@@ -45,7 +45,7 @@ const slides = [
         data-slide={i}
         aria-hidden={i === 0 ? 'false' : 'true'}
       >
-        <img src={s.image} alt="" class="slide-bg" loading={i === 0 ? 'eager' : 'lazy'} />
+        <img src={s.image} alt={s.title} class="slide-bg" loading={i === 0 ? 'eager' : 'lazy'} />
         <div class="slide-scrim" aria-hidden="true"></div>
         <div class="container slide-inner">
           {s.mode === 'simple' ? (
