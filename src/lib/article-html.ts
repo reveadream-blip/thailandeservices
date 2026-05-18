@@ -23,3 +23,24 @@ export function stripEmbeddedHtmlForms(html: string): string {
 export function htmlHasEmbeddedForm(html: string): boolean {
   return /<form\b/i.test(html ?? '')
 }
+
+/**
+ * Passe les `<h1>` du corps d’article en `<h2>` : la page a déjà un H1 dans l’en-tête.
+ */
+export function demoteEmbeddedH1(html: string): string {
+  if (!html) return ''
+  return html
+    .replace(/<h1(\s[^>]*)?>/gi, '<h2$1>')
+    .replace(/<\/h1>/gi, '</h2>')
+}
+
+/** Retire les titres vides laissés par WordPress (ex. `<h2 class="…"></h2>`). */
+export function stripEmptyHeadings(html: string): string {
+  if (!html) return ''
+  return html.replace(/<h([1-6])(\s[^>]*)?>\s*<\/h\1>/gi, '')
+}
+
+/** Nettoyage SEO du HTML importé (formulaires, H1 en double, titres vides). */
+export function sanitizeArticleBodyHtml(html: string): string {
+  return stripEmptyHeadings(demoteEmbeddedH1(stripEmbeddedHtmlForms(html)))
+}
