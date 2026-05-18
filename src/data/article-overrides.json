@@ -1,5 +1,23 @@
 {
   "interprete-thai-francais-anglais-a-phuket": {
-    "appendContactForm": true
+    "appendContactForm": true,
+    "pageTitle": "Interprète thaï français anglais à Phuket",
+    "metaDescription": "Interprète thaï français anglais à Phuket : urgences, hôpital, police et démarches. Accompagnement francophone par Tammy.",
+    "pageH1": "Interprète thaï français anglais à Phuket"
+  },
+  "assurance-sante-thailande-phuket": {
+    "pageTitle": "Assurance santé Phuket & Thaïlande",
+    "metaDescription": "Assurance santé à Phuket et en Thaïlande : hospitalisation, auto et habitation. Conseils AXA en français avec Tammy.",
+    "pageH1": "Assurance santé Phuket et Thaïlande"
+  },
+  "assurance-sante-axa-a-phuket-thailande": {
+    "pageTitle": "Assurance santé AXA Phuket — KrungThai",
+    "metaDescription": "Assurance santé Thaïlande et Phuket : offres KrungThai AXA, iHealthy et accompagnement en français.",
+    "pageH1": "Assurance santé KrungThai AXA en Thaïlande"
+  },
+  "expatriation-a-phuket-besoin-achat-immobilier-ou-locatif": {
+    "pageTitle": "Immobilier Phuket & Krabi — maison à vendre",
+    "metaDescription": "Immobilier à Phuket et Krabi : maison à vendre, location et achat. Agence francophone avec Thomas.",
+    "pageH1": "Immobilier à Phuket et Krabi — maisons à vendre"
   }
 }

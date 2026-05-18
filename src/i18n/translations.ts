@@ -11,13 +11,13 @@ export const LANG_LABELS: Record<Lang, string> = {
 export const translations = {
   fr: {
     meta: {
-      title: 'Thailande Services | Assurance, Immobilier & Interprète Français-Thaï à Phuket',
+      title: 'Assurance santé Phuket | Immobilier & interprète thaï FR-EN',
       description:
-        "Services d'expatriation à Phuket et partout en Thaïlande. Assurance santé, expertise immobilière et interprète Français-Thaï pour vos démarches. Votre partenaire de confiance francophone.",
+        "Assurance santé Phuket et Thaïlande, interprète thaï français anglais, immobilier à Phuket et Krabi. Maisons à vendre, location et accompagnement expatriation francophone.",
       /** Accueil FR uniquement : variantes OG plus courtes (réseaux sociaux). */
-      ogTitle: 'Thailande Services | Assurance, Immobilier & Interprète à Phuket',
+      ogTitle: 'Assurance santé Phuket · Immobilier · Interprète thaï FR-EN',
       ogDescription:
-        "Besoin d'une assurance, d'un bien immobilier ou d'un interprète Français-Thaï ? Services experts partout en Thaïlande.",
+        "Assurance santé Thaïlande, interprète thaï français anglais, immobilier Phuket & Krabi — maisons à vendre et location.",
     },
     nav: {
       services: 'Services',
@@ -33,27 +33,30 @@ export const translations = {
     },
     homeSlider: {
       slide1: {
-        title: "Besoin d'une interprète!",
-        subtitle: 'Francais, Anglais, Thai',
+        title: 'Interprète thaï français anglais à Phuket',
+        subtitle: 'Urgences, hôpital, police — accompagnement francophone',
         cta: 'Contactez Tammy!',
       },
       slide2: {
-        eyebrow: 'Votre accès privilégié à l’immobilier thaïlandais',
-        title: 'Investir en Thaïlande!',
+        eyebrow: 'Immobilier à Phuket et Krabi',
+        title: 'Maison à vendre à Phuket & Krabi',
         body:
-          'Nous sommes fiers de collaborer avec une agence immobilière locale de confiance. Grâce à ce partenariat, vous bénéficiez d’un accompagnement personnalisé et d’opportunités uniques pour investir, acheter ou louer sur l\'île de Phuket.',
+          'Achat, location, vente et gestion avec une agence locale de confiance. Villas, appartements et investissement immobilier sur Phuket et Krabi.',
         cta: 'Contactez Thomas!',
       },
       slide3: {
-        title: "Besoin d'une assurance!",
-        subtitle: 'Besoin d\'une assurance santé vie! assurer votre voiture ou votre maison?',
-        cta: 'Contactez Natcha!',
+        title: 'Assurance santé Phuket',
+        subtitle: 'Assurance santé Thaïlande — auto, maison et vie',
+        cta: 'Contactez Tammy!',
       },
       prev: 'Diapositive précédente',
       next: 'Diapositive suivante',
     },
     hero: {
       eyebrow: 'Votre accès privilégié à la Thaïlande',
+      /** H1 unique du carrousel (SEO). */
+      seoH1: 'Assurance santé Phuket & Thaïlande · Immobilier Phuket & Krabi',
+      seoH1Sub: 'Interprète thaï français anglais — maisons à vendre et location',
       titleLine1: "Besoin d'un interprète ?",
       titleLine2: 'Français · Anglais · Thaï',
       subtitle:
@@ -62,33 +65,33 @@ export const translations = {
       ctaWhatsapp: 'WhatsApp direct',
     },
     services: {
-      title: 'Nos services',
-      subtitle: 'Trois expertises pour votre installation à Phuket',
+      title: 'Assurance santé, immobilier et interprète',
+      subtitle: 'Phuket, Krabi et Thaïlande — trois expertises francophones',
       realEstate: {
-        title: 'Achat - Location - Vente - Gestion',
-        tagline: 'Immobilier',
+        title: 'Immobilier à Phuket et Krabi',
+        tagline: 'Maison à vendre & location',
         description:
-          'Vous recherchez une location, achat, vente ou gestion de votre bien! Thomas depuis son agence immobilière vous aidera!',
+          'Maison à vendre à Phuket et Krabi : achat, location, vente et gestion avec Thomas et son agence immobilière locale.',
         cta: 'Nous contacter',
       },
       insurance: {
-        title: 'Assurance santé, auto, maison.',
-        tagline: 'Assurance',
+        title: 'Assurance santé Phuket & Thaïlande',
+        tagline: 'Assurance santé',
         description:
-          "Nous collaborons avec Tammy, agent d'assurance sur Phuket. Vous n'aurez aucun mal à communiquer car Tammy parle Anglais et Français couramment.",
+          "Assurance santé à Phuket et en Thaïlande (auto, maison, vie). Tammy, agent AXA, vous conseille en français et en anglais.",
         cta: 'Nous contacter',
       },
       interpreter: {
-        title: 'Interprète français-anglais-thaï',
+        title: 'Interprète thaï français anglais',
         tagline: 'Interprétariat',
         description:
-          "Vous avez besoin d'un interprète, traducteur, français-anglais-thaï! Tammy est là pour vous!",
+          "Interprète et traducteur thaï, français et anglais à Phuket : démarches, urgences médicales et police.",
         cta: 'Nous contacter',
       },
     },
     emergency: {
       eyebrow: 'Disponible 7j/7',
-      title: "Besoin d'un interprète en urgence!",
+      title: 'Interprète thaï français anglais — urgences',
       description:
         "Nous avons beaucoup de demandes de traductions pour des accidents, urgences médicales ou avec la police. Un interprète vous accompagnera. Appelez le numéro whatsapp en tête du site!",
       tags: ['Urgence medicale - Accident - Police'],
@@ -177,9 +180,12 @@ export const translations = {
 
   en: {
     meta: {
-      title: 'Home - Thailande-services.fr',
+      title: 'Health insurance Phuket Thailand | Real estate & interpreter',
       description:
-        'Phuket, Thailand: real estate, AXA health insurance, FR-EN-TH interpreter, expatriation and guides for French speakers.',
+        'Health insurance Phuket and Thailand, Thai-French-English interpreter, real estate in Phuket and Krabi. Homes for sale, rentals and expat support.',
+      ogTitle: 'Health insurance Phuket · Real estate · Interpreter FR-EN-TH',
+      ogDescription:
+        'Phuket & Krabi real estate, Thailand health insurance, Thai-French-English interpreter.',
     },
     nav: {
       services: 'Services',
@@ -215,6 +221,8 @@ export const translations = {
     },
     hero: {
       eyebrow: 'Your privileged access to Thailand',
+      seoH1: 'Health insurance Phuket & Thailand · Real estate Phuket & Krabi',
+      seoH1Sub: 'Thai-French-English interpreter — homes for sale and rent',
       titleLine1: 'Need an interpreter?',
       titleLine2: 'French · English · Thai',
       subtitle:
@@ -338,9 +346,12 @@ export const translations = {
 
   th: {
     meta: {
-      title: 'หน้าแรก - Thailande-services.fr',
+      title: 'ประกันสุขภาพภูเก็ต | อสังหาฯ & ล่ามไทย-ฝรั่งเศส-อังกฤษ',
       description:
-        'ภูเก็ต ประเทศไทย — อสังหาริมทรัพย์ ประกันสุขภาพ AXA ล่าม FR-EN-TH และคู่มือสำหรับชาวฝรั่งเศส',
+        'ประกันสุขภาพภูเก็ตและไทย ล่ามไทยฝรั่งเศสอังกฤษ อสังหาริมทรัพย์ภูเก็ตและกระบี่ บ้านขายและเช่า บริการชาวฝรั่งเศส',
+      ogTitle: 'ประกันสุขภาพภูเก็ต · อสังหาฯ · ล่ามไทย FR-EN',
+      ogDescription:
+        'ประกันสุขภาพไทย ล่ามไทยฝรั่งเศสอังกฤษ อสังหาภูเก็ตกระบี่',
     },
     nav: {
       services: 'บริการ',
@@ -376,6 +387,8 @@ export const translations = {
     },
     hero: {
       eyebrow: 'ประตูสู่ประเทศไทยของคุณ',
+      seoH1: 'ประกันสุขภาพภูเก็ตและไทย · อสังหาภูเก็ตและกระบี่',
+      seoH1Sub: 'ล่ามไทยฝรั่งเศสอังกฤษ — บ้านขายและเช่า',
       titleLine1: 'ต้องการล่ามใช่ไหม?',
       titleLine2: 'ฝรั่งเศส · อังกฤษ · ไทย',
       subtitle:

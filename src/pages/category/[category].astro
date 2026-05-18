@@ -21,8 +21,25 @@ const title = CATEGORY_LABELS[category] ?? cat.slug
 const lang = 'fr'
 const catPath = `/category/${category}/`
 const catUrl = absoluteUrl(catPath)
+
+const CATEGORY_SEO: Record<string, { pageTitle: string; metaDescription: string }> = {
+  'assurance-sante-et-biens-en-thailande': {
+    pageTitle: 'Assurance santé Phuket & Thaïlande',
+    metaDescription:
+      'Guides assurance santé à Phuket et en Thaïlande : AXA, hospitalisation, auto et habitation pour expatriés francophones.',
+  },
+  'services-expatriation-en-thailande': {
+    pageTitle: 'Immobilier Phuket & Krabi — expatriation',
+    metaDescription:
+      'Immobilier à Phuket et Krabi, maison à vendre, location et services d’expatriation pour francophones.',
+  },
+}
+const catSeo = category ? CATEGORY_SEO[category] : undefined
+const pageTitle = catSeo?.pageTitle ?? title
 const metaDesc = truncateMeta(
-  `${title} — guides et adresses utiles pour les francophones à Phuket. ${SITE.name}.`,
+  catSeo?.metaDescription ??
+    `${title} — guides et adresses utiles pour les francophones à Phuket. ${SITE.name}.`,
+  170,
 )
 const articleUrls = cat.posts.map((p) => absoluteUrl(`/${p.slug}/`))
 const jsonLdExtra = buildCategorySchemaGraph({
@@ -35,7 +52,7 @@ const jsonLdExtra = buildCategorySchemaGraph({
 
 <BaseLayout
   lang={lang}
-  pageTitle={title}
+  pageTitle={pageTitle}
   metaDescription={metaDesc}
   canonicalPath={catPath}
   jsonLdExtra={jsonLdExtra}

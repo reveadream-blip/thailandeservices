@@ -20,18 +20,28 @@ if (!article) {
 }
 
 const hadEmbeddedForm = htmlHasEmbeddedForm(article.content)
-type ArticleOverride = { appendContactForm?: boolean }
+type ArticleOverride = {
+  appendContactForm?: boolean
+  pageTitle?: string
+  metaDescription?: string
+  pageH1?: string
+}
 const slugOverride =
   (articleOverrides as Record<string, ArticleOverride>)[slug ?? ''] ?? {}
 const appendContactForm = Boolean(slugOverride.appendContactForm)
 const showContactBlock = hadEmbeddedForm || appendContactForm
 const html = rewriteInternalLinks(stripEmbeddedHtmlForms(article.content))
 const lang = 'fr'
-const excerpt = truncateMeta(article.excerpt)
+const pageTitle = slugOverride.pageTitle ?? article.title
+const pageH1 = slugOverride.pageH1 ?? article.title
+const metaDescription = truncateMeta(
+  slugOverride.metaDescription ?? article.excerpt,
+  170,
+)
 const articleUrl = absoluteUrl(`/${slug}/`)
 const jsonLdExtra = buildArticleSchemaGraph({
-  headline: article.title,
-  description: article.excerpt,
+  headline: pageH1,
+  description: metaDescription,
   datePublished: article.date,
   url: articleUrl,
 })
@@ -39,8 +49,8 @@ const jsonLdExtra = buildArticleSchemaGraph({
 
 <BaseLayout
   lang={lang}
-  pageTitle={article.title}
-  metaDescription={excerpt}
+  pageTitle={pageTitle}
+  metaDescription={metaDescription}
   canonicalPath={`/${slug}/`}
   ogType="article"
   articlePublishedTime={article.date}
@@ -51,10 +61,10 @@ const jsonLdExtra = buildArticleSchemaGraph({
       <nav class="breadcrumb" aria-label="Fil d'Ariane">
         <a href="/">Accueil</a>
         <span class="bc-sep" aria-hidden="true">/</span>
-        <span class="bc-current">{article.title}</span>
+        <span class="bc-current">{pageH1}</span>
       </nav>
       <header class="article-header">
-        <h1>{article.title}</h1>
+        <h1>{pageH1}</h1>
         <time class="article-date" datetime={article.date}>
           {new Date(article.date).toLocaleDateString('fr-FR', {
             year: 'numeric',

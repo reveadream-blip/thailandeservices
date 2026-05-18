@@ -50,7 +50,14 @@ const slides = [
         <div class="container slide-inner">
           {s.mode === 'simple' ? (
             <div class="slide-content">
-              <h1>{s.title}</h1>
+              {i === 0 ? (
+                <>
+                  <h1 class="slide-h1">{t.hero.seoH1}</h1>
+                  <p class="slide-h1-sub">{t.hero.seoH1Sub}</p>
+                </>
+              ) : (
+                <h2 class="slide-h2">{s.title}</h2>
+              )}
               <p class="slide-sub">{s.subtitle}</p>
               <a href={s.href} class="btn btn-primary slide-cta">
                 {s.cta}
@@ -62,7 +69,7 @@ const slides = [
           ) : (
             <div class="slide-content slide-content--wide">
               <p class="slide-eyebrow">{s.eyebrow}</p>
-              <h1>{s.title}</h1>
+              <h2 class="slide-h2">{s.title}</h2>
               <p class="slide-body">{s.body}</p>
               <a href={s.href} class="btn btn-primary slide-cta">
                 {s.cta}
@@ -227,11 +234,28 @@ const slides = [
     min-width: 0;
   }
 
-  .slide-content h1 {
+  .slide-h1 {
     font-family: var(--font-display);
     color: #fff;
-    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-size: clamp(1.65rem, 4.2vw, 2.65rem);
+    margin-bottom: 0.5rem;
+    line-height: 1.15;
+    text-shadow: 0 4px 32px rgba(0, 0, 0, 0.45), 0 0 40px rgba(34, 211, 238, 0.15);
+  }
+
+  .slide-h1-sub {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: rgba(255, 255, 255, 0.92);
+    margin-bottom: 1rem;
+    line-height: 1.45;
+  }
+
+  .slide-h2 {
+    font-family: var(--font-display);
+    color: #fff;
+    font-size: clamp(1.85rem, 4.5vw, 3rem);
     margin-bottom: 0.75rem;
+    line-height: 1.15;
     text-shadow: 0 4px 32px rgba(0, 0, 0, 0.45), 0 0 40px rgba(34, 211, 238, 0.15);
   }
 
