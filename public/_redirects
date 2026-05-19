@@ -1,2 +1,6 @@
+# Anciennes URLs WordPress → pages Astro (SEO, transfert de popularité)
+/assurance-sante-phuket-thailande /assurance-sante-thailande-phuket/ 301
+/assurance-sante-phuket-thailande/ /assurance-sante-thailande-phuket/ 301
+
 # Trailing slash → URL canonique (fichier XML n’existe qu’en /sitemap.xml)
 /sitemap.xml/ /sitemap.xml 301
