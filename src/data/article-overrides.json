@@ -3,21 +3,97 @@
     "appendContactForm": true,
     "pageTitle": "Interprète thaï FR-EN à Phuket",
     "metaDescription": "Interprète thaï français anglais à Phuket : urgences, hôpital, police et démarches. Accompagnement francophone par Tammy.",
-    "pageH1": "Interprète thaï français anglais à Phuket"
+    "pageH1": "Interprète thaï français anglais à Phuket",
+    "intro": "<p>Vous cherchez un <strong>interprète thaï français anglais à Phuket</strong> pour l’hôpital, la police, l’immigration ou un rendez-vous administratif ? Tammy accompagne les francophones et anglophones sur l’île : traduction orale, prise de rendez-vous et présence sur place en situation d’urgence.</p><p>Cette page recense aussi les <a href=\"/hopitaux-a-phuket/\">hôpitaux à Phuket</a> et les <a href=\"/numeros-durgences/\">numéros d’urgence</a> utiles avant d’appeler un interprète.</p>",
+    "faq": [
+      {
+        "question": "Quand faire appel à un interprète à Phuket ?",
+        "answer": "En cas d’accident, d’hospitalisation, de garde à vue, de contrôle routier, de litige locatif ou de rendez-vous à l’immigration lorsque le thaï ou l’anglais technique pose problème."
+      },
+      {
+        "question": "L’interprète couvre-t-il tout Phuket ?",
+        "answer": "Oui : Patong, Karon, Kata, Rawai, Chalong, Phuket Town et les hôpitaux privés de l’île. Contactez-nous par WhatsApp pour une intervention rapide."
+      },
+      {
+        "question": "Parle-t-on français, anglais et thaï ?",
+        "answer": "Oui : traduction trilingue thaï–français–anglais pour faciliter les échanges avec les professionnels de santé, les autorités et les partenaires locaux."
+      }
+    ]
   },
   "assurance-sante-thailande-phuket": {
     "pageTitle": "Assurance santé Phuket & Thaïlande",
     "metaDescription": "Assurance santé à Phuket et en Thaïlande : hospitalisation, auto et habitation. Conseils AXA en français avec Tammy.",
-    "pageH1": "Assurance santé Phuket et Thaïlande"
+    "pageH1": "Assurance santé Phuket et Thaïlande",
+    "intro": "<p>L’<strong>assurance santé en Thaïlande</strong> est indispensable pour les expatriés : les hôpitaux privés de Phuket exigent souvent un paiement ou une garantie avant les soins. Tammy conseille en français les formules adaptées à votre visa, votre âge et vos antécédents.</p><p>Comparez aussi les offres <a href=\"/assurance-sante-axa-a-phuket-thailande/\">KrungThai AXA à Phuket</a> et contactez-nous via le <a href=\"/formulaire-de-contact/\">formulaire assurance</a>.</p>",
+    "faq": [
+      {
+        "question": "Pourquoi souscrire une assurance santé à Phuket ?",
+        "answer": "Les soins privés sont excellents mais coûteux sans couverture. Une assurance expatrié couvre hospitalisation, consultations, imagerie et parfois le rapatriement."
+      },
+      {
+        "question": "Quelle assurance pour un visa long séjour ?",
+        "answer": "Selon votre visa (retraite, travail, mariage), les assureurs demandent des plafonds minimums. Un conseiller francophone vérifie la conformité avant souscription."
+      },
+      {
+        "question": "Couvre-t-on aussi l’auto et le logement ?",
+        "answer": "Oui : en complément de la santé, des garanties auto, habitation et responsabilité civile sont disponibles pour les résidents à Phuket et en Thaïlande."
+      }
+    ]
   },
   "assurance-sante-axa-a-phuket-thailande": {
     "pageTitle": "Assurance AXA Phuket",
     "metaDescription": "Assurance santé Thaïlande et Phuket : offres KrungThai AXA, iHealthy et accompagnement en français.",
-    "pageH1": "Assurance santé KrungThai AXA en Thaïlande"
+    "pageH1": "Assurance santé KrungThai AXA en Thaïlande",
+    "intro": "<p><strong>Assurance AXA Thaïlande</strong> (KrungThai AXA) propose des contrats santé pour expatriés à Phuket : hospitalisation, ambulatoire et options iHealthy. Tammy vous aide à choisir le bon niveau de garanties en français.</p>",
+    "faq": [
+      {
+        "question": "Qu’est-ce que KrungThai AXA iHealthy ?",
+        "answer": "Une gamme d’assurance médicale locale avec différents plafonds annuels, franchises et réseaux d’hôpitaux partenaires en Thaïlande."
+      },
+      {
+        "question": "Puis-je souscrire depuis Phuket ?",
+        "answer": "Oui, la souscription et le suivi des sinistres peuvent se faire à distance avec un interlocuteur francophone basé sur l’île."
+      }
+    ]
   },
   "expatriation-a-phuket-besoin-achat-immobilier-ou-locatif": {
     "pageTitle": "Immobilier Phuket et Krabi",
     "metaDescription": "Immobilier à Phuket et Krabi : maison à vendre, location et achat. Agence francophone avec Thomas.",
-    "pageH1": "Immobilier à Phuket et Krabi — maisons à vendre"
+    "pageH1": "Immobilier à Phuket et Krabi — maisons à vendre",
+    "intro": "<p>Vous cherchez une <strong>maison à vendre à Phuket</strong> ou une location longue durée à Rawai, Chalong ou Krabi ? Thomas, agent immobilier francophone, accompagne achat, vente et gestion locative sur Phuket et la province de Krabi.</p><p>Pensez aussi à l’<a href=\"/assurance-sante-thailande-phuket/\">assurance santé expatrié</a> et à un <a href=\"/interprete-thai-francais-anglais-a-phuket/\">interprète</a> pour vos démarches après l’installation.</p>",
+    "faq": [
+      {
+        "question": "Peut-on acheter un bien immobilier en tant qu’étranger à Phuket ?",
+        "answer": "Les règles varient selon condo, villa ou terrain. Un agent local francophone explique les structures légales (leasehold, société, condo en quota étranger)."
+      },
+      {
+        "question": "Quartiers recherchés pour une maison à vendre ?",
+        "answer": "Rawai, Nai Harn, Chalong, Kata, Patong côté Phuket ; Ao Nang et environs côté Krabi. Le choix dépend du budget, des écoles et du mode de vie."
+      }
+    ]
+  },
+  "hopitaux-a-phuket": {
+    "pageTitle": "Hôpitaux à Phuket",
+    "metaDescription": "Liste des hôpitaux à Phuket : Bangkok Hospital, Dibuk, Mission Hospital. Numéros et conseils pour expatriés francophones.",
+    "pageH1": "Hôpitaux à Phuket — liste et contacts",
+    "intro": "<p>Cette liste des <strong>hôpitaux à Phuket</strong> regroupe les établissements privés et publics les plus utilisés par les expatriés. En cas d’urgence, consultez d’abord les <a href=\"/numeros-durgences/\">numéros d’urgence</a> ; pour la traduction sur place, un <a href=\"/interprete-thai-francais-anglais-a-phuket/\">interprète thaï français anglais</a> peut vous accompagner.</p>"
+  },
+  "numeros-durgences": {
+    "pageTitle": "Urgences Phuket",
+    "metaDescription": "Numéros d’urgence à Phuket : police touristique 1155, pompiers 199, ambulance. Guide rapide pour expatriés.",
+    "pageH1": "Numéros d’urgence à Phuket",
+    "intro": "<p>Retrouvez ici les <strong>numéros d’urgence à Phuket</strong> (police, pompiers, ambulance, police touristique). Gardez cette page en favori ; en cas de blessure grave, appelez le 1669 ou la police touristique au <strong>1155</strong>, puis contactez un <a href=\"/interprete-thai-francais-anglais-a-phuket/\">interprète</a> si besoin.</p>"
+  },
+  "osteopathe-francais-a-phuket": {
+    "pageTitle": "Ostéopathe français Phuket",
+    "metaDescription": "Ostéopathe français à Phuket : Dr Gerald Tur, consultations en français. Adresse et coordonnées pour expatriés.",
+    "pageH1": "Ostéopathe français à Phuket",
+    "intro": "<p>Vous recherchez un <strong>ostéopathe français à Phuket</strong> ? Le Dr Gerald Tur reçoit les patients francophones. Utile en complément de votre <a href=\"/assurance-sante-thailande-phuket/\">assurance santé Thaïlande</a> pour le remboursement des consultations.</p>"
+  },
+  "maison-de-retraite-phuket": {
+    "pageTitle": "Maison de retraite Phuket",
+    "metaDescription": "Maison de retraite à Phuket pour francophones : établissement à Rawai, soins et activités. Infos et contact.",
+    "pageH1": "Maison de retraite à Phuket",
+    "intro": "<p>Comparer une <strong>maison de retraite à Phuket</strong> pour un séjour longue durée ou une retraite active en Thaïlande ? Cette fiche présente un établissement à Rawai ; pensez à vérifier couverture <a href=\"/assurance-sante-thailande-phuket/\">assurance santé</a> et visites médicales.</p>"
   }
 }

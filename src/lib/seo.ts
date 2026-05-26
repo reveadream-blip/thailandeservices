@@ -167,6 +167,27 @@ export function buildCategorySchemaGraph(opts: {
   ]
 }
 
+export type FaqItem = { question: string; answer: string }
+
+/** FAQPage — favorise les extraits enrichis sur requêtes longue traîne. */
+export function buildFaqSchemaGraph(items: FaqItem[]): Record<string, unknown>[] {
+  const valid = items.filter((i) => i.question.trim() && i.answer.trim())
+  if (valid.length === 0) return []
+  return [
+    {
+      '@type': 'FAQPage',
+      mainEntity: valid.map((item) => ({
+        '@type': 'Question',
+        name: item.question.trim(),
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.answer.trim(),
+        },
+      })),
+    },
+  ]
+}
+
 /** Évite la coupure d’un script si une chaîne contient `</script>`. */
 export function serializeJsonLd(data: unknown): string {
   return JSON.stringify(data).replace(/</g, '\\u003c')

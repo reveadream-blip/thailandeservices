@@ -1,0 +1,81 @@
+---
+import { translations, type Lang } from '../i18n/translations'
+
+export interface Props {
+  lang: Lang
+}
+const { lang } = Astro.props
+const t = translations[lang]
+if (!('seoIntro' in t)) return
+const block = t.seoIntro
+---
+
+<section class="section seo-intro" aria-labelledby="seo-intro-title">
+  <div class="container">
+    <header class="section-head" data-reveal>
+      <span class="section-eyebrow">{block.eyebrow}</span>
+      <h2 id="seo-intro-title">{block.title}</h2>
+    </header>
+    <div class="seo-intro-body" data-reveal>
+      {block.paragraphs.map((p) => (
+        <p set:html={p} />
+      ))}
+      <nav class="seo-intro-links" aria-label="Guides principaux">
+        {block.links.map((link) => (
+          <a href={link.href} class="seo-intro-link">
+            {link.label}
+          </a>
+        ))}
+      </nav>
+    </div>
+  </div>
+</section>
+
+<style>
+  .seo-intro {
+    background: var(--color-sand-light);
+    border-block: 1px solid var(--color-border);
+  }
+
+  .seo-intro-body {
+    max-width: 52rem;
+  }
+
+  .seo-intro-body p {
+    color: var(--color-ink-soft);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .seo-intro-body p :global(a) {
+    color: var(--color-ocean);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .seo-intro-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+  }
+
+  .seo-intro-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-ocean);
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .seo-intro-link:hover {
+    border-color: var(--color-ocean);
+    box-shadow: var(--shadow-sm);
+  }
+</style>

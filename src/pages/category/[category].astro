@@ -2,7 +2,13 @@
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import data from '../../data/articles.json'
 import { CATEGORY_LABELS } from '../../data/navigation'
-import { absoluteUrl, buildCategorySchemaGraph, truncateMeta } from '../../lib/seo'
+import {
+  absoluteUrl,
+  buildCategorySchemaGraph,
+  buildFaqSchemaGraph,
+  truncateMeta,
+  type FaqItem,
+} from '../../lib/seo'
 
 export function getStaticPaths() {
   return data.categories.map((c) => ({
@@ -21,26 +27,53 @@ const lang = 'fr'
 const catPath = `/category/${category}/`
 const catUrl = absoluteUrl(catPath)
 
-const CATEGORY_SEO: Record<string, { pageTitle: string; metaDescription: string }> = {
+type CategorySeo = {
+  pageTitle: string
+  metaDescription: string
+  introHtml?: string
+  faq?: FaqItem[]
+}
+
+const CATEGORY_SEO: Record<string, CategorySeo> = {
   'adresses-utiles': {
     pageTitle: 'Adresses utiles à Phuket',
     metaDescription:
       'Adresses utiles à Phuket : urgences, hôpitaux, administrations, école française et associations pour expatriés francophones.',
+    introHtml:
+      '<p>Retrouvez les <strong>adresses utiles à Phuket</strong> pour les expatriés francophones : immigration, hôpitaux, numéros d’urgence, consulat, école française et ostéopathe. Ces fiches complètent nos services <a href="/interprete-thai-francais-anglais-a-phuket/">interprète</a> et <a href="/assurance-sante-thailande-phuket/">assurance santé</a>.</p>',
   },
   'les-bonnes-adresses-francophones': {
     pageTitle: 'Bonnes adresses francophones Phuket',
     metaDescription:
       'Hôtels, commerçants, loueurs et activités nautiques à Phuket : sélection de bonnes adresses francophones.',
+    introHtml:
+      '<p>Notre sélection de <strong>bonnes adresses francophones à Phuket</strong> : hôtels, commerçants, location de scooters et activités nautiques. Idéal pour préparer un séjour ou une installation sur l’île.</p>',
   },
   'assurance-sante-et-biens-en-thailande': {
     pageTitle: 'Assurance santé Phuket & Thaïlande',
     metaDescription:
       'Guides assurance santé à Phuket et en Thaïlande : AXA, hospitalisation, auto et habitation pour expatriés francophones.',
+    introHtml:
+      '<p>Guides <strong>assurance santé Phuket et Thaïlande</strong> pour expatriés : comparatif des besoins, offres AXA et conseils en français. <a href="/formulaire-de-contact/">Demandez un devis personnalisé</a>.</p>',
+    faq: [
+      {
+        question: 'Quelle assurance santé pour un expatrié à Phuket ?',
+        answer:
+          'Une couverture hospitalisation et ambulatoire adaptée à votre visa, avec plafonds suffisants pour les cliniques privées de Phuket.',
+      },
+      {
+        question: 'AXA est-il disponible en français ?',
+        answer:
+          'Oui, via KrungThai AXA avec accompagnement francophone pour la souscription et les sinistres.',
+      },
+    ],
   },
   'services-expatriation-en-thailande': {
     pageTitle: 'Expatriation & immobilier Phuket',
     metaDescription:
       'Immobilier à Phuket et Krabi, maison à vendre, location et services d’expatriation pour francophones.',
+    introHtml:
+      '<p><strong>Expatriation à Phuket</strong> : immobilier (achat, location), interprète et assurance. Thomas vous guide pour une <a href="/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/">maison à vendre ou à louer</a> ; Tammy pour la santé et les urgences.</p>',
   },
 }
 const catSeo = category ? CATEGORY_SEO[category] : undefined
@@ -51,12 +84,16 @@ const metaDesc = truncateMeta(
   160,
 )
 const articleUrls = cat.posts.map((p) => absoluteUrl(`/${p.slug}/`))
-const jsonLdExtra = buildCategorySchemaGraph({
-  name: title,
-  description: metaDesc,
-  url: catUrl,
-  articleUrls,
-})
+const catFaq = catSeo?.faq ?? []
+const jsonLdExtra = [
+  ...buildCategorySchemaGraph({
+    name: title,
+    description: metaDesc,
+    url: catUrl,
+    articleUrls,
+  }),
+  ...buildFaqSchemaGraph(catFaq),
+]
 ---
 
 <BaseLayout
@@ -77,6 +114,22 @@ const jsonLdExtra = buildCategorySchemaGraph({
         <h1>{title}</h1>
         <p class="cat-count">{cat.posts.length} article{cat.posts.length > 1 ? 's' : ''}</p>
       </header>
+      {catSeo?.introHtml && (
+        <div class="cat-intro wp-import" set:html={catSeo.introHtml} />
+      )}
+      {catFaq.length > 0 && (
+        <section class="cat-faq" aria-labelledby="cat-faq-title">
+          <h2 id="cat-faq-title">Questions fréquentes</h2>
+          <dl class="faq-list">
+            {catFaq.map((item) => (
+              <>
+                <dt>{item.question}</dt>
+                <dd>{item.answer}</dd>
+              </>
+            ))}
+          </dl>
+        </section>
+      )}
       <ul class="post-list">
         {cat.posts.map((p) => (
           <li>
@@ -134,6 +187,48 @@ const jsonLdExtra = buildCategorySchemaGraph({
     margin-top: 0.35rem;
     color: var(--color-ink-muted);
     font-size: 0.95rem;
+  }
+
+  .cat-intro {
+    margin-bottom: 1.75rem;
+    padding: 1.15rem 1.25rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    line-height: 1.65;
+    color: var(--color-ink-soft);
+    max-width: 52rem;
+  }
+
+  .cat-intro :global(a) {
+    color: var(--color-ocean);
+    font-weight: 600;
+  }
+
+  .cat-faq {
+    margin-bottom: 2rem;
+    max-width: 52rem;
+  }
+
+  .cat-faq h2 {
+    font-size: 1.25rem;
+    color: var(--color-ocean);
+    margin-bottom: 1rem;
+  }
+
+  .faq-list {
+    margin: 0;
+  }
+
+  .faq-list dt {
+    font-weight: 700;
+    margin-top: 0.85rem;
+  }
+
+  .faq-list dd {
+    margin: 0.3rem 0 0;
+    color: var(--color-ink-soft);
+    line-height: 1.6;
   }
 
   .post-list {

@@ -89,6 +89,21 @@ export const translations = {
         cta: 'Nous contacter',
       },
     },
+    seoIntro: {
+      eyebrow: 'Guides expatriés',
+      title: 'Phuket & Thaïlande : assurance, immobilier et interprète',
+      paragraphs: [
+        'Thailande-services.fr accompagne les <strong>francophones à Phuket</strong> et en Thaïlande : assurance santé expatrié, <strong>maison à vendre à Phuket ou Krabi</strong>, et interprétariat thaï–français–anglais pour les urgences et démarches.',
+        'Retrouvez nos guides — <a href="/hopitaux-a-phuket/">hôpitaux à Phuket</a>, <a href="/numeros-durgences/">numéros d\'urgence</a>, <a href="/osteopathe-francais-a-phuket/">ostéopathe français</a> — et nos pages services pour vous installer sereinement.',
+      ],
+      links: [
+        { href: '/assurance-sante-thailande-phuket/', label: 'Assurance santé' },
+        { href: '/interprete-thai-francais-anglais-a-phuket/', label: 'Interprète thaï FR-EN' },
+        { href: '/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/', label: 'Immobilier Phuket' },
+        { href: '/category/adresses-utiles/', label: 'Adresses utiles' },
+        { href: '/formulaire-de-contact/', label: 'Contact' },
+      ],
+    },
     emergency: {
       eyebrow: 'Disponible 7j/7',
       title: 'Interprète thaï français anglais — urgences',

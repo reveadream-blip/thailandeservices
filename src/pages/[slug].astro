@@ -5,7 +5,13 @@ import data from '../data/articles.json'
 import articleOverrides from '../data/article-overrides.json'
 import { htmlHasEmbeddedForm, sanitizeArticleBodyHtml } from '../lib/article-html'
 import { rewriteInternalLinks } from '../lib/internal-links'
-import { absoluteUrl, buildArticleSchemaGraph, truncateMeta } from '../lib/seo'
+import { getRelatedArticles } from '../lib/article-relations'
+import {
+  absoluteUrl,
+  buildArticleSchemaGraph,
+  buildFaqSchemaGraph,
+  truncateMeta,
+} from '../lib/seo'
 
 export function getStaticPaths() {
   return data.articles.map((a) => ({
@@ -25,6 +31,8 @@ type ArticleOverride = {
   pageTitle?: string
   metaDescription?: string
   pageH1?: string
+  intro?: string
+  faq?: { question: string; answer: string }[]
 }
 const slugOverride =
   (articleOverrides as Record<string, ArticleOverride>)[slug ?? ''] ?? {}
@@ -39,12 +47,18 @@ const metaDescription = truncateMeta(
   160,
 )
 const articleUrl = absoluteUrl(`/${slug}/`)
-const jsonLdExtra = buildArticleSchemaGraph({
-  headline: pageH1,
-  description: metaDescription,
-  datePublished: article.date,
-  url: articleUrl,
-})
+const related = getRelatedArticles(slug ?? '')
+const introHtml = slugOverride.intro
+const faqItems = slugOverride.faq ?? []
+const jsonLdExtra = [
+  ...buildArticleSchemaGraph({
+    headline: pageH1,
+    description: metaDescription,
+    datePublished: article.date,
+    url: articleUrl,
+  }),
+  ...buildFaqSchemaGraph(faqItems),
+]
 ---
 
 <BaseLayout
@@ -73,7 +87,33 @@ const jsonLdExtra = buildArticleSchemaGraph({
           })}
         </time>
       </header>
+      {introHtml && <div class="article-intro wp-import" set:html={introHtml} />}
       <div class="article-body wp-import" set:html={html} />
+      {faqItems.length > 0 && (
+        <section class="article-faq" aria-labelledby="article-faq-title">
+          <h2 id="article-faq-title">Questions fréquentes</h2>
+          <dl class="faq-list">
+            {faqItems.map((item) => (
+              <>
+                <dt>{item.question}</dt>
+                <dd>{item.answer}</dd>
+              </>
+            ))}
+          </dl>
+        </section>
+      )}
+      {related.length > 0 && (
+        <nav class="related-articles" aria-labelledby="related-title">
+          <h2 id="related-title">À lire aussi</h2>
+          <ul>
+            {related.map((r) => (
+              <li>
+                <a href={r.href}>{r.title}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
     </div>
     {showContactBlock && <Contact lang={lang} />}
   </article>
@@ -127,7 +167,87 @@ const jsonLdExtra = buildArticleSchemaGraph({
     color: var(--color-ink-muted);
   }
 
+  .article-intro {
+    max-width: 900px;
+    margin-bottom: 1.75rem;
+    padding: 1.15rem 1.25rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    line-height: 1.65;
+    color: var(--color-ink-soft);
+  }
+
+  .article-intro :global(a) {
+    color: var(--color-ocean);
+    font-weight: 600;
+  }
+
   .article-body {
     max-width: 900px;
+  }
+
+  .article-faq {
+    max-width: 900px;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .article-faq h2 {
+    font-size: 1.35rem;
+    color: var(--color-ocean);
+    margin-bottom: 1.25rem;
+  }
+
+  .faq-list {
+    margin: 0;
+  }
+
+  .faq-list dt {
+    font-weight: 700;
+    color: var(--color-ink);
+    margin-top: 1rem;
+  }
+
+  .faq-list dt:first-child {
+    margin-top: 0;
+  }
+
+  .faq-list dd {
+    margin: 0.35rem 0 0;
+    color: var(--color-ink-soft);
+    line-height: 1.6;
+  }
+
+  .related-articles {
+    max-width: 900px;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .related-articles h2 {
+    font-size: 1.2rem;
+    color: var(--color-ocean);
+    margin-bottom: 0.85rem;
+  }
+
+  .related-articles ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .related-articles a {
+    color: var(--color-ocean);
+    font-weight: 600;
+  }
+
+  .related-articles a:hover {
+    text-decoration: underline;
   }
 </style>
