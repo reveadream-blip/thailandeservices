@@ -26,7 +26,7 @@ const localeHref = (target: Lang) => switchLocalePath(pathname, target)
   <!-- Ligne 1 : logo aligné à gauche, actions alignées à droite -->
   <div class="header-top">
     <div class="container header-top-inner">
-      <a href={localeHref(lang)} class="logo" aria-label={SITE.name}>
+      <a href={homePath(lang)} class="logo" aria-label={SITE.name}>
         <img src={logoSrc} width="512" height="512" alt={SITE.name} class="logo-img" />
         <span class="logo-meta">
           <span class="logo-title">{SITE.name}</span>
