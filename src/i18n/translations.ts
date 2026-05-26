@@ -51,26 +51,26 @@ export const translations = {
     articlePage: {
       home: 'Accueil',
       breadcrumbLabel: "Fil d'Ariane",
-      faqTitle: 'Questions fréquentes',
-      relatedTitle: 'À lire aussi',
+      faqTitle: 'On nous demande souvent',
+      relatedTitle: 'D’autres pages utiles',
       frenchBodyNotice:
-        'Le détail des adresses ci-dessous est en français (sources locales). Les informations essentielles sont en haut de page.',
+        'Les adresses détaillées plus bas sont souvent en français (comme sur place). L’essentiel est résumé juste au-dessus.',
     },
     categoryPage: {
       home: 'Accueil',
       breadcrumbLabel: "Fil d'Ariane",
-      faqTitle: 'Questions fréquentes',
+      faqTitle: 'En bref',
       articleCountOne: 'article',
       articleCountMany: 'articles',
     },
     contactPage: {
       home: 'Accueil',
       breadcrumbLabel: "Fil d'Ariane",
-      breadcrumbContact: 'Formulaire de contact',
+      breadcrumbContact: 'Nous écrire',
       pageTitle: 'Contact assurance, immo & interprète',
-      pageH1: 'Contact — assurance, immobilier et interprète à Phuket',
+      pageH1: 'Écrire à Tammy ou Thomas',
       metaDescription:
-        'Contactez Thailande-services.fr : assurance santé Phuket et Thaïlande, interprète thaï français anglais, immobilier Phuket & Krabi.',
+        'WhatsApp ou formulaire : assurance AXA, interprète, immo Phuket/Krabi. On répond dès qu’on peut.',
     },
     actualites: {
       pageTitle: 'Actualités Phuket & Thaïlande',
@@ -78,7 +78,7 @@ export const translations = {
         'Actualités et guides pour expatriés à Phuket : assurance santé, immobilier, interprète et vie en Thaïlande.',
       h1: 'Actualités',
       lead:
-        'Articles et conseils pour les francophones à Phuket et en Thaïlande : assurance, immobilier, interprète et expatriation.',
+        'Nouvelles du site et retours d’expérience sur l’île — assurance, immo, interprète. Pas de pub déguisée, juste ce qu’on met à jour.',
       empty: 'Aucun article publié pour le moment.',
       home: 'Accueil',
       breadcrumbLabel: "Fil d'Ariane",
@@ -107,20 +107,20 @@ export const translations = {
       next: 'Diapositive suivante',
     },
     hero: {
-      eyebrow: 'Votre accès privilégié à la Thaïlande',
+      eyebrow: 'Sur place à Phuket',
       /** H1 unique du carrousel (SEO). */
       seoH1: 'Assurance santé Phuket & Thaïlande · Immobilier Phuket & Krabi',
       seoH1Sub: 'Interprète thaï français anglais — maisons à vendre et location',
       titleLine1: "Besoin d'un interprète ?",
       titleLine2: 'Français · Anglais · Thaï',
       subtitle:
-        "Interprétariat, immobilier, assurance : nous vous accompagnons pour votre installation, vos démarches et vos investissements sur l'île de Phuket.",
+        "Tammy (assurance + interprète) et Thomas (immo) répondent en français. Urgence, visa, achat maison : le numéro WhatsApp est en haut de page.",
       ctaContact: 'Nous contacter',
       ctaWhatsapp: 'WhatsApp direct',
     },
     services: {
       title: 'Assurance santé, immobilier et interprète',
-      subtitle: 'Phuket, Krabi et Thaïlande — trois expertises francophones',
+      subtitle: 'Deux personnes sur l’île, trois métiers',
       realEstate: {
         title: 'Immobilier à Phuket et Krabi',
         tagline: 'Maison à vendre & location',
@@ -144,11 +144,11 @@ export const translations = {
       },
     },
     seoIntro: {
-      eyebrow: 'Guides expatriés',
-      title: 'Phuket & Thaïlande : assurance, immobilier et interprète',
+      eyebrow: 'Le site en deux mots',
+      title: 'Ce qu’on fait vraiment à Phuket',
       paragraphs: [
-        'Thailande-services.fr accompagne les <strong>francophones à Phuket</strong> et en Thaïlande : assurance santé expatrié, <strong>maison à vendre à Phuket ou Krabi</strong>, et interprétariat thaï–français–anglais pour les urgences et démarches.',
-        'Retrouvez nos guides — <a href="/hopitaux-a-phuket/">hôpitaux à Phuket</a>, <a href="/numeros-durgences/">numéros d\'urgence</a>, <a href="/osteopathe-francais-a-phuket/">ostéopathe français</a> — et nos pages services pour vous installer sereinement.',
+        'On n’est pas une plateforme anonyme : <strong>Tammy</strong> gère l’assurance (AXA) et l’interprétariat, <strong>Thomas</strong> l’immobilier à Phuket et Krabi. Le reste ce sont des adresses qu’on partage entre francophones.',
+        'Hôpitaux, urgences, ostéo : <a href="/hopitaux-a-phuket/">liste ici</a>, <a href="/numeros-durgences/">numéros 1155 / 1669</a>, <a href="/osteopathe-francais-a-phuket/">Dr Tur</a>. Besoin d’aide tout de suite ? WhatsApp en haut.',
       ],
       links: [
         { href: '/assurance-sante-thailande-phuket/', label: 'Assurance santé' },
@@ -186,30 +186,30 @@ export const translations = {
     partners: {
       title: 'Nos recommandations',
       subtitle:
-        'Nous vous mettons en relation avec des professionnels de confiance pour votre installation en Thaïlande.',
+        'Les deux visages du site — le reste ce sont des fiches adresses qu’on met à jour au fil de l’eau.',
       tammy: {
         name: 'Tammy',
         role: 'Agent AXA · Interprète FR-EN-TH',
         description:
-          "« Bonjour, je m'appelle Tammy. Je suis agent AXA Krung Thai et je peux vous conseiller pour votre assurance santé ou autre. J'accompagne aussi les francophones en tant qu'interprète français, anglais, thaï. »",
+          "« Bonjour, moi c’est Tammy. Agent AXA sur l’île, et quand il faut traduire à l’hôpital ou chez la police, je viens. Appelez le WhatsApp du site, on verra si je suis libre. »",
       },
       thomas: {
         name: 'Thomas',
         role: 'Agent immobilier à Phuket & Krabi',
         description:
-          "« Bonjour, je m'appelle Thomas, agent immobilier à Phuket et Krabi. Vente, achat, location : nous offrons un service personnalisé pour chaque client. »",
+          "« Thomas — immo Rawai, Chalong, Krabi. J’ai l’habitude des dossiers étrangers : condo, location longue, parfois villa en leasehold. On se parle avant de visiter. »",
       },
       consulate: {
         name: 'Consulat de France',
         role: 'Phuket',
         description:
-          "Si vous êtes une entreprise sérieuse établie en Thaïlande et souhaitez figurer dans nos recommandations, n'hésitez pas à nous contacter.",
+          'Vous avez une activité pro sur l’île et vous voulez apparaître ici ? Écrivez-nous, on regarde au cas par cas.',
       },
     },
     contact: {
       title: 'Contactez-nous',
       subtitle:
-        "Remplissez le formulaire ou utilisez WhatsApp pour une réponse rapide. Nous vous répondons sous 24 heures, 7 jours sur 7.",
+        'Formulaire ou WhatsApp — en général on répond dans la journée, parfois le soir si on est sur le terrain.',
       form: {
         name: 'Votre nom',
         email: 'Votre email',
@@ -237,7 +237,7 @@ export const translations = {
       whatsapp: 'WhatsApp',
     },
     footer: {
-      tagline: 'Votre accès privilégié aux services en Thaïlande',
+      tagline: 'Assurance · Immo · Interprète — Phuket',
       rights: 'Tous droits réservés',
       madeIn: 'Phuket, Thaïlande',
       contactBlockTitle: 'Contacts',
@@ -293,26 +293,26 @@ export const translations = {
     articlePage: {
       home: 'Home',
       breadcrumbLabel: 'Breadcrumb',
-      faqTitle: 'Frequently asked questions',
-      relatedTitle: 'Related guides',
+      faqTitle: 'People often ask',
+      relatedTitle: 'More pages worth bookmarking',
       frenchBodyNotice:
-        'The detailed listings below are in French (local sources). Key information is summarised at the top of this page.',
+        'The long address list below is usually in French (how we got it locally). The important bits are up top.',
     },
     categoryPage: {
       home: 'Home',
       breadcrumbLabel: 'Breadcrumb',
-      faqTitle: 'Frequently asked questions',
+      faqTitle: 'Quick notes',
       articleCountOne: 'article',
       articleCountMany: 'articles',
     },
     contactPage: {
       home: 'Home',
       breadcrumbLabel: 'Breadcrumb',
-      breadcrumbContact: 'Contact form',
+      breadcrumbContact: 'Get in touch',
       pageTitle: 'Contact — insurance, real estate & interpreter',
-      pageH1: 'Contact — insurance, real estate and interpreter in Phuket',
+      pageH1: 'Message Tammy or Thomas',
       metaDescription:
-        'Contact Thailande-services.fr: health insurance Phuket & Thailand, Thai-French-English interpreter, real estate Phuket & Krabi.',
+        'WhatsApp or form: AXA insurance, interpreter, Phuket/Krabi property. We reply when we can.',
     },
     actualites: {
       pageTitle: 'News — Phuket & Thailand',
@@ -320,7 +320,7 @@ export const translations = {
         'News and guides for expats in Phuket: health insurance, real estate, interpreter services and life in Thailand.',
       h1: 'News',
       lead:
-        'Articles and tips for expats in Phuket and Thailand: insurance, real estate, interpreter services and relocation.',
+        'Site news and island tips — insurance, property, interpreter. No filler articles, just what we update.',
       empty: 'No articles published yet.',
       home: 'Home',
       breadcrumbLabel: 'Breadcrumb',
@@ -334,62 +334,62 @@ export const translations = {
         cta: 'Contact Tammy!',
       },
       slide2: {
-        eyebrow: 'Your gateway to Thai real estate',
-        title: 'Invest in Thailand!',
+        eyebrow: 'Phuket & Krabi property',
+        title: 'Buy or rent with Thomas',
         body:
-          'We are proud to work with a trusted local agency. Through this partnership, you get personalized support and unique opportunities to invest, buy or rent on Phuket.',
+          'Rawai, Chalong, Kata, Ao Nang… Thomas shows homes for sale and long rentals — he’s used to foreign buyers and leasehold questions.',
         cta: 'Contact Thomas!',
       },
       slide3: {
-        title: 'Need insurance!',
-        subtitle: 'Health or life insurance? Car or home?',
-        cta: 'Contact Natcha!',
+        title: 'Health insurance on the island',
+        subtitle: 'AXA, hospital cover, sometimes car or home',
+        cta: 'Contact Tammy!',
       },
       prev: 'Previous slide',
       next: 'Next slide',
     },
     hero: {
-      eyebrow: 'Your privileged access to Thailand',
+      eyebrow: 'Based in Phuket',
       seoH1: 'Health insurance Phuket & Thailand · Real estate Phuket & Krabi',
       seoH1Sub: 'Thai-French-English interpreter — homes for sale and rent',
       titleLine1: 'Need an interpreter?',
       titleLine2: 'French · English · Thai',
       subtitle:
-        'Interpretation, real estate, insurance: we support you with your move, paperwork and investments on Phuket island.',
+        'Tammy (insurance + interpreter) and Thomas (property) answer in French. Emergency, visa, buying a home — WhatsApp is at the top.',
       ctaContact: 'Contact us',
       ctaWhatsapp: 'WhatsApp now',
     },
     services: {
       title: 'Our services',
-      subtitle: 'Three areas of expertise, one trusted contact',
+      subtitle: 'Two people on the island, three jobs',
       realEstate: {
         title: 'Real estate in Phuket & Krabi',
         tagline: 'Buy · Rent · Sell · Manage',
         description:
-          "We work with a trusted local real estate agency. Enjoy personalized support and unique opportunities to invest, buy or rent on Phuket island.",
-        cta: 'Learn more',
+          'Thomas knows Rawai, Chalong and Krabi side — condos, long lets, sometimes leasehold villas. Visits when it makes sense, not spam calls.',
+        cta: 'Ask Thomas',
       },
       insurance: {
         title: 'Health, car & home insurance',
-        tagline: 'AXA Krung Thai partnership',
+        tagline: 'AXA Krung Thai',
         description:
-          "Need health, life, car or home insurance? Tammy, AXA agent in Phuket, advises you in French, English and Thai to find the best coverage.",
-        cta: 'Get a quote',
+          'Hospital bills hurt without cover. Tammy compares AXA plans in French (English/Thai too) and stays reachable if something goes wrong.',
+        cta: 'Talk to Tammy',
       },
       interpreter: {
         title: 'Trilingual interpreter',
         tagline: 'French · English · Thai',
         description:
-          "Translations, administrative support, medical appointments, banking or real estate procedures: Tammy assists you everywhere in Phuket.",
-        cta: 'Book an interpreter',
+          'Hospital, police, immigration, landlord rows — Tammy translates on site. Same WhatsApp as insurance.',
+        cta: 'Call Tammy',
       },
     },
     seoIntro: {
-      eyebrow: 'Expat guides',
-      title: 'Phuket & Thailand: insurance, real estate and interpreter',
+      eyebrow: 'In short',
+      title: 'What this site is for',
       paragraphs: [
-        'Thailande-services.fr helps <strong>expats in Phuket</strong> and Thailand: health insurance, <strong>homes for sale in Phuket or Krabi</strong>, and Thai–French–English interpretation for emergencies and paperwork.',
-        'Browse our guides — <a href="/en/hopitaux-a-phuket/">hospitals in Phuket</a>, <a href="/en/numeros-durgences/">emergency numbers</a>, <a href="/en/osteopathe-francais-a-phuket/">French-speaking osteopath</a> — and our service pages to settle in with confidence.',
+        'Not a faceless portal: <strong>Tammy</strong> does AXA insurance and on-site interpreting, <strong>Thomas</strong> sells and rents property in Phuket/Krabi. Everything else is address lists we share.',
+        'Hospitals, 1155/1669, osteopath: <a href="/en/hopitaux-a-phuket/">here</a>, <a href="/en/numeros-durgences/">numbers</a>, <a href="/en/osteopathe-francais-a-phuket/">Dr Tur</a>. Urgent? WhatsApp at the top.',
       ],
       links: [
         { href: '/en/assurance-sante-thailande-phuket/', label: 'Health insurance' },
@@ -427,30 +427,30 @@ export const translations = {
     partners: {
       title: 'Our recommendations',
       subtitle:
-        'We connect you with trusted professionals for your move to Thailand.',
+        'The two people behind the site — plus address pages we update when numbers change.',
       tammy: {
         name: 'Tammy',
         role: 'AXA Agent · Interpreter FR-EN-TH',
         description:
-          "\"Hi, my name is Tammy. I'm an AXA Krung Thai agent and I can advise you on health or other insurance. I also assist French speakers as an interpreter in French, English and Thai.\"",
+          "\"Hi, I'm Tammy — AXA on the island, and I translate at hospitals or the police when needed. WhatsApp on the site, we'll see if I'm free.\"",
       },
       thomas: {
         name: 'Thomas',
         role: 'Real estate agent in Phuket & Krabi',
         description:
-          "\"Hi, my name is Thomas, real estate agent in Phuket and Krabi. Sales, purchases, rentals: we offer personalized service to every client.\"",
+          '"Thomas, property around Rawai and Krabi. Foreign buyers, condos, long rent — we talk before viewings."',
       },
       consulate: {
         name: 'French Consulate',
         role: 'Phuket',
         description:
-          "If you are a serious business established in Thailand and wish to appear in our recommendations, feel free to contact us.",
+          'Run a business here and want a mention? Write us — we decide case by case.',
       },
     },
     contact: {
       title: 'Contact us',
       subtitle:
-        'Fill the form or use WhatsApp for a quick answer. We reply within 24 hours, 7 days a week.',
+        'Form or WhatsApp — usually same-day reply, sometimes evening if we’re out on a visit.',
       form: {
         name: 'Your name',
         email: 'Your email',
@@ -478,7 +478,7 @@ export const translations = {
       whatsapp: 'WhatsApp',
     },
     footer: {
-      tagline: 'Your privileged access to services in Thailand',
+      tagline: 'Insurance · Property · Interpreter — Phuket',
       rights: 'All rights reserved',
       madeIn: 'Phuket, Thailand',
       contactBlockTitle: 'Contact',
@@ -534,26 +534,26 @@ export const translations = {
     articlePage: {
       home: 'หน้าแรก',
       breadcrumbLabel: 'เส้นทางนำทาง',
-      faqTitle: 'คำถามที่พบบ่อย',
-      relatedTitle: 'บทความที่เกี่ยวข้อง',
+      faqTitle: 'คำถามที่มักได้รับ',
+      relatedTitle: 'หน้าอื่นที่เก็บไว้ได้',
       frenchBodyNotice:
-        'รายละเอียดด้านล่างเป็นภาษาฝรั่งเศส (แหล่งข้อมูลท้องถิ่น) ข้อมูลสำคัญสรุปไว้ด้านบนของหน้า',
+        'รายชื่อด้านล่างมักเป็นภาษาฝรั่งเศส (ข้อมูลจากท้องถิ่น) สรุปสำคัญอยู่ด้านบน',
     },
     categoryPage: {
       home: 'หน้าแรก',
       breadcrumbLabel: 'เส้นทางนำทาง',
-      faqTitle: 'คำถามที่พบบ่อย',
+      faqTitle: 'สรุปสั้นๆ',
       articleCountOne: 'บทความ',
       articleCountMany: 'บทความ',
     },
     contactPage: {
       home: 'หน้าแรก',
       breadcrumbLabel: 'เส้นทางนำทาง',
-      breadcrumbContact: 'แบบฟอร์มติดต่อ',
+      breadcrumbContact: 'ติดต่อเรา',
       pageTitle: 'ติดต่อ — ประกัน อสังหาฯ และล่าม',
-      pageH1: 'ติดต่อ — ประกัน อสังหาริมทรัพย์ และล่ามที่ภูเก็ต',
+      pageH1: 'ทักแทมมี่หรือโทมาส',
       metaDescription:
-        'ติดต่อ Thailande-services.fr: ประกันสุขภาพภูเก็ตและไทย ล่ามไทยฝรั่งเศสอังกฤษ อสังหาภูเก็ตและกระบี่',
+        'วอทส์แอปหรือแบบฟอร์ม: ประกัน AXA ล่าม อสังหาภูเก็ต/กระบี่ ตอบเมื่อว่าง',
     },
     actualites: {
       pageTitle: 'ข่าวสาร — ภูเก็ตและไทย',
@@ -561,7 +561,7 @@ export const translations = {
         'ข่าวและคู่มือสำหรับชาวต่างชาติที่ภูเก็ต: ประกันสุขภาพ อสังหาฯ ล่ามและชีวิตในไทย',
       h1: 'ข่าวสาร',
       lead:
-        'บทความและคำแนะนำสำหรับชาวต่างชาติที่ภูเก็ตและไทย: ประกัน อสังหาฯ ล่ามและการย้ายถิ่น',
+        'ข่าวจากเว็บและประสบการณ์บนเกาะ — ประกัน อสังหาฯ ล่าม อัปเดตเมื่อมีเรื่องใหม่',
       empty: 'ยังไม่มีบทความ',
       home: 'หน้าแรก',
       breadcrumbLabel: 'เส้นทางนำทาง',
@@ -575,62 +575,62 @@ export const translations = {
         cta: 'ติดต่อแทมมี่!',
       },
       slide2: {
-        eyebrow: 'ประตูสู่อสังหาริมทรัพย์ไทย',
-        title: 'ลงทุนในประเทศไทย!',
+        eyebrow: 'อสังหาภูเก็ตและกระบี่',
+        title: 'ซื้อหรือเช่ากับโทมาส',
         body:
-          'เราภูมิใจที่ได้ร่วมงานกับเอเจนซี่ท้องถิ่นที่ไว้วางใจได้ ผ่านความร่วมมือนี้ คุณจะได้รับการดูแลเป็นรายบุคคลและโอกาสพิเศษในการลงทุน ซื้อ หรือเช่าบนเกาะภูเก็ต',
+          'ราไวย์ ฉลอง กะตะ อ่าวนาง… โทมาสพาดูบ้านขายและเช่าระยะยาว คุ้นกับผู้ซื้อต่างชาติ',
         cta: 'ติดต่อโทมัส!',
       },
       slide3: {
-        title: 'ต้องการประกัน!',
-        subtitle: 'ประกันสุขภาพหรือชีวิต? รถหรือบ้าน?',
-        cta: 'ติดต่อนัชชา!',
+        title: 'ประกันสุขภาพบนเกาะ',
+        subtitle: 'AXA โรงพยาบาล บางครั้งรถหรือบ้าน',
+        cta: 'ติดต่อแทมมี่!',
       },
       prev: 'สไลด์ก่อนหน้า',
       next: 'สไลด์ถัดไป',
     },
     hero: {
-      eyebrow: 'ประตูสู่ประเทศไทยของคุณ',
+      eyebrow: 'อยู่ภูเก็ตจริงๆ',
       seoH1: 'ประกันสุขภาพภูเก็ตและไทย · อสังหาภูเก็ตและกระบี่',
       seoH1Sub: 'ล่ามไทยฝรั่งเศสอังกฤษ — บ้านขายและเช่า',
       titleLine1: 'ต้องการล่ามใช่ไหม?',
       titleLine2: 'ฝรั่งเศส · อังกฤษ · ไทย',
       subtitle:
-        'บริการล่าม อสังหาริมทรัพย์ และประกันภัย เราช่วยเหลือคุณในการย้ายถิ่นฐาน ดำเนินเอกสาร และการลงทุนบนเกาะภูเก็ต',
+        'แทมมี่ (ประกัน+ล่าม) และโทมาส (อสังหาฯ) ตอบภาษาฝรั่งเศส ฉุกเฉิน วีซ่า ซื้อบ้าน — วอทส์แอปด้านบน',
       ctaContact: 'ติดต่อเรา',
       ctaWhatsapp: 'วอทส์แอปทันที',
     },
     services: {
       title: 'บริการของเรา',
-      subtitle: 'ความเชี่ยวชาญสามด้าน ผู้ติดต่อที่ไว้วางใจได้คนเดียว',
+      subtitle: 'สองคนบนเกาะ สามงาน',
       realEstate: {
         title: 'อสังหาริมทรัพย์ภูเก็ตและกระบี่',
         tagline: 'ซื้อ · เช่า · ขาย · บริหาร',
         description:
-          'เราร่วมมือกับตัวแทนอสังหาริมทรัพย์ท้องถิ่นที่น่าเชื่อถือ รับบริการดูแลเป็นรายบุคคลและโอกาสพิเศษในการลงทุน ซื้อ หรือเช่าบนเกาะภูเก็ต',
-        cta: 'ดูรายละเอียด',
+          'โทมาสรู้จักราไวย์ ฉลอง กระบี่ — คอนโด เช่ายาว บางทีวิลล่า leasehold พาดูเมื่อเหมาะ',
+        cta: 'ถามโทมาส',
       },
       insurance: {
         title: 'ประกันสุขภาพ รถยนต์ และบ้าน',
-        tagline: 'ความร่วมมือกับ AXA กรุงไทย',
+        tagline: 'AXA กรุงไทย',
         description:
-          'ต้องการประกันสุขภาพ ชีวิต รถยนต์ หรือบ้าน? แทมมี่ ตัวแทน AXA ที่ภูเก็ต ให้คำปรึกษาเป็นภาษาฝรั่งเศส อังกฤษ และไทย เพื่อหาความคุ้มครองที่ดีที่สุด',
-        cta: 'ขอใบเสนอราคา',
+          'โรงพยาบาลเอกชนแพงถ้าไม่มีประกัน แทมมี่เปรียบแผน AXA ภาษาฝรั่งเศส (อังกฤษ/ไทยได้) ติดตามเคลมได้',
+        cta: 'คุยกับแทมมี่',
       },
       interpreter: {
         title: 'ล่ามสามภาษา',
         tagline: 'ฝรั่งเศส · อังกฤษ · ไทย',
         description:
-          'แปลเอกสาร ช่วยเหลือด้านการปกครอง นัดหมายทางการแพทย์ ธุรกรรมธนาคารหรืออสังหาริมทรัพย์: แทมมี่ช่วยเหลือคุณได้ทุกที่ในภูเก็ต',
-        cta: 'จองล่าม',
+          'โรงพยาบาล ตำรวจ ตรวจคนเข้าเมือง เจ้าของบ้านโต้เถียง — แทมมี่ไปล่ามหน้างาน วอทส์แอปเดียวกับประกัน',
+        cta: 'โทรแทมมี่',
       },
     },
     seoIntro: {
-      eyebrow: 'คู่มือชาวต่างชาติ',
-      title: 'ภูเก็ตและไทย: ประกัน อสังหาฯ และล่าม',
+      eyebrow: 'สรุปสั้นๆ',
+      title: 'เว็บนี้ทำอะไร',
       paragraphs: [
-        'Thailande-services.fr ช่วย<strong>ชาวต่างชาติที่ภูเก็ต</strong>และไทย: ประกันสุขภาพ <strong>บ้านขายภูเก็ตและกระบี่</strong> และล่ามไทย–ฝรั่งเศส–อังกฤษ',
-        'ดูคู่มือ — <a href="/th/hopitaux-a-phuket/">โรงพยาบาลภูเก็ต</a> <a href="/th/numeros-durgences/">เบอร์ฉุกเฉิน</a> <a href="/th/osteopathe-francais-a-phuket/">นักกระดูกฝรั่งเศส</a>',
+        'ไม่ใช่พอร์ทัลใหญ่: <strong>แทมมี่</strong> ดูแลประกัน AXA และล่าม <strong>โทมาส</strong> อสังหาภูเก็ต/กระบี่ ที่เหลือคือเบอร์ที่อยากแชร์',
+        'โรงพยาบาล 1155/1669: <a href="/th/hopitaux-a-phuket/">รายชื่อ</a> <a href="/th/numeros-durgences/">เบอร์ฉุกเฉิน</a> <a href="/th/osteopathe-francais-a-phuket/">ดร. Tur</a> ด่วน? วอทส์แอปด้านบน',
       ],
       links: [
         { href: '/th/assurance-sante-thailande-phuket/', label: 'ประกันสุขภาพ' },
@@ -668,12 +668,12 @@ export const translations = {
     partners: {
       title: 'คำแนะนำของเรา',
       subtitle:
-        'เราเชื่อมโยงคุณกับมืออาชีพที่ไว้วางใจได้สำหรับการย้ายไปประเทศไทย',
+        'สองคนหลังเว็บ — บวกหน้าเบอร์ที่อัปเดตเมื่อเปลี่ยน',
       tammy: {
         name: 'แทมมี่',
         role: 'ตัวแทน AXA · ล่าม FR-EN-TH',
         description:
-          '"สวัสดีค่ะ ดิฉันชื่อแทมมี่ ดิฉันเป็นตัวแทน AXA กรุงไทย และสามารถให้คำปรึกษาด้านประกันสุขภาพและประกันอื่น ๆ นอกจากนี้ดิฉันยังช่วยชาวฝรั่งเศสในฐานะล่ามภาษาฝรั่งเศส อังกฤษ ไทย"',
+          '"สวัสดีค่ะ แทมมี่ค่ะ ตัวแทน AXA บนเกาะ ถ้าต้องล่ามที่โรงพยาบาลหรือตำรวจก็ไปได้ ทักวอทส์แอปบนเว็บนะคะ"',
       },
       thomas: {
         name: 'โทมัส',
@@ -685,13 +685,13 @@ export const translations = {
         name: 'สถานกงสุลฝรั่งเศส',
         role: 'ภูเก็ต',
         description:
-          'หากคุณเป็นธุรกิจที่จริงจังและตั้งอยู่ในประเทศไทย และต้องการปรากฏในคำแนะนำของเรา ติดต่อเราได้เลย',
+          'มีธุรกิจบนเกาะอยากให้ลงรายชื่อ? เขียนมา เราดูเป็นรายกรณี',
       },
     },
     contact: {
       title: 'ติดต่อเรา',
       subtitle:
-        'กรอกแบบฟอร์มหรือใช้วอทส์แอปเพื่อการตอบกลับที่รวดเร็ว เราตอบกลับภายใน 24 ชั่วโมง 7 วันต่อสัปดาห์',
+        'แบบฟอร์มหรือวอทส์แอป — มักตอบภายในวัน ถ้าออกไปดูบ้านอาจช้าหน่อยตอนเย็น',
       form: {
         name: 'ชื่อของคุณ',
         email: 'อีเมลของคุณ',
@@ -719,7 +719,7 @@ export const translations = {
       whatsapp: 'วอทส์แอป',
     },
     footer: {
-      tagline: 'ประตูสู่บริการในประเทศไทยของคุณ',
+      tagline: 'ประกัน · อสังหาฯ · ล่าม — ภูเก็ต',
       rights: 'สงวนลิขสิทธิ์',
       madeIn: 'ภูเก็ต ประเทศไทย',
       contactBlockTitle: 'ติดต่อ',

@@ -7,7 +7,7 @@ import {
 import { parseWeb3FormsSubmitResponse } from '../lib/web3formsSubmit'
 
 const WELCOME =
-  "Bonjour ! Je suis votre assistant virtuel pour les demandes d'assurance en Thaïlande. Appuyez sur 'Commencer' pour démarrer."
+  "Bonjour — c'est le formulaire rapide assurance (Tammy). Pas de chatbot compliqué : on vous pose quelques questions, puis on vous rappelle. Cliquez sur Commencer."
 
 const STORAGE_KEY = 'chatbot_v2_state'
 

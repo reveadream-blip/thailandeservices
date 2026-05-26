@@ -1,22 +1,22 @@
 ---
 title: Welcome to Thailande-services news
-description: Tips on insurance, real estate and expat life in Phuket — new articles published here regularly.
+description: Site updates and island notes from Phuket — insurance, property, interpreter.
 pubDate: 2026-05-19
 draft: false
 ---
 
-This **News** section covers site updates: health insurance in Thailand, real estate in Phuket and Krabi, interpretation services and francophone expat life.
+This section is for **real updates** — what changed on the site and what we hear from people on the ground. Not filler “SEO articles”.
 
-## Coming topics
+## Draft topics
 
-- Choosing health insurance in Phuket in 2026
-- Neighbourhoods to buy a home in Rawai or Chalong
-- When to call an interpreter at the hospital
+- Picking health insurance in Phuket in 2026 (what immigration actually asks for)
+- House hunting in Rawai/Chalong without wasting weekends
+- Hospital interpreter: when it’s worth calling Tammy
 
-In the meantime, explore our main services:
+Pages we touch most often:
 
-- [Health insurance Phuket](/assurance-sante-thailande-phuket/)
-- [Thai–French–English interpreter](/interprete-thai-francais-anglais-a-phuket/)
-- [Real estate Phuket & Krabi](/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/)
+- [Health insurance](/en/assurance-sante-thailande-phuket/)
+- [Interpreter](/en/interprete-thai-francais-anglais-a-phuket/)
+- [Property with Thomas](/en/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/)
 
-Questions? Use the [contact form](/formulaire-de-contact/) or WhatsApp at the top of the page.
+Questions? [Contact form](/en/contact/) or WhatsApp at the top — we read messages between viewings.

@@ -20,7 +20,7 @@ const block = t.seoIntro
       {block.paragraphs.map((p) => (
         <p set:html={p} />
       ))}
-      <nav class="seo-intro-links" aria-label="Guides principaux">
+      <nav class="seo-intro-links" aria-label="Pages utiles">
         {block.links.map((link) => (
           <a href={link.href} class="seo-intro-link">
             {link.label}

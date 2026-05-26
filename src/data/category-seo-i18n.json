@@ -2,76 +2,68 @@
   "adresses-utiles": {
     "fr": {
       "pageTitle": "Adresses utiles à Phuket",
-      "metaDescription": "Adresses utiles à Phuket : urgences, hôpitaux, administrations, école française et associations pour expatriés francophones.",
-      "introHtml": "<p>Retrouvez les <strong>adresses utiles à Phuket</strong> pour les expatriés francophones : immigration, hôpitaux, numéros d’urgence, consulat, école française et ostéopathe. Ces fiches complètent nos services <a href=\"/interprete-thai-francais-anglais-a-phuket/\">interprète</a> et <a href=\"/assurance-sante-thailande-phuket/\">assurance santé</a>.</p>"
+      "metaDescription": "Immigration, hôpitaux, urgences, consulat, école française… Les adresses qu’on garde sur le téléphone à Phuket.",
+      "introHtml": "<p>Ici on a mis les <strong>numéros et adresses</strong> qu’on utilise vraiment (immigration, cliniques, 1155, consulat, BCIS…). Pour un rendez-vous compliqué, Tammy peut venir en <a href=\"/interprete-thai-francais-anglais-a-phuket/\">interprète</a> ; pour l’assurance, c’est la même ligne WhatsApp.</p>"
     },
     "en": {
       "pageTitle": "Useful addresses in Phuket",
-      "metaDescription": "Useful addresses in Phuket: emergencies, hospitals, immigration, French school and associations for expats.",
-      "introHtml": "<p>Find <strong>useful addresses in Phuket</strong> for expats: immigration, hospitals, emergency numbers, consulate, French school and osteopath. See also our <a href=\"/interprete-thai-francais-anglais-a-phuket/\">interpreter</a> and <a href=\"/assurance-sante-thailande-phuket/\">health insurance</a> services.</p>"
+      "metaDescription": "Immigration, hospitals, emergencies, consulate, French school — numbers we keep on our phones in Phuket.",
+      "introHtml": "<p>Phone numbers and addresses we actually use: immigration, clinics, tourist police 1155, consulate, BCIS… Stuck in a meeting? Tammy can interpret (<a href=\"/interprete-thai-francais-anglais-a-phuket/\">details here</a>).</p>"
     },
     "th": {
       "pageTitle": "ที่อยู่ที่เป็นประโยชน์ภูเก็ต",
-      "metaDescription": "ที่อยู่ที่เป็นประโยชน์ภูเก็ต: ฉุกเฉิน โรงพยาบาล ตรวจคนเข้าเมือง โรงเรียนฝรั่งเศส",
-      "introHtml": "<p><strong>ที่อยู่ที่เป็นประโยชน์ภูเก็ต</strong> สำหรับชาวต่างชาติ <a href=\"/interprete-thai-francais-anglais-a-phuket/\">ล่าม</a> <a href=\"/assurance-sante-thailande-phuket/\">ประกันสุขภาพ</a></p>"
+      "metaDescription": "ตรวจคนเข้าเมือง โรงพยาบาล ฉุกเฉิน กงสุล โรงเรียนฝรั่งเศส — เบอร์ที่ใช้จริงในภูเก็ต",
+      "introHtml": "<p>รวม<strong>เบอร์และที่อยู่</strong>ที่ใช้บ่อย ต้องการล่าม <a href=\"/interprete-thai-francais-anglais-a-phuket/\">แทมมี่</a></p>"
     }
   },
   "les-bonnes-adresses-francophones": {
     "fr": {
       "pageTitle": "Bonnes adresses francophones Phuket",
-      "metaDescription": "Hôtels, commerçants, loueurs et activités nautiques à Phuket : sélection de bonnes adresses francophones.",
-      "introHtml": "<p>Notre sélection de <strong>bonnes adresses francophones à Phuket</strong> : hôtels, commerçants, location de scooters et activités nautiques.</p>"
+      "metaDescription": "Hôtels, loueurs de scooters, plongée, commerces… Nos coups de cœur francophones à Phuket.",
+      "introHtml": "<p>Pas un guide touristique officiel : juste des <strong>adresses qu’on recommande</strong> entre francophones (hôtels, scooters, plongée, petits commerces). On met à jour quand un contact change.</p>"
     },
     "en": {
       "pageTitle": "Francophone picks in Phuket",
-      "metaDescription": "Hotels, shops, rentals and water activities in Phuket: francophone-friendly addresses.",
-      "introHtml": "<p>Our <strong>francophone-friendly picks in Phuket</strong>: hotels, shops, scooter rental and water activities.</p>"
+      "metaDescription": "Hotels, scooter rental, diving, shops — places francophones actually recommend in Phuket.",
+      "introHtml": "<p>Not a glossy travel brochure — <strong>spots people on the island pass around</strong>: hotels, scooter shops, dive centres, useful stores. Updated when a number changes.</p>"
     },
     "th": {
       "pageTitle": "ร้านแนะนำภูเก็ต",
-      "metaDescription": "โรงแรม ร้านค้า เช่ารถ และกิจกรรมทางน้ำภูเก็ต",
-      "introHtml": "<p><strong>ร้านแนะนำภูเก็ต</strong> โรงแรม เช่ารถ กิจกรรมทางน้ำ</p>"
+      "metaDescription": "โรงแรม เช่ารถ ดำน้ำ ร้านค้า — ที่ชาวฝรั่งเศสแนะนำกันในภูเก็ต",
+      "introHtml": "<p><strong>ร้านที่คนรู้จักแนะนำ</strong> ไม่ใช่คู่มือท่องเที่ยวทางการ</p>"
     }
   },
   "assurance-sante-et-biens-en-thailande": {
     "fr": {
       "pageTitle": "Assurance santé Phuket & Thaïlande",
-      "metaDescription": "Guides assurance santé à Phuket et en Thaïlande : AXA, hospitalisation, auto et habitation pour expatriés francophones.",
-      "introHtml": "<p>Guides <strong>assurance santé Phuket et Thaïlande</strong> pour expatriés : comparatif des besoins, offres AXA et conseils en français. <a href=\"/formulaire-de-contact/\">Demandez un devis personnalisé</a>.</p>",
+      "metaDescription": "Assurance santé, auto, maison à Phuket. Tammy (AXA) répond en français.",
+      "introHtml": "<p>Pages <strong>assurance</strong> : santé (souvent KrungThai AXA), parfois auto ou habitation. Tammy fait le point au téléphone — <a href=\"/formulaire-de-contact/\">formulaire</a> ou WhatsApp si vous préférez écrire.</p>",
       "faq": [
         {
-          "question": "Quelle assurance santé pour un expatrié à Phuket ?",
-          "answer": "Une couverture hospitalisation et ambulatoire adaptée à votre visa, avec plafonds suffisants pour les cliniques privées de Phuket."
-        },
-        {
-          "question": "AXA est-il disponible en français ?",
-          "answer": "Oui, via KrungThai AXA avec accompagnement francophone pour la souscription et les sinistres."
+          "question": "Quel budget hospitalisation pour Phuket ?",
+          "answer": "Comptez large : une nuit en clinique privée peut monter vite. On vise un plafond cohérent avec votre visa et votre âge."
         }
       ]
     },
     "en": {
       "pageTitle": "Health insurance Phuket & Thailand",
-      "metaDescription": "Health insurance guides for Phuket and Thailand: AXA, hospitalisation, car and home cover for expats.",
-      "introHtml": "<p><strong>Health insurance in Phuket and Thailand</strong> for expats: AXA plans and French-speaking advice. <a href=\"/formulaire-de-contact/\">Request a quote</a>.</p>",
+      "metaDescription": "Health, car and home insurance in Phuket. Tammy (AXA) answers in French.",
+      "introHtml": "<p><strong>Insurance pages</strong> here — mostly health (often KrungThai AXA), sometimes car or home. Tammy can talk it through on the phone or via the <a href=\"/formulaire-de-contact/\">contact form</a>.</p>",
       "faq": [
         {
-          "question": "What health insurance for an expat in Phuket?",
-          "answer": "Hospital and outpatient cover suited to your visa, with limits high enough for private clinics in Phuket."
-        },
-        {
-          "question": "Is AXA available in French?",
-          "answer": "Yes, via KrungThai AXA with francophone support for subscription and claims."
+          "question": "How much hospital cover for Phuket?",
+          "answer": "Think generous: one private hospital night adds up fast. We match limits to your visa and age."
         }
       ]
     },
     "th": {
       "pageTitle": "ประกันสุขภาพภูเก็ตและไทย",
-      "metaDescription": "คู่มือประกันสุขภาพภูเก็ตและไทย: AXA โรงพยาบาล รถและบ้าน",
-      "introHtml": "<p><strong>ประกันสุขภาพภูเก็ตและไทย</strong> <a href=\"/formulaire-de-contact/\">ขอใบเสนอราคา</a></p>",
+      "metaDescription": "ประกันสุขภาพ รถ บ้าน ภูเก็ต แทมมี่ AXA",
+      "introHtml": "<p>หน้า<strong>ประกัน</strong> สุขภาพเป็นหลัก <a href=\"/formulaire-de-contact/\">ติดต่อ</a> หรือวอทส์แอป</p>",
       "faq": [
         {
-          "question": "ประกันสุขภาพสำหรับชาวต่างชาติที่ภูเก็ต?",
-          "answer": "ความคุ้มครองโรงพยาบาลและผู้ป่วยนอกที่เหมาะกับวีซ่าและคลินิกเอกชน"
+          "question": "วงเงินโรงพยาบาลควรเท่าไหร่?",
+          "answer": "คืนหนึ่งในโรงพยาบาลเอกชนแพงมาก ควรเลือกตามวีซ่าและอายุ"
         }
       ]
     }
@@ -79,18 +71,18 @@
   "services-expatriation-en-thailande": {
     "fr": {
       "pageTitle": "Expatriation & immobilier Phuket",
-      "metaDescription": "Immobilier à Phuket et Krabi, maison à vendre, location et services d’expatriation pour francophones.",
-      "introHtml": "<p><strong>Expatriation à Phuket</strong> : immobilier (achat, location), interprète et assurance. Thomas vous guide pour une <a href=\"/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/\">maison à vendre ou à louer</a> ; Tammy pour la santé et les urgences.</p>"
+      "metaDescription": "Immo Phuket/Krabi avec Thomas, assurance et interprète avec Tammy.",
+      "introHtml": "<p><strong>Installation à Phuket</strong> : Thomas pour l’immo (<a href=\"/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/\">achat ou location</a>), Tammy pour la santé et les urgences. Deux interlocuteurs, pas une usine à formulaires.</p>"
     },
     "en": {
       "pageTitle": "Expat services & real estate Phuket",
-      "metaDescription": "Real estate in Phuket and Krabi, homes for sale, rentals and expat services for English speakers.",
-      "introHtml": "<p><strong>Expat life in Phuket</strong>: real estate, interpreter and insurance. Thomas helps with <a href=\"/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/\">buying or renting</a>; Tammy for health and emergencies.</p>"
+      "metaDescription": "Phuket/Krabi property with Thomas; insurance & interpreter with Tammy.",
+      "introHtml": "<p>Moving to Phuket: <strong>Thomas for property</strong> (<a href=\"/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/\">buy or rent</a>), <strong>Tammy for health</strong> and emergencies. Two people you can actually reach.</p>"
     },
     "th": {
       "pageTitle": "บริการชาวต่างชาติภูเก็ต",
-      "metaDescription": "อสังหาภูเก็ตและกระบี่ บ้านขาย เช่า และบริการชาวต่างชาติ",
-      "introHtml": "<p><strong>การย้ายถิ่นภูเก็ต</strong> อสังหาฯ ล่าม ประกัน <a href=\"/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/\">ซื้อหรือเช่า</a></p>"
+      "metaDescription": "อสังหาภูเก็ต โทมาส ประกันและล่าม แทมมี่",
+      "introHtml": "<p>ย้ายมาภูเก็ต: โทมาส<strong>อสังหาฯ</strong> แทมมี่<strong>ประกันและล่าม</strong></p>"
     }
   }
 }
