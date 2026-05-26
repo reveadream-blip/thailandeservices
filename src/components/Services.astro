@@ -35,7 +35,7 @@ const cards = [
       {cards.map((c, i) => (
         <article class="service-card" data-reveal style={`animation-delay:${i * 0.08}s`}>
           <div class="service-photo">
-            <img src={c.image} alt="" loading="lazy" width="600" height="352" />
+            <img src={c.image} alt={t.services[c.key].title} loading="lazy" width="600" height="352" />
             <div class="service-photo-scrim"></div>
             <div class="service-photo-text">
               <span class="service-tag">{t.services[c.key].tagline}</span>

@@ -40,7 +40,48 @@ export function stripEmptyHeadings(html: string): string {
   return html.replace(/<h([1-6])(\s[^>]*)?>\s*<\/h\1>/gi, '')
 }
 
-/** Nettoyage SEO du HTML importé (formulaires, H1 en double, titres vides). */
-export function sanitizeArticleBodyHtml(html: string): string {
-  return stripEmptyHeadings(demoteEmbeddedH1(stripEmbeddedHtmlForms(html)))
+function escapeHtmlAttr(value: string): string {
+  return value.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;')
+}
+
+function altTextFromSrc(src: string): string | null {
+  try {
+    const file = src.split('/').pop() ?? ''
+    const name = decodeURIComponent(file.replace(/\.[a-z0-9]+$/i, ''))
+    const cleaned = name
+      .replace(/[-_]+/g, ' ')
+      .replace(/\b\d{3,}\b/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim()
+    if (cleaned.length >= 4) return cleaned.slice(0, 120)
+  } catch {
+    /* ignore */
+  }
+  return null
+}
+
+/** Remplit les `alt=""` ou absents sur les images du contenu WordPress importé. */
+export function enrichEmptyImageAlts(html: string, fallbackAlt: string): string {
+  if (!html) return ''
+  const fallback = (fallbackAlt || 'Illustration').trim()
+  return html.replace(/<img\b([^>]*?)(\s*\/?)>/gi, (match, attrs, closing) => {
+    if (/\balt\s*=\s*(["'])(?!\1\s*\1)([^"']+)\1/i.test(attrs)) return match
+    let alt = fallback
+    const srcM = attrs.match(/\bsrc\s*=\s*(["'])([^"']+)\1/i)
+    if (srcM) {
+      const fromSrc = altTextFromSrc(srcM[2])
+      if (fromSrc) alt = fromSrc
+    }
+    const altAttr = ` alt="${escapeHtmlAttr(alt)}"`
+    if (/\balt\s*=\s*["']\s*["']/i.test(attrs)) {
+      return `<img${attrs.replace(/\balt\s*=\s*["']\s*["']/i, altAttr.trim())}${closing}>`
+    }
+    return `<img${attrs}${altAttr}${closing}>`
+  })
+}
+
+/** Nettoyage SEO du HTML importé (formulaires, H1, titres vides, alt images). */
+export function sanitizeArticleBodyHtml(html: string, imageAltFallback = ''): string {
+  const cleaned = stripEmptyHeadings(demoteEmbeddedH1(stripEmbeddedHtmlForms(html)))
+  return enrichEmptyImageAlts(cleaned, imageAltFallback)
 }

@@ -23,13 +23,29 @@ export function defaultOgImageUrl(): string {
   return absoluteAssetUrl(SEO_DEFAULT_OG_IMAGE)
 }
 
-/** Meta description ~155 caractères pour Google. */
-export function truncateMeta(text: string, max = 155): string {
+/** Meta description (RankFlow / Google : ≤ 160 car.). */
+export function truncateMeta(text: string, max = 160): string {
   const t = text.replace(/\s+/g, ' ').trim()
   if (t.length <= max) return t
   const cut = t.slice(0, max - 1)
   const lastSpace = cut.lastIndexOf(' ')
   return (lastSpace > 40 ? cut.slice(0, lastSpace) : cut).trimEnd() + '…'
+}
+
+const TITLE_SEP = ' — '
+
+/** Titre document ≤ 60 car. (recommandation RankFlow) : « Page — Site ». */
+export function buildDocumentTitle(headline: string, siteName: string, maxTotal = 60): string {
+  const h = headline.replace(/\s+/g, ' ').trim()
+  const suffix = siteName.trim()
+  const full = `${h}${TITLE_SEP}${suffix}`
+  if (full.length <= maxTotal) return full
+  const maxHeadline = maxTotal - TITLE_SEP.length - suffix.length
+  if (maxHeadline < 12) return suffix.slice(0, maxTotal)
+  const cut = h.slice(0, maxHeadline)
+  const lastSpace = cut.lastIndexOf(' ')
+  const shortH = (lastSpace > 15 ? cut.slice(0, lastSpace) : cut).trimEnd()
+  return `${shortH}${TITLE_SEP}${suffix}`
 }
 
 function publisherSameAs(): string[] {

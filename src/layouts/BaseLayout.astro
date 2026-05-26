@@ -9,6 +9,7 @@ import {
   absoluteUrl,
   absoluteAssetUrl,
   truncateMeta,
+  buildDocumentTitle,
   buildBaseSchemaGraph,
   serializeJsonLd,
 } from '../lib/seo'
@@ -48,8 +49,8 @@ const {
 } = Astro.props
 
 const t = translations[lang]
-const rawTitle = pageTitle ? `${pageTitle} — ${SITE.name}` : t.meta.title
-const docDesc = truncateMeta(metaDescription ?? t.meta.description, 170)
+const rawTitle = pageTitle ? buildDocumentTitle(pageTitle, SITE.name) : t.meta.title
+const docDesc = truncateMeta(metaDescription ?? t.meta.description, 160)
 
 /** Variantes OG dédiées (ex. accueil FR) — optionnelles dans `translations.*.meta`. */
 const metaExtras = t.meta as typeof t.meta & { ogTitle?: string; ogDescription?: string }

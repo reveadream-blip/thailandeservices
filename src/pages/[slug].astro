@@ -30,13 +30,13 @@ const slugOverride =
   (articleOverrides as Record<string, ArticleOverride>)[slug ?? ''] ?? {}
 const appendContactForm = Boolean(slugOverride.appendContactForm)
 const showContactBlock = hadEmbeddedForm || appendContactForm
-const html = rewriteInternalLinks(sanitizeArticleBodyHtml(article.content))
 const lang = 'fr'
 const pageTitle = slugOverride.pageTitle ?? article.title
 const pageH1 = slugOverride.pageH1 ?? article.title
+const html = rewriteInternalLinks(sanitizeArticleBodyHtml(article.content, pageH1))
 const metaDescription = truncateMeta(
   slugOverride.metaDescription ?? article.excerpt,
-  170,
+  160,
 )
 const articleUrl = absoluteUrl(`/${slug}/`)
 const jsonLdExtra = buildArticleSchemaGraph({

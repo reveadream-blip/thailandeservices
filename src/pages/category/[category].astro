@@ -3,7 +3,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro'
 import data from '../../data/articles.json'
 import { CATEGORY_LABELS } from '../../data/navigation'
 import { absoluteUrl, buildCategorySchemaGraph, truncateMeta } from '../../lib/seo'
-import { SITE } from '../../config'
 
 export function getStaticPaths() {
   return data.categories.map((c) => ({
@@ -23,13 +22,23 @@ const catPath = `/category/${category}/`
 const catUrl = absoluteUrl(catPath)
 
 const CATEGORY_SEO: Record<string, { pageTitle: string; metaDescription: string }> = {
+  'adresses-utiles': {
+    pageTitle: 'Adresses utiles à Phuket',
+    metaDescription:
+      'Adresses utiles à Phuket : urgences, hôpitaux, administrations, école française et associations pour expatriés francophones.',
+  },
+  'les-bonnes-adresses-francophones': {
+    pageTitle: 'Bonnes adresses francophones Phuket',
+    metaDescription:
+      'Hôtels, commerçants, loueurs et activités nautiques à Phuket : sélection de bonnes adresses francophones.',
+  },
   'assurance-sante-et-biens-en-thailande': {
     pageTitle: 'Assurance santé Phuket & Thaïlande',
     metaDescription:
       'Guides assurance santé à Phuket et en Thaïlande : AXA, hospitalisation, auto et habitation pour expatriés francophones.',
   },
   'services-expatriation-en-thailande': {
-    pageTitle: 'Immobilier Phuket & Krabi — expatriation',
+    pageTitle: 'Expatriation & immobilier Phuket',
     metaDescription:
       'Immobilier à Phuket et Krabi, maison à vendre, location et services d’expatriation pour francophones.',
   },
@@ -38,8 +47,8 @@ const catSeo = category ? CATEGORY_SEO[category] : undefined
 const pageTitle = catSeo?.pageTitle ?? title
 const metaDesc = truncateMeta(
   catSeo?.metaDescription ??
-    `${title} — guides et adresses utiles pour les francophones à Phuket. ${SITE.name}.`,
-  170,
+    `Guides et adresses utiles pour les francophones à Phuket : ${title}.`,
+  160,
 )
 const articleUrls = cat.posts.map((p) => absoluteUrl(`/${p.slug}/`))
 const jsonLdExtra = buildCategorySchemaGraph({
