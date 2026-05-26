@@ -1,4 +1,7 @@
 import data from '../data/articles.json'
+import type { Lang } from '../i18n/translations'
+import { getArticleNavTitle } from './article-i18n'
+import { articlePath } from './locale-path'
 
 export type RelatedArticle = {
   slug: string
@@ -15,7 +18,7 @@ export function getCategorySlugForArticle(slug: string): string | undefined {
 }
 
 /** Autres articles de la même catégorie (max 4). */
-export function getRelatedArticles(slug: string, limit = 4): RelatedArticle[] {
+export function getRelatedArticles(slug: string, lang: Lang, limit = 4): RelatedArticle[] {
   const catSlug = getCategorySlugForArticle(slug)
   if (!catSlug) return []
   const cat = data.categories.find((c) => c.slug === catSlug)
@@ -25,7 +28,7 @@ export function getRelatedArticles(slug: string, limit = 4): RelatedArticle[] {
     .slice(0, limit)
     .map((p) => ({
       slug: p.slug,
-      title: p.title.replace(/\.$/, '').trim(),
-      href: `/${p.slug}/`,
+      title: getArticleNavTitle(p.slug, lang),
+      href: articlePath(p.slug, lang),
     }))
 }

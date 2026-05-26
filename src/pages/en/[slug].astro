@@ -1,0 +1,13 @@
+---
+import ArticleDetailPage from '../../components/articles/ArticleDetailPage.astro'
+import { getAllArticleSlugs } from '../../lib/article-i18n'
+
+export function getStaticPaths() {
+  return getAllArticleSlugs().map((slug) => ({ params: { slug } }))
+}
+
+const { slug } = Astro.params
+if (!slug) return Astro.redirect('/en/')
+---
+
+<ArticleDetailPage lang="en" slug={slug} />

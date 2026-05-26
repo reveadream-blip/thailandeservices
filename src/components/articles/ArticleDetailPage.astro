@@ -1,0 +1,264 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Contact from '../Contact.astro'
+import {
+  getArticleFields,
+  getArticleHreflangAlternates,
+  getArticleRecord,
+} from '../../lib/article-i18n'
+import { htmlHasEmbeddedForm, sanitizeArticleBodyHtml } from '../../lib/article-html'
+import { rewriteInternalLinks } from '../../lib/internal-links'
+import { getRelatedArticles } from '../../lib/article-relations'
+import { articlePath, formatDate, homePath, schemaLanguage } from '../../lib/locale-path'
+import {
+  absoluteUrl,
+  buildArticleSchemaGraph,
+  buildFaqSchemaGraph,
+  truncateMeta,
+} from '../../lib/seo'
+import { translations, type Lang } from '../../i18n/translations'
+
+export interface Props {
+  lang: Lang
+  slug: string
+}
+
+const { lang, slug } = Astro.props
+const article = getArticleRecord(slug)
+if (!article) {
+  return Astro.redirect(homePath(lang))
+}
+
+const fields = getArticleFields(slug, lang)
+const t = translations[lang].articlePage
+const hadEmbeddedForm = htmlHasEmbeddedForm(article.content)
+const showContactBlock = hadEmbeddedForm || fields.appendContactForm
+const html = rewriteInternalLinks(
+  sanitizeArticleBodyHtml(article.content, fields.pageH1),
+  lang,
+)
+const metaDescription = truncateMeta(fields.metaDescription, 160)
+const canonicalPath = articlePath(slug, lang)
+const articleUrl = absoluteUrl(canonicalPath)
+const related = getRelatedArticles(slug, lang)
+const hreflangAlternates = getArticleHreflangAlternates(slug)
+const homeHref = homePath(lang)
+
+const jsonLdExtra = [
+  ...buildArticleSchemaGraph({
+    headline: fields.pageH1,
+    description: metaDescription,
+    datePublished: article.date,
+    url: articleUrl,
+    inLanguage: schemaLanguage(lang),
+    breadcrumbHomeName: t.home,
+    breadcrumbHomeUrl: absoluteUrl(homeHref),
+  }),
+  ...buildFaqSchemaGraph(fields.faq),
+]
+---
+
+<BaseLayout
+  lang={lang}
+  pageTitle={fields.pageTitle}
+  metaDescription={metaDescription}
+  canonicalPath={canonicalPath}
+  ogType="article"
+  articlePublishedTime={article.date}
+  jsonLdExtra={jsonLdExtra}
+  hreflangAlternates={hreflangAlternates}
+>
+  <article class="article-page">
+    <div class="container">
+      <nav class="breadcrumb" aria-label={t.breadcrumbLabel}>
+        <a href={homeHref}>{t.home}</a>
+        <span class="bc-sep" aria-hidden="true">/</span>
+        <span class="bc-current">{fields.pageH1}</span>
+      </nav>
+      <header class="article-header">
+        <h1>{fields.pageH1}</h1>
+        <time class="article-date" datetime={article.date}>
+          {formatDate(article.date, lang)}
+        </time>
+      </header>
+      {fields.introHtml && (
+        <div class="article-intro wp-import" set:html={fields.introHtml} />
+      )}
+      {fields.showFrenchBodyNotice && (
+        <p class="article-lang-notice" role="note">{t.frenchBodyNotice}</p>
+      )}
+      <div class="article-body wp-import" set:html={html} />
+      {fields.faq.length > 0 && (
+        <section class="article-faq" aria-labelledby="article-faq-title">
+          <h2 id="article-faq-title">{t.faqTitle}</h2>
+          <dl class="faq-list">
+            {fields.faq.map((item) => (
+              <>
+                <dt>{item.question}</dt>
+                <dd>{item.answer}</dd>
+              </>
+            ))}
+          </dl>
+        </section>
+      )}
+      {related.length > 0 && (
+        <nav class="related-articles" aria-labelledby="related-title">
+          <h2 id="related-title">{t.relatedTitle}</h2>
+          <ul>
+            {related.map((r) => (
+              <li>
+                <a href={r.href}>{r.title}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
+    </div>
+    {showContactBlock && <Contact lang={lang} />}
+  </article>
+</BaseLayout>
+
+<style>
+  .article-page {
+    padding-block: clamp(2rem, 5vw, 3.5rem);
+    background: var(--color-cream);
+    min-height: 50vh;
+  }
+
+  .breadcrumb {
+    font-size: 0.88rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-ink-muted);
+  }
+
+  .breadcrumb a {
+    color: var(--color-ocean);
+    font-weight: 500;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .bc-sep {
+    margin: 0 0.4rem;
+    opacity: 0.6;
+  }
+
+  .bc-current {
+    color: var(--color-ink-soft);
+  }
+
+  .article-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .article-header h1 {
+    color: var(--color-ocean);
+    font-size: clamp(1.65rem, 4vw, 2.25rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .article-date {
+    font-size: 0.9rem;
+    color: var(--color-ink-muted);
+  }
+
+  .article-lang-notice {
+    max-width: 900px;
+    margin-bottom: 1.25rem;
+    padding: 0.85rem 1rem;
+    background: color-mix(in srgb, var(--color-gold) 12%, #fff);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-size: 0.92rem;
+    color: var(--color-ink-soft);
+    line-height: 1.55;
+  }
+
+  .article-intro {
+    max-width: 900px;
+    margin-bottom: 1.75rem;
+    padding: 1.15rem 1.25rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    line-height: 1.65;
+    color: var(--color-ink-soft);
+  }
+
+  .article-intro :global(a) {
+    color: var(--color-ocean);
+    font-weight: 600;
+  }
+
+  .article-body {
+    max-width: 900px;
+  }
+
+  .article-faq {
+    max-width: 900px;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .article-faq h2 {
+    font-size: 1.35rem;
+    color: var(--color-ocean);
+    margin-bottom: 1.25rem;
+  }
+
+  .faq-list {
+    margin: 0;
+  }
+
+  .faq-list dt {
+    font-weight: 700;
+    color: var(--color-ink);
+    margin-top: 1rem;
+  }
+
+  .faq-list dt:first-child {
+    margin-top: 0;
+  }
+
+  .faq-list dd {
+    margin: 0.35rem 0 0;
+    color: var(--color-ink-soft);
+    line-height: 1.6;
+  }
+
+  .related-articles {
+    max-width: 900px;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .related-articles h2 {
+    font-size: 1.2rem;
+    color: var(--color-ocean);
+    margin-bottom: 0.85rem;
+  }
+
+  .related-articles ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .related-articles a {
+    color: var(--color-ocean);
+    font-weight: 600;
+  }
+
+  .related-articles a:hover {
+    text-decoration: underline;
+  }
+</style>

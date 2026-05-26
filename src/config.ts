@@ -1,13 +1,9 @@
 import type { Lang } from './i18n/translations'
+import { contactPagePath } from './lib/locale-path'
 
-/** Lien vers le bloc formulaire sur la page d’accueil (selon la langue). */
+/** Page contact dédiée (selon la langue). */
 export function contactFormHref(lang: Lang): string {
-  const paths: Record<Lang, string> = {
-    fr: '/#contact-form',
-    en: '/en/#contact-form',
-    th: '/th/#contact-form',
-  }
-  return paths[lang]
+  return contactPagePath(lang)
 }
 
 /**

@@ -1,7 +1,8 @@
 ---
 import { translations, type Lang } from '../i18n/translations'
 import { CONTACT, SITE, contactFormHref } from '../config'
-import { actualitesNavHref, FOOTER_ARCHIVES } from '../data/navigation'
+import { actualitesNavHref } from '../data/navigation'
+import { getFooterArchives } from '../lib/navigation-i18n'
 
 export interface Props {
   lang: Lang
@@ -9,6 +10,7 @@ export interface Props {
 
 const { lang } = Astro.props
 const t = translations[lang]
+const footerArchives = getFooterArchives(lang)
 ---
 
 <footer class="footer">
@@ -51,7 +53,7 @@ const t = translations[lang]
 
     <div class="footer-links">
       <h4>{t.footer.archives}</h4>
-      {FOOTER_ARCHIVES.map((a) => (
+      {footerArchives.map((a) => (
         <a href={a.href}>
           {a.label} ({a.count})
         </a>

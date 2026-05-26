@@ -79,13 +79,16 @@ export function buildBaseSchemaGraph(): Record<string, unknown>[] {
   ]
 }
 
-/** Article / blog (contenu français). */
+/** Article / blog. */
 export function buildArticleSchemaGraph(opts: {
   headline: string
   description: string
   datePublished: string
   url: string
   imageUrl?: string
+  inLanguage?: string
+  breadcrumbHomeName?: string
+  breadcrumbHomeUrl?: string
 }): Record<string, unknown>[] {
   const iso = (d: string) => new Date(d).toISOString()
   const img = opts.imageUrl ?? defaultOgImageUrl()
@@ -100,7 +103,7 @@ export function buildArticleSchemaGraph(opts: {
       publisher: { '@id': ORG_SCHEMA_ID },
       mainEntityOfPage: { '@type': 'WebPage', '@id': opts.url },
       image: { '@type': 'ImageObject', url: img },
-      inLanguage: 'fr-FR',
+      inLanguage: opts.inLanguage ?? 'fr-FR',
     },
     {
       '@type': 'BreadcrumbList',
@@ -108,8 +111,8 @@ export function buildArticleSchemaGraph(opts: {
         {
           '@type': 'ListItem',
           position: 1,
-          name: 'Accueil',
-          item: `${SITE.baseUrl}/`,
+          name: opts.breadcrumbHomeName ?? 'Accueil',
+          item: opts.breadcrumbHomeUrl ?? `${SITE.baseUrl}/`,
         },
         {
           '@type': 'ListItem',
@@ -128,6 +131,9 @@ export function buildCategorySchemaGraph(opts: {
   description: string
   url: string
   articleUrls: string[]
+  inLanguage?: string
+  breadcrumbHomeName?: string
+  breadcrumbHomeUrl?: string
 }): Record<string, unknown>[] {
   return [
     {
@@ -136,7 +142,7 @@ export function buildCategorySchemaGraph(opts: {
       description: truncateMeta(opts.description),
       url: opts.url,
       isPartOf: { '@id': WEBSITE_SCHEMA_ID },
-      inLanguage: 'fr-FR',
+      inLanguage: opts.inLanguage ?? 'fr-FR',
       mainEntity: {
         '@type': 'ItemList',
         numberOfItems: opts.articleUrls.length,
@@ -153,8 +159,8 @@ export function buildCategorySchemaGraph(opts: {
         {
           '@type': 'ListItem',
           position: 1,
-          name: 'Accueil',
-          item: `${SITE.baseUrl}/`,
+          name: opts.breadcrumbHomeName ?? 'Accueil',
+          item: opts.breadcrumbHomeUrl ?? `${SITE.baseUrl}/`,
         },
         {
           '@type': 'ListItem',

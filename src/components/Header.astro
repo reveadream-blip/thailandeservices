@@ -1,7 +1,9 @@
 ---
 import { translations, type Lang, LANGS, LANG_LABELS } from '../i18n/translations'
 import { CONTACT, SITE, contactFormHref } from '../config'
-import { actualitesNavHref, MAIN_NAV_FR } from '../data/navigation'
+import { actualitesNavHref } from '../data/navigation'
+import { getMainNav } from '../lib/navigation-i18n'
+import { homePath } from '../lib/locale-path'
 import NavIcon from './NavIcon.astro'
 
 export interface Props {
@@ -12,8 +14,9 @@ export interface Props {
 
 const { lang, logoSrc = '/images/logo.png' } = Astro.props
 const t = translations[lang]
+const mainNav = getMainNav(lang)
 
-const localeHref = (target: Lang) => (target === 'fr' ? '/' : `/${target}/`)
+const localeHref = (target: Lang) => homePath(target)
 ---
 
 <header class="site-header">
@@ -63,7 +66,7 @@ const localeHref = (target: Lang) => (target === 'fr' ? '/' : `/${target}/`)
   <div class="header-nav-desktop">
     <div class="container">
       <nav class="nav-desktop" aria-label="Navigation principale">
-        {MAIN_NAV_FR.map((item) => (
+        {mainNav.map((item) => (
           <div class:list={['nav-item', `nav-item--${item.icon}`]}>
             <a href={item.href} class="nav-top">
               <span class="nav-icon-wrap">
@@ -109,7 +112,7 @@ const localeHref = (target: Lang) => (target === 'fr' ? '/' : `/${target}/`)
   </div>
 
   <nav class="nav-mobile" id="nav-mobile" aria-label="Navigation mobile" hidden>
-    {MAIN_NAV_FR.map((item) => (
+    {mainNav.map((item) => (
       <details class:list={['mobile-group', `mobile-group--${item.icon}`]}>
         <summary>
           <span class="mobile-summary-row">

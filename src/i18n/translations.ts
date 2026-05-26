@@ -31,6 +31,46 @@ export const translations = {
       skipContent: 'Aller au contenu',
       viewCategory: 'Voir la catégorie',
       actualites: 'Actualités',
+      menu: {
+        groups: {
+          adresses: 'Adresses utiles',
+          stores: 'Bonnes adresses',
+          insurance: 'Assurance & santé',
+          expat: 'Expatriation',
+        },
+      },
+    },
+    categories: {
+      labels: {
+        'adresses-utiles': 'Adresses Utiles à Phuket',
+        'les-bonnes-adresses-francophones': 'Les bonnes adresses Francophones à Phuket',
+        'assurance-sante-et-biens-en-thailande': 'Assurance Santé et Biens à Phuket',
+        'services-expatriation-en-thailande': 'Services expatriation en Thaïlande',
+      },
+    },
+    articlePage: {
+      home: 'Accueil',
+      breadcrumbLabel: "Fil d'Ariane",
+      faqTitle: 'Questions fréquentes',
+      relatedTitle: 'À lire aussi',
+      frenchBodyNotice:
+        'Le détail des adresses ci-dessous est en français (sources locales). Les informations essentielles sont en haut de page.',
+    },
+    categoryPage: {
+      home: 'Accueil',
+      breadcrumbLabel: "Fil d'Ariane",
+      faqTitle: 'Questions fréquentes',
+      articleCountOne: 'article',
+      articleCountMany: 'articles',
+    },
+    contactPage: {
+      home: 'Accueil',
+      breadcrumbLabel: "Fil d'Ariane",
+      breadcrumbContact: 'Formulaire de contact',
+      pageTitle: 'Contact assurance, immo & interprète',
+      pageH1: 'Contact — assurance, immobilier et interprète à Phuket',
+      metaDescription:
+        'Contactez Thailande-services.fr : assurance santé Phuket et Thaïlande, interprète thaï français anglais, immobilier Phuket & Krabi.',
     },
     actualites: {
       pageTitle: 'Actualités Phuket & Thaïlande',
@@ -204,6 +244,12 @@ export const translations = {
       byWhatsapp: 'Par WhatsApp',
       moreInfo: 'Pour plus d’informations!',
       archives: 'Archives',
+      archiveItems: {
+        adresses: 'Adresses Utiles à Phuket',
+        stores: 'Les bonnes adresses Francophones à Phuket',
+        insurance: 'Assurance Santé et Biens à Phuket',
+        expat: 'Services expatriation en Thaïlande',
+      },
     },
   },
 
@@ -227,6 +273,46 @@ export const translations = {
       skipContent: 'Skip to content',
       viewCategory: 'View category',
       actualites: 'News',
+      menu: {
+        groups: {
+          adresses: 'Useful addresses',
+          stores: 'Top picks',
+          insurance: 'Insurance & health',
+          expat: 'Expat services',
+        },
+      },
+    },
+    categories: {
+      labels: {
+        'adresses-utiles': 'Useful addresses in Phuket',
+        'les-bonnes-adresses-francophones': 'Francophone-friendly places',
+        'assurance-sante-et-biens-en-thailande': 'Health & property insurance',
+        'services-expatriation-en-thailande': 'Expat services in Thailand',
+      },
+    },
+    articlePage: {
+      home: 'Home',
+      breadcrumbLabel: 'Breadcrumb',
+      faqTitle: 'Frequently asked questions',
+      relatedTitle: 'Related guides',
+      frenchBodyNotice:
+        'The detailed listings below are in French (local sources). Key information is summarised at the top of this page.',
+    },
+    categoryPage: {
+      home: 'Home',
+      breadcrumbLabel: 'Breadcrumb',
+      faqTitle: 'Frequently asked questions',
+      articleCountOne: 'article',
+      articleCountMany: 'articles',
+    },
+    contactPage: {
+      home: 'Home',
+      breadcrumbLabel: 'Breadcrumb',
+      breadcrumbContact: 'Contact form',
+      pageTitle: 'Contact — insurance, real estate & interpreter',
+      pageH1: 'Contact — insurance, real estate and interpreter in Phuket',
+      metaDescription:
+        'Contact Thailande-services.fr: health insurance Phuket & Thailand, Thai-French-English interpreter, real estate Phuket & Krabi.',
     },
     actualites: {
       pageTitle: 'News — Phuket & Thailand',
@@ -297,6 +383,21 @@ export const translations = {
           "Translations, administrative support, medical appointments, banking or real estate procedures: Tammy assists you everywhere in Phuket.",
         cta: 'Book an interpreter',
       },
+    },
+    seoIntro: {
+      eyebrow: 'Expat guides',
+      title: 'Phuket & Thailand: insurance, real estate and interpreter',
+      paragraphs: [
+        'Thailande-services.fr helps <strong>expats in Phuket</strong> and Thailand: health insurance, <strong>homes for sale in Phuket or Krabi</strong>, and Thai–French–English interpretation for emergencies and paperwork.',
+        'Browse our guides — <a href="/en/hopitaux-a-phuket/">hospitals in Phuket</a>, <a href="/en/numeros-durgences/">emergency numbers</a>, <a href="/en/osteopathe-francais-a-phuket/">French-speaking osteopath</a> — and our service pages to settle in with confidence.',
+      ],
+      links: [
+        { href: '/en/assurance-sante-thailande-phuket/', label: 'Health insurance' },
+        { href: '/en/interprete-thai-francais-anglais-a-phuket/', label: 'Interpreter FR-EN-TH' },
+        { href: '/en/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/', label: 'Real estate Phuket' },
+        { href: '/en/category/adresses-utiles/', label: 'Useful addresses' },
+        { href: '/en/contact/', label: 'Contact' },
+      ],
     },
     emergency: {
       eyebrow: 'Available 7/7',
@@ -384,6 +485,12 @@ export const translations = {
       byWhatsapp: 'By WhatsApp',
       moreInfo: 'More information',
       archives: 'Archives',
+      archiveItems: {
+        adresses: 'Useful addresses in Phuket',
+        stores: 'Francophone-friendly places',
+        insurance: 'Health & property insurance',
+        expat: 'Expat services in Thailand',
+      },
     },
   },
 
@@ -407,6 +514,46 @@ export const translations = {
       skipContent: 'ข้ามไปยังเนื้อหา',
       viewCategory: 'ดูหมวดหมู่',
       actualites: 'ข่าวสาร',
+      menu: {
+        groups: {
+          adresses: 'ที่อยู่ที่เป็นประโยชน์',
+          stores: 'ร้านแนะนำ',
+          insurance: 'ประกันและสุขภาพ',
+          expat: 'บริการชาวต่างชาติ',
+        },
+      },
+    },
+    categories: {
+      labels: {
+        'adresses-utiles': 'ที่อยู่ที่เป็นประโยชน์ภูเก็ต',
+        'les-bonnes-adresses-francophones': 'ร้านแนะนำสำหรับชาวฝรั่งเศส',
+        'assurance-sante-et-biens-en-thailande': 'ประกันสุขภาพและทรัพย์สิน',
+        'services-expatriation-en-thailande': 'บริการชาวต่างชาติในไทย',
+      },
+    },
+    articlePage: {
+      home: 'หน้าแรก',
+      breadcrumbLabel: 'เส้นทางนำทาง',
+      faqTitle: 'คำถามที่พบบ่อย',
+      relatedTitle: 'บทความที่เกี่ยวข้อง',
+      frenchBodyNotice:
+        'รายละเอียดด้านล่างเป็นภาษาฝรั่งเศส (แหล่งข้อมูลท้องถิ่น) ข้อมูลสำคัญสรุปไว้ด้านบนของหน้า',
+    },
+    categoryPage: {
+      home: 'หน้าแรก',
+      breadcrumbLabel: 'เส้นทางนำทาง',
+      faqTitle: 'คำถามที่พบบ่อย',
+      articleCountOne: 'บทความ',
+      articleCountMany: 'บทความ',
+    },
+    contactPage: {
+      home: 'หน้าแรก',
+      breadcrumbLabel: 'เส้นทางนำทาง',
+      breadcrumbContact: 'แบบฟอร์มติดต่อ',
+      pageTitle: 'ติดต่อ — ประกัน อสังหาฯ และล่าม',
+      pageH1: 'ติดต่อ — ประกัน อสังหาริมทรัพย์ และล่ามที่ภูเก็ต',
+      metaDescription:
+        'ติดต่อ Thailande-services.fr: ประกันสุขภาพภูเก็ตและไทย ล่ามไทยฝรั่งเศสอังกฤษ อสังหาภูเก็ตและกระบี่',
     },
     actualites: {
       pageTitle: 'ข่าวสาร — ภูเก็ตและไทย',
@@ -477,6 +624,21 @@ export const translations = {
           'แปลเอกสาร ช่วยเหลือด้านการปกครอง นัดหมายทางการแพทย์ ธุรกรรมธนาคารหรืออสังหาริมทรัพย์: แทมมี่ช่วยเหลือคุณได้ทุกที่ในภูเก็ต',
         cta: 'จองล่าม',
       },
+    },
+    seoIntro: {
+      eyebrow: 'คู่มือชาวต่างชาติ',
+      title: 'ภูเก็ตและไทย: ประกัน อสังหาฯ และล่าม',
+      paragraphs: [
+        'Thailande-services.fr ช่วย<strong>ชาวต่างชาติที่ภูเก็ต</strong>และไทย: ประกันสุขภาพ <strong>บ้านขายภูเก็ตและกระบี่</strong> และล่ามไทย–ฝรั่งเศส–อังกฤษ',
+        'ดูคู่มือ — <a href="/th/hopitaux-a-phuket/">โรงพยาบาลภูเก็ต</a> <a href="/th/numeros-durgences/">เบอร์ฉุกเฉิน</a> <a href="/th/osteopathe-francais-a-phuket/">นักกระดูกฝรั่งเศส</a>',
+      ],
+      links: [
+        { href: '/th/assurance-sante-thailande-phuket/', label: 'ประกันสุขภาพ' },
+        { href: '/th/interprete-thai-francais-anglais-a-phuket/', label: 'ล่าม FR-EN-TH' },
+        { href: '/th/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/', label: 'อสังหาภูเก็ต' },
+        { href: '/th/category/adresses-utiles/', label: 'ที่อยู่ที่เป็นประโยชน์' },
+        { href: '/th/contact/', label: 'ติดต่อ' },
+      ],
     },
     emergency: {
       eyebrow: 'พร้อมบริการ 7 วัน',
@@ -564,6 +726,12 @@ export const translations = {
       byWhatsapp: 'ทางวอทส์แอป',
       moreInfo: 'ข้อมูลเพิ่มเติม',
       archives: 'หมวดหมู่',
+      archiveItems: {
+        adresses: 'ที่อยู่ที่เป็นประโยชน์ภูเก็ต',
+        stores: 'ร้านแนะนำสำหรับชาวฝรั่งเศส',
+        insurance: 'ประกันสุขภาพและทรัพย์สิน',
+        expat: 'บริการชาวต่างชาติในไทย',
+      },
     },
   },
 } as const

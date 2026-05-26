@@ -1,0 +1,164 @@
+{
+  "interprete-thai-francais-anglais-a-phuket": {
+    "en": {
+      "appendContactForm": true,
+      "pageTitle": "Interpreter Phuket FR-EN-TH",
+      "pageH1": "Thai–French–English interpreter in Phuket",
+      "metaDescription": "Interpreter in Phuket for hospital, police and immigration. French, English and Thai with Tammy.",
+      "intro": "<p>Looking for a <strong>Thai–French–English interpreter in Phuket</strong> for hospital, police, immigration or appointments? Tammy supports French and English speakers on the island.</p><p>See also <a href=\"/hopitaux-a-phuket/\">hospitals in Phuket</a> and <a href=\"/numeros-durgences/\">emergency numbers</a>.</p>",
+      "faq": [
+        {
+          "question": "When should I call an interpreter in Phuket?",
+          "answer": "Accidents, hospitalisation, police, traffic stops, rental disputes or immigration when Thai or technical English is difficult."
+        },
+        {
+          "question": "Does the interpreter cover all of Phuket?",
+          "answer": "Yes: Patong, Karon, Kata, Rawai, Chalong, Phuket Town and private hospitals. Contact us on WhatsApp."
+        },
+        {
+          "question": "Are French, English and Thai spoken?",
+          "answer": "Yes: trilingual support for health professionals, authorities and local partners."
+        }
+      ]
+    },
+    "th": {
+      "appendContactForm": true,
+      "pageTitle": "ล่ามภูเก็ต FR-EN-TH",
+      "pageH1": "ล่ามไทย ฝรั่งเศส อังกฤษ ภูเก็ต",
+      "metaDescription": "ล่ามภูเก็ต โรงพยาบาล ตำรวจ ตรวจคนเข้าเมือง ภาษาฝรั่งเศส อังกฤษ ไทย",
+      "intro": "<p>ต้องการ<strong>ล่ามไทย ฝรั่งเศส อังกฤษที่ภูเก็ต</strong> สำหรับโรงพยาบาล ตำรวจ หรือตรวจคนเข้าเมือง? แทมมี่ช่วยเหลือชาวฝรั่งเศสและอังกฤษ</p><p>ดู <a href=\"/hopitaux-a-phuket/\">โรงพยาบาลภูเก็ต</a> และ <a href=\"/numeros-durgences/\">เบอร์ฉุกเฉิน</a></p>",
+      "faq": [
+        {
+          "question": "เมื่อไหร่ควรเรียกล่ามที่ภูเก็ต?",
+          "answer": "อุบัติเหตุ โรงพยาบาล ตำรวจ ตรวจคนเข้าเมือง เมื่อภาษาไทหรืออังกฤษไม่เพียงพอ"
+        },
+        {
+          "question": "ครอบคลุมทั้งภูเก็ตไหม?",
+          "answer": "ใช่ ติดต่อ WhatsApp ได้ตลอด"
+        },
+        {
+          "question": "พูดได้กี่ภาษา?",
+          "answer": "ไทย ฝรั่งเศส และอังกฤษ"
+        }
+      ]
+    }
+  },
+  "assurance-sante-thailande-phuket": {
+    "en": {
+      "pageTitle": "Health insurance Phuket",
+      "pageH1": "Health insurance Phuket and Thailand",
+      "metaDescription": "Health insurance in Phuket and Thailand: hospitalisation and French-language advice with Tammy.",
+      "intro": "<p><strong>Health insurance in Thailand</strong> is essential for expats: private hospitals in Phuket often require payment or a guarantee before care. Tammy advises in French on plans suited to your visa and profile.</p><p>Compare <a href=\"/assurance-sante-axa-a-phuket-thailande/\">KrungThai AXA in Phuket</a> or use our <a href=\"/formulaire-de-contact/\">contact form</a>.</p>",
+      "faq": [
+        {
+          "question": "Why health insurance in Phuket?",
+          "answer": "Excellent private care but high costs without cover. Plans include hospitalisation, outpatient care and sometimes repatriation."
+        },
+        {
+          "question": "Insurance for long-stay visas?",
+          "answer": "Requirements depend on visa type. A French-speaking adviser checks minimum coverage before you subscribe."
+        },
+        {
+          "question": "Car and home insurance too?",
+          "answer": "Yes: auto, home and liability cover is available for residents in Phuket and Thailand."
+        }
+      ]
+    },
+    "th": {
+      "pageTitle": "ประกันสุขภาพภูเก็ต",
+      "pageH1": "ประกันสุขภาพภูเก็ตและไทย",
+      "metaDescription": "ประกันสุขภาพภูเก็ตและไทย: รักษาพยาบาล คำปรึกษาภาษาฝรั่งเศส",
+      "intro": "<p><strong>ประกันสุขภาพในไทย</strong> สำคัญสำหรับชาวต่างชาติ: โรงพยาบาลเอกชนภูเก็ตมักต้องการการันตีก่อนรักษา แทมมี่ให้คำปรึกษาภาษาฝรั่งเศส</p>",
+      "faq": [
+        {
+          "question": "ทำไมต้องมีประกันสุขภาพ?",
+          "answer": "ค่ารักษาเอกชนสูงหากไม่มีประกัน"
+        },
+        {
+          "question": "เหมาะกับวีซ่าระยะยาวไหม?",
+          "answer": "ขึ้นกับประเภทวีซ่า ปรึกษาผู้เชี่ยวชาญก่อนสมัคร"
+        }
+      ]
+    }
+  },
+  "assurance-sante-axa-a-phuket-thailande": {
+    "en": {
+      "pageTitle": "AXA insurance Phuket",
+      "pageH1": "KrungThai AXA health insurance",
+      "metaDescription": "KrungThai AXA health insurance in Thailand and Phuket with French-speaking support.",
+      "intro": "<p><strong>KrungThai AXA</strong> offers health plans for expats in Phuket. Tammy helps you choose the right iHealthy level in French.</p>",
+      "faq": [
+        {
+          "question": "What is KrungThai AXA iHealthy?",
+          "answer": "Local medical insurance with annual limits, deductibles and partner hospital networks in Thailand."
+        },
+        {
+          "question": "Can I subscribe from Phuket?",
+          "answer": "Yes, with remote support from a French-speaking contact on the island."
+        }
+      ]
+    },
+    "th": {
+      "pageTitle": "ประกัน AXA ภูเก็ต",
+      "pageH1": "ประกัน KrungThai AXA",
+      "metaDescription": "ประกัน KrungThai AXA ไทยและภูเก็ต บริการภาษาฝรั่งเศส",
+      "intro": "<p><strong>KrungThai AXA</strong> มีแผนประกันสุขภาพสำหรับชาวต่างชาติที่ภูเก็ต</p>"
+    }
+  },
+  "expatriation-a-phuket-besoin-achat-immobilier-ou-locatif": {
+    "en": {
+      "pageTitle": "Real estate Phuket & Krabi",
+      "pageH1": "Real estate in Phuket and Krabi",
+      "metaDescription": "Buy or rent in Phuket and Krabi with francophone agent Thomas.",
+      "intro": "<p>Looking for a <strong>home for sale in Phuket</strong> or long-term rental? Thomas supports purchase, sale and property management in Phuket and Krabi.</p>",
+      "faq": [
+        {
+          "question": "Can foreigners buy property in Phuket?",
+          "answer": "Rules vary for condos, villas and land. A local agent explains leasehold, company structures and foreign condo quotas."
+        },
+        {
+          "question": "Popular areas?",
+          "answer": "Rawai, Nai Harn, Chalong, Kata, Patong; Ao Nang area in Krabi."
+        }
+      ]
+    },
+    "th": {
+      "pageTitle": "อสังหาฯ ภูเก็ต กระบี่",
+      "pageH1": "อสังหาริมทรัพย์ภูเก็ตและกระบี่",
+      "metaDescription": "ซื้อหรือเช่าภูเก็ตและกระบี่กับที่ปรึกษาภาษาฝรั่งเศส",
+      "intro": "<p>หาบ้าน<strong>ขายหรือเช่าที่ภูเก็ต</strong>? โทมาสให้คำปรึกษาซื้อขายและบริหารทรัพย์</p>"
+    }
+  },
+  "hopitaux-a-phuket": {
+    "en": {
+      "intro": "<p>List of <strong>hospitals in Phuket</strong> used by expats. For emergencies see <a href=\"/numeros-durgences/\">emergency numbers</a>; for on-site translation, an <a href=\"/interprete-thai-francais-anglais-a-phuket/\">interpreter</a> can help.</p>"
+    },
+    "th": {
+      "intro": "<p>รายชื่อ<strong>โรงพยาบาลภูเก็ต</strong> <a href=\"/numeros-durgences/\">เบอร์ฉุกเฉิน</a> <a href=\"/interprete-thai-francais-anglais-a-phuket/\">ล่าม</a></p>"
+    }
+  },
+  "numeros-durgences": {
+    "en": {
+      "intro": "<p><strong>Emergency numbers in Phuket</strong>: police, fire, ambulance, tourist police <strong>1155</strong>. Call <strong>1669</strong> for ambulance; contact an <a href=\"/interprete-thai-francais-anglais-a-phuket/\">interpreter</a> if needed.</p>"
+    },
+    "th": {
+      "intro": "<p><strong>เบอร์ฉุกเฉินภูเก็ต</strong> ตำรวจท่องเที่ยว <strong>1155</strong> รถพยาบาล <strong>1669</strong></p>"
+    }
+  },
+  "osteopathe-francais-a-phuket": {
+    "en": {
+      "intro": "<p>Looking for a <strong>French-speaking osteopath in Phuket</strong>? Dr Gerald Tur welcomes francophone patients.</p>"
+    },
+    "th": {
+      "intro": "<p><strong>นักกระดูกฝรั่งเศสภูเก็ต</strong> ดร. Gerald Tur</p>"
+    }
+  },
+  "maison-de-retraite-phuket": {
+    "en": {
+      "intro": "<p>Compare a <strong>retirement home in Phuket</strong> in Rawai. Check your <a href=\"/assurance-sante-thailande-phuket/\">health insurance</a> coverage.</p>"
+    },
+    "th": {
+      "intro": "<p><strong>บ้านพักคนชราภูเก็ต</strong> Rawai <a href=\"/assurance-sante-thailande-phuket/\">ประกันสุขภาพ</a></p>"
+    }
+  }
+}

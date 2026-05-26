@@ -1,0 +1,227 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import {
+  getCategoryFields,
+  getCategoryHreflangAlternates,
+  getCategoryRecord,
+} from '../../lib/category-i18n'
+import { getArticleNavTitle } from '../../lib/article-i18n'
+import { articlePath, categoryPath, formatDate, homePath, schemaLanguage } from '../../lib/locale-path'
+import {
+  absoluteUrl,
+  buildCategorySchemaGraph,
+  buildFaqSchemaGraph,
+} from '../../lib/seo'
+import { translations, type Lang } from '../../i18n/translations'
+
+export interface Props {
+  lang: Lang
+  categorySlug: string
+}
+
+const { lang, categorySlug } = Astro.props
+const cat = getCategoryRecord(categorySlug)
+if (!cat) {
+  return Astro.redirect(homePath(lang))
+}
+
+const fields = getCategoryFields(categorySlug, lang)
+const t = translations[lang].categoryPage
+const canonicalPath = categoryPath(categorySlug, lang)
+const catUrl = absoluteUrl(canonicalPath)
+const homeHref = homePath(lang)
+const articleUrls = fields.posts.map((p) => absoluteUrl(articlePath(p.slug, lang)))
+const hreflangAlternates = getCategoryHreflangAlternates(categorySlug)
+
+const jsonLdExtra = [
+  ...buildCategorySchemaGraph({
+    name: fields.title,
+    description: fields.metaDescription,
+    url: catUrl,
+    articleUrls,
+    inLanguage: schemaLanguage(lang),
+    breadcrumbHomeName: t.home,
+    breadcrumbHomeUrl: absoluteUrl(homeHref),
+  }),
+  ...buildFaqSchemaGraph(fields.faq),
+]
+
+const countLabel =
+  fields.posts.length === 1 ? t.articleCountOne : t.articleCountMany
+---
+
+<BaseLayout
+  lang={lang}
+  pageTitle={fields.pageTitle}
+  metaDescription={fields.metaDescription}
+  canonicalPath={canonicalPath}
+  jsonLdExtra={jsonLdExtra}
+  hreflangAlternates={hreflangAlternates}
+>
+  <div class="category-page">
+    <div class="container">
+      <nav class="breadcrumb" aria-label={t.breadcrumbLabel}>
+        <a href={homeHref}>{t.home}</a>
+        <span class="bc-sep" aria-hidden="true">/</span>
+        <span class="bc-current">{fields.title}</span>
+      </nav>
+      <header class="cat-header">
+        <h1>{fields.title}</h1>
+        <p class="cat-count">
+          {fields.posts.length} {countLabel}
+        </p>
+      </header>
+      {fields.introHtml && (
+        <div class="cat-intro wp-import" set:html={fields.introHtml} />
+      )}
+      {fields.faq.length > 0 && (
+        <section class="cat-faq" aria-labelledby="cat-faq-title">
+          <h2 id="cat-faq-title">{t.faqTitle}</h2>
+          <dl class="faq-list">
+            {fields.faq.map((item) => (
+              <>
+                <dt>{item.question}</dt>
+                <dd>{item.answer}</dd>
+              </>
+            ))}
+          </dl>
+        </section>
+      )}
+      <ul class="post-list">
+        {fields.posts.map((p) => (
+          <li>
+            <a href={articlePath(p.slug, lang)} class="post-card">
+              <span class="post-title">{getArticleNavTitle(p.slug, lang)}</span>
+              {p.excerpt && <span class="post-excerpt">{p.excerpt}…</span>}
+              <time datetime={p.date}>{formatDate(p.date, lang)}</time>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .category-page {
+    padding-block: clamp(2rem, 5vw, 3.5rem);
+    background: var(--color-cream);
+    min-height: 50vh;
+  }
+
+  .breadcrumb {
+    font-size: 0.88rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-ink-muted);
+  }
+
+  .breadcrumb a {
+    color: var(--color-ocean);
+    font-weight: 500;
+  }
+
+  .bc-sep {
+    margin: 0 0.4rem;
+    opacity: 0.6;
+  }
+
+  .cat-header {
+    margin-bottom: 2rem;
+  }
+
+  .cat-header h1 {
+    color: var(--color-ocean);
+    font-size: clamp(1.65rem, 4vw, 2.1rem);
+  }
+
+  .cat-count {
+    margin-top: 0.35rem;
+    color: var(--color-ink-muted);
+    font-size: 0.95rem;
+  }
+
+  .cat-intro {
+    margin-bottom: 1.75rem;
+    padding: 1.15rem 1.25rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    line-height: 1.65;
+    color: var(--color-ink-soft);
+    max-width: 52rem;
+  }
+
+  .cat-intro :global(a) {
+    color: var(--color-ocean);
+    font-weight: 600;
+  }
+
+  .cat-faq {
+    margin-bottom: 2rem;
+    max-width: 52rem;
+  }
+
+  .cat-faq h2 {
+    font-size: 1.25rem;
+    color: var(--color-ocean);
+    margin-bottom: 1rem;
+  }
+
+  .faq-list {
+    margin: 0;
+  }
+
+  .faq-list dt {
+    font-weight: 700;
+    margin-top: 0.85rem;
+  }
+
+  .faq-list dd {
+    margin: 0.3rem 0 0;
+    color: var(--color-ink-soft);
+    line-height: 1.6;
+  }
+
+  .post-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .post-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1.15rem 1.25rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .post-card:hover {
+    border-color: var(--color-ocean);
+    box-shadow: var(--shadow-md);
+  }
+
+  .post-title {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--color-ocean);
+  }
+
+  .post-excerpt {
+    font-size: 0.92rem;
+    color: var(--color-ink-soft);
+    line-height: 1.5;
+  }
+
+  .post-card time {
+    font-size: 0.82rem;
+    color: var(--color-ink-muted);
+  }
+</style>

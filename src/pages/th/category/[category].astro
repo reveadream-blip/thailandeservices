@@ -1,0 +1,13 @@
+---
+import CategoryListPage from '../../../components/categories/CategoryListPage.astro'
+import { getAllCategorySlugs } from '../../../lib/category-i18n'
+
+export function getStaticPaths() {
+  return getAllCategorySlugs().map((category) => ({ params: { category } }))
+}
+
+const { category } = Astro.params
+if (!category) return Astro.redirect('/th/')
+---
+
+<CategoryListPage lang="th" categorySlug={category} />

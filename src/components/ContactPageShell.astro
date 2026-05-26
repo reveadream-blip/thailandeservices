@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Contact from './Contact.astro'
+import { translations, type Lang } from '../i18n/translations'
+import { contactPagePath, homePath } from '../lib/locale-path'
+import { absoluteUrl } from '../lib/seo'
+
+export interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
+const t = translations[lang].contactPage
+const canonicalPath = contactPagePath(lang)
+const homeHref = homePath(lang)
+
+const hreflangAlternates = {
+  fr: absoluteUrl(contactPagePath('fr')),
+  en: absoluteUrl(contactPagePath('en')),
+  th: absoluteUrl(contactPagePath('th')),
+}
+---
+
+<BaseLayout
+  lang={lang}
+  pageTitle={t.pageTitle}
+  metaDescription={t.metaDescription}
+  canonicalPath={canonicalPath}
+  hreflangAlternates={hreflangAlternates}
+>
+  <div class="contact-page-wrap">
+    <div class="container">
+      <nav class="breadcrumb" aria-label={t.breadcrumbLabel}>
+        <a href={homeHref}>{t.home}</a>
+        <span class="bc-sep" aria-hidden="true">/</span>
+        <span class="bc-current">{t.breadcrumbContact}</span>
+      </nav>
+      <h1 class="contact-page-h1">{t.pageH1}</h1>
+    </div>
+    <Contact lang={lang} />
+  </div>
+</BaseLayout>
+
+<style>
+  .contact-page-wrap {
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-gold) 8%, transparent) 0%,
+      var(--color-sand-light) 100%
+    );
+    min-height: 60vh;
+  }
+
+  .breadcrumb {
+    font-size: 0.88rem;
+    padding-block: 1.25rem 0;
+    color: var(--color-ink-muted);
+  }
+
+  .breadcrumb a {
+    color: var(--color-ocean);
+    font-weight: 500;
+  }
+
+  .contact-page-h1 {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: var(--color-ocean);
+    margin: 0.75rem 0 0;
+    line-height: 1.2;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .bc-sep {
+    margin-inline: 0.35rem;
+  }
+
+  .bc-current {
+    color: var(--color-ink-soft);
+  }
+</style>
