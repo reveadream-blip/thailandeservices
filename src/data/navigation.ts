@@ -12,6 +12,12 @@ export type NavItem = {
   children?: { label: string; href: string }[]
 }
 
+/** Onglet principal « Actualités » (articles Markdown dans `src/content/actualites/`). */
+export const ACTUALITES_NAV = {
+  label: 'Actualités',
+  href: '/actualites/',
+} as const
+
 export const CATEGORY_LABELS: Record<string, string> = {
   'adresses-utiles': 'Adresses Utiles à Phuket',
   'les-bonnes-adresses-francophones': 'Les bonnes adresses Francophones à Phuket',

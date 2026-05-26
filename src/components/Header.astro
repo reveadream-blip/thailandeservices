@@ -1,7 +1,7 @@
 ---
 import { translations, type Lang, LANGS, LANG_LABELS } from '../i18n/translations'
 import { CONTACT, SITE, contactFormHref } from '../config'
-import { MAIN_NAV_FR } from '../data/navigation'
+import { ACTUALITES_NAV, MAIN_NAV_FR } from '../data/navigation'
 import NavIcon from './NavIcon.astro'
 
 export interface Props {
@@ -92,6 +92,12 @@ const localeHref = (target: Lang) => (target === 'fr' ? '/' : `/${target}/`)
             )}
           </div>
         ))}
+        <a href={ACTUALITES_NAV.href} class="nav-actualites">
+          <span class="nav-icon-wrap nav-icon-wrap--news">
+            <NavIcon name="news" size={18} />
+          </span>
+          <span>{ACTUALITES_NAV.label}</span>
+        </a>
         <a href={contactFormHref(lang)} class="nav-cta" title={t.nav.contactForm}>
           <span class="nav-icon-wrap nav-icon-wrap--cta">
             <NavIcon name="mail" size={17} />
@@ -125,6 +131,12 @@ const localeHref = (target: Lang) => (target === 'fr' ? '/' : `/${target}/`)
         </ul>
       </details>
     ))}
+    <a href={ACTUALITES_NAV.href} class="mobile-actualites-link">
+      <span class="nav-icon-wrap nav-icon-wrap--news nav-icon-wrap--mobile-sm">
+        <NavIcon name="news" size={17} />
+      </span>
+      <span>{ACTUALITES_NAV.label}</span>
+    </a>
     <a href={contactFormHref(lang)} class="mobile-form-link">
       <span class="nav-icon-wrap nav-icon-wrap--cta nav-icon-wrap--mobile-sm">
         <NavIcon name="mail" size={17} />
@@ -544,6 +556,37 @@ const localeHref = (target: Lang) => (target === 'fr' ? '/' : `/${target}/`)
     display: block;
   }
 
+  .nav-icon-wrap--news {
+    background: linear-gradient(145deg, #7c3aed 0%, #6d28d9 100%);
+    box-shadow: 0 4px 14px rgba(124, 58, 237, 0.35);
+  }
+
+  .nav-actualites {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-self: center;
+    flex-shrink: 0;
+    gap: 0.45rem;
+    min-height: 42px;
+    padding: 0.4rem 0.75rem 0.4rem 0.42rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--color-ocean);
+    white-space: nowrap;
+    border-radius: var(--radius-md);
+    border: 1px solid color-mix(in srgb, var(--color-ocean) 25%, var(--color-border));
+    background: #fff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .nav-actualites:hover {
+    border-color: var(--color-ocean);
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-1px);
+    color: var(--color-ocean);
+  }
+
   .nav-cta {
     display: flex;
     flex-direction: row;
@@ -654,6 +697,7 @@ const localeHref = (target: Lang) => (target === 'fr' ? '/' : `/${target}/`)
     color: var(--color-ink-soft);
   }
 
+  .mobile-actualites-link,
   .mobile-form-link,
   .mobile-wa {
     display: flex;
