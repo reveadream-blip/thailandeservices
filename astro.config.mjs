@@ -21,6 +21,17 @@ export default defineConfig({
     sitemap({
       filter: (page) =>
         !page.includes('/404') && !page.includes('/api/') && !page.includes('/api/chatbot'),
+      i18n: {
+        defaultLocale: 'fr',
+        locales: {
+          fr: 'fr-FR',
+          en: 'en-US',
+          th: 'th-TH',
+        },
+      },
+      namespaces: {
+        xhtml: true,
+      },
     }),
   ],
   i18n: {
