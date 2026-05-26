@@ -1,0 +1,164 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import {
+  actualiteHref,
+  actualitesIndexHref,
+  formatActualiteDate,
+  type ActualiteEntry,
+} from '../../lib/actualites'
+import { absoluteUrl, buildCategorySchemaGraph, truncateMeta } from '../../lib/seo'
+import { translations, type Lang } from '../../i18n/translations'
+
+export interface Props {
+  lang: Lang
+  posts: ActualiteEntry[]
+}
+
+const { lang, posts } = Astro.props
+const t = translations[lang].actualites
+const listPath = actualitesIndexHref(lang)
+const listUrl = absoluteUrl(listPath)
+const metaDescription = truncateMeta(t.metaDescription, 160)
+const jsonLdExtra = buildCategorySchemaGraph({
+  name: t.h1,
+  description: metaDescription,
+  url: listUrl,
+  articleUrls: posts.map((p) => absoluteUrl(actualiteHref(p))),
+})
+const homeHref = lang === 'fr' ? '/' : `/${lang}/`
+---
+
+<BaseLayout
+  lang={lang}
+  pageTitle={t.pageTitle}
+  metaDescription={metaDescription}
+  canonicalPath={listPath}
+  jsonLdExtra={jsonLdExtra}
+>
+  <div class="actualites-page">
+    <div class="container">
+      <nav class="breadcrumb" aria-label={t.breadcrumbLabel}>
+        <a href={homeHref}>{t.home}</a>
+        <span class="bc-sep" aria-hidden="true">/</span>
+        <span class="bc-current">{t.h1}</span>
+      </nav>
+
+      <header class="actualites-header">
+        <h1>{t.h1}</h1>
+        <p class="actualites-lead">{t.lead}</p>
+      </header>
+
+      {posts.length === 0 ? (
+        <p class="actualites-empty">{t.empty}</p>
+      ) : (
+        <ul class="actualites-list">
+          {posts.map((post) => (
+            <li>
+              <article class="actualite-card">
+                <a href={actualiteHref(post)} class="actualite-card-link">
+                  <h2>{post.data.title}</h2>
+                  <p class="actualite-excerpt">{post.data.description}</p>
+                  <time datetime={post.data.pubDate.toISOString()}>
+                    {formatActualiteDate(post.data.pubDate, lang)}
+                  </time>
+                </a>
+              </article>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .actualites-page {
+    padding-block: clamp(2rem, 5vw, 3.5rem);
+    background: var(--color-cream);
+    min-height: 50vh;
+  }
+
+  .breadcrumb {
+    font-size: 0.88rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-ink-muted);
+  }
+
+  .breadcrumb a {
+    color: var(--color-ocean);
+    font-weight: 500;
+  }
+
+  .bc-sep {
+    margin: 0 0.4rem;
+    opacity: 0.6;
+  }
+
+  .actualites-header {
+    margin-bottom: 2rem;
+  }
+
+  .actualites-header h1 {
+    color: var(--color-ocean);
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .actualites-lead {
+    color: var(--color-ink-soft);
+    line-height: 1.65;
+    max-width: 42rem;
+  }
+
+  .actualites-empty {
+    color: var(--color-ink-muted);
+  }
+
+  .actualites-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .actualite-card {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .actualite-card:hover {
+    border-color: var(--color-ocean);
+    box-shadow: var(--shadow-md);
+  }
+
+  .actualite-card-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1.2rem 1.35rem;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .actualite-card h2 {
+    font-size: 1.12rem;
+    color: var(--color-ocean);
+    line-height: 1.3;
+  }
+
+  .actualite-excerpt {
+    font-size: 0.95rem;
+    color: var(--color-ink-soft);
+    line-height: 1.55;
+  }
+
+  .actualite-card time {
+    font-size: 0.82rem;
+    color: var(--color-ink-muted);
+  }
+</style>

@@ -2,6 +2,8 @@
  * Menu et archives — chemins relatifs vers les pages Astro.
  */
 
+import type { Lang } from '../i18n/translations'
+
 export type NavIconId = 'map' | 'store' | 'shield' | 'globe'
 
 export type NavItem = {
@@ -12,11 +14,10 @@ export type NavItem = {
   children?: { label: string; href: string }[]
 }
 
-/** Onglet principal « Actualités » (articles Markdown dans `src/content/actualites/`). */
-export const ACTUALITES_NAV = {
-  label: 'Actualités',
-  href: '/actualites/',
-} as const
+/** Onglet principal « Actualités » (articles Markdown dans `src/content/actualites/{slug}/`). */
+export function actualitesNavHref(lang: Lang): string {
+  return lang === 'fr' ? '/actualites/' : `/${lang}/actualites/`
+}
 
 export const CATEGORY_LABELS: Record<string, string> = {
   'adresses-utiles': 'Adresses Utiles à Phuket',

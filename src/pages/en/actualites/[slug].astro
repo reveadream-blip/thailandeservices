@@ -1,0 +1,17 @@
+---
+import ActualiteDetailPage from '../../../components/actualites/ActualiteDetailPage.astro'
+import { getActualiteKey, getPublishedActualites } from '../../../lib/actualites'
+
+export async function getStaticPaths() {
+  const posts = await getPublishedActualites('en')
+  return posts.map((post) => ({
+    params: { slug: getActualiteKey(post) },
+    props: { post },
+  }))
+}
+
+const lang = 'en' as const
+const { post } = Astro.props
+---
+
+<ActualiteDetailPage lang={lang} post={post} />

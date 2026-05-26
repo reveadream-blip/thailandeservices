@@ -30,6 +30,20 @@ export const translations = {
       menuContact: 'Contact',
       skipContent: 'Aller au contenu',
       viewCategory: 'Voir la catégorie',
+      actualites: 'Actualités',
+    },
+    actualites: {
+      pageTitle: 'Actualités Phuket & Thaïlande',
+      metaDescription:
+        'Actualités et guides pour expatriés à Phuket : assurance santé, immobilier, interprète et vie en Thaïlande.',
+      h1: 'Actualités',
+      lead:
+        'Articles et conseils pour les francophones à Phuket et en Thaïlande : assurance, immobilier, interprète et expatriation.',
+      empty: 'Aucun article publié pour le moment.',
+      home: 'Accueil',
+      breadcrumbLabel: "Fil d'Ariane",
+      relatedTitle: 'Autres actualités',
+      backToList: '← Toutes les actualités',
     },
     homeSlider: {
       slide1: {
@@ -212,6 +226,20 @@ export const translations = {
       menuContact: 'Contact',
       skipContent: 'Skip to content',
       viewCategory: 'View category',
+      actualites: 'News',
+    },
+    actualites: {
+      pageTitle: 'News — Phuket & Thailand',
+      metaDescription:
+        'News and guides for expats in Phuket: health insurance, real estate, interpreter services and life in Thailand.',
+      h1: 'News',
+      lead:
+        'Articles and tips for expats in Phuket and Thailand: insurance, real estate, interpreter services and relocation.',
+      empty: 'No articles published yet.',
+      home: 'Home',
+      breadcrumbLabel: 'Breadcrumb',
+      relatedTitle: 'More news',
+      backToList: '← All news',
     },
     homeSlider: {
       slide1: {
@@ -378,6 +406,20 @@ export const translations = {
       menuContact: 'ติดต่อ',
       skipContent: 'ข้ามไปยังเนื้อหา',
       viewCategory: 'ดูหมวดหมู่',
+      actualites: 'ข่าวสาร',
+    },
+    actualites: {
+      pageTitle: 'ข่าวสาร — ภูเก็ตและไทย',
+      metaDescription:
+        'ข่าวและคู่มือสำหรับชาวต่างชาติที่ภูเก็ต: ประกันสุขภาพ อสังหาฯ ล่ามและชีวิตในไทย',
+      h1: 'ข่าวสาร',
+      lead:
+        'บทความและคำแนะนำสำหรับชาวต่างชาติที่ภูเก็ตและไทย: ประกัน อสังหาฯ ล่ามและการย้ายถิ่น',
+      empty: 'ยังไม่มีบทความ',
+      home: 'หน้าแรก',
+      breadcrumbLabel: 'เส้นทางนำทาง',
+      relatedTitle: 'ข่าวอื่นๆ',
+      backToList: '← ข่าวสารทั้งหมด',
     },
     homeSlider: {
       slide1: {

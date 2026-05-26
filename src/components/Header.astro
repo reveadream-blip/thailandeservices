@@ -1,7 +1,7 @@
 ---
 import { translations, type Lang, LANGS, LANG_LABELS } from '../i18n/translations'
 import { CONTACT, SITE, contactFormHref } from '../config'
-import { ACTUALITES_NAV, MAIN_NAV_FR } from '../data/navigation'
+import { actualitesNavHref, MAIN_NAV_FR } from '../data/navigation'
 import NavIcon from './NavIcon.astro'
 
 export interface Props {
@@ -92,11 +92,11 @@ const localeHref = (target: Lang) => (target === 'fr' ? '/' : `/${target}/`)
             )}
           </div>
         ))}
-        <a href={ACTUALITES_NAV.href} class="nav-actualites">
+        <a href={actualitesNavHref(lang)} class="nav-actualites">
           <span class="nav-icon-wrap nav-icon-wrap--news">
             <NavIcon name="news" size={18} />
           </span>
-          <span>{ACTUALITES_NAV.label}</span>
+          <span>{t.nav.actualites}</span>
         </a>
         <a href={contactFormHref(lang)} class="nav-cta" title={t.nav.contactForm}>
           <span class="nav-icon-wrap nav-icon-wrap--cta">
@@ -131,11 +131,11 @@ const localeHref = (target: Lang) => (target === 'fr' ? '/' : `/${target}/`)
         </ul>
       </details>
     ))}
-    <a href={ACTUALITES_NAV.href} class="mobile-actualites-link">
+    <a href={actualitesNavHref(lang)} class="mobile-actualites-link">
       <span class="nav-icon-wrap nav-icon-wrap--news nav-icon-wrap--mobile-sm">
         <NavIcon name="news" size={17} />
       </span>
-      <span>{ACTUALITES_NAV.label}</span>
+      <span>{t.nav.actualites}</span>
     </a>
     <a href={contactFormHref(lang)} class="mobile-form-link">
       <span class="nav-icon-wrap nav-icon-wrap--cta nav-icon-wrap--mobile-sm">

@@ -1,7 +1,7 @@
 ---
 import { translations, type Lang } from '../i18n/translations'
 import { CONTACT, SITE, contactFormHref } from '../config'
-import { ACTUALITES_NAV, FOOTER_ARCHIVES } from '../data/navigation'
+import { actualitesNavHref, FOOTER_ARCHIVES } from '../data/navigation'
 
 export interface Props {
   lang: Lang
@@ -21,7 +21,7 @@ const t = translations[lang]
 
     <div class="footer-links">
       <h4>{t.footer.contactBlockTitle}</h4>
-      <a href={ACTUALITES_NAV.href}>{ACTUALITES_NAV.label}</a>
+      <a href={actualitesNavHref(lang)}>{t.nav.actualites}</a>
       <a href={contactFormHref(lang)}>{t.nav.contactForm}</a>
       <a href={CONTACT.whatsappLink} target="_blank" rel="noopener">
         {t.footer.byWhatsapp} · {CONTACT.phoneDisplay}

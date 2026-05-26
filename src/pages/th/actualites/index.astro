@@ -1,0 +1,9 @@
+---
+import ActualitesListPage from '../../../components/actualites/ActualitesListPage.astro'
+import { getPublishedActualites } from '../../../lib/actualites'
+
+const lang = 'th' as const
+const posts = await getPublishedActualites(lang)
+---
+
+<ActualitesListPage lang={lang} posts={posts} />
