@@ -1,15 +1,17 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import {
   CHATBOT_WEB3FORMS_ACCESS_KEY,
   CONTACT,
   isConfiguredWeb3FormsAccessKey,
 } from '../config'
+import {
+  getChatbotCopy,
+  questionForPerson,
+  storageKeyForLang,
+  type PersonField,
+} from '../i18n/chatbot-translations'
+import type { Lang } from '../i18n/translations'
 import { parseWeb3FormsSubmitResponse } from '../lib/web3formsSubmit'
-
-const WELCOME =
-  "Bonjour — c'est le formulaire rapide assurance (Tammy). Pas de chatbot compliqué : on vous pose quelques questions, puis on vous rappelle. Cliquez sur Commencer."
-
-const STORAGE_KEY = 'chatbot_v2_state'
 
 /** Sous ce seuil, le panneau démarre réduit (launcher) ; desktop reste ouvert par défaut. */
 const MOBILE_MAX_WIDTH = '(max-width: 767px)'
@@ -17,8 +19,6 @@ const MOBILE_MAX_WIDTH = '(max-width: 767px)'
 function isMobileChatViewport(): boolean {
   return typeof window !== 'undefined' && window.matchMedia(MOBILE_MAX_WIDTH).matches
 }
-
-type PersonField = 'nom' | 'prenom' | 'age' | 'taille' | 'poids' | 'antecedents'
 
 type FlowPhase =
   | 'choose_household'
@@ -29,7 +29,6 @@ type FlowPhase =
   | 'person_fields'
   | 'shared_telephone'
   | 'done'
-  /** Clé Web3Forms absente au build (ex. variable non définie sur Cloudflare Pages). */
   | 'missing_key'
 
 type PersistedState = {
@@ -44,44 +43,10 @@ type PersistedState = {
 
 const PERSON_FIELDS: PersonField[] = ['nom', 'prenom', 'age', 'taille', 'poids', 'antecedents']
 
-const SHARED_LABELS = {
-  email: 'Quelle est votre adresse e-mail pour recevoir les informations ?',
-  adresse:
-    'Quelle est votre adresse actuelle en Thaïlande ou avez-vous prévu de vous expatrier en Thaïlande ?',
-  visa: 'Quel type de visa avez-vous ou prévoyez-vous (pour le foyer / la situation principale) ?',
-  telephone:
-    'Pour finaliser, quel est votre numéro de téléphone (avec indicatif pays, ex. +66 …) afin que nous puissions vous rappeler ?',
-} as const
-
 function personKeys(personIndex: number, field: PersonField): string {
   return `p${personIndex}_${field}`
 }
 
-function questionForPerson(nb: number, personIndex: number, field: PersonField): string {
-  const n = personIndex + 1
-  const prefix = nb > 1 ? `Personne ${n} sur ${nb} — ` : ''
-  switch (field) {
-    case 'nom':
-      return `${prefix}Quel est le nom de famille ?`
-    case 'prenom':
-      return `${prefix}Quel est le prénom ?`
-    case 'age':
-      return `${prefix}Quel âge avez-vous ?`
-    case 'taille':
-      return `${prefix}Quelle est votre taille ? (ex. 175 cm ou 1,75 m)`
-    case 'poids':
-      return `${prefix}Quel est votre poids ? (ex. 70 kg)`
-    case 'antecedents':
-      return `${prefix}Avez-vous des antécédents médicaux ? Si oui, veuillez les décrire.`
-    default:
-      return ''
-  }
-}
-
-/**
- * Clé embarquée au build + repli sur le champ caché du formulaire contact (même page d’accueil),
- * utile si une variable Cloudflare « chatbot » est invalide ou si un vieux bundle JS est en cache.
- */
 function readWeb3KeyForChatbot(): string {
   if (typeof window === 'undefined') return CHATBOT_WEB3FORMS_ACCESS_KEY
   if (isConfiguredWeb3FormsAccessKey(CHATBOT_WEB3FORMS_ACCESS_KEY)) {
@@ -95,66 +60,32 @@ function readWeb3KeyForChatbot(): string {
   return CHATBOT_WEB3FORMS_ACCESS_KEY
 }
 
-/** Bloc commun : comment joindre le site + rappel config (détail selon dev / prod). */
-function keyMissingActionBlock(): string {
-  const adminLine = import.meta.env.DEV
-    ? '[Développement] Ajoutez PUBLIC_WEB3FORMS_ACCESS_KEY (ou PUBLIC_CHATBOT_WEB3FORMS_ACCESS_KEY) dans .env, ou sur Cloudflare Pages — le nom doit commencer par PUBLIC_, puis redéployez.'
-    : 'Si vous gérez le site : Cloudflare Pages → Settings → Environment variables → ajoutez PUBLIC_WEB3FORMS_ACCESS_KEY (même valeur que Web3Forms), puis relancez un déploiement.'
-  return [
-    `WhatsApp : ${CONTACT.waMeLink}`,
-    '',
-    'Formulaire « Contact » en bas de la page.',
-    '',
-    adminLine,
-  ].join('\n')
-}
-
-function missingKeyAtStartText(): string {
-  return (
-    "L’assistant ne peut pas encore envoyer une demande automatiquement depuis cette version du site.\n\n" + keyMissingActionBlock()
-  )
-}
-
-function missingKeyAfterFlowText(): string {
-  return (
-    "Merci pour vos réponses ! Nous n’avons pas pu envoyer le dossier depuis l’assistant.\n\n" + keyMissingActionBlock()
-  )
-}
-
-function buildChatbotMessage(answers: Record<string, string>, nbPersonnes: number): string {
-  const lines: string[] = ["Nouvelle demande d'assurance (chatbot)", '', `Nombre de personnes à assurer : ${nbPersonnes}`, '']
-
-  lines.push('— Coordonnées et situation —')
-  lines.push(`Email : ${answers.email ?? ''}`)
-  lines.push(`Adresse / expatriation : ${answers.adresse ?? ''}`)
-  lines.push(`Visa : ${answers.visa ?? ''}`)
-  lines.push(`Téléphone : ${answers.telephone ?? ''}`)
-  lines.push('')
-
-  for (let i = 0; i < nbPersonnes; i++) {
-    lines.push(`— Personne ${i + 1} —`)
-    lines.push(`Nom : ${answers[personKeys(i, 'nom')] ?? ''}`)
-    lines.push(`Prénom : ${answers[personKeys(i, 'prenom')] ?? ''}`)
-    lines.push(`Âge : ${answers[personKeys(i, 'age')] ?? ''}`)
-    lines.push(`Taille : ${answers[personKeys(i, 'taille')] ?? ''}`)
-    lines.push(`Poids : ${answers[personKeys(i, 'poids')] ?? ''}`)
-    lines.push(`Antécédents : ${answers[personKeys(i, 'antecedents')] ?? ''}`)
-    lines.push('')
-  }
-
-  return lines.join('\n').trimEnd()
-}
-
-function displayNameFromAnswers(answers: Record<string, string>, nb: number): string {
+function displayNameFromAnswers(
+  answers: Record<string, string>,
+  nb: number,
+  copy: ReturnType<typeof getChatbotCopy>,
+): string {
   const prenom = answers[personKeys(0, 'prenom')] ?? ''
   const nom = answers[personKeys(0, 'nom')] ?? ''
   const joined = `${prenom} ${nom}`.trim()
   if (joined) return joined
-  if (nb > 1) return `Demande ${nb} personnes`
-  return 'Chatbot'
+  if (nb > 1) return copy.displayFallbackMulti(nb)
+  return copy.displayFallbackDefault
 }
 
-const Chatbot: React.FC = () => {
+export interface ChatbotProps {
+  lang: Lang
+}
+
+const Chatbot: React.FC<ChatbotProps> = ({ lang }) => {
+  const copy = useMemo(() => getChatbotCopy(lang), [lang])
+  const storageKey = useMemo(() => storageKeyForLang(lang), [lang])
+
+  const keyMissingActionBlock = useMemo(() => {
+    const adminLine = import.meta.env.DEV ? copy.missingKeyAdminDev : copy.missingKeyAdminProd
+    return [`WhatsApp : ${CONTACT.waMeLink}`, '', copy.missingKeyContactLine, '', adminLine].join('\n')
+  }, [copy])
+
   const [web3AccessKey, setWeb3AccessKey] = useState(readWeb3KeyForChatbot)
   const [phase, setPhase] = useState<FlowPhase>('choose_household')
   const [nbPersonnes, setNbPersonnes] = useState(1)
@@ -163,7 +94,7 @@ const Chatbot: React.FC = () => {
   const [answers, setAnswers] = useState<Record<string, string>>({})
   const [input, setInput] = useState('')
   const [messages, setMessages] = useState<Array<{ text: string; sender: 'bot' | 'user' }>>([
-    { text: WELCOME, sender: 'bot' },
+    { text: copy.welcome, sender: 'bot' },
   ])
   const [isStarted, setIsStarted] = useState(false)
   const [isSending, setIsSending] = useState(false)
@@ -181,7 +112,6 @@ const Chatbot: React.FC = () => {
       phase === 'person_fields' ||
       phase === 'shared_telephone')
 
-  /** Mobile : chat réduit au chargement ; PC : ouvert (comportement inchangé). */
   useLayoutEffect(() => {
     if (isMobileChatViewport()) setMinimized(true)
   }, [])
@@ -199,7 +129,19 @@ const Chatbot: React.FC = () => {
   }, [web3AccessKey])
 
   useEffect(() => {
-    const raw = localStorage.getItem(STORAGE_KEY)
+    setMessages([{ text: copy.welcome, sender: 'bot' }])
+    setPhase('choose_household')
+    setNbPersonnes(1)
+    setCurrentPersonIndex(0)
+    setCurrentPersonField('nom')
+    setAnswers({})
+    setInput('')
+    setIsStarted(false)
+    setIsSending(false)
+  }, [lang, copy.welcome])
+
+  useEffect(() => {
+    const raw = localStorage.getItem(storageKey)
     if (!raw) return
     try {
       const s = JSON.parse(raw) as PersistedState
@@ -213,7 +155,7 @@ const Chatbot: React.FC = () => {
     } catch {
       /* ignore */
     }
-  }, [])
+  }, [storageKey])
 
   useEffect(() => {
     if (!isStarted) return
@@ -226,14 +168,13 @@ const Chatbot: React.FC = () => {
       messages,
       isStarted,
     }
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(payload))
-  }, [phase, nbPersonnes, currentPersonIndex, currentPersonField, answers, messages, isStarted])
+    localStorage.setItem(storageKey, JSON.stringify(payload))
+  }, [phase, nbPersonnes, currentPersonIndex, currentPersonField, answers, messages, isStarted, storageKey])
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages, minimized])
 
-  /** Remettre le focus dans le champ de réponse après Entrée / envoi (question suivante ou erreur de validation). */
   useLayoutEffect(() => {
     if (!needsTextInput || minimized || isSending) return
     answerFieldRef.current?.focus()
@@ -251,18 +192,12 @@ const Chatbot: React.FC = () => {
     if (!isConfiguredWeb3FormsAccessKey(web3AccessKey)) {
       setIsStarted(true)
       setPhase('missing_key')
-      setMessages((prev) => [...prev, { text: missingKeyAtStartText(), sender: 'bot' }])
+      setMessages((prev) => [...prev, { text: copy.missingKeyStart(keyMissingActionBlock), sender: 'bot' }])
       return
     }
     setIsStarted(true)
     setPhase('choose_household')
-    setMessages((prev) => [
-      ...prev,
-      {
-        text: 'Souhaitez-vous une assurance pour une seule personne ou pour plusieurs personnes ?',
-        sender: 'bot',
-      },
-    ])
+    setMessages((prev) => [...prev, { text: copy.householdQuestion, sender: 'bot' }])
   }
 
   const startSharedQuestions = (n: number, newAnswers: Record<string, string>) => {
@@ -270,38 +205,26 @@ const Chatbot: React.FC = () => {
     setPhase('shared_email')
     setMessages((prev) => [
       ...prev,
-      {
-        text:
-          n > 1
-            ? `Très bien. Nous allons d’abord recueillir l’e-mail, l’adresse et le type de visa (communs au dossier), puis pour chacune des ${n} personnes : nom, prénom, âge, taille, poids et antécédents médicaux, puis votre numéro de téléphone pour vous recontacter.`
-            : 'Parfait. Nous allons d’abord recueillir vos coordonnées (e-mail, adresse, visa), puis votre nom, prénom, âge, taille, poids et antécédents médicaux, puis votre numéro de téléphone pour vous recontacter.',
-        sender: 'bot',
-      },
-      { text: SHARED_LABELS.email, sender: 'bot' },
+      { text: n > 1 ? copy.introMulti(n) : copy.introSingle, sender: 'bot' },
+      { text: copy.shared.email, sender: 'bot' },
     ])
     setAnswers(newAnswers)
   }
 
   const handleHouseholdChoice = (choice: 'one' | 'two' | 'three_plus') => {
     if (choice === 'one') {
-      setMessages((prev) => [...prev, { text: 'Une seule personne', sender: 'user' }])
+      setMessages((prev) => [...prev, { text: copy.householdOneUser, sender: 'user' }])
       startSharedQuestions(1, answers)
       return
     }
     if (choice === 'two') {
-      setMessages((prev) => [...prev, { text: 'Deux personnes', sender: 'user' }])
+      setMessages((prev) => [...prev, { text: copy.householdTwoUser, sender: 'user' }])
       startSharedQuestions(2, answers)
       return
     }
-    setMessages((prev) => [...prev, { text: 'Trois personnes ou plus', sender: 'user' }])
+    setMessages((prev) => [...prev, { text: copy.householdThreePlusUser, sender: 'user' }])
     setPhase('ask_count_many')
-    setMessages((prev) => [
-      ...prev,
-      {
-        text: 'Combien de personnes souhaitez-vous assurer au total ? (indiquez un nombre, minimum 3)',
-        sender: 'bot',
-      },
-    ])
+    setMessages((prev) => [...prev, { text: copy.askCountMany, sender: 'bot' }])
   }
 
   const advancePersonField = (newAnswers: Record<string, string>) => {
@@ -311,7 +234,10 @@ const Chatbot: React.FC = () => {
       setCurrentPersonField(nextField)
       setMessages((prev) => [
         ...prev,
-        { text: questionForPerson(nbPersonnes, currentPersonIndex, nextField), sender: 'bot' },
+        {
+          text: questionForPerson(copy, nbPersonnes, currentPersonIndex, nextField),
+          sender: 'bot',
+        },
       ])
       setAnswers(newAnswers)
       return
@@ -322,13 +248,13 @@ const Chatbot: React.FC = () => {
       setCurrentPersonField('nom')
       setMessages((prev) => [
         ...prev,
-        { text: questionForPerson(nbPersonnes, nextPi, 'nom'), sender: 'bot' },
+        { text: questionForPerson(copy, nbPersonnes, nextPi, 'nom'), sender: 'bot' },
       ])
       setAnswers(newAnswers)
       return
     }
     setPhase('shared_telephone')
-    setMessages((prev) => [...prev, { text: SHARED_LABELS.telephone, sender: 'bot' }])
+    setMessages((prev) => [...prev, { text: copy.shared.telephone, sender: 'bot' }])
     setAnswers(newAnswers)
   }
 
@@ -339,10 +265,7 @@ const Chatbot: React.FC = () => {
     if (!isConfiguredWeb3FormsAccessKey(web3AccessKey)) {
       setMessages((prev) => [
         ...prev,
-        {
-          text: missingKeyAfterFlowText(),
-          sender: 'bot',
-        },
+        { text: copy.missingKeyAfter(keyMissingActionBlock), sender: 'bot' },
       ])
       window.setTimeout(() => setMinimized(true), 1200)
       return
@@ -352,11 +275,11 @@ const Chatbot: React.FC = () => {
     try {
       const fd = new FormData()
       fd.append('access_key', web3AccessKey)
-      fd.append('name', displayNameFromAnswers(newAnswers, nbPersonnes))
+      fd.append('name', displayNameFromAnswers(newAnswers, nbPersonnes, copy))
       fd.append('email', newAnswers.email ?? '')
-      fd.append('subject', "Demande d'assurance — assistant chatbot")
-      fd.append('from_name', 'Thailande-services — chatbot assurance')
-      fd.append('message', buildChatbotMessage(newAnswers, nbPersonnes))
+      fd.append('subject', copy.web3Subject)
+      fd.append('from_name', copy.web3FromName)
+      fd.append('message', copy.buildMessage(newAnswers, nbPersonnes))
 
       const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -365,14 +288,7 @@ const Chatbot: React.FC = () => {
       const text = await res.text()
       const parsed = parseWeb3FormsSubmitResponse(text)
       if (parsed.success) {
-        setMessages((prev) => [
-          ...prev,
-          {
-            text:
-              "✅ Merci pour vos réponses ! Nous avons bien reçu votre demande d'assurance. Nous vous contacterons bientôt. Vous pouvez réduire cette fenêtre.",
-            sender: 'bot',
-          },
-        ])
+        setMessages((prev) => [...prev, { text: copy.successMessage, sender: 'bot' }])
         window.setTimeout(() => setMinimized(true), 1800)
       } else {
         const parts: string[] = []
@@ -380,22 +296,10 @@ const Chatbot: React.FC = () => {
         if (!res.ok) parts.push(`HTTP ${res.status}`)
         else if (!parsed.message && text.trim()) parts.push(text.trim().slice(0, 120))
         const detail = parts.length ? ` (${parts.join(' — ')})` : ''
-        setMessages((prev) => [
-          ...prev,
-          {
-            text: `⚠️ L'envoi a échoué.${detail} Merci de réessayer ou de nous écrire sur WhatsApp.`,
-            sender: 'bot',
-          },
-        ])
+        setMessages((prev) => [...prev, { text: copy.submitFailed(detail), sender: 'bot' }])
       }
     } catch {
-      setMessages((prev) => [
-        ...prev,
-        {
-          text: "⚠️ Erreur réseau. Merci de réessayer ou de nous contacter via WhatsApp.",
-          sender: 'bot',
-        },
-      ])
+      setMessages((prev) => [...prev, { text: copy.networkError, sender: 'bot' }])
     } finally {
       setIsSending(false)
     }
@@ -412,7 +316,7 @@ const Chatbot: React.FC = () => {
         setMessages((prev) => [
           ...prev,
           { text: userText, sender: 'user' },
-          { text: 'Merci d’indiquer un nombre entier au moins égal à 3.', sender: 'bot' },
+          { text: copy.countMinError, sender: 'bot' },
         ])
         setInput('')
         return
@@ -428,7 +332,7 @@ const Chatbot: React.FC = () => {
         setMessages((prev) => [
           ...prev,
           { text: userText, sender: 'user' },
-          { text: 'Cette adresse ne semble pas valide. Merci d’indiquer une adresse e-mail correcte.', sender: 'bot' },
+          { text: copy.emailInvalid, sender: 'bot' },
         ])
         setInput('')
         return
@@ -438,7 +342,7 @@ const Chatbot: React.FC = () => {
       setInput('')
       setPhase('shared_adresse')
       setAnswers(newAnswers)
-      setMessages((prev) => [...prev, { text: SHARED_LABELS.adresse, sender: 'bot' }])
+      setMessages((prev) => [...prev, { text: copy.shared.adresse, sender: 'bot' }])
       return
     }
 
@@ -448,7 +352,7 @@ const Chatbot: React.FC = () => {
       setInput('')
       setPhase('shared_visa')
       setAnswers(newAnswers)
-      setMessages((prev) => [...prev, { text: SHARED_LABELS.visa, sender: 'bot' }])
+      setMessages((prev) => [...prev, { text: copy.shared.visa, sender: 'bot' }])
       return
     }
 
@@ -462,7 +366,7 @@ const Chatbot: React.FC = () => {
       setAnswers(newAnswers)
       setMessages((prev) => [
         ...prev,
-        { text: questionForPerson(nbPersonnes, 0, 'nom'), sender: 'bot' },
+        { text: questionForPerson(copy, nbPersonnes, 0, 'nom'), sender: 'bot' },
       ])
       return
     }
@@ -473,10 +377,7 @@ const Chatbot: React.FC = () => {
         setMessages((prev) => [
           ...prev,
           { text: userText, sender: 'user' },
-          {
-            text: 'Merci d’indiquer un numéro valide avec indicatif (ex. +33612345678 ou +66634432634).',
-            sender: 'bot',
-          },
+          { text: copy.phoneInvalid, sender: 'bot' },
         ])
         setInput('')
         return
@@ -504,10 +405,10 @@ const Chatbot: React.FC = () => {
     setCurrentPersonField('nom')
     setAnswers({})
     setInput('')
-    setMessages([{ text: WELCOME, sender: 'bot' }])
+    setMessages([{ text: copy.welcome, sender: 'bot' }])
     setIsStarted(false)
     setMinimized(isMobileChatViewport())
-    localStorage.removeItem(STORAGE_KEY)
+    localStorage.removeItem(storageKey)
     localStorage.removeItem('chatbot_answers')
     localStorage.removeItem('chatbot_question')
   }
@@ -532,14 +433,14 @@ const Chatbot: React.FC = () => {
         className="chatbot-launcher"
         onClick={() => setMinimized(false)}
         aria-expanded={false}
-        aria-label="Ouvrir l’assistant assurance"
+        aria-label={copy.launcherAria}
         style={{
           fontWeight: 700,
           cursor: 'pointer',
         }}
       >
         <span aria-hidden>💬</span>
-        Assistant assurance
+        {copy.launcherLabel}
       </button>
     )
   }
@@ -556,12 +457,12 @@ const Chatbot: React.FC = () => {
           gap: '8px',
         }}
       >
-        <strong style={{ fontSize: '14px' }}>Assistant Assurance</strong>
+        <strong style={{ fontSize: '14px' }}>{copy.panelTitle}</strong>
         <button
           type="button"
           onClick={() => setMinimized(true)}
-          aria-label="Réduire le chat"
-          title="Réduire"
+          aria-label={copy.minimizeAria}
+          title={copy.minimizeTitle}
           style={{
             flexShrink: 0,
             width: '32px',
@@ -632,7 +533,7 @@ const Chatbot: React.FC = () => {
               cursor: 'pointer',
             }}
           >
-            Commencer
+            {copy.startButton}
           </button>
         </div>
       )}
@@ -659,7 +560,7 @@ const Chatbot: React.FC = () => {
               cursor: 'pointer',
             }}
           >
-            Une seule personne
+            {copy.householdOne}
           </button>
           <button
             type="button"
@@ -674,7 +575,7 @@ const Chatbot: React.FC = () => {
               cursor: 'pointer',
             }}
           >
-            Deux personnes
+            {copy.householdTwo}
           </button>
           <button
             type="button"
@@ -689,7 +590,7 @@ const Chatbot: React.FC = () => {
               cursor: 'pointer',
             }}
           >
-            Trois personnes ou plus
+            {copy.householdThreePlus}
           </button>
         </div>
       )}
@@ -714,7 +615,7 @@ const Chatbot: React.FC = () => {
                   formRef.current?.requestSubmit()
                 }
               }}
-              placeholder="Votre réponse..."
+              placeholder={copy.placeholder}
               disabled={isSending}
               style={{
                 width: '100%',
@@ -732,7 +633,7 @@ const Chatbot: React.FC = () => {
               type={inputType}
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Votre réponse..."
+              placeholder={copy.placeholder}
               disabled={isSending}
               style={{
                 width: '100%',
@@ -760,7 +661,7 @@ const Chatbot: React.FC = () => {
               opacity: isSending ? 0.7 : 1,
             }}
           >
-            {isSending ? 'Envoi…' : 'Envoyer'}
+            {isSending ? copy.sending : copy.send}
           </button>
         </form>
       )}
@@ -781,7 +682,7 @@ const Chatbot: React.FC = () => {
               cursor: 'pointer',
             }}
           >
-            Réduire la fenêtre
+            {copy.minimizeWindow}
           </button>
           <button
             type="button"
@@ -797,7 +698,7 @@ const Chatbot: React.FC = () => {
               cursor: 'pointer',
             }}
           >
-            Recommencer
+            {copy.restart}
           </button>
         </div>
       )}
