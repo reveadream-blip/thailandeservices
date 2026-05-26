@@ -1,5 +1,7 @@
 ---
 import { translations, type Lang } from '../i18n/translations'
+import { rewriteInternalLinks } from '../lib/internal-links'
+import { localePath } from '../lib/locale-path'
 
 export interface Props {
   lang: Lang
@@ -18,11 +20,11 @@ const block = t.seoIntro
     </header>
     <div class="seo-intro-body" data-reveal>
       {block.paragraphs.map((p) => (
-        <p set:html={p} />
+        <p set:html={rewriteInternalLinks(p, lang)} />
       ))}
       <nav class="seo-intro-links" aria-label="Pages utiles">
         {block.links.map((link) => (
-          <a href={link.href} class="seo-intro-link">
+          <a href={localePath(lang, link.href)} class="seo-intro-link">
             {link.label}
           </a>
         ))}

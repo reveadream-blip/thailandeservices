@@ -1,6 +1,7 @@
 ---
 import { translations, type Lang } from '../i18n/translations'
 import { CONTACT, WP_PAGES, contactFormHref } from '../config'
+import { localePath } from '../lib/locale-path'
 
 export interface Props {
   lang: Lang
@@ -65,7 +66,7 @@ const f = t.emergency.features
           </span>
           <h3>{f.consulate.title}</h3>
           {f.consulate.desc && <p>{f.consulate.desc}</p>}
-          <a href={WP_PAGES.consulat} class="feature-link">
+          <a href={localePath(lang, WP_PAGES.consulat)} class="feature-link">
             {f.consulate.linkLabel}
             <span aria-hidden="true">→</span>
           </a>

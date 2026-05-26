@@ -3,7 +3,7 @@ import { translations, type Lang, LANGS, LANG_LABELS } from '../i18n/translation
 import { CONTACT, SITE, contactFormHref } from '../config'
 import { actualitesNavHref } from '../data/navigation'
 import { getMainNav } from '../lib/navigation-i18n'
-import { homePath } from '../lib/locale-path'
+import { homePath, switchLocalePath } from '../lib/locale-path'
 import NavIcon from './NavIcon.astro'
 
 export interface Props {
@@ -16,7 +16,8 @@ const { lang, logoSrc = '/images/logo.png' } = Astro.props
 const t = translations[lang]
 const mainNav = getMainNav(lang)
 
-const localeHref = (target: Lang) => homePath(target)
+const pathname = Astro.url.pathname
+const localeHref = (target: Lang) => switchLocalePath(pathname, target)
 ---
 
 <header class="site-header">

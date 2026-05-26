@@ -1,6 +1,7 @@
 ---
 import { translations, type Lang } from '../i18n/translations'
 import { WP_PAGES } from '../config'
+import { localePath } from '../lib/locale-path'
 
 export interface Props {
   lang: Lang
@@ -15,7 +16,7 @@ const slides = [
     title: t.homeSlider.slide1.title,
     subtitle: t.homeSlider.slide1.subtitle,
     cta: t.homeSlider.slide1.cta,
-    href: WP_PAGES.interpreteArticle,
+    href: localePath(lang, WP_PAGES.interpreteArticle),
   },
   {
     image: '/images/slide-immobilier.png',
@@ -24,7 +25,7 @@ const slides = [
     title: t.homeSlider.slide2.title,
     body: t.homeSlider.slide2.body,
     cta: t.homeSlider.slide2.cta,
-    href: WP_PAGES.expatriationImmobilier,
+    href: localePath(lang, WP_PAGES.expatriationImmobilier),
   },
   {
     image: '/images/slide-assurance.jpg',
@@ -32,7 +33,7 @@ const slides = [
     title: t.homeSlider.slide3.title,
     subtitle: t.homeSlider.slide3.subtitle,
     cta: t.homeSlider.slide3.cta,
-    href: WP_PAGES.assuranceArticle,
+    href: localePath(lang, WP_PAGES.assuranceArticle),
   },
 ]
 ---
