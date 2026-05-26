@@ -89,7 +89,7 @@ export function getArticleFields(slug: string, lang: Lang): ResolvedArticle {
     introHtml: localizeIntroHtml(i18n.intro, lang),
     faq: i18n.faq ?? [],
     appendContactForm: Boolean(i18n.appendContactForm ?? fr.appendContactForm),
-    showFrenchBodyNotice: !i18n.intro && Boolean(article.content?.trim()),
+    showFrenchBodyNotice: false,
   }
 }
 

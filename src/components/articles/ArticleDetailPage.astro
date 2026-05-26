@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import Contact from '../Contact.astro'
+import { getTranslatedArticleBody, hasTranslatedArticleBody } from '../../lib/article-body'
 import {
   getArticleFields,
   getArticleHreflangAlternates,
@@ -30,11 +31,14 @@ if (!article) {
 }
 
 const fields = getArticleFields(slug, lang)
+const showFrenchBodyNotice =
+  lang !== 'fr' && !hasTranslatedArticleBody(slug, lang) && Boolean(article.content?.trim())
 const t = translations[lang].articlePage
+const bodyHtml = getTranslatedArticleBody(slug, lang) ?? article.content
 const hadEmbeddedForm = htmlHasEmbeddedForm(article.content)
 const showContactBlock = hadEmbeddedForm || fields.appendContactForm
 const html = rewriteInternalLinks(
-  sanitizeArticleBodyHtml(article.content, fields.pageH1),
+  sanitizeArticleBodyHtml(bodyHtml, fields.pageH1),
   lang,
 )
 const metaDescription = truncateMeta(fields.metaDescription, 160)
@@ -84,7 +88,7 @@ const jsonLdExtra = [
       {fields.introHtml && (
         <div class="article-intro wp-import" set:html={fields.introHtml} />
       )}
-      {fields.showFrenchBodyNotice && (
+      {showFrenchBodyNotice && (
         <p class="article-lang-notice" role="note">{t.frenchBodyNotice}</p>
       )}
       <div class="article-body wp-import" set:html={html} />

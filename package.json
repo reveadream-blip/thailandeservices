@@ -10,7 +10,10 @@
     "preview": "astro preview",
     "astro": "astro",
     "import:wp": "node scripts/fetch-wp-articles.mjs",
-    "media:wp": "node scripts/fetch-wp-media.mjs"
+    "media:wp": "node scripts/fetch-wp-media.mjs",
+    "articles:i18n": "node scripts/generate-article-bodies-i18n.mjs",
+    "deploy": "npm run build && wrangler deploy",
+    "deploy:cf": "npm run deploy"
   },
   "dependencies": {
     "@astrojs/react": "^5.0.4",
@@ -19,6 +22,8 @@
     "react-dom": "^19.2.5"
   },
   "devDependencies": {
-    "@astrojs/sitemap": "^3.7.2"
+    "@astrojs/sitemap": "^3.7.2",
+    "cheerio": "^1.0.0",
+    "wrangler": "^4.54.0"
   }
 }
