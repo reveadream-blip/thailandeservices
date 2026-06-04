@@ -53,10 +53,10 @@ export type ChatbotCopy = {
 
 const fr: ChatbotCopy = {
   welcome:
-    "Bonjour — c'est le formulaire rapide assurance (Tammy). On vous pose quelques questions, puis on vous rappelle. Cliquez sur Commencer.",
-  launcherLabel: 'Assistant assurance',
-  launcherAria: "Ouvrir l'assistant assurance",
-  panelTitle: 'Assistant Assurance',
+    "Bonjour, c'est Tammy. Quelques questions pour préparer votre devis — puis je vous rappelle. Cliquez sur Commencer.",
+  launcherLabel: 'Devis assurance',
+  launcherAria: 'Ouvrir le devis assurance',
+  panelTitle: 'Devis assurance',
   minimizeAria: 'Réduire le chat',
   minimizeTitle: 'Réduire',
   startButton: 'Commencer',
@@ -77,9 +77,9 @@ const fr: ChatbotCopy = {
     'Combien de personnes souhaitez-vous assurer au total ? (indiquez un nombre, minimum 3)',
   countMinError: 'Merci d’indiquer un nombre entier au moins égal à 3.',
   introMulti: (n) =>
-    `Très bien. Nous allons d’abord recueillir l’e-mail, l’adresse et le type de visa (communs au dossier), puis pour chacune des ${n} personnes : nom, prénom, âge, taille, poids et antécédents médicaux, puis votre numéro de téléphone pour vous recontacter.`,
+    `D’accord. D’abord e-mail, adresse et visa (communs), puis pour chacune des ${n} personnes : nom, prénom, âge, taille, poids, antécédents, et enfin votre téléphone.`,
   introSingle:
-    'Parfait. Nous allons d’abord recueillir vos coordonnées (e-mail, adresse, visa), puis votre nom, prénom, âge, taille, poids et antécédents médicaux, puis votre numéro de téléphone pour vous recontacter.',
+    'D’accord. E-mail, adresse, visa, puis nom, prénom, âge, taille, poids, antécédents, et votre téléphone à la fin.',
   shared: {
     email: 'Quelle est votre adresse e-mail pour recevoir les informations ?',
     adresse:
@@ -103,9 +103,9 @@ const fr: ChatbotCopy = {
   phoneInvalid:
     'Merci d’indiquer un numéro valide avec indicatif (ex. +33612345678 ou +66634432634).',
   missingKeyStart: (block) =>
-    `L’assistant ne peut pas encore envoyer une demande automatiquement depuis cette version du site.\n\n${block}`,
+    `Le formulaire ne peut pas encore envoyer votre demande depuis cette version du site.\n\n${block}`,
   missingKeyAfter: (block) =>
-    `Merci pour vos réponses ! Nous n’avons pas pu envoyer le dossier depuis l’assistant.\n\n${block}`,
+    `Merci pour vos réponses ! Nous n’avons pas pu envoyer le dossier depuis le formulaire.\n\n${block}`,
   missingKeyAdminDev:
     '[Développement] Ajoutez PUBLIC_WEB3FORMS_ACCESS_KEY (ou PUBLIC_CHATBOT_WEB3FORMS_ACCESS_KEY) dans .env, ou sur Cloudflare Pages — le nom doit commencer par PUBLIC_, puis redéployez.',
   missingKeyAdminProd:
@@ -117,11 +117,11 @@ const fr: ChatbotCopy = {
     `⚠️ L'envoi a échoué.${detail} Merci de réessayer ou de nous écrire sur WhatsApp.`,
   networkError:
     '⚠️ Erreur réseau. Merci de réessayer ou de nous contacter via WhatsApp.',
-  web3Subject: "Demande d'assurance — assistant chatbot",
-  web3FromName: 'Thailande-services — chatbot assurance',
+  web3Subject: "Demande d'assurance — formulaire site",
+  web3FromName: 'Thailande-services — devis assurance',
   buildMessage: (answers, nb) => {
     const lines: string[] = [
-      "Nouvelle demande d'assurance (chatbot)",
+      "Nouvelle demande d'assurance (formulaire)",
       '',
       `Nombre de personnes à assurer : ${nb}`,
       '',
@@ -145,15 +145,15 @@ const fr: ChatbotCopy = {
     return lines.join('\n').trimEnd()
   },
   displayFallbackMulti: (n) => `Demande ${n} personnes`,
-  displayFallbackDefault: 'Chatbot',
+  displayFallbackDefault: 'Devis',
 }
 
 const en: ChatbotCopy = {
   welcome:
-    "Hello — this is Tammy's quick insurance form. We'll ask a few questions, then call you back. Tap Start.",
-  launcherLabel: 'Insurance assistant',
-  launcherAria: 'Open insurance assistant',
-  panelTitle: 'Insurance assistant',
+    "Hi, it's Tammy. A few questions for your quote — then we'll call you back. Tap Start.",
+  launcherLabel: 'Insurance quote',
+  launcherAria: 'Open insurance quote form',
+  panelTitle: 'Insurance quote',
   minimizeAria: 'Minimize chat',
   minimizeTitle: 'Minimize',
   startButton: 'Start',
@@ -173,9 +173,9 @@ const en: ChatbotCopy = {
   askCountMany: 'How many people do you want to insure in total? (number, minimum 3)',
   countMinError: 'Please enter a whole number of at least 3.',
   introMulti: (n) =>
-    `Got it. We'll collect email, address and visa type (shared for the file), then for each of the ${n} people: surname, first name, age, height, weight and medical history, then your phone number so we can call you back.`,
+    `OK. First email, address and visa (shared), then for each of the ${n} people: surname, first name, age, height, weight, medical history, then your phone.`,
   introSingle:
-    "Fine. We'll collect your contact details (email, address, visa), then your surname, first name, age, height, weight and medical history, then your phone number so we can call you back.",
+    'OK. Email, address, visa, then surname, first name, age, height, weight, medical history, and your phone at the end.',
   shared: {
     email: 'What email address should we use to send information?',
     adresse:
@@ -198,9 +198,9 @@ const en: ChatbotCopy = {
   phoneInvalid:
     'Please enter a valid number with country code (e.g. +33612345678 or +66634432634).',
   missingKeyStart: (block) =>
-    `The assistant can't send a request automatically from this version of the site yet.\n\n${block}`,
+    `This form can't send your request from this version of the site yet.\n\n${block}`,
   missingKeyAfter: (block) =>
-    `Thank you for your answers! We couldn't send the file from the assistant.\n\n${block}`,
+    `Thank you for your answers! We couldn't send the file from the form.\n\n${block}`,
   missingKeyAdminDev:
     '[Development] Add PUBLIC_WEB3FORMS_ACCESS_KEY (or PUBLIC_CHATBOT_WEB3FORMS_ACCESS_KEY) in .env, or in Cloudflare Pages — the name must start with PUBLIC_, then redeploy.',
   missingKeyAdminProd:
@@ -211,11 +211,11 @@ const en: ChatbotCopy = {
   submitFailed: (detail) =>
     `⚠️ Sending failed.${detail} Please try again or message us on WhatsApp.`,
   networkError: '⚠️ Network error. Please try again or contact us on WhatsApp.',
-  web3Subject: 'Insurance request — chatbot assistant',
-  web3FromName: 'Thailande-services — insurance chatbot',
+  web3Subject: 'Insurance request — site form',
+  web3FromName: 'Thailande-services — insurance quote',
   buildMessage: (answers, nb) => {
     const lines: string[] = [
-      'New insurance request (chatbot)',
+      'New insurance request (form)',
       '',
       `People to insure: ${nb}`,
       '',
@@ -239,15 +239,15 @@ const en: ChatbotCopy = {
     return lines.join('\n').trimEnd()
   },
   displayFallbackMulti: (n) => `Request for ${n} people`,
-  displayFallbackDefault: 'Chatbot',
+  displayFallbackDefault: 'Quote',
 }
 
 const th: ChatbotCopy = {
   welcome:
     'สวัสดีค่ะ — แบบฟอร์มประกันแบบสั้นจากแทมมี่ ตอบคำถามไม่กี่ข้อ แล้วเราจะโทรกลับ กด «เริ่ม»',
-  launcherLabel: 'ผู้ช่วยประกัน',
-  launcherAria: 'เปิดผู้ช่วยประกัน',
-  panelTitle: 'ผู้ช่วยประกัน',
+  launcherLabel: 'ใบเสนอราคาประกัน',
+  launcherAria: 'เปิดแบบฟอร์มประกัน',
+  panelTitle: 'ใบเสนอราคาประกัน',
   minimizeAria: 'ย่อแชท',
   minimizeTitle: 'ย่อ',
   startButton: 'เริ่ม',
@@ -266,9 +266,9 @@ const th: ChatbotCopy = {
   askCountMany: 'ต้องการประกันกี่คนรวม? (ตัวเลข อย่างน้อย 3)',
   countMinError: 'กรุณาระบุจำนวนเต็มอย่างน้อย 3',
   introMulti: (n) =>
-    `เข้าใจค่ะ เราจะเก็บอีเมล ที่อยู่ และประเภทวีซ่า (ใช้ร่วมกัน) จากนั้นสำหรับ ${n} คน: นามสกุล ชื่อ อายุ ส่วนสูง น้ำหนัก และประวัติการรักษา แล้วเบอร์โทรเพื่อติดต่อกลับ`,
+    `ได้ค่ะ อีเมล ที่อยู่ วีซ่า (ใช้ร่วมกัน) จากนั้น ${n} คน: นามสกุล ชื่อ อายุ ส่วนสูง น้ำหนัก ประวัติการรักษา แล้วเบอร์โทร`,
   introSingle:
-    'ดีค่ะ เราจะเก็บอีเมล ที่อยู่ วีซ่า นามสกุล ชื่อ อายุ ส่วนสูง น้ำหนัก และประวัติการรักษา แล้วเบอร์โทรเพื่อติดต่อกลับ',
+    'ได้ค่ะ อีเมล ที่อยู่ วีซ่า นามสกุล ชื่อ อายุ ส่วนสูง น้ำหนัก ประวัติการรักษา แล้วเบอร์โทร',
   shared: {
     email: 'อีเมลสำหรับรับข้อมูลคืออะไร?',
     adresse: 'ที่อยู่ปัจจุบันในประเทศไทย หรือวางแผนจะย้ายมาไทย?',
@@ -289,9 +289,9 @@ const th: ChatbotCopy = {
   phoneInvalid:
     'กรุณาระบุเบอร์ที่ถูกต้องพร้อมรหัสประเทศ (เช่น +33612345678 หรือ +66634432634)',
   missingKeyStart: (block) =>
-    `ผู้ช่วยยังส่งคำขออัตโนมัติจากเวอร์ชันนี้ไม่ได้\n\n${block}`,
+    `แบบฟอร์มยังส่งคำขอจากเวอร์ชันนี้ไม่ได้\n\n${block}`,
   missingKeyAfter: (block) =>
-    `ขอบคุณสำหรับคำตอบ! เราส่งแฟ้มจากผู้ช่วยไม่ได้\n\n${block}`,
+    `ขอบคุณสำหรับคำตอบ! เราส่งแฟ้มจากแบบฟอร์มไม่ได้\n\n${block}`,
   missingKeyAdminDev:
     '[พัฒนา] เพิ่ม PUBLIC_WEB3FORMS_ACCESS_KEY ใน .env หรือ Cloudflare Pages — ชื่อต้องขึ้นต้นด้วย PUBLIC_ แล้ว deploy ใหม่',
   missingKeyAdminProd:
@@ -302,11 +302,11 @@ const th: ChatbotCopy = {
   submitFailed: (detail) =>
     `⚠️ ส่งไม่สำเร็จ${detail} ลองอีกครั้งหรือทัก WhatsApp`,
   networkError: '⚠️ เครือข่ายผิดพลาด ลองอีกครั้งหรือติดต่อทาง WhatsApp',
-  web3Subject: 'คำขอประกัน — ผู้ช่วยแชท',
-  web3FromName: 'Thailande-services — ผู้ช่วยประกัน',
+  web3Subject: 'คำขอประกัน — แบบฟอร์มเว็บ',
+  web3FromName: 'Thailande-services — ใบเสนอราคาประกัน',
   buildMessage: (answers, nb) => {
     const lines: string[] = [
-      'คำขอประกันใหม่ (แชทบอท)',
+      'คำขอประกันใหม่ (แบบฟอร์ม)',
       '',
       `จำนวนผู้เอาประกัน: ${nb}`,
       '',
@@ -330,7 +330,7 @@ const th: ChatbotCopy = {
     return lines.join('\n').trimEnd()
   },
   displayFallbackMulti: (n) => `คำขอ ${n} คน`,
-  displayFallbackDefault: 'แชทบอท',
+  displayFallbackDefault: 'ใบเสนอราคา',
 }
 
 export const chatbotTranslations: Record<Lang, ChatbotCopy> = { fr, en, th }

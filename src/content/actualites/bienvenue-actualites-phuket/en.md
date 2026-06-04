@@ -5,7 +5,7 @@ pubDate: 2026-05-19
 draft: false
 ---
 
-This section is for **real updates** — what changed on the site and what we hear from people on the ground. Not filler “SEO articles”.
+Short **updates** only — what changed on the site and what we hear from people on the island.
 
 ## Draft topics
 

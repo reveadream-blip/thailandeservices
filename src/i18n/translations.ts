@@ -51,15 +51,15 @@ export const translations = {
     articlePage: {
       home: 'Accueil',
       breadcrumbLabel: "Fil d'Ariane",
-      faqTitle: 'On nous demande souvent',
-      relatedTitle: 'D’autres pages utiles',
+      faqTitle: 'Questions fréquentes',
+      relatedTitle: 'À lire aussi',
       frenchBodyNotice:
-        'Les adresses détaillées plus bas sont souvent en français (comme sur place). L’essentiel est résumé juste au-dessus.',
+        'Le détail des adresses ci-dessous est souvent en français. L’essentiel est au-dessus.',
     },
     categoryPage: {
       home: 'Accueil',
       breadcrumbLabel: "Fil d'Ariane",
-      faqTitle: 'En bref',
+      faqTitle: 'En pratique',
       articleCountOne: 'article',
       articleCountMany: 'articles',
     },
@@ -75,7 +75,7 @@ export const translations = {
     regions: {
       eyebrow: 'Où nous trouver',
       title: 'Surin & Phuket',
-      lead: 'Nous sommes installés dans la région de Surin pour l’assurance, l’interprétariat et l’aide administrative, tout en restant disponibles pour les francophones de Phuket.',
+      lead: 'Tammy travaille à Surin (assurance, interprète, admin). On reste joignable pour les francophones de Phuket.',
       surin: {
         badge: 'Surin — sur place',
         title: 'Services ouverts à Surin',
@@ -84,7 +84,7 @@ export const translations = {
           'Interprète thaï · français · anglais',
           'Aide administrative (visa, immigration, démarches)',
         ],
-        note: 'Tammy vous accompagne directement dans la région de Surin pour ces trois prestations.',
+        note: 'Tammy reçoit sur place dans la région de Surin pour ces trois services.',
         cta: 'Nous contacter',
       },
       phuket: {
@@ -104,7 +104,7 @@ export const translations = {
         'Actualités et guides pour expatriés à Phuket : assurance santé, immobilier, interprète et vie en Thaïlande.',
       h1: 'Actualités',
       lead:
-        'Nouvelles du site et retours d’expérience sur l’île — assurance, immo, interprète. Pas de pub déguisée, juste ce qu’on met à jour.',
+        'Ce qui change sur le site et ce qu’on voit sur l’île — assurance, immo, interprète.',
       empty: 'Aucun article publié pour le moment.',
       home: 'Accueil',
       breadcrumbLabel: "Fil d'Ariane",
@@ -121,7 +121,7 @@ export const translations = {
         eyebrow: 'Immobilier à Phuket et Krabi',
         title: 'Maison à vendre à Phuket & Krabi',
         body:
-          'Achat, location, vente et gestion avec une agence locale de confiance. Villas, appartements et investissement immobilier sur Phuket et Krabi.',
+          'Thomas montre les biens à Rawai, Chalong, Kata ou Krabi (Ao Nang) : achat, location longue, gestion locative.',
         cta: 'Contactez Thomas!',
       },
       slide3: {
@@ -134,9 +134,8 @@ export const translations = {
     },
     hero: {
       eyebrow: 'Surin & Phuket',
-      /** H1 unique du carrousel (SEO). */
       seoH1: 'Assurance · Interprète · Admin — Surin & Phuket',
-      seoH1Sub: 'Immobilier Phuket & Krabi — francophones toujours accompagnés',
+      seoH1Sub: 'Immobilier Phuket & Krabi — Thomas',
       titleLine1: "Besoin d'un interprète ?",
       titleLine2: 'Français · Anglais · Thaï',
       subtitle:
@@ -177,7 +176,7 @@ export const translations = {
       },
     },
     seoIntro: {
-      eyebrow: 'Le site en deux mots',
+      eyebrow: 'Qui fait quoi',
       title: 'Surin & Phuket',
       paragraphs: [
         '<strong>Surin</strong> : Tammy y propose assurance santé (AXA), interprétariat et aide administrative sur place. <strong>Phuket</strong> : on continue pour les francophones (assurance, interprète) ; <strong>Thomas</strong> gère l’immo à Phuket et Krabi.',
@@ -326,10 +325,10 @@ export const translations = {
     articlePage: {
       home: 'Home',
       breadcrumbLabel: 'Breadcrumb',
-      faqTitle: 'People often ask',
-      relatedTitle: 'More pages worth bookmarking',
+      faqTitle: 'Common questions',
+      relatedTitle: 'See also',
       frenchBodyNotice:
-        'The long address list below is usually in French (how we got it locally). The important bits are up top.',
+        'Address details below are often in French. The summary is above.',
     },
     categoryPage: {
       home: 'Home',
@@ -379,7 +378,7 @@ export const translations = {
         'News and guides for expats in Phuket: health insurance, real estate, interpreter services and life in Thailand.',
       h1: 'News',
       lead:
-        'Site news and island tips — insurance, property, interpreter. No filler articles, just what we update.',
+        'What we change on the site and hear from the island — insurance, property, interpreter.',
       empty: 'No articles published yet.',
       home: 'Home',
       breadcrumbLabel: 'Breadcrumb',
@@ -410,7 +409,7 @@ export const translations = {
     hero: {
       eyebrow: 'Surin & Phuket',
       seoH1: 'Insurance · Interpreter · Admin — Surin & Phuket',
-      seoH1Sub: 'Real estate Phuket & Krabi — francophones still supported',
+      seoH1Sub: 'Property in Phuket & Krabi — Thomas',
       titleLine1: 'Need an interpreter?',
       titleLine2: 'French · English · Thai',
       subtitle:
@@ -451,10 +450,10 @@ export const translations = {
       },
     },
     seoIntro: {
-      eyebrow: 'In short',
+      eyebrow: 'Who does what',
       title: 'Surin & Phuket',
       paragraphs: [
-        '<strong>Surin</strong>: Tammy offers health insurance (AXA), interpreting and admin help on site. <strong>Phuket</strong>: we still support francophones (insurance, interpreter); <strong>Thomas</strong> handles property in Phuket/Krabi.',
+        '<strong>Surin</strong>: Tammy — health insurance (AXA), interpreting, admin help. <strong>Phuket</strong>: we still answer francophones (insurance, interpreter); <strong>Thomas</strong> handles property in Phuket/Krabi.',
         'Phuket hospitals & emergencies: <a href="/en/hopitaux-a-phuket/">list</a>, <a href="/en/numeros-durgences/">1155 / 1669</a>, <a href="/en/osteopathe-francais-a-phuket/">Dr Tur</a>. Questions? WhatsApp at the top.',
       ],
       links: [
@@ -601,7 +600,7 @@ export const translations = {
       home: 'หน้าแรก',
       breadcrumbLabel: 'เส้นทางนำทาง',
       faqTitle: 'คำถามที่มักได้รับ',
-      relatedTitle: 'หน้าอื่นที่เก็บไว้ได้',
+      relatedTitle: 'อ่านเพิ่ม',
       frenchBodyNotice:
         'รายชื่อด้านล่างมักเป็นภาษาฝรั่งเศส (ข้อมูลจากท้องถิ่น) สรุปสำคัญอยู่ด้านบน',
     },
@@ -684,7 +683,7 @@ export const translations = {
     hero: {
       eyebrow: 'สุรินทร์ & ภูเก็ต',
       seoH1: 'ประกัน · ล่าม · ธุรการ — สุรินทร์ & ภูเก็ต',
-      seoH1Sub: 'อสังหาภูเก็ตกระบี่ — ยังดูแลชาวฝรั่งเศส',
+      seoH1Sub: 'อสังหาภูเก็ตกระบี่ — โทมาส',
       titleLine1: 'ต้องการล่ามใช่ไหม?',
       titleLine2: 'ฝรั่งเศส · อังกฤษ · ไทย',
       subtitle:
@@ -725,7 +724,7 @@ export const translations = {
       },
     },
     seoIntro: {
-      eyebrow: 'สรุปสั้นๆ',
+      eyebrow: 'ใครทำอะไร',
       title: 'สุรินทร์ & ภูเก็ต',
       paragraphs: [
         '<strong>สุรินทร์</strong>: แทมมี่ให้ประกัน AXA ล่าม และช่วยธุรการ <strong>ภูเก็ต</strong>: ยังดูแลชาวฝรั่งเศส (ประกัน ล่าม) <strong>โทมาส</strong> อสังหาภูเก็ต/กระบี่',

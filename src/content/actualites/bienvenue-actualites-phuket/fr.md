@@ -5,7 +5,7 @@ pubDate: 2026-05-19
 draft: false
 ---
 
-On ouvre cette rubrique pour noter ce qui change sur le site et ce qu’on voit sur l’île — pas pour publier des « articles SEO » vides.
+On note ici ce qui change sur le site et ce qu’on voit sur l’île — nouvelles courtes, pas de longs textes de remplissage.
 
 ## Sujets en préparation
 
