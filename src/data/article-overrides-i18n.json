@@ -5,7 +5,7 @@
       "pageTitle": "Interpreter Phuket FR-EN-TH",
       "pageH1": "Thai–French–English interpreter in Phuket",
       "metaDescription": "Interpreter FR-EN-TH: on site in Surin, still serving Phuket francophones. Hospital, police, immigration.",
-      "intro": "<p><strong>Surin</strong>: Tammy interprets on site (hospital, police, immigration, admin). <strong>Phuket</strong>: we still help francophones — same-day visits when possible.</p><p>Phuket: <a href=\"/numeros-durgences/\">emergency numbers</a> and <a href=\"/hopitaux-a-phuket/\">hospitals</a> below.</p>",
+      "intro": "<p><strong>Surin</strong>: Tammy interprets on site (hospital, police, immigration, admin). <strong>Phuket</strong>: we still help francophones, same-day visits when possible.</p><p>Phuket: <a href=\"/numeros-durgences/\">emergency numbers</a> and <a href=\"/hopitaux-a-phuket/\">hospitals</a> below.</p>",
       "faq": [
         {
           "question": "When do people usually call?",
@@ -26,7 +26,7 @@
       "faq": [
         {
           "question": "โทรเมื่อไหร่?",
-          "answer": "อุบัติเหตุ โรงพยาบาล ตำรวจ ตรวจคนเข้าเมือง เจ้าของบ้านโต้เถียง — เมื่อภาษาไทหรืออังกฤษทางการแพทย์/ราชการไม่พอ"
+          "answer": "อุบัติเหตุ โรงพยาบาล ตำรวจ ตรวจคนเข้าเมือง เจ้าของบ้านโต้เถียง, เมื่อภาษาไทหรืออังกฤษทางการแพทย์/ราชการไม่พอ"
         },
         {
           "question": "ไปทั่วภูเก็ตได้ไหม?",
@@ -40,7 +40,7 @@
       "pageTitle": "Health insurance Phuket",
       "pageH1": "Health insurance Phuket and Thailand",
       "metaDescription": "Health insurance Surin & Phuket: hospital cover, visa. Tammy (AXA) advises in French.",
-      "intro": "<p>Private clinics often want <strong>payment upfront</strong>. Tammy advises in <strong>Surin</strong> on site and stays available for <strong>Phuket francophones</strong> — plans, visa, budget, in plain French.</p><p><a href=\"/assurance-sante-axa-a-phuket-thailande/\">KrungThai AXA</a> · <a href=\"/formulaire-de-contact/\">contact form</a> / WhatsApp.</p>",
+      "intro": "<p>Private clinics often want <strong>payment upfront</strong>. Tammy advises in <strong>Surin</strong> on site and stays available for <strong>Phuket francophones</strong> : plans, visa, budget, in plain French.</p><p><a href=\"/assurance-sante-axa-a-phuket-thailande/\">KrungThai AXA</a> · <a href=\"/formulaire-de-contact/\">contact form</a> / WhatsApp.</p>",
       "faq": [
         {
           "question": "Worth it if I’m healthy?",
@@ -73,12 +73,12 @@
     "en": {
       "pageTitle": "AXA insurance Phuket",
       "pageH1": "KrungThai AXA health insurance",
-      "metaDescription": "KrungThai AXA in Phuket — iHealthy plans. Tammy explains cover in French.",
+      "metaDescription": "KrungThai AXA in Phuket, iHealthy plans. Tammy explains cover in French.",
       "intro": "<p>Tammy sells <strong>KrungThai AXA</strong> on the island and stays around when there’s a claim. She compares iHealthy levels (limits, excess, partner hospitals) in plain French.</p>",
       "faq": [
         {
           "question": "What is iHealthy?",
-          "answer": "AXA’s local health range in Thailand — several annual limits, sometimes an excess, partner hospitals. Picking a tier depends on your visa and monthly budget."
+          "answer": "AXA’s local health range in Thailand, several annual limits, sometimes an excess, partner hospitals. Picking a tier depends on your visa and monthly budget."
         }
       ]
     },
@@ -94,11 +94,11 @@
       "pageTitle": "Real estate Phuket & Krabi",
       "pageH1": "Real estate in Phuket and Krabi",
       "metaDescription": "Buy or rent in Phuket & Krabi with Thomas (Rawai, Chalong, Ao Nang). French-speaking agent.",
-      "intro": "<p><strong>Buying or renting</strong> around Rawai, Chalong, Kata or Krabi (Ao Nang)? Thomas has been showing properties for years — visits, offers, leases, handovers.</p>",
+      "intro": "<p><strong>Buying or renting</strong> around Rawai, Chalong, Kata or Krabi (Ao Nang)? Thomas has been showing properties for years, visits, offers, leases, handovers.</p>",
       "faq": [
         {
           "question": "Can foreigners buy here?",
-          "answer": "Condos often yes (foreign quota). Villas may be leasehold. Thomas tells you what’s realistic — no fairy tales."
+          "answer": "Condos often yes (foreign quota). Villas may be leasehold. Thomas tells you what’s realistic, no fairy tales."
         },
         {
           "question": "Popular areas?",
@@ -123,7 +123,7 @@
   },
   "numeros-durgences": {
     "en": {
-      "intro": "<p>Bookmark this page: tourist police <strong>1155</strong>, ambulance <strong>1669</strong>, fire <strong>199</strong>. Private hospitals may ask for insurance or payment upfront — <a href=\"/interprete-thai-francais-anglais-a-phuket/\">interpreter</a> if talks get stuck.</p>"
+      "intro": "<p>Bookmark this page: tourist police <strong>1155</strong>, ambulance <strong>1669</strong>, fire <strong>199</strong>. Private hospitals may ask for insurance or payment upfront, <a href=\"/interprete-thai-francais-anglais-a-phuket/\">interpreter</a> if talks get stuck.</p>"
     },
     "th": {
       "intro": "<p>เก็บหน้านี้: ตำรวจท่องเที่ยว <strong>1155</strong> รถพยาบาล <strong>1669</strong> ดับเพลิง <strong>199</strong></p>"
@@ -131,7 +131,7 @@
   },
   "osteopathe-francais-a-phuket": {
     "en": {
-      "intro": "<p><strong>Dr Gerald Tur</strong> speaks French. Check your <a href=\"/assurance-sante-thailande-phuket/\">insurance</a> — osteopathy isn’t always included.</p>"
+      "intro": "<p><strong>Dr Gerald Tur</strong> speaks French. Check your <a href=\"/assurance-sante-thailande-phuket/\">insurance</a>, osteopathy isn’t always included.</p>"
     },
     "th": {
       "intro": "<p><strong>ดร. Gerald Tur</strong> พูดฝรั่งเศส ตรวจ <a href=\"/assurance-sante-thailande-phuket/\">ประกัน</a> ว่าคุ้มครองการกระดูกหรือไม่</p>"

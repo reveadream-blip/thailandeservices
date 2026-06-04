@@ -12,7 +12,7 @@ export function absoluteUrl(path: string): string {
   return `${BASE}${p.endsWith('/') ? p : `${p}/`}`
 }
 
-/** Fichier statique (image, etc.) — sans slash final. */
+/** Fichier statique (image, etc.), sans slash final. */
 export function absoluteAssetUrl(path: string): string {
   const p = path.startsWith('/') ? path : `/${path}`
   return `${BASE}${p}`
@@ -32,9 +32,9 @@ export function truncateMeta(text: string, max = 160): string {
   return (lastSpace > 40 ? cut.slice(0, lastSpace) : cut).trimEnd() + '…'
 }
 
-const TITLE_SEP = ' — '
+const TITLE_SEP = ' | '
 
-/** Titre document ≤ 60 car. (recommandation RankFlow) : « Page — Site ». */
+/** Titre document ≤ 60 car. : « Page | Site ». */
 export function buildDocumentTitle(headline: string, siteName: string, maxTotal = 60): string {
   const h = headline.replace(/\s+/g, ' ').trim()
   const suffix = siteName.trim()
@@ -52,7 +52,7 @@ function publisherSameAs(): string[] {
   return [CONTACT.facebook, CONTACT.youtube].filter(Boolean) as string[]
 }
 
-/** Organization + WebSite — base commune à toutes les pages. */
+/** Organization + WebSite, base commune à toutes les pages. */
 export function buildBaseSchemaGraph(): Record<string, unknown>[] {
   return [
     {
@@ -175,7 +175,7 @@ export function buildCategorySchemaGraph(opts: {
 
 export type FaqItem = { question: string; answer: string }
 
-/** FAQPage — favorise les extraits enrichis sur requêtes longue traîne. */
+/** FAQPage, favorise les extraits enrichis sur requêtes longue traîne. */
 export function buildFaqSchemaGraph(items: FaqItem[]): Record<string, unknown>[] {
   const valid = items.filter((i) => i.question.trim() && i.answer.trim())
   if (valid.length === 0) return []

@@ -1,11 +1,11 @@
 ---
 title: Bienvenue dans les actualités Thailande-services
-description: Nouvelles du site et retours du terrain à Phuket — assurance, immo, interprète.
+description: Nouvelles du site et retours du terrain à Phuket, assurance, immo, interprète.
 pubDate: 2026-05-19
 draft: false
 ---
 
-On note ici ce qui change sur le site et ce qu’on voit sur l’île — nouvelles courtes, pas de longs textes de remplissage.
+On note ici ce qui change sur le site et ce qu’on voit sur l’île, nouvelles courtes, pas de longs textes de remplissage.
 
 ## Sujets en préparation
 
@@ -19,4 +19,4 @@ En attendant, les pages qu’on met à jour le plus souvent :
 - [Interprète](/interprete-thai-francais-anglais-a-phuket/)
 - [Immo avec Thomas](/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/)
 
-Question ? [Formulaire](/formulaire-de-contact/) ou le WhatsApp en haut — on lit les messages entre deux visites.
+Question ? [Formulaire](/formulaire-de-contact/) ou le WhatsApp en haut, on lit les messages entre deux visites.

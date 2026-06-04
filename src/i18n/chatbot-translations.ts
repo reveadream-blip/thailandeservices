@@ -53,7 +53,7 @@ export type ChatbotCopy = {
 
 const fr: ChatbotCopy = {
   welcome:
-    "Bonjour, c'est Tammy. Quelques questions pour préparer votre devis — puis je vous rappelle. Cliquez sur Commencer.",
+    "Bonjour, c'est Tammy. Quelques questions pour préparer votre devis, puis je vous rappelle. Cliquez sur Commencer.",
   launcherLabel: 'Devis assurance',
   launcherAria: 'Ouvrir le devis assurance',
   panelTitle: 'Devis assurance',
@@ -88,7 +88,7 @@ const fr: ChatbotCopy = {
     telephone:
       'Pour finaliser, quel est votre numéro de téléphone (avec indicatif pays, ex. +66 …) afin que nous puissions vous rappeler ?',
   },
-  personPrefix: (n, total) => (total > 1 ? `Personne ${n} sur ${total} — ` : ''),
+  personPrefix: (n, total) => (total > 1 ? `Personne ${n} sur ${total}, ` : ''),
   personQuestions: {
     nom: 'Quel est le nom de famille ?',
     prenom: 'Quel est le prénom ?',
@@ -107,7 +107,7 @@ const fr: ChatbotCopy = {
   missingKeyAfter: (block) =>
     `Merci pour vos réponses ! Nous n’avons pas pu envoyer le dossier depuis le formulaire.\n\n${block}`,
   missingKeyAdminDev:
-    '[Développement] Ajoutez PUBLIC_WEB3FORMS_ACCESS_KEY (ou PUBLIC_CHATBOT_WEB3FORMS_ACCESS_KEY) dans .env, ou sur Cloudflare Pages — le nom doit commencer par PUBLIC_, puis redéployez.',
+    '[Développement] Ajoutez PUBLIC_WEB3FORMS_ACCESS_KEY (ou PUBLIC_CHATBOT_WEB3FORMS_ACCESS_KEY) dans .env, ou sur Cloudflare Pages, le nom doit commencer par PUBLIC_, puis redéployez.',
   missingKeyAdminProd:
     'Si vous gérez le site : Cloudflare Pages → Settings → Environment variables → ajoutez PUBLIC_WEB3FORMS_ACCESS_KEY (même valeur que Web3Forms), puis relancez un déploiement.',
   missingKeyContactLine: 'Formulaire « Contact » en bas de la page.',
@@ -117,15 +117,15 @@ const fr: ChatbotCopy = {
     `⚠️ L'envoi a échoué.${detail} Merci de réessayer ou de nous écrire sur WhatsApp.`,
   networkError:
     '⚠️ Erreur réseau. Merci de réessayer ou de nous contacter via WhatsApp.',
-  web3Subject: "Demande d'assurance — formulaire site",
-  web3FromName: 'Thailande-services — devis assurance',
+  web3Subject: "Demande d'assurance, formulaire site",
+  web3FromName: 'Thailande-services, devis assurance',
   buildMessage: (answers, nb) => {
     const lines: string[] = [
       "Nouvelle demande d'assurance (formulaire)",
       '',
       `Nombre de personnes à assurer : ${nb}`,
       '',
-      '— Coordonnées et situation —',
+      'Coordonnées et situation',
       `Email : ${answers.email ?? ''}`,
       `Adresse / expatriation : ${answers.adresse ?? ''}`,
       `Visa : ${answers.visa ?? ''}`,
@@ -133,7 +133,7 @@ const fr: ChatbotCopy = {
       '',
     ]
     for (let i = 0; i < nb; i++) {
-      lines.push(`— Personne ${i + 1} —`)
+      lines.push(`Personne ${i + 1}`)
       lines.push(`Nom : ${answers[`p${i}_nom`] ?? ''}`)
       lines.push(`Prénom : ${answers[`p${i}_prenom`] ?? ''}`)
       lines.push(`Âge : ${answers[`p${i}_age`] ?? ''}`)
@@ -150,7 +150,7 @@ const fr: ChatbotCopy = {
 
 const en: ChatbotCopy = {
   welcome:
-    "Hi, it's Tammy. A few questions for your quote — then we'll call you back. Tap Start.",
+    "Hi, it's Tammy. A few questions for your quote, then we'll call you back. Tap Start.",
   launcherLabel: 'Insurance quote',
   launcherAria: 'Open insurance quote form',
   panelTitle: 'Insurance quote',
@@ -184,7 +184,7 @@ const en: ChatbotCopy = {
     telephone:
       'Lastly, what is your phone number (with country code, e.g. +66 …) so we can call you back?',
   },
-  personPrefix: (n, total) => (total > 1 ? `Person ${n} of ${total} — ` : ''),
+  personPrefix: (n, total) => (total > 1 ? `Person ${n} of ${total}, ` : ''),
   personQuestions: {
     nom: 'What is your surname?',
     prenom: 'What is your first name?',
@@ -202,7 +202,7 @@ const en: ChatbotCopy = {
   missingKeyAfter: (block) =>
     `Thank you for your answers! We couldn't send the file from the form.\n\n${block}`,
   missingKeyAdminDev:
-    '[Development] Add PUBLIC_WEB3FORMS_ACCESS_KEY (or PUBLIC_CHATBOT_WEB3FORMS_ACCESS_KEY) in .env, or in Cloudflare Pages — the name must start with PUBLIC_, then redeploy.',
+    '[Development] Add PUBLIC_WEB3FORMS_ACCESS_KEY (or PUBLIC_CHATBOT_WEB3FORMS_ACCESS_KEY) in .env, or in Cloudflare Pages, the name must start with PUBLIC_, then redeploy.',
   missingKeyAdminProd:
     'If you manage the site: Cloudflare Pages → Settings → Environment variables → add PUBLIC_WEB3FORMS_ACCESS_KEY (same value as Web3Forms), then redeploy.',
   missingKeyContactLine: 'Use the Contact form at the bottom of the page.',
@@ -211,15 +211,15 @@ const en: ChatbotCopy = {
   submitFailed: (detail) =>
     `⚠️ Sending failed.${detail} Please try again or message us on WhatsApp.`,
   networkError: '⚠️ Network error. Please try again or contact us on WhatsApp.',
-  web3Subject: 'Insurance request — site form',
-  web3FromName: 'Thailande-services — insurance quote',
+  web3Subject: 'Insurance request, site form',
+  web3FromName: 'Thailande-services, insurance quote',
   buildMessage: (answers, nb) => {
     const lines: string[] = [
       'New insurance request (form)',
       '',
       `People to insure: ${nb}`,
       '',
-      '— Contact & situation —',
+      'Contact & situation',
       `Email: ${answers.email ?? ''}`,
       `Address / relocation: ${answers.adresse ?? ''}`,
       `Visa: ${answers.visa ?? ''}`,
@@ -227,7 +227,7 @@ const en: ChatbotCopy = {
       '',
     ]
     for (let i = 0; i < nb; i++) {
-      lines.push(`— Person ${i + 1} —`)
+      lines.push(`Person ${i + 1}`)
       lines.push(`Surname: ${answers[`p${i}_nom`] ?? ''}`)
       lines.push(`First name: ${answers[`p${i}_prenom`] ?? ''}`)
       lines.push(`Age: ${answers[`p${i}_age`] ?? ''}`)
@@ -244,7 +244,7 @@ const en: ChatbotCopy = {
 
 const th: ChatbotCopy = {
   welcome:
-    'สวัสดีค่ะ — แบบฟอร์มประกันแบบสั้นจากแทมมี่ ตอบคำถามไม่กี่ข้อ แล้วเราจะโทรกลับ กด «เริ่ม»',
+    'สวัสดีค่ะ, แบบฟอร์มประกันแบบสั้นจากแทมมี่ ตอบคำถามไม่กี่ข้อ แล้วเราจะโทรกลับ กด «เริ่ม»',
   launcherLabel: 'ใบเสนอราคาประกัน',
   launcherAria: 'เปิดแบบฟอร์มประกัน',
   panelTitle: 'ใบเสนอราคาประกัน',
@@ -276,7 +276,7 @@ const th: ChatbotCopy = {
     telephone:
       'สุดท้าย เบอร์โทร (พร้อมรหัสประเทศ เช่น +66 …) เพื่อให้เราโทรกลับ?',
   },
-  personPrefix: (n, total) => (total > 1 ? `คนที่ ${n} จาก ${total} — ` : ''),
+  personPrefix: (n, total) => (total > 1 ? `คนที่ ${n} จาก ${total}, ` : ''),
   personQuestions: {
     nom: 'นามสกุล?',
     prenom: 'ชื่อ?',
@@ -293,7 +293,7 @@ const th: ChatbotCopy = {
   missingKeyAfter: (block) =>
     `ขอบคุณสำหรับคำตอบ! เราส่งแฟ้มจากแบบฟอร์มไม่ได้\n\n${block}`,
   missingKeyAdminDev:
-    '[พัฒนา] เพิ่ม PUBLIC_WEB3FORMS_ACCESS_KEY ใน .env หรือ Cloudflare Pages — ชื่อต้องขึ้นต้นด้วย PUBLIC_ แล้ว deploy ใหม่',
+    '[พัฒนา] เพิ่ม PUBLIC_WEB3FORMS_ACCESS_KEY ใน .env หรือ Cloudflare Pages, ชื่อต้องขึ้นต้นด้วย PUBLIC_ แล้ว deploy ใหม่',
   missingKeyAdminProd:
     'ผู้ดูแลเว็บ: Cloudflare Pages → Settings → Environment variables → เพิ่ม PUBLIC_WEB3FORMS_ACCESS_KEY แล้ว deploy ใหม่',
   missingKeyContactLine: 'ใช้แบบฟอร์ม «ติดต่อ» ด้านล่างหน้า',
@@ -302,15 +302,15 @@ const th: ChatbotCopy = {
   submitFailed: (detail) =>
     `⚠️ ส่งไม่สำเร็จ${detail} ลองอีกครั้งหรือทัก WhatsApp`,
   networkError: '⚠️ เครือข่ายผิดพลาด ลองอีกครั้งหรือติดต่อทาง WhatsApp',
-  web3Subject: 'คำขอประกัน — แบบฟอร์มเว็บ',
-  web3FromName: 'Thailande-services — ใบเสนอราคาประกัน',
+  web3Subject: 'คำขอประกัน, แบบฟอร์มเว็บ',
+  web3FromName: 'Thailande-services, ใบเสนอราคาประกัน',
   buildMessage: (answers, nb) => {
     const lines: string[] = [
       'คำขอประกันใหม่ (แบบฟอร์ม)',
       '',
       `จำนวนผู้เอาประกัน: ${nb}`,
       '',
-      '— ข้อมูลติดต่อและสถานการณ์ —',
+      'ข้อมูลติดต่อและสถานการณ์',
       `อีเมล: ${answers.email ?? ''}`,
       `ที่อยู่ / การย้ายถิ่น: ${answers.adresse ?? ''}`,
       `วีซ่า: ${answers.visa ?? ''}`,
@@ -318,7 +318,7 @@ const th: ChatbotCopy = {
       '',
     ]
     for (let i = 0; i < nb; i++) {
-      lines.push(`— คนที่ ${i + 1} —`)
+      lines.push(`คนที่ ${i + 1}`)
       lines.push(`นามสกุล: ${answers[`p${i}_nom`] ?? ''}`)
       lines.push(`ชื่อ: ${answers[`p${i}_prenom`] ?? ''}`)
       lines.push(`อายุ: ${answers[`p${i}_age`] ?? ''}`)

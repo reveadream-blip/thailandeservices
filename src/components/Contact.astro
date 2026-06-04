@@ -57,7 +57,7 @@ const hasWeb3FormsKey = isConfiguredWeb3FormsAccessKey(WEB3FORMS_ACCESS_KEY)
     >
       <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
       <input type="hidden" name="from_name" value="Thaïlande Services" />
-      <input type="hidden" name="subject" value="Nouveau message — thailande-services.fr" />
+      <input type="hidden" name="subject" value="Nouveau message | thailande-services.fr" />
       <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
 
       <div class="field-row">
@@ -169,7 +169,7 @@ const hasWeb3FormsKey = isConfiguredWeb3FormsAccessKey(WEB3FORMS_ACCESS_KEY)
             if (parsed.message) bits.push(parsed.message)
             else if (!res.ok) bits.push(`HTTP ${res.status}`)
             else if (raw.trim()) bits.push(raw.trim().slice(0, 160))
-            errorEl.textContent = bits.join(' — ')
+            errorEl.textContent = bits.join(' · ')
           }
         }
       } catch {

@@ -24,7 +24,7 @@ export const CONTACT = {
     return `tel:+${this.whatsappDigits}`
   },
   phoneDisplay: '+66 63 443 2634',
-  /** Réservé usage interne / config hors page — ne jamais afficher sur le site. */
+  /** Réservé usage interne / config hors page, ne jamais afficher sur le site. */
   email: 'contact@thailande-services.fr',
   facebook: 'https://www.facebook.com/groups/3373034846249628/announcements',
   /** Chaîne (référencement / schéma JSON-LD). */
@@ -59,7 +59,7 @@ const normalizedPublicWeb3 = normalizeWeb3FormsAccessKey(import.meta.env.PUBLIC_
 
 /**
  * Clé Web3Forms pour le formulaire de contact.
- * https://web3forms.com — activer hCaptcha dans le tableau de bord du formulaire.
+ * https://web3forms.com, activer hCaptcha dans le tableau de bord du formulaire.
  */
 export const WEB3FORMS_ACCESS_KEY = normalizedPublicWeb3 || 'YOUR-WEB3FORMS-ACCESS-KEY'
 
@@ -89,7 +89,7 @@ export const SERVICE_AREAS = {
 
 export const SITE = {
   name: 'Thailande-services.fr',
-  tagline: 'Assurance · Interprète · Admin — Surin & Phuket',
+  tagline: 'Assurance · Interprète · Admin · Surin & Phuket',
   get baseUrl() {
     return siteBaseUrl()
   },
@@ -99,5 +99,5 @@ export const SITE = {
 /** Image Open Graph par défaut (logo ou visuel 1200×630 recommandé en production). */
 export const SEO_DEFAULT_OG_IMAGE = '/images/logo.png'
 
-/** Google Search Console — contenu de la balise `meta name="google-site-verification"`. */
+/** Google Search Console, contenu de la balise `meta name="google-site-verification"`. */
 export const GOOGLE_SITE_VERIFICATION = 'Qn3FzIUrbaU350tyYdJWRBdJKv5InVyvlCQsKRLvlB8'

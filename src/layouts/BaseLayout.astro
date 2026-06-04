@@ -21,7 +21,7 @@ export interface Props {
   metaDescription?: string
   /** Path canonique explicite (ex. `/slug/`). Sinon dérivé de l’URL courante. */
   canonicalPath?: string
-  /** Uniquement sur les pages d’accueil FR / EN / TH — liens hreflang cohérents. */
+  /** Uniquement sur les pages d’accueil FR / EN / TH, liens hreflang cohérents. */
   homeHreflang?: boolean
   ogType?: 'website' | 'article'
   /** Path `/...` ou URL absolue pour og:image / Twitter. */
@@ -55,7 +55,7 @@ const t = translations[lang]
 const rawTitle = pageTitle ? buildDocumentTitle(pageTitle, SITE.name) : t.meta.title
 const docDesc = truncateMeta(metaDescription ?? t.meta.description, 160)
 
-/** Variantes OG dédiées (ex. accueil FR) — optionnelles dans `translations.*.meta`. */
+/** Variantes OG dédiées (ex. accueil FR), optionnelles dans `translations.*.meta`. */
 const metaExtras = t.meta as typeof t.meta & { ogTitle?: string; ogDescription?: string }
 const useLocalizedOg =
   !pageTitle && Boolean(metaExtras.ogTitle?.trim()) && Boolean(metaExtras.ogDescription?.trim())

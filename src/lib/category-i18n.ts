@@ -30,7 +30,7 @@ export function getCategoryFields(categorySlug: string, lang: Lang) {
     title: label,
     pageTitle: seo?.pageTitle ?? label,
     metaDescription: truncateMeta(
-      seo?.metaDescription ?? `${label} — adresses et contacts à Phuket.`,
+      seo?.metaDescription ?? `${label}, adresses et contacts à Phuket.`,
       160,
     ),
     introHtml: localizeIntroHtml(seo?.introHtml, lang),

@@ -295,7 +295,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ lang }) => {
         if (parsed.message) parts.push(parsed.message)
         if (!res.ok) parts.push(`HTTP ${res.status}`)
         else if (!parsed.message && text.trim()) parts.push(text.trim().slice(0, 120))
-        const detail = parts.length ? ` (${parts.join(' — ')})` : ''
+        const detail = parts.length ? ` (${parts.join(', ')})` : ''
         setMessages((prev) => [...prev, { text: copy.submitFailed(detail), sender: 'bot' }])
       }
     } catch {

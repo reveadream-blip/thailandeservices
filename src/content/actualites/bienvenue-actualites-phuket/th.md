@@ -1,6 +1,6 @@
 ---
 title: ยินดีต้อนรับสู่ข่าวสาร Thailande-services
-description: อัปเดตเว็บและเรื่องบนเกาะภูเก็ต — ประกัน อสังหาฯ ล่าม
+description: อัปเดตเว็บและเรื่องบนเกาะภูเก็ต, ประกัน อสังหาฯ ล่าม
 pubDate: 2026-05-19
 draft: false
 ---
@@ -19,4 +19,4 @@ draft: false
 - [ล่าม](/th/interprete-thai-francais-anglais-a-phuket/)
 - [อสังหาฯ โทมาส](/th/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/)
 
-ทัก [แบบฟอร์ม](/th/contact/) หรือวอทส์แอปด้านบน — อ่านข้อความระหว่างออกไปดูบ้าน
+ทัก [แบบฟอร์ม](/th/contact/) หรือวอทส์แอปด้านบน, อ่านข้อความระหว่างออกไปดูบ้าน

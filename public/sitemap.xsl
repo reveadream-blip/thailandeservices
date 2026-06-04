@@ -8,7 +8,7 @@
     <html lang="fr">
       <head>
         <meta charset="UTF-8"/>
-        <title>Sitemap — Thailande-services.fr</title>
+        <title>Sitemap, Thailande-services.fr</title>
         <style>
           body { font-family: system-ui, sans-serif; margin: 2rem; color: #1a3a4a; }
           h1 { font-size: 1.5rem; }
@@ -21,7 +21,7 @@
         </style>
       </head>
       <body>
-        <h1>Sitemap — Thailande-services.fr</h1>
+        <h1>Sitemap, Thailande-services.fr</h1>
         <p><xsl:value-of select="count(s:urlset/s:url)"/> URL(s)</p>
         <table>
           <thead>

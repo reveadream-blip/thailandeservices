@@ -1,11 +1,11 @@
 ---
 title: Welcome to Thailande-services news
-description: Site updates and island notes from Phuket — insurance, property, interpreter.
+description: Site updates and island notes from Phuket, insurance, property, interpreter.
 pubDate: 2026-05-19
 draft: false
 ---
 
-Short **updates** only — what changed on the site and what we hear from people on the island.
+Short **updates** only, what changed on the site and what we hear from people on the island.
 
 ## Draft topics
 
@@ -19,4 +19,4 @@ Pages we touch most often:
 - [Interpreter](/en/interprete-thai-francais-anglais-a-phuket/)
 - [Property with Thomas](/en/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/)
 
-Questions? [Contact form](/en/contact/) or WhatsApp at the top — we read messages between viewings.
+Questions? [Contact form](/en/contact/) or WhatsApp at the top, we read messages between viewings.

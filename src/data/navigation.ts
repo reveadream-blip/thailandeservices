@@ -1,5 +1,5 @@
 /**
- * Menu et archives — structure partagée (libellés via i18n).
+ * Menu et archives, structure partagée (libellés via i18n).
  */
 
 import type { Lang } from '../i18n/translations'
@@ -72,7 +72,7 @@ export const NAV_MENU: NavMenuGroup[] = [
   },
 ]
 
-/** @deprecated Utiliser `getMainNav(lang)` — conservé pour référence FR. */
+/** @deprecated Utiliser `getMainNav(lang)`, conservé pour référence FR. */
 export const CATEGORY_LABELS: Record<string, string> = {
   'adresses-utiles': 'Adresses Utiles à Phuket',
   'les-bonnes-adresses-francophones': 'Les bonnes adresses Francophones à Phuket',

@@ -7,12 +7,12 @@
     },
     "en": {
       "pageTitle": "Useful addresses in Phuket",
-      "metaDescription": "Immigration, hospitals, emergencies, consulate, French school — numbers we keep on our phones in Phuket.",
+      "metaDescription": "Immigration, hospitals, emergencies, consulate, French school, numbers we keep on our phones in Phuket.",
       "introHtml": "<p>Phone numbers and addresses we actually use: immigration, clinics, tourist police 1155, consulate, BCIS… Stuck in a meeting? Tammy can interpret (<a href=\"/interprete-thai-francais-anglais-a-phuket/\">details here</a>).</p>"
     },
     "th": {
       "pageTitle": "ที่อยู่ที่เป็นประโยชน์ภูเก็ต",
-      "metaDescription": "ตรวจคนเข้าเมือง โรงพยาบาล ฉุกเฉิน กงสุล โรงเรียนฝรั่งเศส — เบอร์ที่ใช้จริงในภูเก็ต",
+      "metaDescription": "ตรวจคนเข้าเมือง โรงพยาบาล ฉุกเฉิน กงสุล โรงเรียนฝรั่งเศส, เบอร์ที่ใช้จริงในภูเก็ต",
       "introHtml": "<p>รวม<strong>เบอร์และที่อยู่</strong>ที่ใช้บ่อย ต้องการล่าม <a href=\"/interprete-thai-francais-anglais-a-phuket/\">แทมมี่</a></p>"
     }
   },
@@ -24,12 +24,12 @@
     },
     "en": {
       "pageTitle": "Francophone picks in Phuket",
-      "metaDescription": "Hotels, scooter rental, diving, shops — places francophones actually recommend in Phuket.",
-      "introHtml": "<p>Not a glossy travel brochure — <strong>spots people on the island pass around</strong>: hotels, scooter shops, dive centres, useful stores. Updated when a number changes.</p>"
+      "metaDescription": "Hotels, scooter rental, diving, shops, places francophones actually recommend in Phuket.",
+      "introHtml": "<p>Not a glossy travel brochure, <strong>spots people on the island pass around</strong>: hotels, scooter shops, dive centres, useful stores. Updated when a number changes.</p>"
     },
     "th": {
       "pageTitle": "ร้านแนะนำภูเก็ต",
-      "metaDescription": "โรงแรม เช่ารถ ดำน้ำ ร้านค้า — ที่ชาวฝรั่งเศสแนะนำกันในภูเก็ต",
+      "metaDescription": "โรงแรม เช่ารถ ดำน้ำ ร้านค้า, ที่ชาวฝรั่งเศสแนะนำกันในภูเก็ต",
       "introHtml": "<p><strong>ร้านที่คนรู้จักแนะนำ</strong> ไม่ใช่คู่มือท่องเที่ยวทางการ</p>"
     }
   },
@@ -58,7 +58,7 @@
     },
     "th": {
       "pageTitle": "ประกันสุขภาพภูเก็ตและไทย",
-      "metaDescription": "ประกันสุขภาพ รถยนต์ และบ้านในภูเก็ต — แทมมี่ ตัวแทน AXA ให้คำปรึกษาภาษาฝรั่งเศส",
+      "metaDescription": "ประกันสุขภาพ รถยนต์ และบ้านในภูเก็ต, แทมมี่ ตัวแทน AXA ให้คำปรึกษาภาษาฝรั่งเศส",
       "introHtml": "<p>ประกันที่<strong>สุรินทร์</strong> และชาวฝรั่งเศส<strong>ภูเก็ต</strong> (AXA) <a href=\"/formulaire-de-contact/\">ติดต่อ</a> หรือวอทส์แอป</p>",
       "faq": [
         {
@@ -81,7 +81,7 @@
     },
     "th": {
       "pageTitle": "บริการชาวต่างชาติภูเก็ต",
-      "metaDescription": "ย้ายมาภูเก็ต: โทมาส อสังหาฯ กระบี่ แทมมี่ ประกันสุขภาพและล่ามฉุกเฉิน — ติดต่อได้จริง",
+      "metaDescription": "ย้ายมาภูเก็ต: โทมาส อสังหาฯ กระบี่ แทมมี่ ประกันสุขภาพและล่ามฉุกเฉิน, ติดต่อได้จริง",
       "introHtml": "<p><strong>สุรินทร์</strong>: แทมมี่ ประกัน ล่าม ธุรการ <strong>ภูเก็ต</strong>: ชาวฝรั่งเศส โทมาส<strong>อสังหาฯ</strong></p>"
     }
   }
