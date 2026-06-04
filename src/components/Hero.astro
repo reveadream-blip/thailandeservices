@@ -1,7 +1,7 @@
 ---
 import { translations, type Lang } from '../i18n/translations'
 import { WP_PAGES } from '../config'
-import { localePath } from '../lib/locale-path'
+import { contactPagePath, localePath } from '../lib/locale-path'
 
 export interface Props {
   lang: Lang
@@ -35,6 +35,16 @@ const slides = [
     cta: t.homeSlider.slide3.cta,
     href: localePath(lang, WP_PAGES.assuranceArticle),
   },
+  {
+    image: '/images/slide-surin.png',
+    mode: 'simple' as const,
+    textOnImage: true,
+    title: t.homeSlider.slide4.title,
+    alt: t.homeSlider.slide4.alt,
+    subtitle: t.homeSlider.slide4.subtitle,
+    cta: t.homeSlider.slide4.cta,
+    href: localePath(lang, contactPagePath(lang)),
+  },
 ]
 ---
 
@@ -46,8 +56,19 @@ const slides = [
         data-slide={i}
         aria-hidden={i === 0 ? 'false' : 'true'}
       >
-        <img src={s.image} alt={s.title} class="slide-bg" loading={i === 0 ? 'eager' : 'lazy'} />
-        <div class="slide-scrim" aria-hidden="true"></div>
+        <img
+          src={s.image}
+          alt={'alt' in s && s.alt ? s.alt : s.title}
+          class:list={[
+            'slide-bg',
+            { 'slide-bg--banner': 'textOnImage' in s && s.textOnImage },
+          ]}
+          loading={i === 0 ? 'eager' : 'lazy'}
+        />
+        <div
+          class:list={['slide-scrim', { 'slide-scrim--light': 'textOnImage' in s && s.textOnImage }]}
+          aria-hidden="true"
+        ></div>
         <div class="container slide-inner">
           {s.mode === 'simple' ? (
             <div class="slide-content">
@@ -56,11 +77,17 @@ const slides = [
                   <h1 class="slide-h1">{t.hero.seoH1}</h1>
                   <p class="slide-h1-sub">{t.hero.seoH1Sub}</p>
                 </>
-              ) : (
+              ) : !('textOnImage' in s && s.textOnImage) ? (
                 <h2 class="slide-h2">{s.title}</h2>
-              )}
-              <p class="slide-sub">{s.subtitle}</p>
-              <a href={s.href} class="btn btn-primary slide-cta">
+              ) : null}
+              {'textOnImage' in s && s.textOnImage ? (
+                <p class="visually-hidden">{s.title}</p>
+              ) : null}
+              {s.subtitle ? <p class="slide-sub">{s.subtitle}</p> : null}
+              <a
+                href={s.href}
+                class:list={['btn', 'btn-primary', 'slide-cta', { 'slide-cta--image': 'textOnImage' in s && s.textOnImage }]}
+              >
                 {s.cta}
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M5 12h14M13 5l7 7-7 7"></path>
@@ -190,6 +217,10 @@ const slides = [
     object-fit: cover;
   }
 
+  .slide-bg--banner {
+    object-position: center top;
+  }
+
   .slide-scrim {
     position: absolute;
     inset: 0;
@@ -208,6 +239,39 @@ const slides = [
     inset: 0;
     background: radial-gradient(ellipse 80% 50% at 20% 40%, rgba(34, 211, 238, 0.12) 0%, transparent 55%);
     pointer-events: none;
+  }
+
+  .slide-scrim--light {
+    background: linear-gradient(
+      90deg,
+      rgba(8, 47, 73, 0.55) 0%,
+      rgba(14, 116, 144, 0.2) 35%,
+      transparent 65%
+    );
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .slide-cta--image {
+    margin-top: auto;
+  }
+
+  .slide-content:has(.slide-cta--image) {
+    min-height: min(50vh, 420px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 0.5rem;
   }
 
   .slide-inner {

@@ -129,6 +129,12 @@ export const translations = {
         subtitle: 'Surin : conseil sur place · Phuket : on reste joignables',
         cta: 'Contactez Tammy!',
       },
+      slide4: {
+        title: 'Services à Surin : visas, assurances, interprétariat',
+        alt: 'Tammy, Thailande-services à Surin : visas, assurances et interprétariat',
+        subtitle: '',
+        cta: 'Contactez Tammy!',
+      },
       prev: 'Diapositive précédente',
       next: 'Diapositive suivante',
     },
@@ -403,6 +409,12 @@ export const translations = {
         subtitle: 'Surin: on-site advice · Phuket: still reachable',
         cta: 'Contact Tammy!',
       },
+      slide4: {
+        title: 'Services in Surin: visas, insurance, interpreting',
+        alt: 'Tammy, Thailande-services in Surin: visas, insurance and interpreting',
+        subtitle: '',
+        cta: 'Contact Tammy!',
+      },
       prev: 'Previous slide',
       next: 'Next slide',
     },
@@ -675,6 +687,12 @@ export const translations = {
       slide3: {
         title: 'ประกันสุขภาพ, สุรินทร์ & ภูเก็ต',
         subtitle: 'สุรินทร์: ปรึกษาหน้างาน · ภูเก็ต: ยังติดต่อได้',
+        cta: 'ติดต่อแทมมี่!',
+      },
+      slide4: {
+        title: 'บริการที่สุรินทร์: วีซ่า ประกัน ล่าม',
+        alt: 'แทมมี่ Thailande-services ที่สุรินทร์: วีซ่า ประกัน และล่าม',
+        subtitle: '',
         cta: 'ติดต่อแทมมี่!',
       },
       prev: 'สไลด์ก่อนหน้า',
