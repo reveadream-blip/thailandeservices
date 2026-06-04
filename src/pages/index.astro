@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import Hero from '../components/Hero.astro'
+import Regions from '../components/Regions.astro'
 import Services from '../components/Services.astro'
 import Emergency from '../components/Emergency.astro'
 import Partners from '../components/Partners.astro'
@@ -17,6 +18,7 @@ const lang = 'fr' as const
   ogImage="/images/logo-home.png"
 >
   <Hero lang={lang} />
+  <Regions lang={lang} />
   <Services lang={lang} />
   <SeoIntro lang={lang} />
   <Emergency lang={lang} />

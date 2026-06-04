@@ -81,9 +81,15 @@ function siteBaseUrl(): string {
   return 'https://thailande-services.fr'
 }
 
+/** Zones couvertes (Phuket : suivi francophone ; Surin : assurance, interprète, admin). */
+export const SERVICE_AREAS = {
+  phuket: 'Phuket',
+  surin: 'Surin',
+} as const
+
 export const SITE = {
   name: 'Thailande-services.fr',
-  tagline: 'Assurance - Immobilier - Interprète',
+  tagline: 'Assurance · Interprète · Admin — Surin & Phuket',
   get baseUrl() {
     return siteBaseUrl()
   },

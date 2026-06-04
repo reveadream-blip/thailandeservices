@@ -10,16 +10,20 @@ const t = translations[lang]
 
 const cards = [
   {
-    key: 'realEstate' as const,
-    image: '/images/service-immobilier.jpg',
-  },
-  {
     key: 'insurance' as const,
     image: '/images/service-assurance.jpg',
   },
   {
     key: 'interpreter' as const,
     image: '/images/service-interprete.jpg',
+  },
+  {
+    key: 'administration' as const,
+    image: '/images/feature-bg-entreprise.jpg',
+  },
+  {
+    key: 'realEstate' as const,
+    image: '/images/service-immobilier.jpg',
   },
 ]
 ---
@@ -83,9 +87,15 @@ const cards = [
     grid-template-columns: 1fr;
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 700px) {
     .services-grid {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .services-grid {
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 

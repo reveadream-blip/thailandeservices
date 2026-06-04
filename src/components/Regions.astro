@@ -1,0 +1,143 @@
+---
+import { translations, type Lang } from '../i18n/translations'
+import { contactFormHref } from '../config'
+
+export interface Props {
+  lang: Lang
+}
+const { lang } = Astro.props
+const t = translations[lang].regions
+---
+
+<section class="section regions" aria-labelledby="regions-title">
+  <div class="container">
+    <header class="section-head" data-reveal>
+      <span class="section-eyebrow">{t.eyebrow}</span>
+      <h2 id="regions-title">{t.title}</h2>
+      <p class="regions-lead">{t.lead}</p>
+    </header>
+
+    <div class="regions-grid">
+      <article class="region-card region-card--surin" data-reveal>
+        <span class="region-badge">{t.surin.badge}</span>
+        <h3>{t.surin.title}</h3>
+        <ul>
+          {t.surin.services.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+        <p>{t.surin.note}</p>
+        <a href={contactFormHref(lang)} class="region-cta">
+          {t.surin.cta}
+          <span aria-hidden="true">→</span>
+        </a>
+      </article>
+
+      <article class="region-card region-card--phuket" data-reveal style="animation-delay:0.08s">
+        <span class="region-badge region-badge--muted">{t.phuket.badge}</span>
+        <h3>{t.phuket.title}</h3>
+        <ul>
+          {t.phuket.services.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+        <p>{t.phuket.note}</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .regions {
+    background: var(--color-sand-light);
+    border-block: 1px solid var(--color-border);
+  }
+
+  .regions-lead {
+    margin: 0.75rem auto 0;
+    max-width: 52ch;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--color-text-muted);
+  }
+
+  .regions-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 768px) {
+    .regions-grid {
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+    }
+  }
+
+  .region-card {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: 1.5rem 1.35rem 1.6rem;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .region-card--surin {
+    border-color: color-mix(in srgb, var(--color-coral) 35%, var(--color-border));
+    box-shadow: var(--shadow-md);
+  }
+
+  .region-badge {
+    align-self: flex-start;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-coral) 18%, #fff);
+    color: var(--color-coral);
+  }
+
+  .region-badge--muted {
+    background: color-mix(in srgb, var(--color-ocean-light) 15%, #fff);
+    color: var(--color-ocean);
+  }
+
+  .region-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    margin: 0;
+    color: var(--color-ocean-dark);
+  }
+
+  .region-card ul {
+    margin: 0;
+    padding-left: 1.15rem;
+    line-height: 1.6;
+    flex-grow: 1;
+  }
+
+  .region-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+
+  .region-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.35rem;
+    font-weight: 700;
+    color: var(--color-ocean);
+  }
+
+  .region-cta:hover {
+    color: var(--color-coral);
+  }
+</style>

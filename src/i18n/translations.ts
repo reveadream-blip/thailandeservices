@@ -11,13 +11,13 @@ export const LANG_LABELS: Record<Lang, string> = {
 export const translations = {
   fr: {
     meta: {
-      title: 'Assurance santé Phuket | Immobilier & interprète thaï FR-EN',
+      title: 'Assurance & interprète Surin | Phuket francophone',
       description:
-        "Assurance santé Phuket et Thaïlande, interprète thaï français anglais, immobilier à Phuket et Krabi. Maisons à vendre, location et accompagnement expatriation francophone.",
+        'Assurance santé, interprète et aide administrative à Surin. Accompagnement des francophones de Phuket. Immobilier Phuket & Krabi avec Thomas.',
       /** Accueil FR uniquement : variantes OG plus courtes (réseaux sociaux). */
-      ogTitle: 'Assurance santé Phuket · Immobilier · Interprète thaï FR-EN',
+      ogTitle: 'Surin : assurance · interprète · admin | Phuket',
       ogDescription:
-        "Assurance santé Thaïlande, interprète thaï français anglais, immobilier Phuket & Krabi — maisons à vendre et location.",
+        'Services à Surin (assurance, interprète, démarches). On continue pour les francophones de Phuket. Immo avec Thomas.',
     },
     nav: {
       services: 'Services',
@@ -70,7 +70,33 @@ export const translations = {
       pageTitle: 'Contact assurance, immo & interprète',
       pageH1: 'Écrire à Tammy ou Thomas',
       metaDescription:
-        'WhatsApp ou formulaire : assurance AXA, interprète, immo Phuket/Krabi. On répond dès qu’on peut.',
+        'WhatsApp ou formulaire : assurance, interprète et admin à Surin ; francophones Phuket et immo Krabi. On répond dès qu’on peut.',
+    },
+    regions: {
+      eyebrow: 'Où nous trouver',
+      title: 'Surin & Phuket',
+      lead: 'Nous sommes installés dans la région de Surin pour l’assurance, l’interprétariat et l’aide administrative, tout en restant disponibles pour les francophones de Phuket.',
+      surin: {
+        badge: 'Surin — sur place',
+        title: 'Services ouverts à Surin',
+        services: [
+          'Assurance santé (AXA KrungThai)',
+          'Interprète thaï · français · anglais',
+          'Aide administrative (visa, immigration, démarches)',
+        ],
+        note: 'Tammy vous accompagne directement dans la région de Surin pour ces trois prestations.',
+        cta: 'Nous contacter',
+      },
+      phuket: {
+        badge: 'Phuket — on continue',
+        title: 'Francophones à Phuket',
+        services: [
+          'Assurance santé & interprète (WhatsApp, déplacement possible)',
+          'Immobilier avec Thomas (Phuket & Krabi)',
+          'Annuaire : hôpitaux, urgences, bonnes adresses',
+        ],
+        note: 'Les fiches utiles à Phuket restent en ligne ; on répond toujours aux résidents et visiteurs francophones.',
+      },
     },
     actualites: {
       pageTitle: 'Actualités Phuket & Thaïlande',
@@ -99,56 +125,63 @@ export const translations = {
         cta: 'Contactez Thomas!',
       },
       slide3: {
-        title: 'Assurance santé Phuket',
-        subtitle: 'Assurance santé Thaïlande — auto, maison et vie',
+        title: 'Assurance santé — Surin & Phuket',
+        subtitle: 'Surin : conseil sur place · Phuket : on reste joignables',
         cta: 'Contactez Tammy!',
       },
       prev: 'Diapositive précédente',
       next: 'Diapositive suivante',
     },
     hero: {
-      eyebrow: 'Sur place à Phuket',
+      eyebrow: 'Surin & Phuket',
       /** H1 unique du carrousel (SEO). */
-      seoH1: 'Assurance santé Phuket & Thaïlande · Immobilier Phuket & Krabi',
-      seoH1Sub: 'Interprète thaï français anglais — maisons à vendre et location',
+      seoH1: 'Assurance · Interprète · Admin — Surin & Phuket',
+      seoH1Sub: 'Immobilier Phuket & Krabi — francophones toujours accompagnés',
       titleLine1: "Besoin d'un interprète ?",
       titleLine2: 'Français · Anglais · Thaï',
       subtitle:
-        "Tammy (assurance + interprète) et Thomas (immo) répondent en français. Urgence, visa, achat maison : le numéro WhatsApp est en haut de page.",
+        'Tammy est basée à Surin (assurance, interprète, aide admin). On continue pour les francophones de Phuket ; Thomas gère l’immo sur l’île. WhatsApp en haut de page.',
       ctaContact: 'Nous contacter',
       ctaWhatsapp: 'WhatsApp direct',
     },
     services: {
-      title: 'Assurance santé, immobilier et interprète',
-      subtitle: 'Deux personnes sur l’île, trois métiers',
+      title: 'Nos services',
+      subtitle: 'Surin sur place · Phuket & Krabi',
       realEstate: {
         title: 'Immobilier à Phuket et Krabi',
-        tagline: 'Maison à vendre & location',
+        tagline: 'Phuket & Krabi',
         description:
-          'Maison à vendre à Phuket et Krabi : achat, location, vente et gestion avec Thomas et son agence immobilière locale.',
+          'Thomas reste votre contact immo sur l’île et à Krabi : achat, location, visites — indépendant de notre base à Surin.',
         cta: 'Nous contacter',
       },
       insurance: {
-        title: 'Assurance santé Phuket & Thaïlande',
-        tagline: 'Assurance santé',
+        title: 'Assurance santé',
+        tagline: 'Surin & Phuket',
         description:
-          "Assurance santé à Phuket et en Thaïlande (auto, maison, vie). Tammy, agent AXA, vous conseille en français et en anglais.",
+          'Agent AXA : conseil en français à Surin et pour les francophones de Phuket (hospitalisation, visa, auto ou maison).',
         cta: 'Nous contacter',
       },
       interpreter: {
         title: 'Interprète thaï français anglais',
-        tagline: 'Interprétariat',
+        tagline: 'Surin & Phuket',
         description:
-          "Interprète et traducteur thaï, français et anglais à Phuket : démarches, urgences médicales et police.",
+          'Hôpital, police, immigration : Tammy intervient à Surin sur place et se déplace à Phuket quand c’est nécessaire.',
+        cta: 'Nous contacter',
+      },
+      administration: {
+        title: 'Aide administrative',
+        tagline: 'Région de Surin',
+        description:
+          'Visa, immigration, formulaires, rendez-vous officiels : accompagnement en thaï, français et anglais — service ouvert à Surin.',
         cta: 'Nous contacter',
       },
     },
     seoIntro: {
       eyebrow: 'Le site en deux mots',
-      title: 'Ce qu’on fait vraiment à Phuket',
+      title: 'Surin & Phuket',
       paragraphs: [
-        'On n’est pas une plateforme anonyme : <strong>Tammy</strong> gère l’assurance (AXA) et l’interprétariat, <strong>Thomas</strong> l’immobilier à Phuket et Krabi. Le reste ce sont des adresses qu’on partage entre francophones.',
-        'Hôpitaux, urgences, ostéo : <a href="/hopitaux-a-phuket/">liste ici</a>, <a href="/numeros-durgences/">numéros 1155 / 1669</a>, <a href="/osteopathe-francais-a-phuket/">Dr Tur</a>. Besoin d’aide tout de suite ? WhatsApp en haut.',
+        '<strong>Surin</strong> : Tammy y propose assurance santé (AXA), interprétariat et aide administrative sur place. <strong>Phuket</strong> : on continue pour les francophones (assurance, interprète) ; <strong>Thomas</strong> gère l’immo à Phuket et Krabi.',
+        'Hôpitaux, urgences, ostéo à Phuket : <a href="/hopitaux-a-phuket/">liste ici</a>, <a href="/numeros-durgences/">1155 / 1669</a>, <a href="/osteopathe-francais-a-phuket/">Dr Tur</a>. Une question ? WhatsApp en haut.',
       ],
       links: [
         { href: '/assurance-sante-thailande-phuket/', label: 'Assurance santé' },
@@ -162,7 +195,7 @@ export const translations = {
       eyebrow: 'Disponible 7j/7',
       title: 'Interprète thaï français anglais — urgences',
       description:
-        "Nous avons beaucoup de demandes de traductions pour des accidents, urgences médicales ou avec la police. Un interprète vous accompagnera. Appelez le numéro whatsapp en tête du site!",
+        'Accidents, urgences médicales ou police : Tammy interprète à Surin sur place et se déplace à Phuket si besoin. WhatsApp en tête du site.',
       tags: ['Urgence medicale - Accident - Police'],
       cta: 'Appelez-nous avec WhatsApp',
       features: {
@@ -189,9 +222,9 @@ export const translations = {
         'Les deux visages du site — le reste ce sont des fiches adresses qu’on met à jour au fil de l’eau.',
       tammy: {
         name: 'Tammy',
-        role: 'Agent AXA · Interprète FR-EN-TH',
+        role: 'Agent AXA · Interprète · Admin — Surin',
         description:
-          "« Bonjour, moi c’est Tammy. Agent AXA sur l’île, et quand il faut traduire à l’hôpital ou chez la police, je viens. Appelez le WhatsApp du site, on verra si je suis libre. »",
+          "« Bonjour, c’est Tammy. Je suis à Surin pour l’assurance, l’interprétariat et l’aide administrative. Pour Phuket, on reste joignables — hôpital, police, visa. WhatsApp du site. »",
       },
       thomas: {
         name: 'Thomas',
@@ -237,9 +270,9 @@ export const translations = {
       whatsapp: 'WhatsApp',
     },
     footer: {
-      tagline: 'Assurance · Immo · Interprète — Phuket',
+      tagline: 'Assurance · Interprète · Admin — Surin & Phuket',
       rights: 'Tous droits réservés',
-      madeIn: 'Phuket, Thaïlande',
+      madeIn: 'Surin & Phuket, Thaïlande',
       contactBlockTitle: 'Contacts',
       byWhatsapp: 'Par WhatsApp',
       moreInfo: 'Pour plus d’informations!',
@@ -255,12 +288,12 @@ export const translations = {
 
   en: {
     meta: {
-      title: 'Health insurance Phuket Thailand | Real estate & interpreter',
+      title: 'Insurance & interpreter Surin | Phuket francophone',
       description:
-        'Health insurance Phuket and Thailand, Thai-French-English interpreter, real estate in Phuket and Krabi. Homes for sale, rentals and expat support.',
-      ogTitle: 'Health insurance Phuket · Real estate · Interpreter FR-EN-TH',
+        'Health insurance, interpreter and admin help in Surin. Still serving francophones in Phuket. Real estate Phuket & Krabi with Thomas.',
+      ogTitle: 'Surin: insurance · interpreter · admin | Phuket',
       ogDescription:
-        'Phuket & Krabi real estate, Thailand health insurance, Thai-French-English interpreter.',
+        'On-site services in Surin. Still here for Phuket francophones. Property with Thomas.',
     },
     nav: {
       services: 'Services',
@@ -312,7 +345,33 @@ export const translations = {
       pageTitle: 'Contact — insurance, real estate & interpreter',
       pageH1: 'Message Tammy or Thomas',
       metaDescription:
-        'WhatsApp or form: AXA insurance, interpreter, Phuket/Krabi property. We reply when we can.',
+        'WhatsApp or form: insurance, interpreter and admin in Surin; Phuket francophones and Krabi property. We reply when we can.',
+    },
+    regions: {
+      eyebrow: 'Where we work',
+      title: 'Surin & Phuket',
+      lead: 'We are now based in the Surin area for insurance, interpreting and administrative support, while staying available for francophones in Phuket.',
+      surin: {
+        badge: 'Surin — on site',
+        title: 'Services in Surin',
+        services: [
+          'Health insurance (AXA KrungThai)',
+          'Thai · French · English interpreter',
+          'Administrative help (visa, immigration, paperwork)',
+        ],
+        note: 'Tammy meets you in the Surin region for these three services.',
+        cta: 'Contact us',
+      },
+      phuket: {
+        badge: 'Phuket — still here',
+        title: 'Francophones in Phuket',
+        services: [
+          'Health insurance & interpreter (WhatsApp, visits when needed)',
+          'Real estate with Thomas (Phuket & Krabi)',
+          'Directory: hospitals, emergencies, useful addresses',
+        ],
+        note: 'Phuket address pages stay online; we still answer francophone residents and visitors.',
+      },
     },
     actualites: {
       pageTitle: 'News — Phuket & Thailand',
@@ -341,55 +400,62 @@ export const translations = {
         cta: 'Contact Thomas!',
       },
       slide3: {
-        title: 'Health insurance on the island',
-        subtitle: 'AXA, hospital cover, sometimes car or home',
+        title: 'Health insurance — Surin & Phuket',
+        subtitle: 'Surin: on-site advice · Phuket: still reachable',
         cta: 'Contact Tammy!',
       },
       prev: 'Previous slide',
       next: 'Next slide',
     },
     hero: {
-      eyebrow: 'Based in Phuket',
-      seoH1: 'Health insurance Phuket & Thailand · Real estate Phuket & Krabi',
-      seoH1Sub: 'Thai-French-English interpreter — homes for sale and rent',
+      eyebrow: 'Surin & Phuket',
+      seoH1: 'Insurance · Interpreter · Admin — Surin & Phuket',
+      seoH1Sub: 'Real estate Phuket & Krabi — francophones still supported',
       titleLine1: 'Need an interpreter?',
       titleLine2: 'French · English · Thai',
       subtitle:
-        'Tammy (insurance + interpreter) and Thomas (property) answer in French. Emergency, visa, buying a home — WhatsApp is at the top.',
+        'Tammy is based in Surin (insurance, interpreter, admin help). We still support francophones in Phuket; Thomas handles island property. WhatsApp at the top.',
       ctaContact: 'Contact us',
       ctaWhatsapp: 'WhatsApp now',
     },
     services: {
       title: 'Our services',
-      subtitle: 'Two people on the island, three jobs',
+      subtitle: 'Surin on site · Phuket & Krabi',
       realEstate: {
         title: 'Real estate in Phuket & Krabi',
-        tagline: 'Buy · Rent · Sell · Manage',
+        tagline: 'Phuket & Krabi',
         description:
-          'Thomas knows Rawai, Chalong and Krabi side — condos, long lets, sometimes leasehold villas. Visits when it makes sense, not spam calls.',
+          'Thomas stays your property contact on the island and in Krabi — separate from our Surin base.',
         cta: 'Ask Thomas',
       },
       insurance: {
         title: 'Health, car & home insurance',
-        tagline: 'AXA Krung Thai',
+        tagline: 'Surin & Phuket',
         description:
-          'Hospital bills hurt without cover. Tammy compares AXA plans in French (English/Thai too) and stays reachable if something goes wrong.',
+          'AXA agent: French advice in Surin and for francophones in Phuket (hospital cover, visa, car or home).',
         cta: 'Talk to Tammy',
       },
       interpreter: {
         title: 'Trilingual interpreter',
-        tagline: 'French · English · Thai',
+        tagline: 'Surin & Phuket',
         description:
-          'Hospital, police, immigration, landlord rows — Tammy translates on site. Same WhatsApp as insurance.',
+          'Hospital, police, immigration — Tammy works on site in Surin and travels to Phuket when needed.',
         cta: 'Call Tammy',
+      },
+      administration: {
+        title: 'Administrative help',
+        tagline: 'Surin region',
+        description:
+          'Visa, immigration, forms, official appointments — support in Thai, French and English, available in Surin.',
+        cta: 'Contact us',
       },
     },
     seoIntro: {
       eyebrow: 'In short',
-      title: 'What this site is for',
+      title: 'Surin & Phuket',
       paragraphs: [
-        'Not a faceless portal: <strong>Tammy</strong> does AXA insurance and on-site interpreting, <strong>Thomas</strong> sells and rents property in Phuket/Krabi. Everything else is address lists we share.',
-        'Hospitals, 1155/1669, osteopath: <a href="/en/hopitaux-a-phuket/">here</a>, <a href="/en/numeros-durgences/">numbers</a>, <a href="/en/osteopathe-francais-a-phuket/">Dr Tur</a>. Urgent? WhatsApp at the top.',
+        '<strong>Surin</strong>: Tammy offers health insurance (AXA), interpreting and admin help on site. <strong>Phuket</strong>: we still support francophones (insurance, interpreter); <strong>Thomas</strong> handles property in Phuket/Krabi.',
+        'Phuket hospitals & emergencies: <a href="/en/hopitaux-a-phuket/">list</a>, <a href="/en/numeros-durgences/">1155 / 1669</a>, <a href="/en/osteopathe-francais-a-phuket/">Dr Tur</a>. Questions? WhatsApp at the top.',
       ],
       links: [
         { href: '/en/assurance-sante-thailande-phuket/', label: 'Health insurance' },
@@ -403,7 +469,7 @@ export const translations = {
       eyebrow: 'Available 7/7',
       title: 'Need an interpreter urgently!',
       description:
-        'We receive many requests for accidents, medical emergencies or police matters. An interpreter will go with you. Call the WhatsApp number at the top of the site!',
+        'Accidents, medical emergencies or police: Tammy interprets on site in Surin and can come to Phuket when needed. WhatsApp at the top.',
       tags: ['Medical emergency - Accident - Police'],
       cta: 'WhatsApp us',
       features: {
@@ -430,9 +496,9 @@ export const translations = {
         'The two people behind the site — plus address pages we update when numbers change.',
       tammy: {
         name: 'Tammy',
-        role: 'AXA Agent · Interpreter FR-EN-TH',
+        role: 'AXA · Interpreter · Admin — Surin',
         description:
-          "\"Hi, I'm Tammy — AXA on the island, and I translate at hospitals or the police when needed. WhatsApp on the site, we'll see if I'm free.\"",
+          "\"Hi, I'm Tammy — based in Surin for insurance, interpreting and admin help. For Phuket we stay reachable: hospital, police, visa. Site WhatsApp.\"",
       },
       thomas: {
         name: 'Thomas',
@@ -478,9 +544,9 @@ export const translations = {
       whatsapp: 'WhatsApp',
     },
     footer: {
-      tagline: 'Insurance · Property · Interpreter — Phuket',
+      tagline: 'Insurance · Interpreter · Admin — Surin & Phuket',
       rights: 'All rights reserved',
-      madeIn: 'Phuket, Thailand',
+      madeIn: 'Surin & Phuket, Thailand',
       contactBlockTitle: 'Contact',
       byWhatsapp: 'By WhatsApp',
       moreInfo: 'More information',
@@ -496,12 +562,12 @@ export const translations = {
 
   th: {
     meta: {
-      title: 'ประกันสุขภาพภูเก็ต | อสังหาฯ & ล่ามไทย-ฝรั่งเศส-อังกฤษ',
+      title: 'ประกันสุขภาพสุรินทร์ | ภูเก็ต & ล่ามไทย-ฝรั่งเศส-อังกฤษ',
       description:
-        'ประกันสุขภาพภูเก็ตและไทย ล่ามไทยฝรั่งเศสอังกฤษ อสังหาริมทรัพย์ภูเก็ตและกระบี่ บ้านขายและเช่า บริการชาวฝรั่งเศส',
-      ogTitle: 'ประกันสุขภาพภูเก็ต · อสังหาฯ · ล่ามไทย FR-EN',
+        'ประกันสุขภาพ ล่าม และช่วยเรื่องธุรการที่สุรินทร์ ยังดูแลชาวฝรั่งเศสที่ภูเก็ต อสังหาภูเก็ตกระบี่กับโทมัส',
+      ogTitle: 'สุรินทร์: ประกัน · ล่าม · ธุรการ | ภูเก็ต',
       ogDescription:
-        'ประกันสุขภาพไทย ล่ามไทยฝรั่งเศสอังกฤษ อสังหาภูเก็ตกระบี่',
+        'บริการที่สุรินทร์ ยังรับงานภูเก็ต อสังหากับโทมัส',
     },
     nav: {
       services: 'บริการ',
@@ -553,7 +619,33 @@ export const translations = {
       pageTitle: 'ติดต่อ — ประกัน อสังหาฯ และล่าม',
       pageH1: 'ทักแทมมี่หรือโทมาส',
       metaDescription:
-        'วอทส์แอปหรือแบบฟอร์ม: ประกัน AXA ล่าม อสังหาภูเก็ต/กระบี่ ตอบเมื่อว่าง',
+        'วอทส์แอปหรือแบบฟอร์ม: ประกัน ล่าม และธุรการที่สุรินทร์ ชาวฝรั่งเศสภูเก็ต อสังหากระบี่ ตอบเมื่อว่าง',
+    },
+    regions: {
+      eyebrow: 'พื้นที่ให้บริการ',
+      title: 'สุรินทร์ & ภูเก็ต',
+      lead: 'ย้ายฐานไปสุรินทร์สำหรับประกัน ล่าม และช่วยเรื่องธุรการ แต่ยังดูแลชาวฝรั่งเศสที่ภูเก็ต',
+      surin: {
+        badge: 'สุรินทร์ — หน้างาน',
+        title: 'บริการที่สุรินทร์',
+        services: [
+          'ประกันสุขภาพ (AXA กรุงไทย)',
+          'ล่ามไทย · ฝรั่งเศส · อังกฤษ',
+          'ช่วยเรื่องธุรการ (วีซ่า ตรวจคนเข้าเมือง เอกสาร)',
+        ],
+        note: 'แทมมี่พบลูกค้าในพื้นที่สุรินทร์สำหรับบริการทั้งสาม',
+        cta: 'ติดต่อเรา',
+      },
+      phuket: {
+        badge: 'ภูเก็ต — ยังรับงาน',
+        title: 'ชาวฝรั่งเศสที่ภูเก็ต',
+        services: [
+          'ประกันและล่าม (วอทส์แอป ไปภูเก็ตเมื่อจำเป็น)',
+          'อสังหากับโทมัส (ภูเก็ตและกระบี่)',
+          'รายชื่อโรงพยาบาล ฉุกเฉิน ที่อยู่',
+        ],
+        note: 'หน้าที่อยู่ภูเก็ตยังอัปเดต ตอบชาวฝรั่งเศสที่อาศัยหรือมาเยือน',
+      },
     },
     actualites: {
       pageTitle: 'ข่าวสาร — ภูเก็ตและไทย',
@@ -582,55 +674,62 @@ export const translations = {
         cta: 'ติดต่อโทมัส!',
       },
       slide3: {
-        title: 'ประกันสุขภาพบนเกาะ',
-        subtitle: 'AXA โรงพยาบาล บางครั้งรถหรือบ้าน',
+        title: 'ประกันสุขภาพ — สุรินทร์ & ภูเก็ต',
+        subtitle: 'สุรินทร์: ปรึกษาหน้างาน · ภูเก็ต: ยังติดต่อได้',
         cta: 'ติดต่อแทมมี่!',
       },
       prev: 'สไลด์ก่อนหน้า',
       next: 'สไลด์ถัดไป',
     },
     hero: {
-      eyebrow: 'อยู่ภูเก็ตจริงๆ',
-      seoH1: 'ประกันสุขภาพภูเก็ตและไทย · อสังหาภูเก็ตและกระบี่',
-      seoH1Sub: 'ล่ามไทยฝรั่งเศสอังกฤษ — บ้านขายและเช่า',
+      eyebrow: 'สุรินทร์ & ภูเก็ต',
+      seoH1: 'ประกัน · ล่าม · ธุรการ — สุรินทร์ & ภูเก็ต',
+      seoH1Sub: 'อสังหาภูเก็ตกระบี่ — ยังดูแลชาวฝรั่งเศส',
       titleLine1: 'ต้องการล่ามใช่ไหม?',
       titleLine2: 'ฝรั่งเศส · อังกฤษ · ไทย',
       subtitle:
-        'แทมมี่ (ประกัน+ล่าม) และโทมาส (อสังหาฯ) ตอบภาษาฝรั่งเศส ฉุกเฉิน วีซ่า ซื้อบ้าน — วอทส์แอปด้านบน',
+        'แทมมี่อยู่สุรินทร์ (ประกัน ล่าม ธุรการ) ยังรับงานชาวฝรั่งเศสภูเก็ต โทมาสดูแลอสังหาบนเกาะ — วอทส์แอปด้านบน',
       ctaContact: 'ติดต่อเรา',
       ctaWhatsapp: 'วอทส์แอปทันที',
     },
     services: {
       title: 'บริการของเรา',
-      subtitle: 'สองคนบนเกาะ สามงาน',
+      subtitle: 'สุรินทร์หน้างาน · ภูเก็ต & กระบี่',
       realEstate: {
         title: 'อสังหาริมทรัพย์ภูเก็ตและกระบี่',
-        tagline: 'ซื้อ · เช่า · ขาย · บริหาร',
+        tagline: 'ภูเก็ต & กระบี่',
         description:
-          'โทมาสรู้จักราไวย์ ฉลอง กระบี่ — คอนโด เช่ายาว บางทีวิลล่า leasehold พาดูเมื่อเหมาะ',
+          'โทมาสยังเป็นที่ปรึกษาอสังหาบนเกาะและกระบี่ แยกจากฐานที่สุรินทร์',
         cta: 'ถามโทมาส',
       },
       insurance: {
         title: 'ประกันสุขภาพ รถยนต์ และบ้าน',
-        tagline: 'AXA กรุงไทย',
+        tagline: 'สุรินทร์ & ภูเก็ต',
         description:
-          'โรงพยาบาลเอกชนแพงถ้าไม่มีประกัน แทมมี่เปรียบแผน AXA ภาษาฝรั่งเศส (อังกฤษ/ไทยได้) ติดตามเคลมได้',
+          'ตัวแทน AXA: ปรึกษาภาษาฝรั่งเศสที่สุรินทร์และชาวฝรั่งเศสภูเก็ต (โรงพยาบาล วีซ่า รถ บ้าน)',
         cta: 'คุยกับแทมมี่',
       },
       interpreter: {
         title: 'ล่ามสามภาษา',
-        tagline: 'ฝรั่งเศส · อังกฤษ · ไทย',
+        tagline: 'สุรินทร์ & ภูเก็ต',
         description:
-          'โรงพยาบาล ตำรวจ ตรวจคนเข้าเมือง เจ้าของบ้านโต้เถียง — แทมมี่ไปล่ามหน้างาน วอทส์แอปเดียวกับประกัน',
+          'โรงพยาบาล ตำรวจ ตรวจคนเข้าเมือง — แทมมี่ล่ามที่สุรินทร์และไปภูเก็ตเมื่อจำเป็น',
         cta: 'โทรแทมมี่',
+      },
+      administration: {
+        title: 'ช่วยเรื่องธุรการ',
+        tagline: 'พื้นที่สุรินทร์',
+        description:
+          'วีซ่า ตรวจคนเข้าเมือง แบบฟอร์ม นัดหน่วยงาน — ช่วยเป็นภาษาไทย ฝรั่งเศส อังกฤษ เปิดบริการที่สุรินทร์',
+        cta: 'ติดต่อเรา',
       },
     },
     seoIntro: {
       eyebrow: 'สรุปสั้นๆ',
-      title: 'เว็บนี้ทำอะไร',
+      title: 'สุรินทร์ & ภูเก็ต',
       paragraphs: [
-        'ไม่ใช่พอร์ทัลใหญ่: <strong>แทมมี่</strong> ดูแลประกัน AXA และล่าม <strong>โทมาส</strong> อสังหาภูเก็ต/กระบี่ ที่เหลือคือเบอร์ที่อยากแชร์',
-        'โรงพยาบาล 1155/1669: <a href="/th/hopitaux-a-phuket/">รายชื่อ</a> <a href="/th/numeros-durgences/">เบอร์ฉุกเฉิน</a> <a href="/th/osteopathe-francais-a-phuket/">ดร. Tur</a> ด่วน? วอทส์แอปด้านบน',
+        '<strong>สุรินทร์</strong>: แทมมี่ให้ประกัน AXA ล่าม และช่วยธุรการ <strong>ภูเก็ต</strong>: ยังดูแลชาวฝรั่งเศส (ประกัน ล่าม) <strong>โทมาส</strong> อสังหาภูเก็ต/กระบี่',
+        'โรงพยาบาลภูเก็ต: <a href="/th/hopitaux-a-phuket/">รายชื่อ</a> <a href="/th/numeros-durgences/">1155/1669</a> <a href="/th/osteopathe-francais-a-phuket/">ดร. Tur</a> วอทส์แอปด้านบน',
       ],
       links: [
         { href: '/th/assurance-sante-thailande-phuket/', label: 'ประกันสุขภาพ' },
@@ -644,7 +743,7 @@ export const translations = {
       eyebrow: 'พร้อมบริการ 7 วัน',
       title: 'ต้องการล่ามฉุกเฉิน!',
       description:
-        'เรามีคำขอแปลจำนวนมากสำหรับอุบัติเหตุ เหตุฉุกเฉินทางการแพทย์ หรือตำรวจ ล่ามจะไปกับคุณ โทรหมายเลขวอทส์แอปที่หัวเว็บ!',
+        'อุบัติเหตุ ฉุกเฉิน ตำรวจ: แทมมี่ล่ามที่สุรินทร์หรือไปภูเก็ตเมื่อจำเป็น วอทส์แอปที่หัวเว็บ',
       tags: ['เหตุฉุกเฉินทางการแพทย์ - อุบัติเหตุ - ตำรวจ'],
       cta: 'วอทส์แอป',
       features: {
@@ -671,9 +770,9 @@ export const translations = {
         'สองคนหลังเว็บ — บวกหน้าเบอร์ที่อัปเดตเมื่อเปลี่ยน',
       tammy: {
         name: 'แทมมี่',
-        role: 'ตัวแทน AXA · ล่าม FR-EN-TH',
+        role: 'AXA · ล่าม · ธุรการ — สุรินทร์',
         description:
-          '"สวัสดีค่ะ แทมมี่ค่ะ ตัวแทน AXA บนเกาะ ถ้าต้องล่ามที่โรงพยาบาลหรือตำรวจก็ไปได้ ทักวอทส์แอปบนเว็บนะคะ"',
+          '"สวัสดีค่ะ แทมมี่อยู่สุรินทร์ ประกัน ล่าม และช่วยธุรการ ภูเก็ตยังรับงาน โรงพยาบาล ตำรวจ วีซ่า วอทส์แอปบนเว็บ"',
       },
       thomas: {
         name: 'โทมัส',
@@ -719,9 +818,9 @@ export const translations = {
       whatsapp: 'วอทส์แอป',
     },
     footer: {
-      tagline: 'ประกัน · อสังหาฯ · ล่าม — ภูเก็ต',
+      tagline: 'ประกัน · ล่าม · ธุรการ — สุรินทร์ & ภูเก็ต',
       rights: 'สงวนลิขสิทธิ์',
-      madeIn: 'ภูเก็ต ประเทศไทย',
+      madeIn: 'สุรินทร์ & ภูเก็ต ประเทศไทย',
       contactBlockTitle: 'ติดต่อ',
       byWhatsapp: 'ทางวอทส์แอป',
       moreInfo: 'ข้อมูลเพิ่มเติม',
