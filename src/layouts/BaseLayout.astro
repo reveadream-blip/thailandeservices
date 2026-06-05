@@ -65,9 +65,20 @@ const docDesc = truncateMeta(metaDescription ?? t.meta.description, 160)
 /** Variantes OG dédiées (ex. accueil FR), optionnelles dans `translations.*.meta`. */
 const metaExtras = t.meta as typeof t.meta & { ogTitle?: string; ogDescription?: string }
 const useLocalizedOg =
-  !pageTitle && Boolean(metaExtras.ogTitle?.trim()) && Boolean(metaExtras.ogDescription?.trim())
-const ogTitleSocial = useLocalizedOg ? metaExtras.ogTitle!.trim() : rawTitle
-const ogDescSocial = useLocalizedOg ? truncateMeta(metaExtras.ogDescription!.trim(), 200) : docDesc
+  !pageTitle &&
+  !fullDocumentTitle &&
+  Boolean(metaExtras.ogTitle?.trim()) &&
+  Boolean(metaExtras.ogDescription?.trim())
+const ogTitleSocial = fullDocumentTitle
+  ? fullDocumentTitle
+  : useLocalizedOg
+    ? metaExtras.ogTitle!.trim()
+    : rawTitle
+const ogDescSocial = fullDocumentTitle
+  ? docDesc
+  : useLocalizedOg
+    ? truncateMeta(metaExtras.ogDescription!.trim(), 200)
+    : docDesc
 
 const pathRaw = Astro.url.pathname
 const normalized =
