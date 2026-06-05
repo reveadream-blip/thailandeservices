@@ -15,7 +15,8 @@ On note ici ce qui change sur le site et ce qu’on voit sur l’île, nouvelles
 
 En attendant, les pages qu’on met à jour le plus souvent :
 
-- [Assurance santé](/assurance-sante-thailande-phuket/)
+- [Assurance Phuket en ligne](/assurance-sante-phuket/)
+- [Agence Surin](/agence-surin/)
 - [Interprète](/interprete-thai-francais-anglais-a-phuket/)
 - [Immo avec Thomas](/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/)
 

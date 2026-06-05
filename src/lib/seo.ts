@@ -194,6 +194,46 @@ export function buildFaqSchemaGraph(items: FaqItem[]): Record<string, unknown>[]
   ]
 }
 
+/** Landing pages assurance / agence. */
+export function buildWebPageSchemaGraph(opts: {
+  name: string
+  description: string
+  url: string
+  inLanguage?: string
+  breadcrumbHomeName?: string
+  breadcrumbHomeUrl?: string
+  breadcrumbCurrentName: string
+}): Record<string, unknown>[] {
+  return [
+    {
+      '@type': 'WebPage',
+      name: opts.name,
+      description: truncateMeta(opts.description, 300),
+      url: opts.url,
+      inLanguage: opts.inLanguage ?? 'fr-FR',
+      isPartOf: { '@id': WEBSITE_SCHEMA_ID },
+      publisher: { '@id': ORG_SCHEMA_ID },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: opts.breadcrumbHomeName ?? 'Accueil',
+          item: opts.breadcrumbHomeUrl ?? `${SITE.baseUrl}/`,
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: opts.breadcrumbCurrentName,
+          item: opts.url,
+        },
+      ],
+    },
+  ]
+}
+
 /** Évite la coupure d’un script si une chaîne contient `</script>`. */
 export function serializeJsonLd(data: unknown): string {
   return JSON.stringify(data).replace(/</g, '\\u003c')

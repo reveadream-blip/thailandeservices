@@ -1,6 +1,6 @@
 ---
 import { translations, type Lang } from '../i18n/translations'
-import { contactFormHref } from '../config'
+import { landingPath } from '../lib/landing-paths'
 
 export interface Props {
   lang: Lang
@@ -27,7 +27,7 @@ const t = translations[lang].regions
           ))}
         </ul>
         <p>{t.surin.note}</p>
-        <a href={contactFormHref(lang)} class="region-cta">
+        <a href={landingPath('surin', lang)} class="region-cta">
           {t.surin.cta}
           <span aria-hidden="true">→</span>
         </a>
@@ -42,6 +42,10 @@ const t = translations[lang].regions
           ))}
         </ul>
         <p>{t.phuket.note}</p>
+        <a href={landingPath('phuket', lang)} class="region-cta">
+          {t.phuket.cta}
+          <span aria-hidden="true">→</span>
+        </a>
       </article>
     </div>
   </div>

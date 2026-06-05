@@ -23,6 +23,8 @@ export function canonicalInternalPath(path: string): string {
 export type SiteRoute =
   | { kind: 'home' }
   | { kind: 'contact' }
+  | { kind: 'landing-phuket' }
+  | { kind: 'landing-surin' }
   | { kind: 'article'; slug: string }
   | { kind: 'category'; slug: string }
   | { kind: 'actualites-list' }
@@ -51,6 +53,8 @@ export function parseSiteRoute(pathname: string): SiteRoute {
     return { kind: 'actualites-list' }
   }
   if (segments.length === 1) {
+    if (segments[0] === 'assurance-sante-phuket') return { kind: 'landing-phuket' }
+    if (segments[0] === 'agence-surin') return { kind: 'landing-surin' }
     return { kind: 'article', slug: segments[0] }
   }
   return { kind: 'home' }
@@ -62,6 +66,10 @@ export function routeToPath(route: SiteRoute, lang: Lang): string {
       return homePath(lang)
     case 'contact':
       return contactPagePath(lang)
+    case 'landing-phuket':
+      return localePath(lang, '/assurance-sante-phuket/')
+    case 'landing-surin':
+      return localePath(lang, '/agence-surin/')
     case 'article':
       return articlePath(route.slug, lang)
     case 'category':

@@ -38,7 +38,8 @@ export const CONTACT = {
 export const WP_PAGES = {
   interpreteArticle: '/interprete-thai-francais-anglais-a-phuket/',
   expatriationImmobilier: '/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/',
-  assuranceArticle: '/assurance-sante-thailande-phuket/',
+  assuranceArticle: '/assurance-sante-phuket/',
+  agenceSurin: '/agence-surin/',
   consulat: '/consulat-de-france-a-phuket/',
 }
 

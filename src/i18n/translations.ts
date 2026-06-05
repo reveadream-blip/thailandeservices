@@ -11,9 +11,9 @@ export const LANG_LABELS: Record<Lang, string> = {
 export const translations = {
   fr: {
     meta: {
-      title: 'Assurance & interprète Surin | Phuket francophone',
+      title: 'Assurance Phuket en ligne & Agence Surin',
       description:
-        'Assurance santé, interprète et aide administrative à Surin. Accompagnement des francophones de Phuket. Immobilier Phuket & Krabi avec Thomas.',
+        'Phuket : assurance santé 100 % digital (visio, AXA par e-mail). Surin : agence physique, interprète FR/EN/TH. Immo Phuket & Krabi avec Thomas.',
       /** Accueil FR uniquement : variantes OG plus courtes (réseaux sociaux). */
       ogTitle: 'Surin : assurance · interprète · admin | Phuket',
       ogDescription:
@@ -85,7 +85,7 @@ export const translations = {
           'Aide administrative (visa, immigration, démarches)',
         ],
         note: 'Tammy reçoit sur place dans la région de Surin pour ces trois services.',
-        cta: 'Nous contacter',
+        cta: 'Agence Surin',
       },
       phuket: {
         badge: 'Phuket, on continue',
@@ -96,6 +96,7 @@ export const translations = {
           'Annuaire : hôpitaux, urgences, bonnes adresses',
         ],
         note: 'Les fiches utiles à Phuket restent en ligne ; on répond toujours aux résidents et visiteurs francophones.',
+        cta: 'Assurance Phuket en ligne',
       },
     },
     actualites: {
@@ -189,7 +190,8 @@ export const translations = {
         'Hôpitaux, urgences, ostéo à Phuket : <a href="/hopitaux-a-phuket/">liste ici</a>, <a href="/numeros-durgences/">1155 / 1669</a>, <a href="/osteopathe-francais-a-phuket/">Dr Tur</a>. Une question ? WhatsApp en haut.',
       ],
       links: [
-        { href: '/assurance-sante-thailande-phuket/', label: 'Assurance santé' },
+        { href: '/assurance-sante-phuket/', label: 'Assurance Phuket (en ligne)' },
+        { href: '/agence-surin/', label: 'Agence Surin' },
         { href: '/interprete-thai-francais-anglais-a-phuket/', label: 'Interprète thaï FR-EN' },
         { href: '/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/', label: 'Immobilier Phuket' },
         { href: '/category/adresses-utiles/', label: 'Adresses utiles' },
@@ -293,9 +295,9 @@ export const translations = {
 
   en: {
     meta: {
-      title: 'Insurance & interpreter Surin | Phuket francophone',
+      title: 'Phuket Health Insurance Online & Surin Office',
       description:
-        'Health insurance, interpreter and admin help in Surin. Still serving francophones in Phuket. Real estate Phuket & Krabi with Thomas.',
+        'Phuket: fully remote health insurance (video, AXA e-mail). Surin: branch office, FR/EN/TH interpreter. Real estate Phuket & Krabi with Thomas.',
       ogTitle: 'Surin: insurance · interpreter · admin | Phuket',
       ogDescription:
         'On-site services in Surin. Still here for Phuket francophones. Property with Thomas.',
@@ -365,7 +367,7 @@ export const translations = {
           'Administrative help (visa, immigration, paperwork)',
         ],
         note: 'Tammy meets you in the Surin region for these three services.',
-        cta: 'Contact us',
+        cta: 'Surin branch',
       },
       phuket: {
         badge: 'Phuket, still here',
@@ -376,6 +378,7 @@ export const translations = {
           'Directory: hospitals, emergencies, useful addresses',
         ],
         note: 'Phuket address pages stay online; we still answer francophone residents and visitors.',
+        cta: 'Phuket insurance online',
       },
     },
     actualites: {
@@ -469,7 +472,8 @@ export const translations = {
         'Phuket hospitals & emergencies: <a href="/en/hopitaux-a-phuket/">list</a>, <a href="/en/numeros-durgences/">1155 / 1669</a>, <a href="/en/osteopathe-francais-a-phuket/">Dr Tur</a>. Questions? WhatsApp at the top.',
       ],
       links: [
-        { href: '/en/assurance-sante-thailande-phuket/', label: 'Health insurance' },
+        { href: '/en/assurance-sante-phuket/', label: 'Phuket insurance (online)' },
+        { href: '/en/agence-surin/', label: 'Surin branch' },
         { href: '/en/interprete-thai-francais-anglais-a-phuket/', label: 'Interpreter FR-EN-TH' },
         { href: '/en/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/', label: 'Real estate Phuket' },
         { href: '/en/category/adresses-utiles/', label: 'Useful addresses' },
@@ -573,9 +577,9 @@ export const translations = {
 
   th: {
     meta: {
-      title: 'ประกันสุขภาพสุรินทร์ | ภูเก็ต & ล่ามไทย-ฝรั่งเศส-อังกฤษ',
+      title: 'ประกันภูเก็ตออนไลน์ & สาขาสุรินทร์',
       description:
-        'ประกันสุขภาพ ล่าม และช่วยเรื่องธุรการที่สุรินทร์ ยังดูแลชาวฝรั่งเศสที่ภูเก็ต อสังหาภูเก็ตกระบี่กับโทมัส',
+        'ภูเก็ต: ประกันสุขภาพออนไลน์ (วิดีโอ AXA ทางอีเมล) สุรินทร์: สาขาหน้างาน ล่าม FR/EN/TH อสังหากระบี่กับโทมัส',
       ogTitle: 'สุรินทร์: ประกัน · ล่าม · ธุรการ | ภูเก็ต',
       ogDescription:
         'บริการที่สุรินทร์ ยังรับงานภูเก็ต อสังหากับโทมัส',
@@ -645,7 +649,7 @@ export const translations = {
           'ช่วยเรื่องธุรการ (วีซ่า ตรวจคนเข้าเมือง เอกสาร)',
         ],
         note: 'แทมมี่พบลูกค้าในพื้นที่สุรินทร์สำหรับบริการทั้งสาม',
-        cta: 'ติดต่อเรา',
+        cta: 'สาขาสุรินทร์',
       },
       phuket: {
         badge: 'ภูเก็ต, ยังรับงาน',
@@ -656,6 +660,7 @@ export const translations = {
           'รายชื่อโรงพยาบาล ฉุกเฉิน ที่อยู่',
         ],
         note: 'หน้าที่อยู่ภูเก็ตยังอัปเดต ตอบชาวฝรั่งเศสที่อาศัยหรือมาเยือน',
+        cta: 'ประกันภูเก็ตออนไลน์',
       },
     },
     actualites: {
@@ -749,7 +754,8 @@ export const translations = {
         'โรงพยาบาลภูเก็ต: <a href="/th/hopitaux-a-phuket/">รายชื่อ</a> <a href="/th/numeros-durgences/">1155/1669</a> <a href="/th/osteopathe-francais-a-phuket/">ดร. Tur</a> วอทส์แอปด้านบน',
       ],
       links: [
-        { href: '/th/assurance-sante-thailande-phuket/', label: 'ประกันสุขภาพ' },
+        { href: '/th/assurance-sante-phuket/', label: 'ประกันภูเก็ต (ออนไลน์)' },
+        { href: '/th/agence-surin/', label: 'สาขาสุรินทร์' },
         { href: '/th/interprete-thai-francais-anglais-a-phuket/', label: 'ล่าม FR-EN-TH' },
         { href: '/th/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/', label: 'อสังหาภูเก็ต' },
         { href: '/th/category/adresses-utiles/', label: 'ที่อยู่ที่เป็นประโยชน์' },

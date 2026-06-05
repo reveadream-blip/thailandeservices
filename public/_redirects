@@ -1,6 +1,16 @@
-# Anciennes URLs WordPress → pages Astro (SEO, transfert de popularité)
-/assurance-sante-phuket-thailande /assurance-sante-thailande-phuket/ 301
-/assurance-sante-phuket-thailande/ /assurance-sante-thailande-phuket/ 301
+# Anciennes URLs WordPress → landing pages assurance (SEO multilingue)
+/assurance-sante-phuket-thailande /assurance-sante-phuket/ 301
+/assurance-sante-phuket-thailande/ /assurance-sante-phuket/ 301
+/assurance-sante-thailande-phuket /assurance-sante-phuket/ 301
+/assurance-sante-thailande-phuket/ /assurance-sante-phuket/ 301
+/en/assurance-sante-phuket-thailande /en/assurance-sante-phuket/ 301
+/en/assurance-sante-phuket-thailande/ /en/assurance-sante-phuket/ 301
+/en/assurance-sante-thailande-phuket /en/assurance-sante-phuket/ 301
+/en/assurance-sante-thailande-phuket/ /en/assurance-sante-phuket/ 301
+/th/assurance-sante-phuket-thailande /th/assurance-sante-phuket/ 301
+/th/assurance-sante-phuket-thailande/ /th/assurance-sante-phuket/ 301
+/th/assurance-sante-thailande-phuket /th/assurance-sante-phuket/ 301
+/th/assurance-sante-thailande-phuket/ /th/assurance-sante-phuket/ 301
 
 # Ancienne page d’accueil WP (« Home » dans Google)
 /home / 301

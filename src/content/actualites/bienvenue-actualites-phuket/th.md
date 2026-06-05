@@ -15,7 +15,8 @@ draft: false
 
 หน้าที่อัปเดตบ่อย:
 
-- [ประกันสุขภาพ](/th/assurance-sante-thailande-phuket/)
+- [ประกันภูเก็ตออนไลน์](/th/assurance-sante-phuket/)
+- [สาขาสุรินทร์](/th/agence-surin/)
 - [ล่าม](/th/interprete-thai-francais-anglais-a-phuket/)
 - [อสังหาฯ โทมาส](/th/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/)
 
