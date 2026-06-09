@@ -1,6 +1,7 @@
 ---
 import { translations, type Lang } from '../i18n/translations'
 import { WP_PAGES } from '../config'
+import { CHATBOT_OPEN_HASH } from '../lib/chatbot-open'
 import { contactPagePath, localePath } from '../lib/locale-path'
 
 export interface Props {
@@ -33,7 +34,7 @@ const slides = [
     title: t.homeSlider.slide3.title,
     subtitle: t.homeSlider.slide3.subtitle,
     cta: t.homeSlider.slide3.cta,
-    href: localePath(lang, WP_PAGES.assuranceArticle),
+    href: CHATBOT_OPEN_HASH,
   },
   {
     image: '/images/slide-surin.png',

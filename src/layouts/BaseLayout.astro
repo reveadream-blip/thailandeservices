@@ -175,5 +175,17 @@ const web3formsKeyMeta = normalizeWeb3FormsAccessKey(import.meta.env.PUBLIC_WEB3
     </main>
     <Footer lang={lang} />
     <Chatbot client:idle lang={lang} />
+    <script is:inline>
+      document.addEventListener('click', (e) => {
+        const target = e.target
+        if (!(target instanceof Element)) return
+        const link = target.closest('a[href="#devis-assurance"]')
+        if (!link) return
+        e.preventDefault()
+        window.dispatchEvent(new CustomEvent('ts:open-chatbot'))
+        const base = window.location.pathname + window.location.search
+        history.replaceState(null, '', base + '#devis-assurance')
+      })
+    </script>
   </body>
 </html>

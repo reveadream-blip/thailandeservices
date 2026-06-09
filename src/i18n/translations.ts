@@ -67,10 +67,10 @@ export const translations = {
       home: 'Accueil',
       breadcrumbLabel: "Fil d'Ariane",
       breadcrumbContact: 'Nous écrire',
-      pageTitle: 'Contact assurance santé, immo & interprète thaï français anglais',
+      pageTitle: 'Contact immo, interprète & admin',
       pageH1: 'Écrire à Tammy ou Thomas',
       metaDescription:
-        'WhatsApp ou formulaire : assurance santé Surin, assurance santé Thaïlande à distance, interprète thaï français anglais en Thaïlande et admin. Immo Krabi. On répond dès qu’on peut.',
+        'WhatsApp ou formulaire pour l’immo, l’interprète thaï français anglais en Thaïlande et l’admin. Pour l’assurance santé, utilisez le devis chatbot en bas de page.',
     },
     regions: {
       eyebrow: 'Où nous trouver',
@@ -128,7 +128,7 @@ export const translations = {
       slide3: {
         title: 'Assurance santé Surin & assurance santé Thaïlande',
         subtitle: 'Surin : assurance santé Surin sur place · assurance santé Thaïlande à distance avec Tammy',
-        cta: 'Contactez Tammy!',
+        cta: 'Devis assurance santé',
       },
       slide4: {
         title: 'Services à Surin : visas, assurance santé Surin, interprète thaï français anglais Surin',
@@ -165,7 +165,7 @@ export const translations = {
         tagline: 'Surin & toute la Thaïlande',
         description:
           'Agent AXA : assurance santé Thaïlande à distance avec Tammy (visio, e-mail), ou assurance santé Surin sur place (hospitalisation, visa, auto ou maison).',
-        cta: 'Nous contacter',
+        cta: 'Devis assurance santé',
       },
       interpreter: {
         title: 'Interprète thaï français anglais en Thaïlande',
@@ -257,11 +257,12 @@ export const translations = {
         subject: 'Sujet',
         subjectOptions: {
           realEstate: 'Immobilier',
-          insurance: 'Assurance santé',
           interpreter: 'Interprète thaï français anglais',
           emergency: 'Urgence',
           other: 'Autre',
         },
+        insuranceViaChatbot:
+          'Pour une demande d’assurance santé, utilisez le devis en bas à droite (chat), pas ce formulaire.',
         message: 'Votre message',
         submit: 'Envoyer le message',
         sending: 'Envoi en cours…',
@@ -275,6 +276,10 @@ export const translations = {
       writtenMessage: 'Message écrit',
       writtenMessageSub: 'Utilisez le formulaire à droite.',
       whatsapp: 'WhatsApp',
+    },
+    insuranceQuoteCta: {
+      title: 'Demande d’assurance santé',
+      lead: 'Répondez aux questions du devis assurance santé : Tammy prépare votre dossier et vous rappelle.',
     },
     footer: {
       tagline: 'Assurance santé Surin · assurance santé Thaïlande · interprète thaï français anglais en Thaïlande · Admin',
@@ -349,10 +354,10 @@ export const translations = {
       home: 'Home',
       breadcrumbLabel: 'Breadcrumb',
       breadcrumbContact: 'Get in touch',
-      pageTitle: 'Contact health insurance, real estate & Thai French English interpreter',
+      pageTitle: 'Contact real estate, interpreter & admin',
       pageH1: 'Message Tammy or Thomas',
       metaDescription:
-        'WhatsApp or form: Surin health insurance, Thailand health insurance remotely, Thai French English interpreter in Thailand and admin. Krabi property. We reply when we can.',
+        'WhatsApp or form for property, Thai French English interpreter in Thailand and admin. For health insurance, use the quote chatbot at the bottom of the page.',
     },
     regions: {
       eyebrow: 'Where we work',
@@ -410,7 +415,7 @@ export const translations = {
       slide3: {
         title: 'Surin health insurance & Thailand health insurance',
         subtitle: 'Surin: on-site Surin health insurance · Thailand health insurance remotely with Tammy',
-        cta: 'Contact Tammy!',
+        cta: 'Insurance quote',
       },
       slide4: {
         title: 'Services in Surin: visas, Surin health insurance, Thai French English interpreter Surin',
@@ -447,7 +452,7 @@ export const translations = {
         tagline: 'Surin & all of Thailand',
         description:
           'AXA agent: Thailand health insurance remotely with Tammy (video, e-mail), or Surin health insurance on site (hospital cover, visa, car or home).',
-        cta: 'Talk to Tammy',
+        cta: 'Insurance quote',
       },
       interpreter: {
         title: 'Thai French English interpreter in Thailand',
@@ -539,11 +544,12 @@ export const translations = {
         subject: 'Subject',
         subjectOptions: {
           realEstate: 'Real estate',
-          insurance: 'Health insurance',
           interpreter: 'Thai French English interpreter',
           emergency: 'Emergency',
           other: 'Other',
         },
+        insuranceViaChatbot:
+          'For health insurance, use the quote chat at the bottom right, not this form.',
         message: 'Your message',
         submit: 'Send message',
         sending: 'Sending…',
@@ -557,6 +563,10 @@ export const translations = {
       writtenMessage: 'Written message',
       writtenMessageSub: 'Use the form on the right.',
       whatsapp: 'WhatsApp',
+    },
+    insuranceQuoteCta: {
+      title: 'Health insurance request',
+      lead: 'Answer the insurance quote questions: Tammy prepares your file and calls you back.',
     },
     footer: {
       tagline: 'Surin health insurance · Thailand health insurance · Thai French English interpreter in Thailand · Admin',
@@ -631,10 +641,10 @@ export const translations = {
       home: 'หน้าแรก',
       breadcrumbLabel: 'เส้นทางนำทาง',
       breadcrumbContact: 'ติดต่อเรา',
-      pageTitle: 'ติดต่อ, ประกันสุขภาพ อสังหาฯ และล่ามไทย ฝรั่งเศส อังกฤษ',
+      pageTitle: 'ติดต่อ อสังหาฯ ล่าม & ธุรการ',
       pageH1: 'ทักแทมมี่หรือโทมาส',
       metaDescription:
-        'วอทส์แอปหรือแบบฟอร์ม: ประกันสุขภาพสุรินทร์ ประกันสุขภาพไทยระยะไกล ล่ามไทย ฝรั่งเศส อังกฤษในไทย และธุรการ อสังหากระบี่ ตอบเมื่อว่าง',
+        'วอทส์แอปหรือแบบฟอร์มสำหรับอสังหาฯ ล่ามไทย ฝรั่งเศส อังกฤษในไทย และธุรการ สำหรับประกันสุขภาพใช้แชทใบเสนอราคาด้านล่าง',
     },
     regions: {
       eyebrow: 'พื้นที่ให้บริการ',
@@ -692,7 +702,7 @@ export const translations = {
       slide3: {
         title: 'ประกันสุขภาพสุรินทร์ & ประกันสุขภาพไทย',
         subtitle: 'สุรินทร์: ประกันสุขภาพสุรินทร์หน้างาน · ประกันสุขภาพไทยระยะไกลกับแทมมี่',
-        cta: 'ติดต่อแทมมี่!',
+        cta: 'ใบเสนอราคาประกัน',
       },
       slide4: {
         title: 'บริการที่สุรินทร์: วีซ่า ประกันสุขภาพสุรินทร์ ล่ามไทย ฝรั่งเศส อังกฤษสุรินทร์',
@@ -729,7 +739,7 @@ export const translations = {
         tagline: 'สุรินทร์ & ทุกที่ในไทย',
         description:
           'ตัวแทน AXA: ประกันสุขภาพไทยระยะไกลกับแทมมี่ (วิดีโอ อีเมล) หรือประกันสุขภาพสุรินทร์หน้างาน (โรงพยาบาล วีซ่า รถ บ้าน)',
-        cta: 'คุยกับแทมมี่',
+        cta: 'ใบเสนอราคาประกัน',
       },
       interpreter: {
         title: 'ล่ามไทย ฝรั่งเศส อังกฤษในไทย',
@@ -821,11 +831,12 @@ export const translations = {
         subject: 'หัวข้อ',
         subjectOptions: {
           realEstate: 'อสังหาริมทรัพย์',
-          insurance: 'ประกันสุขภาพ',
           interpreter: 'ล่ามไทย ฝรั่งเศส อังกฤษ',
           emergency: 'ฉุกเฉิน',
           other: 'อื่น ๆ',
         },
+        insuranceViaChatbot:
+          'สำหรับประกันสุขภาพ ใช้แชทใบเสนอราคามุมล่างขวา ไม่ใช่แบบฟอร์มนี้',
         message: 'ข้อความของคุณ',
         submit: 'ส่งข้อความ',
         sending: 'กำลังส่ง…',
@@ -839,6 +850,10 @@ export const translations = {
       writtenMessage: 'ข้อความทางอีเมล',
       writtenMessageSub: 'ใช้แบบฟอร์มทางขวา',
       whatsapp: 'วอทส์แอป',
+    },
+    insuranceQuoteCta: {
+      title: 'ขอประกันสุขภาพ',
+      lead: 'ตอบคำถามในแชทใบเสนอราคา แทมมี่จัดเตรียมข้อมูลและติดต่อกลับ',
     },
     footer: {
       tagline: 'ประกันสุขภาพสุรินทร์ · ประกันสุขภาพไทย · ล่ามไทย ฝรั่งเศส อังกฤษในไทย · ธุรการ',

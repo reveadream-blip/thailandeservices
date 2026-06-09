@@ -1,6 +1,7 @@
 ---
 import { translations, type Lang } from '../i18n/translations'
 import { WP_PAGES } from '../config'
+import { CHATBOT_OPEN_HASH } from '../lib/chatbot-open'
 import { landingPath } from '../lib/landing-paths'
 import { localePath } from '../lib/locale-path'
 
@@ -11,7 +12,7 @@ const { lang } = Astro.props
 const t = translations[lang]
 
 function serviceHref(key: (typeof cards)[number]['key'], lang: Lang): string {
-  if (key === 'insurance') return landingPath('phuket', lang)
+  if (key === 'insurance') return CHATBOT_OPEN_HASH
   if (key === 'administration') return landingPath('surin', lang)
   if (key === 'interpreter') return localePath(lang, WP_PAGES.interpreteArticle)
   if (key === 'realEstate') return localePath(lang, WP_PAGES.expatriationImmobilier)

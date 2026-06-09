@@ -5,6 +5,8 @@ import { getLandingSeoFields, type LandingVariant } from '../../i18n/landing-seo
 import { translations, type Lang } from '../../i18n/translations'
 import { rewriteInternalLinks } from '../../lib/internal-links'
 import { getLandingHreflangAlternates, landingPath } from '../../lib/landing-paths'
+import { getChatbotCopy } from '../../i18n/chatbot-translations'
+import { CHATBOT_OPEN_HASH } from '../../lib/chatbot-open'
 import { contactPagePath, homePath } from '../../lib/locale-path'
 import { absoluteUrl, buildWebPageSchemaGraph, truncateMeta } from '../../lib/seo'
 
@@ -21,6 +23,10 @@ const pageUrl = absoluteUrl(canonicalPath)
 const homeHref = homePath(lang)
 const bodyHtml = rewriteInternalLinks(fields.bodyHtml, lang)
 const metaDescription = truncateMeta(fields.metaDescription, 160)
+const chatbotCopy = getChatbotCopy(lang)
+const primaryCtaHref = variant === 'phuket' ? CHATBOT_OPEN_HASH : contactPagePath(lang)
+const primaryCtaLabel =
+  variant === 'phuket' ? chatbotCopy.launcherLabel : t.contactPage.breadcrumbContact
 
 const jsonLdExtra = buildWebPageSchemaGraph({
   name: fields.jsonLdName,
@@ -56,8 +62,8 @@ const jsonLdExtra = buildWebPageSchemaGraph({
           <a href={CONTACT.whatsappLink} class="btn btn-whatsapp" target="_blank" rel="noopener">
             WhatsApp
           </a>
-          <a href={contactPagePath(lang)} class="btn btn-primary">
-            {t.contactPage.breadcrumbContact}
+          <a href={primaryCtaHref} class="btn btn-primary">
+            {primaryCtaLabel}
           </a>
         </div>
       </header>

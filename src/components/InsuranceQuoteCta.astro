@@ -1,0 +1,59 @@
+---
+import { getChatbotCopy } from '../i18n/chatbot-translations'
+import { translations, type Lang } from '../i18n/translations'
+import { CHATBOT_OPEN_HASH } from '../lib/chatbot-open'
+
+export interface Props {
+  lang: Lang
+}
+const { lang } = Astro.props
+const t = translations[lang].insuranceQuoteCta
+const chatbot = getChatbotCopy(lang)
+---
+
+<section class="insurance-quote-cta section" aria-labelledby="insurance-quote-cta-title">
+  <div class="container">
+    <div class="insurance-quote-cta-inner" data-reveal>
+      <h2 id="insurance-quote-cta-title">{t.title}</h2>
+      <p>{t.lead}</p>
+      <a href={CHATBOT_OPEN_HASH} class="btn btn-primary">
+        {chatbot.launcherLabel}
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .insurance-quote-cta {
+    padding-block: clamp(2rem, 5vw, 3rem);
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-ocean-light) 12%, transparent) 0%,
+      var(--color-cream) 100%
+    );
+  }
+
+  .insurance-quote-cta-inner {
+    max-width: 40rem;
+    margin-inline: auto;
+    text-align: center;
+    background: #fff;
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+  }
+
+  .insurance-quote-cta-inner h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 3vw, 1.55rem);
+    color: var(--color-ocean);
+    margin-bottom: 0.75rem;
+  }
+
+  .insurance-quote-cta-inner p {
+    color: var(--color-ink-soft);
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
+  }
+</style>

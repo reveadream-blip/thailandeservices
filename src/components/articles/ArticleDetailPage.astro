@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import Contact from '../Contact.astro'
+import InsuranceQuoteCta from '../InsuranceQuoteCta.astro'
+import { isInsuranceArticleSlug } from '../../lib/chatbot-open'
 import { getTranslatedArticleBody, hasTranslatedArticleBody } from '../../lib/article-body'
 import {
   getArticleFields,
@@ -36,7 +38,10 @@ const showFrenchBodyNotice =
 const t = translations[lang].articlePage
 const bodyHtml = getTranslatedArticleBody(slug, lang) ?? article.content
 const hadEmbeddedForm = htmlHasEmbeddedForm(article.content)
-const showContactBlock = hadEmbeddedForm || fields.appendContactForm
+const isInsuranceArticle = isInsuranceArticleSlug(slug)
+const showInsuranceQuoteCta = isInsuranceArticle
+const showContactBlock =
+  !showInsuranceQuoteCta && (hadEmbeddedForm || fields.appendContactForm)
 const html = rewriteInternalLinks(
   sanitizeArticleBodyHtml(bodyHtml, fields.pageH1),
   lang,
@@ -118,6 +123,7 @@ const jsonLdExtra = [
         </nav>
       )}
     </div>
+    {showInsuranceQuoteCta && <InsuranceQuoteCta lang={lang} />}
     {showContactBlock && <Contact lang={lang} />}
   </article>
 </BaseLayout>

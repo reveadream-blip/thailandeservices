@@ -43,7 +43,7 @@ const phuket: LandingCopy = {
 <p>Quand la situation devient concrète (admission à l’hôpital, commissariat, rendez-vous immigration), la présence sur place change tout. L’<a href="${LANDING_SURIN_PATH}">agence de Surin</a> accueille les dossiers complexes : Tammy parle thaï, français et anglais, et peut vous accompagner dans la salle d’attente ou face à un officier.</p>
 <p>Beaucoup de clients souscrivent à distance depuis leur ville, puis appellent Surin le jour où ils ont besoin d’un interprète thaï français anglais en Thaïlande. Les deux antennes partagent le même numéro WhatsApp et la même expertise AXA.</p>
 
-<p><a href="/formulaire-de-contact/">Formulaire de contact</a> · <a href="${LANDING_SURIN_PATH}">Découvrir l’agence Surin</a> · <a href="/interprete-thai-francais-anglais-a-phuket/">Interprète thaï français anglais en Thaïlande</a></p>
+<p><a href="#devis-assurance">Devis assurance santé</a> · <a href="${LANDING_SURIN_PATH}">Découvrir l’agence Surin</a> · <a href="/interprete-thai-francais-anglais-a-phuket/">Interprète thaï français anglais en Thaïlande</a></p>
 </article>`,
   },
   en: {
@@ -73,7 +73,7 @@ const phuket: LandingCopy = {
 <p>When things get real (hospital admission, police station, immigration appointment), on-site support matters. The <a href="/en/agence-surin/">Surin branch</a> handles complex cases: Tammy speaks Thai, French and English and can join you in the waiting room or at the counter.</p>
 <p>Many clients subscribe remotely from their city, then call Surin the day they need a Thai French English interpreter in Thailand. Both offices share the same WhatsApp line and AXA expertise.</p>
 
-<p><a href="/en/contact/">Contact form</a> · <a href="/en/agence-surin/">Surin branch</a> · <a href="/en/interprete-thai-francais-anglais-a-phuket/">Thai French English interpreter in Thailand</a></p>
+<p><a href="#devis-assurance">Insurance quote</a> · <a href="/en/agence-surin/">Surin branch</a> · <a href="/en/interprete-thai-francais-anglais-a-phuket/">Thai French English interpreter in Thailand</a></p>
 </article>`,
   },
   th: {
@@ -103,7 +103,7 @@ const phuket: LandingCopy = {
 <p>เรื่องโรงพยาบาล ตำรวจ ตรวจคนเข้าเมือง การมีคนที่พูดไทย ฝรั่งเศส อังกฤษสำคัญ <a href="/th/agence-surin/">สาขาสุรินทร์</a> รับเคสที่ต้องไปด้วย</p>
 <p>ลูกค้าหลายคนสมัครระยะไกลจากเมืองที่อยู่ แล้วติดต่อสุรินทร์เมื่อต้องการล่ามไทย ฝรั่งเศส อังกฤษในไทย ใช้วอทส์แอปเบอร์เดียวกัน</p>
 
-<p><a href="/th/contact/">แบบฟอร์มติดต่อ</a> · <a href="/th/agence-surin/">สาขาสุรินทร์</a> · <a href="/th/interprete-thai-francais-anglais-a-phuket/">ล่ามไทย ฝรั่งเศส อังกฤษในไทย</a></p>
+<p><a href="#devis-assurance">ใบเสนอราคาประกัน</a> · <a href="/th/agence-surin/">สาขาสุรินทร์</a> · <a href="/th/interprete-thai-francais-anglais-a-phuket/">ล่ามไทย ฝรั่งเศส อังกฤษในไทย</a></p>
 </article>`,
   },
 }
@@ -133,10 +133,10 @@ const surin: LandingCopy = {
 <p>Le premier contact se fait par WhatsApp ou le <a href="/formulaire-de-contact/">formulaire</a>. On fixe ensuite un créneau à l’agence ou sur le lieu de la démarche.</p>
 
 <h2>Assurance santé Thaïlande à distance</h2>
-<p>Votre besoin se limite à une assurance santé Thaïlande ou un devis ? Souscrivez à distance avec Tammy depuis n’importe où dans le pays : visio, e-mail, portail AXA. Pas de trajet jusqu’à Surin sauf si vous préférez un rendez-vous physique.</p>
-<p>Les deux antennes partagent le même standard de conseil. La différence, c’est le canal : écran ou bureau.</p>
+<p>Votre besoin se limite à une assurance santé Thaïlande ou un devis ? Utilisez le <a href="#devis-assurance">devis assurance santé</a> (chat en bas de page) : Tammy vous rappelle après vos réponses. Souscription à distance depuis n’importe où : visio, e-mail, portail AXA.</p>
+<p>Pour l’interprète, l’admin ou l’immo, le <a href="/formulaire-de-contact/">formulaire de contact</a> reste le bon canal.</p>
 
-<p><a href="/formulaire-de-contact/">Nous écrire</a> · <a href="${LANDING_PHUKET_PATH}">Assurance santé Phuket Thaïlande</a> · <a href="/interprete-thai-francais-anglais-a-phuket/">Interprète thaï français anglais en Thaïlande</a></p>
+<p><a href="#devis-assurance">Devis assurance santé</a> · <a href="/formulaire-de-contact/">Nous écrire (autres demandes)</a> · <a href="${LANDING_PHUKET_PATH}">Assurance santé Phuket Thaïlande</a></p>
 </article>`,
   },
   en: {
@@ -163,10 +163,10 @@ const surin: LandingCopy = {
 <p>First contact via WhatsApp or the <a href="/en/contact/">contact form</a>, then we book a slot at the office or on location.</p>
 
 <h2>Thailand health insurance remotely</h2>
-<p>Only need Thailand health insurance or a quote? Subscribe remotely with Tammy from anywhere in the country: video, e-mail, AXA portal. No trip to Surin unless you want an in-person meeting.</p>
-<p>Both offices share the same advice standard. The channel differs: screen or desk.</p>
+<p>Only need Thailand health insurance or a quote? Use the <a href="#devis-assurance">insurance quote</a> chat at the bottom of the page. Tammy calls you back after your answers.</p>
+<p>For interpreting, admin or property, use the <a href="/en/contact/">contact form</a>.</p>
 
-<p><a href="/en/contact/">Contact us</a> · <a href="/en/assurance-sante-phuket/">Phuket Thailand health insurance</a> · <a href="/en/interprete-thai-francais-anglais-a-phuket/">Thai French English interpreter in Thailand</a></p>
+<p><a href="#devis-assurance">Insurance quote</a> · <a href="/en/contact/">Contact (other requests)</a> · <a href="/en/assurance-sante-phuket/">Phuket Thailand health insurance</a></p>
 </article>`,
   },
   th: {
@@ -193,9 +193,10 @@ const surin: LandingCopy = {
 <p>ติดต่อครั้งแรกทางวอทส์แอปหรือ <a href="/th/contact/">แบบฟอร์ม</a></p>
 
 <h2>ประกันสุขภาพไทยระยะไกล</h2>
-<p>ต้องการแค่ประกันสุขภาพไทยหรือใบเสนอราคา? สมัครระยะไกลกับแทมมี่ได้จากทุกที่ในประเทศ วิดีโอ อีเมล พอร์ทัล AXA</p>
+<p>ต้องการแค่ประกันสุขภาพไทยหรือใบเสนอราคา? ใช้ <a href="#devis-assurance">ใบเสนอราคาประกัน</a> (แชทด้านล่าง) แทมมี่ติดต่อกลับหลังตอบคำถาม</p>
+<p>เรื่องล่าม ธุรการ อสังหาฯ ใช้ <a href="/th/contact/">แบบฟอร์มติดต่อ</a></p>
 
-<p><a href="/th/contact/">ติดต่อเรา</a> · <a href="/th/assurance-sante-phuket/">ประกันสุขภาพภูเก็ตไทย</a> · <a href="/th/interprete-thai-francais-anglais-a-phuket/">ล่ามไทย ฝรั่งเศส อังกฤษในไทย</a></p>
+<p><a href="#devis-assurance">ใบเสนอราคาประกัน</a> · <a href="/th/contact/">ติดต่อ (เรื่องอื่น)</a> · <a href="/th/assurance-sante-phuket/">ประกันสุขภาพภูเก็ตไทย</a></p>
 </article>`,
   },
 }

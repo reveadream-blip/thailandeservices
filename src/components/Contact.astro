@@ -80,13 +80,14 @@ const hasWeb3FormsKey = isConfiguredWeb3FormsAccessKey(WEB3FORMS_ACCESS_KEY)
           <span>{t.contact.form.subject} *</span>
           <select name="topic" required>
             <option value="realEstate">{t.contact.form.subjectOptions.realEstate}</option>
-            <option value="insurance">{t.contact.form.subjectOptions.insurance}</option>
             <option value="interpreter">{t.contact.form.subjectOptions.interpreter}</option>
             <option value="emergency">{t.contact.form.subjectOptions.emergency}</option>
             <option value="other">{t.contact.form.subjectOptions.other}</option>
           </select>
         </label>
       </div>
+
+      <p class="insurance-chatbot-hint">{t.contact.form.insuranceViaChatbot}</p>
 
       <label class="field">
         <span>{t.contact.form.message} *</span>
@@ -344,6 +345,13 @@ const hasWeb3FormsKey = isConfiguredWeb3FormsAccessKey(WEB3FORMS_ACCESS_KEY)
   .field textarea {
     resize: vertical;
     min-height: 120px;
+  }
+
+  .insurance-chatbot-hint {
+    font-size: 0.9rem;
+    color: var(--color-ink-muted);
+    line-height: 1.5;
+    margin: -0.25rem 0 0;
   }
 
   .h-captcha {

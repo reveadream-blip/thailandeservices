@@ -11,6 +11,7 @@ import {
   type PersonField,
 } from '../i18n/chatbot-translations'
 import type { Lang } from '../i18n/translations'
+import { CHATBOT_OPEN_HASH, OPEN_CHATBOT_EVENT } from '../lib/chatbot-open'
 import { parseWeb3FormsSubmitResponse } from '../lib/web3formsSubmit'
 
 /** Sous ce seuil, le panneau démarre réduit (launcher) ; desktop reste ouvert par défaut. */
@@ -114,6 +115,20 @@ const Chatbot: React.FC<ChatbotProps> = ({ lang }) => {
 
   useLayoutEffect(() => {
     if (isMobileChatViewport()) setMinimized(true)
+  }, [])
+
+  useEffect(() => {
+    const open = () => setMinimized(false)
+    const onHash = () => {
+      if (window.location.hash === CHATBOT_OPEN_HASH) open()
+    }
+    window.addEventListener(OPEN_CHATBOT_EVENT, open)
+    window.addEventListener('hashchange', onHash)
+    if (window.location.hash === CHATBOT_OPEN_HASH) open()
+    return () => {
+      window.removeEventListener(OPEN_CHATBOT_EVENT, open)
+      window.removeEventListener('hashchange', onHash)
+    }
   }, [])
 
   useLayoutEffect(() => {
