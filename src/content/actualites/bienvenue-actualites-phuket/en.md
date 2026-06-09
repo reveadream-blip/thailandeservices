@@ -15,7 +15,7 @@ Short **updates** only, what changed on the site and what we hear from people on
 
 Pages we touch most often:
 
-- [Phuket insurance online](/en/assurance-sante-phuket/)
+- [Phuket Thailand health insurance](/en/assurance-sante-phuket/)
 - [Surin branch](/en/agence-surin/)
 - [Interpreter](/en/interprete-thai-francais-anglais-a-phuket/)
 - [Property with Thomas](/en/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/)

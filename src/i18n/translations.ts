@@ -11,13 +11,13 @@ export const LANG_LABELS: Record<Lang, string> = {
 export const translations = {
   fr: {
     meta: {
-      title: 'Assurance Phuket en ligne & Agence Surin',
+      title: 'Assurance santé Thaïlande en ligne · Agence Surin',
       description:
-        'Assurance santé à distance avec Tammy depuis partout en Thaïlande (visio, AXA par e-mail). Surin : agence physique, interprète FR/EN/TH. Immo Phuket & Krabi avec Thomas.',
+        'Assurance santé Thaïlande à distance avec Tammy (visio, AXA par e-mail). Assurance santé Surin en agence, interprète thaï français anglais Surin en Thaïlande. Immo Phuket & Krabi avec Thomas.',
       /** Accueil FR uniquement : variantes OG plus courtes (réseaux sociaux). */
-      ogTitle: 'Surin : assurance · interprète · admin | Phuket',
+      ogTitle: 'Surin : assurance santé Surin · interprète thaï français anglais Surin | assurance santé Thaïlande',
       ogDescription:
-        'Services à Surin (assurance, interprète, démarches). On continue pour les francophones de Phuket. Immo avec Thomas.',
+        'Assurance santé Surin, interprète thaï français anglais Surin en Thaïlande. Assurance santé Thaïlande à distance. Immo avec Thomas.',
     },
     nav: {
       services: 'Services',
@@ -35,7 +35,7 @@ export const translations = {
         groups: {
           adresses: 'Adresses utiles',
           stores: 'Bonnes adresses',
-          insurance: 'Assurance & santé',
+          insurance: 'Assurance santé Thaïlande',
           expat: 'Expatriation',
         },
       },
@@ -44,7 +44,7 @@ export const translations = {
       labels: {
         'adresses-utiles': 'Adresses Utiles à Phuket',
         'les-bonnes-adresses-francophones': 'Les bonnes adresses Francophones à Phuket',
-        'assurance-sante-et-biens-en-thailande': 'Assurance Santé et Biens à Phuket',
+        'assurance-sante-et-biens-en-thailande': 'Assurance santé Thaïlande et biens',
         'services-expatriation-en-thailande': 'Services expatriation en Thaïlande',
       },
     },
@@ -67,21 +67,21 @@ export const translations = {
       home: 'Accueil',
       breadcrumbLabel: "Fil d'Ariane",
       breadcrumbContact: 'Nous écrire',
-      pageTitle: 'Contact assurance, immo & interprète',
+      pageTitle: 'Contact assurance santé, immo & interprète thaï français anglais',
       pageH1: 'Écrire à Tammy ou Thomas',
       metaDescription:
-        'WhatsApp ou formulaire : assurance, interprète et admin à Surin ; francophones Phuket et immo Krabi. On répond dès qu’on peut.',
+        'WhatsApp ou formulaire : assurance santé Surin, assurance santé Thaïlande à distance, interprète thaï français anglais en Thaïlande et admin. Immo Krabi. On répond dès qu’on peut.',
     },
     regions: {
       eyebrow: 'Où nous trouver',
       title: 'Surin & Phuket',
-      lead: 'Tammy travaille à Surin (assurance, interprète, admin). L’assurance se souscrit aussi à distance, depuis n’importe où en Thaïlande.',
+      lead: 'Tammy travaille à Surin (assurance santé Surin, interprète thaï français anglais Surin en Thaïlande, admin). L’assurance santé Thaïlande se souscrit aussi à distance, depuis n’importe où dans le pays.',
       surin: {
         badge: 'Surin, sur place',
         title: 'Services ouverts à Surin',
         services: [
-          'Assurance santé (AXA KrungThai)',
-          'Interprète thaï · français · anglais',
+          'Assurance santé Surin (AXA KrungThai)',
+          'Interprète thaï français anglais Surin en Thaïlande',
           'Aide administrative (visa, immigration, démarches)',
         ],
         note: 'Tammy reçoit sur place dans la région de Surin pour ces trois services.',
@@ -91,21 +91,21 @@ export const translations = {
         badge: 'Phuket, on continue',
         title: 'Francophones à Phuket',
         services: [
-          'Assurance santé à distance depuis toute la Thaïlande (visio, e-mail)',
-          'Interprète (WhatsApp, déplacement possible à Phuket)',
+          'Assurance santé Thaïlande à distance (visio, e-mail)',
+          'Interprète thaï français anglais en Thaïlande (WhatsApp)',
           'Immobilier avec Thomas (Phuket & Krabi)',
         ],
-        note: 'Souscription assurance à distance avec Tammy, où que vous soyez en Thaïlande. Fiches utiles Phuket toujours en ligne.',
-        cta: 'Assurance Phuket en ligne',
+        note: 'Assurance santé Thaïlande à distance avec Tammy. Fiches utiles Phuket toujours en ligne.',
+        cta: 'Assurance santé Phuket Thaïlande',
       },
     },
     actualites: {
       pageTitle: 'Actualités Phuket & Thaïlande',
       metaDescription:
-        'Actualités et guides pour expatriés à Phuket : assurance santé, immobilier, interprète et vie en Thaïlande.',
+        'Actualités et guides pour expatriés à Phuket : assurance santé, immobilier, interprète thaï français anglais en Thaïlande et vie en Thaïlande.',
       h1: 'Actualités',
       lead:
-        'Ce qui change sur le site et ce qu’on voit sur l’île, assurance, immo, interprète.',
+        'Ce qui change sur le site et ce qu’on voit sur l’île, assurance santé Thaïlande, immo, interprète thaï français anglais en Thaïlande.',
       empty: 'Aucun article publié pour le moment.',
       home: 'Accueil',
       breadcrumbLabel: "Fil d'Ariane",
@@ -114,7 +114,7 @@ export const translations = {
     },
     homeSlider: {
       slide1: {
-        title: 'Interprète thaï français anglais à Phuket',
+        title: 'Interprète thaï français anglais en Thaïlande',
         subtitle: 'Urgences, hôpital, police, accompagnement francophone',
         cta: 'Contactez Tammy!',
       },
@@ -126,13 +126,13 @@ export const translations = {
         cta: 'Contactez Thomas!',
       },
       slide3: {
-        title: 'Assurance santé, Surin & partout en Thaïlande',
-        subtitle: 'Surin : conseil sur place · À distance avec Tammy, où que vous soyez',
+        title: 'Assurance santé Surin & assurance santé Thaïlande',
+        subtitle: 'Surin : assurance santé Surin sur place · assurance santé Thaïlande à distance avec Tammy',
         cta: 'Contactez Tammy!',
       },
       slide4: {
-        title: 'Services à Surin : visas, assurances, interprétariat',
-        alt: 'Tammy, Thailande-services à Surin : visas, assurances et interprétariat',
+        title: 'Services à Surin : visas, assurance santé Surin, interprète thaï français anglais Surin',
+        alt: 'Tammy, Thailande-services à Surin : visas, assurance santé Surin et interprète thaï français anglais Surin en Thaïlande',
         subtitle: '',
         cta: 'Contactez Tammy!',
       },
@@ -141,12 +141,12 @@ export const translations = {
     },
     hero: {
       eyebrow: 'Surin & Phuket',
-      seoH1: 'Assurance · Interprète · Admin · Surin & Phuket',
+      seoH1: 'Assurance santé Surin · assurance santé Thaïlande · interprète thaï français anglais en Thaïlande · Admin',
       seoH1Sub: 'Immobilier Phuket & Krabi, Thomas',
-      titleLine1: "Besoin d'un interprète ?",
+      titleLine1: "Besoin d'un interprète thaï français anglais en Thaïlande ?",
       titleLine2: 'Français · Anglais · Thaï',
       subtitle:
-        'Tammy est basée à Surin (assurance, interprète, aide admin). L’assurance se souscrit à distance depuis partout en Thaïlande ; Thomas gère l’immo à Phuket et Krabi. WhatsApp en haut de page.',
+        'Tammy est basée à Surin (assurance santé Surin, interprète thaï français anglais Surin en Thaïlande, aide admin). L’assurance santé Thaïlande se souscrit à distance ; Thomas gère l’immo à Phuket et Krabi. WhatsApp en haut de page.',
       ctaContact: 'Nous contacter',
       ctaWhatsapp: 'WhatsApp direct',
     },
@@ -161,17 +161,17 @@ export const translations = {
         cta: 'Nous contacter',
       },
       insurance: {
-        title: 'Assurance santé',
+        title: 'Assurance santé Surin & Thaïlande',
         tagline: 'Surin & toute la Thaïlande',
         description:
-          'Agent AXA : souscription à distance avec Tammy depuis partout en Thaïlande (visio, e-mail), ou conseil sur place à Surin (hospitalisation, visa, auto ou maison).',
+          'Agent AXA : assurance santé Thaïlande à distance avec Tammy (visio, e-mail), ou assurance santé Surin sur place (hospitalisation, visa, auto ou maison).',
         cta: 'Nous contacter',
       },
       interpreter: {
-        title: 'Interprète thaï français anglais',
-        tagline: 'Surin & Phuket',
+        title: 'Interprète thaï français anglais en Thaïlande',
+        tagline: 'Surin & toute la Thaïlande',
         description:
-          'Hôpital, police, immigration : Tammy intervient à Surin sur place et se déplace à Phuket quand c’est nécessaire.',
+          'Hôpital, police, immigration : interprète thaï français anglais Surin en Thaïlande sur place ; hors région Surin, interprète thaï français anglais en Thaïlande à distance (WhatsApp).',
         cta: 'Nous contacter',
       },
       administration: {
@@ -186,13 +186,13 @@ export const translations = {
       eyebrow: 'Qui fait quoi',
       title: 'Surin & Phuket',
       paragraphs: [
-        '<strong>Surin</strong> : Tammy y propose assurance santé (AXA), interprétariat et aide administrative sur place. <strong>Partout en Thaïlande</strong> : souscription assurance à distance avec Tammy (visio, e-mail) ; <strong>Thomas</strong> gère l’immo à Phuket et Krabi.',
+        '<strong>Surin</strong> : Tammy y propose assurance santé Surin (AXA), interprète thaï français anglais Surin en Thaïlande et aide administrative sur place. <strong>Assurance santé Thaïlande</strong> : souscription à distance avec Tammy (visio, e-mail) ; <strong>Thomas</strong> gère l’immo à Phuket et Krabi.',
         'Hôpitaux, urgences, ostéo à Phuket : <a href="/hopitaux-a-phuket/">liste ici</a>, <a href="/numeros-durgences/">1155 / 1669</a>, <a href="/osteopathe-francais-a-phuket/">Dr Tur</a>. Une question ? WhatsApp en haut.',
       ],
       links: [
-        { href: '/assurance-sante-phuket/', label: 'Assurance Phuket (en ligne)' },
+        { href: '/assurance-sante-phuket/', label: 'Assurance santé Phuket Thaïlande' },
         { href: '/agence-surin/', label: 'Agence Surin' },
-        { href: '/interprete-thai-francais-anglais-a-phuket/', label: 'Interprète thaï FR-EN' },
+        { href: '/interprete-thai-francais-anglais-a-phuket/', label: 'Interprète thaï français anglais en Thaïlande' },
         { href: '/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/', label: 'Immobilier Phuket' },
         { href: '/category/adresses-utiles/', label: 'Adresses utiles' },
         { href: '/formulaire-de-contact/', label: 'Contact' },
@@ -200,15 +200,15 @@ export const translations = {
     },
     emergency: {
       eyebrow: 'Disponible 7j/7',
-      title: 'Interprète thaï français anglais, urgences',
+      title: 'Interprète thaï français anglais en Thaïlande, urgences',
       description:
-        'Accidents, urgences médicales ou police : Tammy interprète à Surin sur place et se déplace à Phuket si besoin. WhatsApp en tête du site.',
+        'Accidents, urgences médicales ou police : interprète thaï français anglais Surin en Thaïlande sur place ; hors région Surin, interprète thaï français anglais en Thaïlande à distance. WhatsApp en tête du site.',
       tags: ['Urgence medicale - Accident - Police'],
       cta: 'Appelez-nous avec WhatsApp',
       features: {
         urgent: {
           title: 'Urgence medicale - Accident - Police',
-          desc: "Besoin d'un interprète en urgence!",
+          desc: "Besoin d'un interprète thaï français anglais en Thaïlande en urgence!",
           linkLabel: 'Appelez-nous avec WhatsApp',
         },
         business: {
@@ -229,9 +229,9 @@ export const translations = {
         'Les deux visages du site, le reste ce sont des fiches adresses qu’on met à jour au fil de l’eau.',
       tammy: {
         name: 'Tammy',
-        role: 'Agent AXA · Interprète · Admin · Surin',
+        role: 'Agent AXA · interprète thaï français anglais Surin · Admin',
         description:
-          "« Bonjour, c’est Tammy. Je suis à Surin pour l’assurance, l’interprétariat et l’aide administrative. Pour Phuket, on reste joignables, hôpital, police, visa. WhatsApp du site. »",
+          "« Bonjour, c’est Tammy. Je suis à Surin pour l’assurance santé Surin, l’interprète thaï français anglais Surin en Thaïlande et l’aide administrative. Assurance santé Thaïlande à distance. WhatsApp du site. »",
       },
       thomas: {
         name: 'Thomas',
@@ -257,8 +257,8 @@ export const translations = {
         subject: 'Sujet',
         subjectOptions: {
           realEstate: 'Immobilier',
-          insurance: 'Assurance',
-          interpreter: 'Interprète',
+          insurance: 'Assurance santé',
+          interpreter: 'Interprète thaï français anglais',
           emergency: 'Urgence',
           other: 'Autre',
         },
@@ -277,7 +277,7 @@ export const translations = {
       whatsapp: 'WhatsApp',
     },
     footer: {
-      tagline: 'Assurance · Interprète · Admin · Surin & Phuket',
+      tagline: 'Assurance santé Surin · assurance santé Thaïlande · interprète thaï français anglais en Thaïlande · Admin',
       rights: 'Tous droits réservés',
       madeIn: 'Surin & Phuket, Thaïlande',
       contactBlockTitle: 'Contacts',
@@ -287,7 +287,7 @@ export const translations = {
       archiveItems: {
         adresses: 'Adresses Utiles à Phuket',
         stores: 'Les bonnes adresses Francophones à Phuket',
-        insurance: 'Assurance Santé et Biens à Phuket',
+        insurance: 'Assurance santé Thaïlande et biens',
         expat: 'Services expatriation en Thaïlande',
       },
     },
@@ -295,12 +295,12 @@ export const translations = {
 
   en: {
     meta: {
-      title: 'Phuket Health Insurance Online & Surin Office',
+      title: 'Thailand Health Insurance Online & Surin Office',
       description:
-        'Subscribe to health insurance remotely with Tammy from anywhere in Thailand (video, AXA e-mail). Surin: branch office, FR/EN/TH interpreter. Real estate Phuket & Krabi with Thomas.',
-      ogTitle: 'Surin: insurance · interpreter · admin | Phuket',
+        'Thailand health insurance remotely with Tammy (video, AXA e-mail). Surin health insurance on site, Thai French English interpreter Surin in Thailand. Real estate Phuket & Krabi with Thomas.',
+      ogTitle: 'Surin: Surin health insurance · Thai French English interpreter Surin | Thailand health insurance',
       ogDescription:
-        'On-site services in Surin. Still here for Phuket francophones. Property with Thomas.',
+        'Surin health insurance, Thai French English interpreter Surin in Thailand on site. Thailand health insurance remotely. Property with Thomas.',
     },
     nav: {
       services: 'Services',
@@ -317,7 +317,7 @@ export const translations = {
         groups: {
           adresses: 'Useful addresses',
           stores: 'Top picks',
-          insurance: 'Insurance & health',
+          insurance: 'Thailand health insurance',
           expat: 'Expat services',
         },
       },
@@ -349,21 +349,21 @@ export const translations = {
       home: 'Home',
       breadcrumbLabel: 'Breadcrumb',
       breadcrumbContact: 'Get in touch',
-      pageTitle: 'Contact, insurance, real estate & interpreter',
+      pageTitle: 'Contact health insurance, real estate & Thai French English interpreter',
       pageH1: 'Message Tammy or Thomas',
       metaDescription:
-        'WhatsApp or form: insurance, interpreter and admin in Surin; Phuket francophones and Krabi property. We reply when we can.',
+        'WhatsApp or form: Surin health insurance, Thailand health insurance remotely, Thai French English interpreter in Thailand and admin. Krabi property. We reply when we can.',
     },
     regions: {
       eyebrow: 'Where we work',
       title: 'Surin & Phuket',
-      lead: 'We are based in Surin for insurance, interpreting and admin. Health insurance can also be subscribed remotely with Tammy from anywhere in Thailand.',
+      lead: 'We are based in Surin for Surin health insurance, Thai French English interpreter Surin in Thailand and admin. Thailand health insurance can also be subscribed remotely with Tammy.',
       surin: {
         badge: 'Surin, on site',
         title: 'Services in Surin',
         services: [
-          'Health insurance (AXA KrungThai)',
-          'Thai · French · English interpreter',
+          'Surin health insurance (AXA KrungThai)',
+          'Thai French English interpreter Surin in Thailand',
           'Administrative help (visa, immigration, paperwork)',
         ],
         note: 'Tammy meets you in the Surin region for these three services.',
@@ -373,21 +373,21 @@ export const translations = {
         badge: 'Phuket, still here',
         title: 'Francophones in Phuket',
         services: [
-          'Remote health insurance from anywhere in Thailand (video, e-mail)',
-          'Interpreter (WhatsApp, visits to Phuket when needed)',
+          'Thailand health insurance remotely (video, e-mail)',
+          'Thai French English interpreter in Thailand (WhatsApp)',
           'Real estate with Thomas (Phuket & Krabi)',
         ],
-        note: 'Subscribe to health insurance remotely with Tammy, wherever you are in Thailand. Phuket guides stay online.',
-        cta: 'Phuket insurance online',
+        note: 'Thailand health insurance remotely with Tammy. Phuket guides stay online.',
+        cta: 'Phuket Thailand health insurance',
       },
     },
     actualites: {
       pageTitle: 'News, Phuket & Thailand',
       metaDescription:
-        'News and guides for expats in Phuket: health insurance, real estate, interpreter services and life in Thailand.',
+        'News and guides for expats in Phuket: health insurance, real estate, Thai French English interpreter in Thailand and life in Thailand.',
       h1: 'News',
       lead:
-        'What we change on the site and hear from the island, insurance, property, interpreter.',
+        'What we change on the site and hear from the island, Thailand health insurance, property, Thai French English interpreter in Thailand.',
       empty: 'No articles published yet.',
       home: 'Home',
       breadcrumbLabel: 'Breadcrumb',
@@ -396,7 +396,7 @@ export const translations = {
     },
     homeSlider: {
       slide1: {
-        title: 'Need an interpreter!',
+        title: 'Thai French English interpreter in Thailand',
         subtitle: 'French, English, Thai',
         cta: 'Contact Tammy!',
       },
@@ -408,13 +408,13 @@ export const translations = {
         cta: 'Contact Thomas!',
       },
       slide3: {
-        title: 'Health insurance, Surin & all of Thailand',
-        subtitle: 'Surin: on-site advice · Remote with Tammy, wherever you are',
+        title: 'Surin health insurance & Thailand health insurance',
+        subtitle: 'Surin: on-site Surin health insurance · Thailand health insurance remotely with Tammy',
         cta: 'Contact Tammy!',
       },
       slide4: {
-        title: 'Services in Surin: visas, insurance, interpreting',
-        alt: 'Tammy, Thailande-services in Surin: visas, insurance and interpreting',
+        title: 'Services in Surin: visas, Surin health insurance, Thai French English interpreter Surin',
+        alt: 'Tammy, Thailande-services in Surin: visas, Surin health insurance and Thai French English interpreter Surin in Thailand',
         subtitle: '',
         cta: 'Contact Tammy!',
       },
@@ -423,12 +423,12 @@ export const translations = {
     },
     hero: {
       eyebrow: 'Surin & Phuket',
-      seoH1: 'Insurance · Interpreter · Admin · Surin & Phuket',
+      seoH1: 'Surin health insurance · Thailand health insurance · Thai French English interpreter in Thailand · Admin',
       seoH1Sub: 'Property in Phuket & Krabi, Thomas',
-      titleLine1: 'Need an interpreter?',
+      titleLine1: 'Need a Thai French English interpreter in Thailand?',
       titleLine2: 'French · English · Thai',
       subtitle:
-        'Tammy is based in Surin (insurance, interpreter, admin help). Health insurance can be subscribed remotely from anywhere in Thailand; Thomas handles property in Phuket and Krabi. WhatsApp at the top.',
+        'Tammy is based in Surin (Surin health insurance, Thai French English interpreter Surin in Thailand, admin help). Thailand health insurance remotely; Thomas handles property in Phuket and Krabi. WhatsApp at the top.',
       ctaContact: 'Contact us',
       ctaWhatsapp: 'WhatsApp now',
     },
@@ -443,17 +443,17 @@ export const translations = {
         cta: 'Ask Thomas',
       },
       insurance: {
-        title: 'Health, car & home insurance',
+        title: 'Surin & Thailand health insurance',
         tagline: 'Surin & all of Thailand',
         description:
-          'AXA agent: subscribe remotely with Tammy from anywhere in Thailand (video, e-mail), or on-site advice in Surin (hospital cover, visa, car or home).',
+          'AXA agent: Thailand health insurance remotely with Tammy (video, e-mail), or Surin health insurance on site (hospital cover, visa, car or home).',
         cta: 'Talk to Tammy',
       },
       interpreter: {
-        title: 'Trilingual interpreter',
-        tagline: 'Surin & Phuket',
+        title: 'Thai French English interpreter in Thailand',
+        tagline: 'Surin & all of Thailand',
         description:
-          'Hospital, police, immigration, Tammy works on site in Surin and travels to Phuket when needed.',
+          'Hospital, police, immigration: Thai French English interpreter Surin in Thailand on site; outside Surin, Thai French English interpreter in Thailand remotely (WhatsApp).',
         cta: 'Call Tammy',
       },
       administration: {
@@ -468,13 +468,13 @@ export const translations = {
       eyebrow: 'Who does what',
       title: 'Surin & Phuket',
       paragraphs: [
-        '<strong>Surin</strong>: Tammy, health insurance (AXA), interpreting, admin help. <strong>Anywhere in Thailand</strong>: subscribe remotely with Tammy (video, e-mail); <strong>Thomas</strong> handles property in Phuket/Krabi.',
+        '<strong>Surin</strong>: Tammy, Surin health insurance (AXA), Thai French English interpreter Surin in Thailand, admin help. <strong>Thailand health insurance</strong>: subscribe remotely with Tammy (video, e-mail); <strong>Thomas</strong> handles property in Phuket/Krabi.',
         'Phuket hospitals & emergencies: <a href="/en/hopitaux-a-phuket/">list</a>, <a href="/en/numeros-durgences/">1155 / 1669</a>, <a href="/en/osteopathe-francais-a-phuket/">Dr Tur</a>. Questions? WhatsApp at the top.',
       ],
       links: [
-        { href: '/en/assurance-sante-phuket/', label: 'Phuket insurance (online)' },
+        { href: '/en/assurance-sante-phuket/', label: 'Phuket Thailand health insurance' },
         { href: '/en/agence-surin/', label: 'Surin branch' },
-        { href: '/en/interprete-thai-francais-anglais-a-phuket/', label: 'Interpreter FR-EN-TH' },
+        { href: '/en/interprete-thai-francais-anglais-a-phuket/', label: 'Thai French English interpreter in Thailand' },
         { href: '/en/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/', label: 'Real estate Phuket' },
         { href: '/en/category/adresses-utiles/', label: 'Useful addresses' },
         { href: '/en/contact/', label: 'Contact' },
@@ -482,15 +482,15 @@ export const translations = {
     },
     emergency: {
       eyebrow: 'Available 7/7',
-      title: 'Need an interpreter urgently!',
+      title: 'Thai French English interpreter in Thailand, emergencies',
       description:
-        'Accidents, medical emergencies or police: Tammy interprets on site in Surin and can come to Phuket when needed. WhatsApp at the top.',
+        'Accidents, medical emergencies or police: Thai French English interpreter Surin in Thailand on site; outside Surin, Thai French English interpreter in Thailand remotely. WhatsApp at the top.',
       tags: ['Medical emergency - Accident - Police'],
       cta: 'WhatsApp us',
       features: {
         urgent: {
           title: 'Medical emergency - Accident - Police',
-          desc: 'Need an interpreter urgently!',
+          desc: 'Need a Thai French English interpreter in Thailand urgently!',
           linkLabel: 'WhatsApp us',
         },
         business: {
@@ -511,9 +511,9 @@ export const translations = {
         'The two people behind the site, plus address pages we update when numbers change.',
       tammy: {
         name: 'Tammy',
-        role: 'AXA · Interpreter · Admin · Surin',
+        role: 'AXA · Thai French English interpreter Surin · Admin',
         description:
-          "\"Hi, I'm Tammy, based in Surin for insurance, interpreting and admin help. For Phuket we stay reachable: hospital, police, visa. Site WhatsApp.\"",
+          "\"Hi, I'm Tammy, based in Surin for Surin health insurance, Thai French English interpreter Surin in Thailand and admin help. Thailand health insurance remotely. Site WhatsApp.\"",
       },
       thomas: {
         name: 'Thomas',
@@ -539,8 +539,8 @@ export const translations = {
         subject: 'Subject',
         subjectOptions: {
           realEstate: 'Real estate',
-          insurance: 'Insurance',
-          interpreter: 'Interpreter',
+          insurance: 'Health insurance',
+          interpreter: 'Thai French English interpreter',
           emergency: 'Emergency',
           other: 'Other',
         },
@@ -559,7 +559,7 @@ export const translations = {
       whatsapp: 'WhatsApp',
     },
     footer: {
-      tagline: 'Insurance · Interpreter · Admin · Surin & Phuket',
+      tagline: 'Surin health insurance · Thailand health insurance · Thai French English interpreter in Thailand · Admin',
       rights: 'All rights reserved',
       madeIn: 'Surin & Phuket, Thailand',
       contactBlockTitle: 'Contact',
@@ -577,12 +577,12 @@ export const translations = {
 
   th: {
     meta: {
-      title: 'ประกันภูเก็ตออนไลน์ & สาขาสุรินทร์',
+      title: 'ประกันสุขภาพไทยออนไลน์ & สาขาสุรินทร์',
       description:
-        'สมัครประกันสุขภาพระยะไกลกับแทมมี่ได้จากทุกที่ในไทย (วิดีโอ AXA ทางอีเมล) สุรินทร์: สาขาหน้างาน ล่าม FR/EN/TH อสังหากระบี่กับโทมัส',
-      ogTitle: 'สุรินทร์: ประกัน · ล่าม · ธุรการ | ภูเก็ต',
+        'ประกันสุขภาพไทยระยะไกลกับแทมมี่ (วิดีโอ AXA ทางอีเมล) ประกันสุขภาพสุรินทร์หน้างาน ล่ามไทย ฝรั่งเศส อังกฤษสุรินทร์ในไทย อสังหากระบี่กับโทมัส',
+      ogTitle: 'สุรินทร์: ประกันสุขภาพสุรินทร์ · ล่ามไทย ฝรั่งเศส อังกฤษสุรินทร์ | ประกันสุขภาพไทย',
       ogDescription:
-        'บริการที่สุรินทร์ ยังรับงานภูเก็ต อสังหากับโทมัส',
+        'ประกันสุขภาพสุรินทร์ ล่ามไทย ฝรั่งเศส อังกฤษสุรินทร์ในไทยหน้างาน ประกันสุขภาพไทยระยะไกล อสังหากับโทมัส',
     },
     nav: {
       services: 'บริการ',
@@ -599,7 +599,7 @@ export const translations = {
         groups: {
           adresses: 'ที่อยู่ที่เป็นประโยชน์',
           stores: 'ร้านแนะนำ',
-          insurance: 'ประกันและสุขภาพ',
+          insurance: 'ประกันสุขภาพไทย',
           expat: 'บริการชาวต่างชาติ',
         },
       },
@@ -631,21 +631,21 @@ export const translations = {
       home: 'หน้าแรก',
       breadcrumbLabel: 'เส้นทางนำทาง',
       breadcrumbContact: 'ติดต่อเรา',
-      pageTitle: 'ติดต่อ, ประกัน อสังหาฯ และล่าม',
+      pageTitle: 'ติดต่อ, ประกันสุขภาพ อสังหาฯ และล่ามไทย ฝรั่งเศส อังกฤษ',
       pageH1: 'ทักแทมมี่หรือโทมาส',
       metaDescription:
-        'วอทส์แอปหรือแบบฟอร์ม: ประกัน ล่าม และธุรการที่สุรินทร์ ชาวฝรั่งเศสภูเก็ต อสังหากระบี่ ตอบเมื่อว่าง',
+        'วอทส์แอปหรือแบบฟอร์ม: ประกันสุขภาพสุรินทร์ ประกันสุขภาพไทยระยะไกล ล่ามไทย ฝรั่งเศส อังกฤษในไทย และธุรการ อสังหากระบี่ ตอบเมื่อว่าง',
     },
     regions: {
       eyebrow: 'พื้นที่ให้บริการ',
       title: 'สุรินทร์ & ภูเก็ต',
-      lead: 'แทมมี่อยู่สุรินทร์สำหรับประกัน ล่าม และธุรการ สมัครประกันสุขภาพระยะไกลได้จากทุกที่ในไทย',
+      lead: 'แทมมี่อยู่สุรินทร์สำหรับประกันสุขภาพสุรินทร์ ล่ามไทย ฝรั่งเศส อังกฤษสุรินทร์ในไทย และธุรการ ประกันสุขภาพไทยสมัครระยะไกลได้จากทุกที่ในประเทศ',
       surin: {
         badge: 'สุรินทร์, หน้างาน',
         title: 'บริการที่สุรินทร์',
         services: [
-          'ประกันสุขภาพ (AXA กรุงไทย)',
-          'ล่ามไทย · ฝรั่งเศส · อังกฤษ',
+          'ประกันสุขภาพสุรินทร์ (AXA กรุงไทย)',
+          'ล่ามไทย ฝรั่งเศส อังกฤษสุรินทร์ในไทย',
           'ช่วยเรื่องธุรการ (วีซ่า ตรวจคนเข้าเมือง เอกสาร)',
         ],
         note: 'แทมมี่พบลูกค้าในพื้นที่สุรินทร์สำหรับบริการทั้งสาม',
@@ -655,21 +655,21 @@ export const translations = {
         badge: 'ภูเก็ต, ยังรับงาน',
         title: 'ชาวฝรั่งเศสที่ภูเก็ต',
         services: [
-          'ประกันสุขภาพระยะไกลจากทุกที่ในไทย (วิดีโอ อีเมล)',
+          'ประกันสุขภาพไทยระยะไกล (วิดีโอ อีเมล)',
+          'ล่ามไทย ฝรั่งเศส อังกฤษในไทย (วอทส์แอป)',
           'อสังหากับโทมัส (ภูเก็ตและกระบี่)',
-          'ล่าม (วอทส์แอป ไปภูเก็ตเมื่อจำเป็น)',
         ],
-        note: 'สมัครประกันระยะไกลกับแทมมี่ได้ไม่ว่าอยู่ที่ไหนในไทย หน้าที่อยู่ภูเก็ตยังอัปเดต',
-        cta: 'ประกันภูเก็ตออนไลน์',
+        note: 'ประกันสุขภาพไทยระยะไกลกับแทมมี่ หน้าที่อยู่ภูเก็ตยังอัปเดต',
+        cta: 'ประกันสุขภาพภูเก็ตไทย',
       },
     },
     actualites: {
       pageTitle: 'ข่าวสาร, ภูเก็ตและไทย',
       metaDescription:
-        'ข่าวและคู่มือสำหรับชาวต่างชาติที่ภูเก็ต: ประกันสุขภาพ อสังหาฯ ล่ามและชีวิตในไทย',
+        'ข่าวและคู่มือสำหรับชาวต่างชาติที่ภูเก็ต: ประกันสุขภาพ อสังหาฯ ล่ามไทย ฝรั่งเศส อังกฤษในไทยและชีวิตในไทย',
       h1: 'ข่าวสาร',
       lead:
-        'ข่าวจากเว็บและประสบการณ์บนเกาะ, ประกัน อสังหาฯ ล่าม อัปเดตเมื่อมีเรื่องใหม่',
+        'ข่าวจากเว็บและประสบการณ์บนเกาะ, ประกันสุขภาพไทย อสังหาฯ ล่ามไทย ฝรั่งเศส อังกฤษในไทย อัปเดตเมื่อมีเรื่องใหม่',
       empty: 'ยังไม่มีบทความ',
       home: 'หน้าแรก',
       breadcrumbLabel: 'เส้นทางนำทาง',
@@ -678,7 +678,7 @@ export const translations = {
     },
     homeSlider: {
       slide1: {
-        title: 'ต้องการล่าม!',
+        title: 'ล่ามไทย ฝรั่งเศส อังกฤษในไทย',
         subtitle: 'ฝรั่งเศส อังกฤษ ไทย',
         cta: 'ติดต่อแทมมี่!',
       },
@@ -690,13 +690,13 @@ export const translations = {
         cta: 'ติดต่อโทมัส!',
       },
       slide3: {
-        title: 'ประกันสุขภาพ, สุรินทร์ & ทุกที่ในไทย',
-        subtitle: 'สุรินทร์: ปรึกษาหน้างาน · ระยะไกลกับแทมมี่ ไม่ว่าอยู่ที่ไหน',
+        title: 'ประกันสุขภาพสุรินทร์ & ประกันสุขภาพไทย',
+        subtitle: 'สุรินทร์: ประกันสุขภาพสุรินทร์หน้างาน · ประกันสุขภาพไทยระยะไกลกับแทมมี่',
         cta: 'ติดต่อแทมมี่!',
       },
       slide4: {
-        title: 'บริการที่สุรินทร์: วีซ่า ประกัน ล่าม',
-        alt: 'แทมมี่ Thailande-services ที่สุรินทร์: วีซ่า ประกัน และล่าม',
+        title: 'บริการที่สุรินทร์: วีซ่า ประกันสุขภาพสุรินทร์ ล่ามไทย ฝรั่งเศส อังกฤษสุรินทร์',
+        alt: 'แทมมี่ Thailande-services ที่สุรินทร์: วีซ่า ประกันสุขภาพสุรินทร์ และล่ามไทย ฝรั่งเศส อังกฤษสุรินทร์ในไทย',
         subtitle: '',
         cta: 'ติดต่อแทมมี่!',
       },
@@ -705,12 +705,12 @@ export const translations = {
     },
     hero: {
       eyebrow: 'สุรินทร์ & ภูเก็ต',
-      seoH1: 'ประกัน · ล่าม · ธุรการ, สุรินทร์ & ภูเก็ต',
+      seoH1: 'ประกันสุขภาพสุรินทร์ · ประกันสุขภาพไทย · ล่ามไทย ฝรั่งเศส อังกฤษในไทย · ธุรการ',
       seoH1Sub: 'อสังหาภูเก็ตกระบี่, โทมาส',
-      titleLine1: 'ต้องการล่ามใช่ไหม?',
+      titleLine1: 'ต้องการล่ามไทย ฝรั่งเศส อังกฤษในไทยใช่ไหม?',
       titleLine2: 'ฝรั่งเศส · อังกฤษ · ไทย',
       subtitle:
-        'แทมมี่อยู่สุรินทร์ (ประกัน ล่าม ธุรการ) สมัครประกันระยะไกลได้จากทุกที่ในไทย โทมาสดูแลอสังหาภูเก็ตและกระบี่, วอทส์แอปด้านบน',
+        'แทมมี่อยู่สุรินทร์ (ประกันสุขภาพสุรินทร์ ล่ามไทย ฝรั่งเศส อังกฤษสุรินทร์ในไทย ธุรการ) ประกันสุขภาพไทยสมัครระยะไกลได้ โทมาสดูแลอสังหาภูเก็ตและกระบี่, วอทส์แอปด้านบน',
       ctaContact: 'ติดต่อเรา',
       ctaWhatsapp: 'วอทส์แอปทันที',
     },
@@ -725,17 +725,17 @@ export const translations = {
         cta: 'ถามโทมาส',
       },
       insurance: {
-        title: 'ประกันสุขภาพ รถยนต์ และบ้าน',
+        title: 'ประกันสุขภาพสุรินทร์ & ประกันสุขภาพไทย',
         tagline: 'สุรินทร์ & ทุกที่ในไทย',
         description:
-          'ตัวแทน AXA: สมัครระยะไกลกับแทมมี่ได้จากทุกที่ในไทย (วิดีโอ อีเมล) หรือปรึกษาหน้างานที่สุรินทร์ (โรงพยาบาล วีซ่า รถ บ้าน)',
+          'ตัวแทน AXA: ประกันสุขภาพไทยระยะไกลกับแทมมี่ (วิดีโอ อีเมล) หรือประกันสุขภาพสุรินทร์หน้างาน (โรงพยาบาล วีซ่า รถ บ้าน)',
         cta: 'คุยกับแทมมี่',
       },
       interpreter: {
-        title: 'ล่ามสามภาษา',
-        tagline: 'สุรินทร์ & ภูเก็ต',
+        title: 'ล่ามไทย ฝรั่งเศส อังกฤษในไทย',
+        tagline: 'สุรินทร์ & ทุกที่ในไทย',
         description:
-          'โรงพยาบาล ตำรวจ ตรวจคนเข้าเมือง, แทมมี่ล่ามที่สุรินทร์และไปภูเก็ตเมื่อจำเป็น',
+          'โรงพยาบาล ตำรวจ ตรวจคนเข้าเมือง: ล่ามไทย ฝรั่งเศส อังกฤษสุรินทร์ในไทยหน้างาน นอกพื้นที่สุรินทร์ล่ามไทย ฝรั่งเศส อังกฤษในไทยระยะไกล (วอทส์แอป)',
         cta: 'โทรแทมมี่',
       },
       administration: {
@@ -750,13 +750,13 @@ export const translations = {
       eyebrow: 'ใครทำอะไร',
       title: 'สุรินทร์ & ภูเก็ต',
       paragraphs: [
-        '<strong>สุรินทร์</strong>: แทมมี่ให้ประกัน AXA ล่าม และช่วยธุรการ <strong>ทุกที่ในไทย</strong>: สมัครประกันระยะไกลกับแทมมี่ (วิดีโอ อีเมล) <strong>โทมาส</strong> อสังหาภูเก็ต/กระบี่',
+        '<strong>สุรินทร์</strong>: แทมมี่ให้ประกันสุขภาพสุรินทร์ AXA ล่ามไทย ฝรั่งเศส อังกฤษสุรินทร์ในไทย และช่วยธุรการ <strong>ประกันสุขภาพไทย</strong>: สมัครระยะไกลกับแทมมี่ (วิดีโอ อีเมล) <strong>โทมาส</strong> อสังหาภูเก็ต/กระบี่',
         'โรงพยาบาลภูเก็ต: <a href="/th/hopitaux-a-phuket/">รายชื่อ</a> <a href="/th/numeros-durgences/">1155/1669</a> <a href="/th/osteopathe-francais-a-phuket/">ดร. Tur</a> วอทส์แอปด้านบน',
       ],
       links: [
-        { href: '/th/assurance-sante-phuket/', label: 'ประกันภูเก็ต (ออนไลน์)' },
+        { href: '/th/assurance-sante-phuket/', label: 'ประกันสุขภาพภูเก็ตไทย' },
         { href: '/th/agence-surin/', label: 'สาขาสุรินทร์' },
-        { href: '/th/interprete-thai-francais-anglais-a-phuket/', label: 'ล่าม FR-EN-TH' },
+        { href: '/th/interprete-thai-francais-anglais-a-phuket/', label: 'ล่ามไทย ฝรั่งเศส อังกฤษในไทย' },
         { href: '/th/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/', label: 'อสังหาภูเก็ต' },
         { href: '/th/category/adresses-utiles/', label: 'ที่อยู่ที่เป็นประโยชน์' },
         { href: '/th/contact/', label: 'ติดต่อ' },
@@ -764,15 +764,15 @@ export const translations = {
     },
     emergency: {
       eyebrow: 'พร้อมบริการ 7 วัน',
-      title: 'ต้องการล่ามฉุกเฉิน!',
+      title: 'ล่ามไทย ฝรั่งเศส อังกฤษในไทย ฉุกเฉิน',
       description:
-        'อุบัติเหตุ ฉุกเฉิน ตำรวจ: แทมมี่ล่ามที่สุรินทร์หรือไปภูเก็ตเมื่อจำเป็น วอทส์แอปที่หัวเว็บ',
+        'อุบัติเหตุ ฉุกเฉิน ตำรวจ: ล่ามไทย ฝรั่งเศส อังกฤษสุรินทร์ในไทยหน้างาน นอกพื้นที่สุรินทร์ล่ามไทย ฝรั่งเศส อังกฤษในไทยระยะไกล วอทส์แอปที่หัวเว็บ',
       tags: ['เหตุฉุกเฉินทางการแพทย์ - อุบัติเหตุ - ตำรวจ'],
       cta: 'วอทส์แอป',
       features: {
         urgent: {
           title: 'เหตุฉุกเฉินทางการแพทย์ - อุบัติเหตุ - ตำรวจ',
-          desc: 'ต้องการล่ามด่วน!',
+          desc: 'ต้องการล่ามไทย ฝรั่งเศส อังกฤษในไทยด่วน!',
           linkLabel: 'วอทส์แอป',
         },
         business: {
@@ -793,9 +793,9 @@ export const translations = {
         'สองคนหลังเว็บ, บวกหน้าเบอร์ที่อัปเดตเมื่อเปลี่ยน',
       tammy: {
         name: 'แทมมี่',
-        role: 'AXA · ล่าม · ธุรการ, สุรินทร์',
+        role: 'AXA · ล่ามไทย ฝรั่งเศส อังกฤษสุรินทร์ · ธุรการ',
         description:
-          '"สวัสดีค่ะ แทมมี่อยู่สุรินทร์ ประกัน ล่าม และช่วยธุรการ ภูเก็ตยังรับงาน โรงพยาบาล ตำรวจ วีซ่า วอทส์แอปบนเว็บ"',
+          '"สวัสดีค่ะ แทมมี่อยู่สุรินทร์ ประกันสุขภาพสุรินทร์ ล่ามไทย ฝรั่งเศส อังกฤษสุรินทร์ในไทย และช่วยธุรการ ประกันสุขภาพไทยระยะไกล วอทส์แอปบนเว็บ"',
       },
       thomas: {
         name: 'โทมัส',
@@ -821,8 +821,8 @@ export const translations = {
         subject: 'หัวข้อ',
         subjectOptions: {
           realEstate: 'อสังหาริมทรัพย์',
-          insurance: 'ประกันภัย',
-          interpreter: 'ล่าม',
+          insurance: 'ประกันสุขภาพ',
+          interpreter: 'ล่ามไทย ฝรั่งเศส อังกฤษ',
           emergency: 'ฉุกเฉิน',
           other: 'อื่น ๆ',
         },
@@ -841,7 +841,7 @@ export const translations = {
       whatsapp: 'วอทส์แอป',
     },
     footer: {
-      tagline: 'ประกัน · ล่าม · ธุรการ, สุรินทร์ & ภูเก็ต',
+      tagline: 'ประกันสุขภาพสุรินทร์ · ประกันสุขภาพไทย · ล่ามไทย ฝรั่งเศส อังกฤษในไทย · ธุรการ',
       rights: 'สงวนลิขสิทธิ์',
       madeIn: 'สุรินทร์ & ภูเก็ต ประเทศไทย',
       contactBlockTitle: 'ติดต่อ',

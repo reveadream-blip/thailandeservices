@@ -82,16 +82,16 @@ const T = {
   },
   'assurance-sante-thailande-phuket': {
     en: {
-      title: 'Health insurance in Phuket, Thailand',
-      pageH1: 'Health insurance Phuket and Thailand',
-      pageTitle: 'Health insurance Phuket',
-      metaDescription: 'Expat health insurance in Phuket and Thailand: hospitalisation, advice in French with Tammy.',
+      title: 'Thailand health insurance',
+      pageH1: 'Thailand health insurance',
+      pageTitle: 'Thailand health insurance',
+      metaDescription: 'Expat health insurance in Thailand: hospitalisation, advice in French with Tammy.',
     },
     th: {
-      title: 'ประกันสุขภาพภูเก็ตและไทย',
-      pageH1: 'ประกันสุขภาพภูเก็ตและไทย',
-      pageTitle: 'ประกันสุขภาพภูเก็ต',
-      metaDescription: 'ประกันสุขภาพชาวต่างชาติภูเก็ต: รักษาพยาบาล คำปรึกษาภาษาฝรั่งเศส',
+      title: 'ประกันสุขภาพไทย',
+      pageH1: 'ประกันสุขภาพไทย',
+      pageTitle: 'ประกันสุขภาพไทย',
+      metaDescription: 'ประกันสุขภาพชาวต่างชาติในไทย: รักษาพยาบาล คำปรึกษาภาษาฝรั่งเศส',
     },
   },
   'assurance-sante-axa-a-phuket-thailande': {

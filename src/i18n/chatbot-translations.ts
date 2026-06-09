@@ -54,9 +54,9 @@ export type ChatbotCopy = {
 const fr: ChatbotCopy = {
   welcome:
     "Bonjour, c'est Tammy. Quelques questions pour préparer votre devis, puis je vous rappelle. Cliquez sur Commencer.",
-  launcherLabel: 'Devis assurance',
-  launcherAria: 'Ouvrir le devis assurance',
-  panelTitle: 'Devis assurance',
+  launcherLabel: 'Devis assurance santé',
+  launcherAria: 'Ouvrir le devis assurance santé',
+  panelTitle: 'Devis assurance santé',
   minimizeAria: 'Réduire le chat',
   minimizeTitle: 'Réduire',
   startButton: 'Commencer',
@@ -66,7 +66,7 @@ const fr: ChatbotCopy = {
   minimizeWindow: 'Réduire la fenêtre',
   restart: 'Recommencer',
   householdQuestion:
-    'Souhaitez-vous une assurance pour une seule personne ou pour plusieurs personnes ?',
+    'Souhaitez-vous une assurance santé pour une seule personne ou pour plusieurs personnes ?',
   householdOne: 'Une seule personne',
   householdTwo: 'Deux personnes',
   householdThreePlus: 'Trois personnes ou plus',
@@ -112,16 +112,16 @@ const fr: ChatbotCopy = {
     'Si vous gérez le site : Cloudflare Pages → Settings → Environment variables → ajoutez PUBLIC_WEB3FORMS_ACCESS_KEY (même valeur que Web3Forms), puis relancez un déploiement.',
   missingKeyContactLine: 'Formulaire « Contact » en bas de la page.',
   successMessage:
-    "✅ Merci pour vos réponses ! Nous avons bien reçu votre demande d'assurance. Nous vous contacterons bientôt. Vous pouvez réduire cette fenêtre.",
+    "✅ Merci pour vos réponses ! Nous avons bien reçu votre demande d'assurance santé. Nous vous contacterons bientôt. Vous pouvez réduire cette fenêtre.",
   submitFailed: (detail) =>
     `⚠️ L'envoi a échoué.${detail} Merci de réessayer ou de nous écrire sur WhatsApp.`,
   networkError:
     '⚠️ Erreur réseau. Merci de réessayer ou de nous contacter via WhatsApp.',
-  web3Subject: "Demande d'assurance, formulaire site",
-  web3FromName: 'Thailande-services, devis assurance',
+  web3Subject: "Demande d'assurance santé, formulaire site",
+  web3FromName: 'Thailande-services, devis assurance santé',
   buildMessage: (answers, nb) => {
     const lines: string[] = [
-      "Nouvelle demande d'assurance (formulaire)",
+      "Nouvelle demande d'assurance santé (formulaire)",
       '',
       `Nombre de personnes à assurer : ${nb}`,
       '',

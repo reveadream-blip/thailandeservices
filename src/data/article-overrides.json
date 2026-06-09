@@ -1,26 +1,26 @@
 {
   "interprete-thai-francais-anglais-a-phuket": {
     "appendContactForm": true,
-    "pageTitle": "Interprète thaï FR-EN à Phuket",
-    "metaDescription": "Interprète thaï FR-EN : Surin sur place, francophones Phuket. Hôpital, police, immigration. WhatsApp.",
-    "pageH1": "Interprète thaï français anglais à Phuket",
-    "intro": "<p><strong>Surin</strong> : Tammy vous accompagne sur place (hôpital, commissariat, immigration, démarches admin). <strong>Phuket</strong> : on continue pour les francophones, interprétation et déplacements quand c’est nécessaire.</p><p>À Phuket, voir aussi les <a href=\"/numeros-durgences/\">numéros d’urgence</a> et les <a href=\"/hopitaux-a-phuket/\">hôpitaux</a> ci-dessous.</p>",
+    "pageTitle": "Interprète thaï français anglais en Thaïlande",
+    "metaDescription": "Interprète thaï français anglais Surin en Thaïlande sur place. Hors Surin, interprète thaï français anglais en Thaïlande à distance. Hôpital, police, immigration. WhatsApp.",
+    "pageH1": "Interprète thaï français anglais en Thaïlande",
+    "intro": "<p><strong>Surin</strong> : interprète thaï français anglais Surin en Thaïlande sur place (hôpital, commissariat, immigration, démarches admin). <strong>Hors région Surin</strong> : interprète thaï français anglais en Thaïlande à distance (WhatsApp, visio).</p><p>À Phuket, voir aussi les <a href=\"/numeros-durgences/\">numéros d’urgence</a> et les <a href=\"/hopitaux-a-phuket/\">hôpitaux</a> ci-dessous.</p>",
     "faq": [
       {
         "question": "Dans quels cas m’appeler ?",
         "answer": "Accident de scooter, admission aux urgences, garde à vue, contrôle routier, litige avec un propriétaire, rendez-vous immigration… Dès que le thaï ou l’anglais « bureau » bloque la discussion."
       },
       {
-        "question": "Vous déplacez-vous partout sur l’île ?",
-        "answer": "Patong, Karon, Kata, Rawai, Chalong, Phuket Town, et les cliniques du réseau (Bangkok Hospital, Siriroj, etc.). Un message WhatsApp suffit pour voir si Tammy est dispo."
+        "question": "Vous intervenez où ?",
+        "answer": "Sur place dans la région de Surin (hôpital, commissariat, immigration). Hors région Surin, accompagnement à distance par WhatsApp ou visio."
       }
     ]
   },
   "assurance-sante-thailande-phuket": {
-    "pageTitle": "Assurance santé Phuket & Thaïlande",
-    "metaDescription": "Assurance santé Surin & Phuket : hospitalisation, visa. Tammy, agent AXA, conseille en français.",
-    "pageH1": "Assurance santé Phuket et Thaïlande",
-    "intro": "<p>Sans <strong>assurance santé</strong>, une urgence en clinique privée coûte cher. Tammy conseille à <strong>Surin</strong> (sur place) et reste joignable pour les <strong>francophones de Phuket</strong> : contrats, visa, budget, en français.</p><p><a href=\"/assurance-sante-axa-a-phuket-thailande/\">KrungThai AXA</a> · <a href=\"/formulaire-de-contact/\">formulaire</a> / WhatsApp.</p>",
+    "pageTitle": "Assurance santé Thaïlande",
+    "metaDescription": "Assurance santé Surin & Thaïlande : hospitalisation, visa. Tammy, agent AXA, conseille en français.",
+    "pageH1": "Assurance santé Thaïlande",
+    "intro": "<p>Sans <strong>assurance santé</strong>, une urgence en clinique privée coûte cher. <strong>Assurance santé Surin</strong> sur place avec Tammy ; <strong>assurance santé Thaïlande</strong> à distance : contrats, visa, budget, en français. Anciens clients Phuket : <a href=\"/assurance-sante-phuket/\">assurance santé Phuket Thaïlande</a>.</p><p><a href=\"/assurance-sante-axa-a-phuket-thailande/\">KrungThai AXA</a> · <a href=\"/formulaire-de-contact/\">formulaire</a> / WhatsApp.</p>",
     "faq": [
       {
         "question": "C’est vraiment utile si je suis déjà en bonne santé ?",
@@ -48,7 +48,7 @@
     "pageTitle": "Immobilier Phuket et Krabi",
     "metaDescription": "Achat ou location à Phuket, Krabi : Thomas, agent immo francophone (Rawai, Chalong, Ao Nang).",
     "pageH1": "Immobilier à Phuket et Krabi, maisons à vendre",
-    "intro": "<p><strong>Maison à vendre ou à louer</strong> à Rawai, Chalong, Kata, ou côté Krabi (Ao Nang) ? Thomas travaille sur place depuis des années : visites, négociation, bail, gestion locative.</p><p>Pensez aussi à l’<a href=\"/assurance-sante-phuket/\">assurance santé</a> et, pour les papiers, à un <a href=\"/interprete-thai-francais-anglais-a-phuket/\">interprète</a>.</p>",
+    "intro": "<p><strong>Maison à vendre ou à louer</strong> à Rawai, Chalong, Kata, ou côté Krabi (Ao Nang) ? Thomas travaille sur place depuis des années : visites, négociation, bail, gestion locative.</p><p>Pensez aussi à l’<a href=\"/assurance-sante-phuket/\">assurance santé</a> et, pour les papiers, à un <a href=\"/interprete-thai-francais-anglais-a-phuket/\">interprète thaï français anglais en Thaïlande</a>.</p>",
     "faq": [
       {
         "question": "Un étranger peut-il acheter à Phuket ?",
@@ -64,13 +64,13 @@
     "pageTitle": "Hôpitaux à Phuket",
     "metaDescription": "Hôpitaux Phuket : Bangkok Hospital, Mission, Siriroj… Numéros et adresses utiles.",
     "pageH1": "Hôpitaux à Phuket, liste et contacts",
-    "intro": "<p>Voici les <strong>hôpitaux et cliniques</strong> qu’on utilise le plus à Phuket (privés surtout). En urgence : <a href=\"/numeros-durgences/\">1155</a> (police touristique), <strong>1669</strong> (ambulance). Si personne ne comprend votre français, appelez Tammy (<a href=\"/interprete-thai-francais-anglais-a-phuket/\">interprète</a>).</p>"
+    "intro": "<p>Voici les <strong>hôpitaux et cliniques</strong> qu’on utilise le plus à Phuket (privés surtout). En urgence : <a href=\"/numeros-durgences/\">1155</a> (police touristique), <strong>1669</strong> (ambulance). Si personne ne comprend votre français, appelez Tammy (<a href=\"/interprete-thai-francais-anglais-a-phuket/\">interprète thaï français anglais en Thaïlande</a>).</p>"
   },
   "numeros-durgences": {
     "pageTitle": "Urgences Phuket",
     "metaDescription": "Urgences Phuket : 1155, 1669, 199. Numéros à garder sur son téléphone.",
     "pageH1": "Numéros d’urgence à Phuket",
-    "intro": "<p>Gardez cette page en favori : <strong>1155</strong> (police touristique), <strong>1669</strong> (ambulance), <strong>199</strong> (pompiers). En clinique privée, ayez votre assurance ou un moyen de paiement ; un <a href=\"/interprete-thai-francais-anglais-a-phuket/\">interprète</a> peut suivre si la situation dérape.</p>"
+    "intro": "<p>Gardez cette page en favori : <strong>1155</strong> (police touristique), <strong>1669</strong> (ambulance), <strong>199</strong> (pompiers). En clinique privée, ayez votre assurance ou un moyen de paiement ; un <a href=\"/interprete-thai-francais-anglais-a-phuket/\">interprète thaï français anglais en Thaïlande</a> peut suivre si la situation dérape.</p>"
   },
   "osteopathe-francais-a-phuket": {
     "pageTitle": "Ostéopathe français Phuket",

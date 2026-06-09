@@ -3,7 +3,7 @@
     "fr": {
       "pageTitle": "Adresses utiles à Phuket",
       "metaDescription": "Immigration, hôpitaux, urgences, consulat, école française… Les adresses qu’on garde sur le téléphone à Phuket.",
-      "introHtml": "<p>Ici on a mis les <strong>numéros et adresses</strong> qu’on utilise vraiment (immigration, cliniques, 1155, consulat, BCIS…). Pour un rendez-vous compliqué, Tammy peut venir en <a href=\"/interprete-thai-francais-anglais-a-phuket/\">interprète</a> ; pour l’assurance, c’est la même ligne WhatsApp.</p>"
+      "introHtml": "<p>Ici on a mis les <strong>numéros et adresses</strong> qu’on utilise vraiment (immigration, cliniques, 1155, consulat, BCIS…). <a href=\"/interprete-thai-francais-anglais-a-phuket/\">Interprète thaï français anglais Surin en Thaïlande</a> sur place ; hors Surin, interprète thaï français anglais en Thaïlande à distance. Assurance santé Thaïlande : même ligne WhatsApp.</p>"
     },
     "en": {
       "pageTitle": "Useful addresses in Phuket",
@@ -35,9 +35,9 @@
   },
   "assurance-sante-et-biens-en-thailande": {
     "fr": {
-      "pageTitle": "Assurance santé Phuket & Thaïlande",
-      "metaDescription": "Assurance santé, auto, maison à Phuket. Tammy (AXA) répond en français.",
-      "introHtml": "<p>Pages <strong>assurance</strong> : conseil à <strong>Surin</strong> et pour les francophones de <strong>Phuket</strong> (KrungThai AXA, auto, habitation). <a href=\"/formulaire-de-contact/\">formulaire</a> ou WhatsApp.</p>",
+      "pageTitle": "Assurance santé Thaïlande",
+      "metaDescription": "Assurance santé, auto, maison en Thaïlande. Tammy (AXA) répond en français.",
+      "introHtml": "<p><strong>Assurance santé Surin</strong> sur place et <strong>assurance santé Thaïlande</strong> à distance (KrungThai AXA, auto, habitation). <a href=\"/formulaire-de-contact/\">formulaire</a> ou WhatsApp.</p>",
       "faq": [
         {
           "question": "Quel budget hospitalisation pour Phuket ?",
@@ -46,9 +46,9 @@
       ]
     },
     "en": {
-      "pageTitle": "Health insurance Phuket & Thailand",
-      "metaDescription": "Health, car and home insurance in Phuket. Tammy (AXA) answers in French.",
-      "introHtml": "<p><strong>Insurance</strong>: advice in <strong>Surin</strong> and for <strong>Phuket francophones</strong> (KrungThai AXA, car, home). <a href=\"/formulaire-de-contact/\">Contact form</a> or WhatsApp.</p>",
+      "pageTitle": "Thailand health insurance",
+      "metaDescription": "Health, car and home insurance in Thailand. Tammy (AXA) answers in French.",
+      "introHtml": "<p><strong>Surin health insurance</strong> on site and <strong>Thailand health insurance</strong> remotely (KrungThai AXA, car, home). <a href=\"/formulaire-de-contact/\">Contact form</a> or WhatsApp.</p>",
       "faq": [
         {
           "question": "How much hospital cover for Phuket?",
@@ -57,9 +57,9 @@
       ]
     },
     "th": {
-      "pageTitle": "ประกันสุขภาพภูเก็ตและไทย",
-      "metaDescription": "ประกันสุขภาพ รถยนต์ และบ้านในภูเก็ต, แทมมี่ ตัวแทน AXA ให้คำปรึกษาภาษาฝรั่งเศส",
-      "introHtml": "<p>ประกันที่<strong>สุรินทร์</strong> และชาวฝรั่งเศส<strong>ภูเก็ต</strong> (AXA) <a href=\"/formulaire-de-contact/\">ติดต่อ</a> หรือวอทส์แอป</p>",
+      "pageTitle": "ประกันสุขภาพไทย",
+      "metaDescription": "ประกันสุขภาพ รถยนต์ และบ้านในไทย, แทมมี่ ตัวแทน AXA ให้คำปรึกษาภาษาฝรั่งเศส",
+      "introHtml": "<p><strong>ประกันสุขภาพสุรินทร์</strong>หน้างาน และ<strong>ประกันสุขภาพไทย</strong>ระยะไกล (AXA) <a href=\"/formulaire-de-contact/\">ติดต่อ</a> หรือวอทส์แอป</p>",
       "faq": [
         {
           "question": "วงเงินโรงพยาบาลควรเท่าไหร่?",
@@ -71,18 +71,18 @@
   "services-expatriation-en-thailande": {
     "fr": {
       "pageTitle": "Expatriation & immobilier Phuket",
-      "metaDescription": "Immo Phuket/Krabi avec Thomas, assurance et interprète avec Tammy.",
-      "introHtml": "<p><strong>Surin</strong> : Tammy (assurance, interprète, aide admin). <strong>Phuket</strong> : on reste joignable pour les francophones ; Thomas pour l’immo (<a href=\"/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/\">achat ou location</a>).</p>"
+      "metaDescription": "Immo Phuket/Krabi avec Thomas, assurance santé Surin et assurance santé Thaïlande à distance avec Tammy.",
+      "introHtml": "<p><strong>Surin</strong> : Tammy (assurance santé Surin, interprète thaï français anglais Surin en Thaïlande, aide admin). <strong>Assurance santé Thaïlande</strong> à distance ; Thomas pour l’immo (<a href=\"/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/\">achat ou location</a>).</p>"
     },
     "en": {
       "pageTitle": "Expat services & real estate Phuket",
-      "metaDescription": "Phuket/Krabi property with Thomas; insurance & interpreter with Tammy.",
-      "introHtml": "<p><strong>Surin</strong>: Tammy (insurance, interpreter, admin help). <strong>Phuket</strong>: we still answer francophones; <strong>Thomas</strong> for property (<a href=\"/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/\">buy or rent</a>).</p>"
+      "metaDescription": "Phuket/Krabi property with Thomas; Surin health insurance and Thailand health insurance remotely with Tammy.",
+      "introHtml": "<p><strong>Surin</strong>: Tammy (Surin health insurance, Thai French English interpreter Surin in Thailand, admin help). <strong>Thailand health insurance</strong> remotely; <strong>Thomas</strong> for property (<a href=\"/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/\">buy or rent</a>).</p>"
     },
     "th": {
       "pageTitle": "บริการชาวต่างชาติภูเก็ต",
       "metaDescription": "ย้ายมาภูเก็ต: โทมาส อสังหาฯ กระบี่ แทมมี่ ประกันสุขภาพและล่ามฉุกเฉิน, ติดต่อได้จริง",
-      "introHtml": "<p><strong>สุรินทร์</strong>: แทมมี่ ประกัน ล่าม ธุรการ <strong>ภูเก็ต</strong>: ชาวฝรั่งเศส โทมาส<strong>อสังหาฯ</strong></p>"
+      "introHtml": "<p><strong>สุรินทร์</strong>: แทมมี่ ประกันสุขภาพสุรินทร์ ล่ามไทย ฝรั่งเศส อังกฤษสุรินทร์ในไทย ธุรการ <strong>ประกันสุขภาพไทย</strong>ระยะไกล โทมาส<strong>อสังหาฯ</strong></p>"
     }
   }
 }

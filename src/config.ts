@@ -90,7 +90,7 @@ export const SERVICE_AREAS = {
 
 export const SITE = {
   name: 'Thailande-services.fr',
-  tagline: 'Assurance · Interprète · Admin · Surin & Phuket',
+  tagline: 'Assurance santé Surin · assurance santé Thaïlande · interprète thaï français anglais en Thaïlande · Admin',
   get baseUrl() {
     return siteBaseUrl()
   },
