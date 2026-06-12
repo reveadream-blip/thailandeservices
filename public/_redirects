@@ -1,62 +1,10 @@
-# Variantes d’URL WordPress (ordre inversé) → article canonique assurance (200)
+# Variantes d’URL (ordre inversé) → article canonique assurance
 /assurance-sante-phuket-thailande /assurance-sante-thailande-phuket/ 301
 /assurance-sante-phuket-thailande/ /assurance-sante-thailande-phuket/ 301
 /en/assurance-sante-phuket-thailande /en/assurance-sante-thailande-phuket/ 301
 /en/assurance-sante-phuket-thailande/ /en/assurance-sante-thailande-phuket/ 301
 /th/assurance-sante-phuket-thailande /th/assurance-sante-thailande-phuket/ 301
 /th/assurance-sante-phuket-thailande/ /th/assurance-sante-thailande-phuket/ 301
-
-# Landing legacy Phuket (/assurance-sante-phuket/) : pas de redirect, page dédiée Astro
-
-# Ancienne page d’accueil WP (« Home » dans Google)
-/home / 301
-/home/ / 301
-/accueil / 301
-/accueil/ / 301
-/index.php / 301
-/index.php/ / 301
-
-# Archives WordPress par année / mois (sans toucher à /category/ ni /en/)
-/2022/:month/:slug /:slug/ 301
-/2022/:month/:slug/ /:slug/ 301
-/2022/:month / 301
-/2022/:month/ / 301
-/2022 / 301
-/2022/ / 301
-/2023/:month/:slug /:slug/ 301
-/2023/:month/:slug/ /:slug/ 301
-/2023/:month / 301
-/2023/:month/ / 301
-/2023 / 301
-/2023/ / 301
-/2024/:month/:slug /:slug/ 301
-/2024/:month/:slug/ /:slug/ 301
-/2024/:month / 301
-/2024/:month/ / 301
-/2024 / 301
-/2024/ / 301
-/2025/:month/:slug /:slug/ 301
-/2025/:month/:slug/ /:slug/ 301
-/2025/:month / 301
-/2025/:month/ / 301
-/2025 / 301
-/2025/ / 301
-/2026/:month/:slug /:slug/ 301
-/2026/:month/:slug/ /:slug/ 301
-/2026/:month / 301
-/2026/:month/ / 301
-/2026 / 301
-/2026/ / 301
-
-# Taxonomies / flux WP (sans toucher à /category/ Astro)
-/tag/* / 301
-/author/* / 301
-/feed / 301
-/feed/ / 301
-/comments/feed / 301
-/comments/feed/ / 301
-/wp-login.php / 301
-/wp-admin/* / 301
 
 # Trailing slash → URL canonique (fichier XML n’existe qu’en /sitemap.xml)
 /sitemap.xml/ /sitemap.xml 301
