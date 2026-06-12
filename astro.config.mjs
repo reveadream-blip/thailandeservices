@@ -3,6 +3,8 @@ import sitemap from '@astrojs/sitemap'
 import react from '@astrojs/react'
 import { loadEnv } from 'vite'
 
+import cloudflare from "@astrojs/cloudflare";
+
 /**
  * Ne pas utiliser `defineConfig(() => ({ ... }))` : Astro fusionne la config avec
  * `{ ...userConfig }`, ce qui annule un export fonction et ignore `site`, intégrations, etc.
@@ -16,6 +18,7 @@ const siteUrl =
 
 export default defineConfig({
   site: siteUrl,
+
   integrations: [
     react(),
     sitemap({
@@ -34,6 +37,7 @@ export default defineConfig({
       },
     }),
   ],
+
   i18n: {
     defaultLocale: 'fr',
     locales: ['fr', 'en', 'th'],
@@ -41,7 +45,10 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
+
   build: {
     inlineStylesheets: 'auto',
   },
+
+  adapter: cloudflare()
 })

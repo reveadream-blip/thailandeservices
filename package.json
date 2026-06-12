@@ -7,15 +7,17 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build && node scripts/copy-sitemap-xml.mjs",
-    "preview": "astro preview",
+    "preview": "npm run build && wrangler dev",
     "astro": "astro",
     "import:wp": "node scripts/fetch-wp-articles.mjs",
     "media:wp": "node scripts/fetch-wp-media.mjs",
     "articles:i18n": "node scripts/generate-article-bodies-i18n.mjs",
     "deploy": "npm run build && wrangler deploy",
-    "deploy:cf": "npm run deploy"
+    "deploy:cf": "npm run deploy",
+    "cf-typegen": "wrangler types"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "12",
     "@astrojs/react": "^5.0.4",
     "astro": "^5.0.0",
     "react": "^19.2.5",
@@ -24,6 +26,6 @@
   "devDependencies": {
     "@astrojs/sitemap": "^3.7.2",
     "cheerio": "^1.0.0",
-    "wrangler": "^4.54.0"
+    "wrangler": "^4.100.0"
   }
 }
