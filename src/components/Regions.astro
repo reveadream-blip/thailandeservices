@@ -1,6 +1,7 @@
 ---
 import { translations, type Lang } from '../i18n/translations'
 import { landingPath } from '../lib/landing-paths'
+import { contactPagePath } from '../lib/locale-path'
 
 export interface Props {
   lang: Lang
@@ -47,6 +48,21 @@ const t = translations[lang].regions
           <span aria-hidden="true">→</span>
         </a>
       </article>
+
+      <article class="region-card region-card--thailand" data-reveal style="animation-delay:0.16s">
+        <span class="region-badge region-badge--muted">{t.thailand.badge}</span>
+        <h3>{t.thailand.title}</h3>
+        <ul>
+          {t.thailand.services.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+        <p>{t.thailand.note}</p>
+        <a href={contactPagePath(lang)} class="region-cta">
+          {t.thailand.cta}
+          <span aria-hidden="true">→</span>
+        </a>
+      </article>
     </div>
   </div>
 </section>
@@ -75,6 +91,12 @@ const t = translations[lang].regions
     .regions-grid {
       grid-template-columns: 1fr 1fr;
       align-items: stretch;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .regions-grid {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
