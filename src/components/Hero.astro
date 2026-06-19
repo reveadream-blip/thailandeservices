@@ -2,7 +2,8 @@
 import { translations, type Lang } from '../i18n/translations'
 import { WP_PAGES } from '../config'
 import { CHATBOT_OPEN_HASH } from '../lib/chatbot-open'
-import { contactPagePath, localePath } from '../lib/locale-path'
+import { LANDING_SURIN_PATH } from '../lib/landing-paths'
+import { localePath } from '../lib/locale-path'
 
 export interface Props {
   lang: Lang
@@ -44,7 +45,7 @@ const slides = [
     alt: t.homeSlider.slide4.alt,
     subtitle: t.homeSlider.slide4.subtitle,
     cta: t.homeSlider.slide4.cta,
-    href: localePath(lang, contactPagePath(lang)),
+    href: localePath(lang, LANDING_SURIN_PATH),
   },
 ]
 ---
@@ -75,8 +76,8 @@ const slides = [
             <div class="slide-content">
               {i === 0 ? (
                 <>
-                  <h1 class="slide-h1">{t.hero.seoH1}</h1>
-                  <p class="slide-h1-sub">{t.hero.seoH1Sub}</p>
+                  <h1 class="slide-h1">{t.homeSlider.slide1.h1}</h1>
+                  <p class="slide-h1-sub">{t.homeSlider.slide1.subtitle}</p>
                 </>
               ) : !('textOnImage' in s && s.textOnImage) ? (
                 <h2 class="slide-h2">{s.title}</h2>
@@ -84,7 +85,7 @@ const slides = [
               {'textOnImage' in s && s.textOnImage ? (
                 <p class="visually-hidden">{s.title}</p>
               ) : null}
-              {s.subtitle ? <p class="slide-sub">{s.subtitle}</p> : null}
+              {s.subtitle && i !== 0 ? <p class="slide-sub">{s.subtitle}</p> : null}
               <a
                 href={s.href}
                 class:list={['btn', 'btn-primary', 'slide-cta', { 'slide-cta--image': 'textOnImage' in s && s.textOnImage }]}

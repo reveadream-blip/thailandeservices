@@ -114,8 +114,10 @@ export const translations = {
     },
     homeSlider: {
       slide1: {
+        h1: 'Interprète thaï français anglais en Thaïlande',
         title: 'Interprète thaï français anglais en Thaïlande',
-        subtitle: 'Urgences, hôpital, police, accompagnement francophone',
+        subtitle:
+          'Interprète thaï français anglais à Phuket · interprète thaï français anglais à Surin — hôpital, police, immigration et urgences avec Tammy.',
         cta: 'Contactez Tammy!',
       },
       slide2: {
@@ -126,14 +128,16 @@ export const translations = {
         cta: 'Contactez Thomas!',
       },
       slide3: {
-        title: 'Assurance santé Surin & assurance santé Thaïlande',
-        subtitle: 'Surin : assurance santé Surin sur place · assurance santé Thaïlande à distance avec Tammy',
+        title: 'Assurance santé en Thaïlande',
+        subtitle:
+          'Assurance santé à Phuket · assurance santé à Surin — devis à distance ou en agence avec Tammy (KrungThai AXA).',
         cta: 'Devis assurance santé',
       },
       slide4: {
-        title: 'Services à Surin : visas, assurance santé Surin, interprète thaï français anglais Surin',
-        alt: 'Tammy, Thailande-services à Surin : visas, assurance santé Surin et interprète thaï français anglais Surin en Thaïlande',
-        subtitle: '',
+        title: 'Visas, interprète et assurance santé à Surin',
+        alt: 'Tammy à Surin : visas, interprète thaï français anglais et assurance santé en Thaïlande, à Phuket et à Surin',
+        subtitle:
+          'Visas, interprète et assurance santé en Thaïlande · à Phuket · à Surin — accompagnement sur place avec Tammy.',
         cta: 'Contactez Tammy!',
       },
       prev: 'Diapositive précédente',
@@ -401,8 +405,10 @@ export const translations = {
     },
     homeSlider: {
       slide1: {
+        h1: 'Thai French English interpreter in Thailand',
         title: 'Thai French English interpreter in Thailand',
-        subtitle: 'French, English, Thai',
+        subtitle:
+          'Thai French English interpreter in Phuket · Thai French English interpreter in Surin — hospital, police, immigration and emergencies with Tammy.',
         cta: 'Contact Tammy!',
       },
       slide2: {
@@ -413,14 +419,16 @@ export const translations = {
         cta: 'Contact Thomas!',
       },
       slide3: {
-        title: 'Surin health insurance & Thailand health insurance',
-        subtitle: 'Surin: on-site Surin health insurance · Thailand health insurance remotely with Tammy',
+        title: 'Health insurance in Thailand',
+        subtitle:
+          'Health insurance in Phuket · health insurance in Surin — remote quote or on-site with Tammy (KrungThai AXA).',
         cta: 'Insurance quote',
       },
       slide4: {
-        title: 'Services in Surin: visas, Surin health insurance, Thai French English interpreter Surin',
-        alt: 'Tammy, Thailande-services in Surin: visas, Surin health insurance and Thai French English interpreter Surin in Thailand',
-        subtitle: '',
+        title: 'Visas, interpreter and health insurance in Surin',
+        alt: 'Tammy in Surin: visas, Thai French English interpreter and health insurance in Thailand, Phuket and Surin',
+        subtitle:
+          'Visas, interpreter and health insurance in Thailand · in Phuket · in Surin — on-site support with Tammy.',
         cta: 'Contact Tammy!',
       },
       prev: 'Previous slide',
@@ -688,8 +696,10 @@ export const translations = {
     },
     homeSlider: {
       slide1: {
+        h1: 'ล่ามไทย ฝรั่งเศส อังกฤษในไทย',
         title: 'ล่ามไทย ฝรั่งเศส อังกฤษในไทย',
-        subtitle: 'ฝรั่งเศส อังกฤษ ไทย',
+        subtitle:
+          'ล่ามไทย ฝรั่งเศส อังกฤษที่ภูเก็ต · ล่ามไทย ฝรั่งเศส อังกฤษที่สุรินทร์ — โรงพยาบาล ตำรวจ ตรวจคนเข้าเมือง และเหตุฉุกเฉินกับแทมมี่',
         cta: 'ติดต่อแทมมี่!',
       },
       slide2: {
@@ -700,14 +710,16 @@ export const translations = {
         cta: 'ติดต่อโทมัส!',
       },
       slide3: {
-        title: 'ประกันสุขภาพสุรินทร์ & ประกันสุขภาพไทย',
-        subtitle: 'สุรินทร์: ประกันสุขภาพสุรินทร์หน้างาน · ประกันสุขภาพไทยระยะไกลกับแทมมี่',
+        title: 'ประกันสุขภาพในไทย',
+        subtitle:
+          'ประกันสุขภาพที่ภูเก็ต · ประกันสุขภาพที่สุรินทร์ — ใบเสนอราคาระยะไกลหรือหน้างานกับแทมมี่ (KrungThai AXA)',
         cta: 'ใบเสนอราคาประกัน',
       },
       slide4: {
-        title: 'บริการที่สุรินทร์: วีซ่า ประกันสุขภาพสุรินทร์ ล่ามไทย ฝรั่งเศส อังกฤษสุรินทร์',
-        alt: 'แทมมี่ Thailande-services ที่สุรินทร์: วีซ่า ประกันสุขภาพสุรินทร์ และล่ามไทย ฝรั่งเศส อังกฤษสุรินทร์ในไทย',
-        subtitle: '',
+        title: 'วีซ่า ล่าม และประกันสุขภาพที่สุรินทร์',
+        alt: 'แทมมี่ที่สุรินทร์: วีซ่า ล่ามไทย ฝรั่งเศส อังกฤษ และประกันสุขภาพในไทย ที่ภูเก็ต และที่สุรินทร์',
+        subtitle:
+          'วีซ่า ล่าม และประกันสุขภาพในไทย · ที่ภูเก็ต · ที่สุรินทร์ — บริการหน้างานกับแทมมี่',
         cta: 'ติดต่อแทมมี่!',
       },
       prev: 'สไลด์ก่อนหน้า',
