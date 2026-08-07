@@ -13,3 +13,8 @@ worker/.wrangler/
 worker/versions.txt
 worker/versions-utf8.txt
 worker/tmp-body.json
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
