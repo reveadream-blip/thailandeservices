@@ -2,9 +2,9 @@
   "interprete-thai-francais-anglais-a-phuket": {
     "appendContactForm": true,
     "pageTitle": "Interprète thaï français anglais en Thaïlande",
-    "metaDescription": "Interprète thaï français anglais : Surin sur place, Phuket à distance ou collaboratrice, toute la Thaïlande au téléphone et visio. Hôpital, police, immigration.",
+    "metaDescription": "Interprète thaï français anglais pour expatriés : Surin sur place, Phuket à distance, Bangkok, Chiang Mai, Pattaya, Hua Hin, Koh Samui en visio. Hôpital, police, immigration.",
     "pageH1": "Interprète thaï français anglais en Thaïlande",
-    "intro": "<p><strong>Surin</strong> : tous les services sur place (hôpital, commissariat, immigration, admin). <strong>Phuket</strong> : à distance ou avec une collaboratrice locale. <strong>Partout ailleurs en Thaïlande</strong> : téléphone, WhatsApp et visio.</p><p>À Phuket, voir aussi les <a href=\"/numeros-durgences/\">numéros d’urgence</a> et les <a href=\"/hopitaux-a-phuket/\">hôpitaux</a> ci-dessous.</p>",
+    "intro": "<p><strong>Surin</strong> : tous les services sur place (hôpital, commissariat, immigration, admin). <strong>Phuket</strong> : à distance ou avec une collaboratrice locale. <strong>Bangkok, Chiang Mai, Pattaya, Hua Hin, Koh Samui</strong> et le reste du pays : téléphone, WhatsApp et visio.</p><p>À Phuket, voir aussi les <a href=\"/numeros-durgences/\">numéros d’urgence</a> et les <a href=\"/hopitaux-a-phuket/\">hôpitaux</a> ci-dessous.</p>",
     "faq": [
       {
         "question": "Dans quels cas m’appeler ?",
@@ -12,15 +12,15 @@
       },
       {
         "question": "Vous intervenez où ?",
-        "answer": "Surin : sur place (hôpital, commissariat, immigration). Phuket : à distance ou avec une collaboratrice. Partout ailleurs en Thaïlande : téléphone, WhatsApp et visio."
+        "answer": "Surin : sur place (hôpital, commissariat, immigration). Phuket : à distance ou collaboratrice. Bangkok, Chiang Mai, Pattaya, Hua Hin, Koh Samui et ailleurs : téléphone, WhatsApp et visio."
       }
     ]
   },
   "assurance-sante-thailande-phuket": {
     "pageTitle": "Assurance santé Thaïlande",
-    "metaDescription": "Assurance santé Surin & Thaïlande : hospitalisation, visa. Tammy, agent AXA, conseille en français.",
+    "metaDescription": "Assurance santé Thaïlande pour expatriés : hospitalisation, visa, devis en français. Bangkok, Chiang Mai, Phuket, Pattaya, Hua Hin, Koh Samui. Tammy, agent AXA.",
     "pageH1": "Assurance santé Thaïlande",
-    "intro": "<p>Sans <strong>assurance santé</strong>, une urgence en clinique privée coûte cher. <strong>Assurance santé Surin</strong> sur place avec Tammy ; à <strong>Phuket</strong>, à distance ou avec une collaboratrice ; <strong>partout en Thaïlande</strong>, par téléphone et visio. Anciens clients Phuket : <a href=\"/assurance-sante-phuket/\">assurance santé Phuket Thaïlande</a>.</p><p><a href=\"/assurance-sante-axa-a-phuket-thailande/\">KrungThai AXA</a> · <a href=\"#devis-assurance\">Devis assurance santé</a> / WhatsApp.</p>",
+    "intro": "<p>Quand on cherche une <strong>assurance santé en Thaïlande</strong>, c’est souvent après une facture d’hôpital ou une demande de garantie à l’admission. Tammy compare les contrats <strong>KrungThai AXA</strong> (hospitalisation, ambulatoire, plafonds visa) : <strong>assurance santé Surin</strong> sur place, <strong>Phuket</strong> à distance ou collaboratrice, <strong>Bangkok, Chiang Mai, Pattaya, Hua Hin, Koh Samui</strong> par téléphone et visio.</p><p>Page dédiée Phuket : <a href=\"/assurance-sante-phuket/\">assurance santé Phuket Thaïlande</a> · <a href=\"/assurance-sante-axa-a-phuket-thailande/\">KrungThai AXA</a> · <a href=\"#devis-assurance\">Devis assurance santé</a> / WhatsApp.</p>",
     "faq": [
       {
         "question": "C’est vraiment utile si je suis déjà en bonne santé ?",
@@ -33,10 +33,10 @@
     ]
   },
   "assurance-sante-axa-a-phuket-thailande": {
-    "pageTitle": "Assurance AXA Phuket",
-    "metaDescription": "KrungThai AXA à Phuket : iHealthy, hospitalisation. Tammy explique les garanties en français.",
+    "pageTitle": "Assurance santé AXA Thaïlande",
+    "metaDescription": "Assurance santé AXA en Thaïlande : iHealthy, hospitalisation. Bangkok, Chiang Mai, Phuket, Pattaya. Tammy explique les garanties en français.",
     "pageH1": "Assurance santé KrungThai AXA en Thaïlande",
-    "intro": "<p>Tammy est agent <strong>KrungThai AXA</strong> sur l’île : elle compare les niveaux iHealthy (plafonds, franchises, hôpitaux partenaires) et reste disponible quand il y a un sinistre.</p>",
+    "intro": "<p>Pour une <strong>assurance santé en Thaïlande</strong> avec un interlocuteur en français, Tammy est agent <strong>KrungThai AXA</strong> : elle compare les niveaux iHealthy (plafonds annuels, franchises, hôpitaux partenaires) depuis Surin, Phuket, Bangkok, Chiang Mai ou en visio.</p>",
     "faq": [
       {
         "question": "iHealthy, concrètement ?",
@@ -45,18 +45,31 @@
     ]
   },
   "expatriation-a-phuket-besoin-achat-immobilier-ou-locatif": {
-    "pageTitle": "Immobilier Phuket et Krabi",
-    "metaDescription": "Achat ou location à Phuket, Krabi : Thomas, agent immo francophone (Rawai, Chalong, Ao Nang).",
-    "pageH1": "Immobilier à Phuket et Krabi, maisons à vendre",
-    "intro": "<p><strong>Maison à vendre ou à louer</strong> à Rawai, Chalong, Kata, ou côté Krabi (Ao Nang) ? Thomas travaille sur place depuis des années : visites, négociation, bail, gestion locative.</p><p>Pensez aussi à l’<a href=\"/assurance-sante-phuket/\">assurance santé</a> et, pour les papiers, à un <a href=\"/interprete-thai-francais-anglais-a-phuket/\">interprète thaï français anglais en Thaïlande</a>.</p>",
+    "appendContactForm": true,
+    "pageTitle": "Agence immobilière Phuket & Krabi | Maison, villa, terrain à vendre",
+    "metaDescription": "Agence immobilière à Phuket et Krabi : maison, villa, terrain et appartement à vendre ou à louer. Thomas, agent immobilier francophone (Rawai, Chalong, Ao Nang).",
+    "pageH1": "Agence immobilière à Phuket et Krabi, maisons, villas et terrains à vendre",
+    "intro": "<p><strong>Agence immobilière à Phuket</strong> et <strong>agence immobilière à Krabi</strong> : Thomas vous accompagne pour une <strong>maison à vendre à Phuket</strong>, une <strong>maison à vendre à Krabi</strong>, une <strong>villa</strong>, un <strong>appartement</strong>, un <strong>condo</strong> ou un <strong>terrain à vendre</strong>, en achat ou en <strong>location longue durée</strong> (Rawai, Chalong, Kata, Ao Nang).</p><p>Assurance et interprète : <a href=\"/assurance-sante-phuket/\">Tammy</a> · <a href=\"/interprete-thai-francais-anglais-a-phuket/\">interprète thaï français anglais</a>.</p>",
     "faq": [
       {
-        "question": "Un étranger peut-il acheter à Phuket ?",
-        "answer": "Oui pour beaucoup de condos (quota étranger), parfois en leasehold pour une villa. Thomas vous dit ce qui est réaliste selon votre projet, sans promesse magique."
+        "question": "Un étranger peut-il acheter une maison à vendre à Phuket ?",
+        "answer": "Souvent oui pour un condo (quota étranger). Pour une maison ou une villa à vendre à Phuket, c’est plutôt leasehold ou structure locale. Thomas vous dit ce qui est réaliste avant toute visite."
       },
       {
-        "question": "Quels quartiers reviennent le plus souvent ?",
-        "answer": "Rawai, Nai Harn, Chalong pour la vie tranquille ; Kata/Patong plus animés ; Krabi pour un pied-à-terre côté Andaman."
+        "question": "Terrain à vendre à Phuket ou à Krabi : est-ce possible ?",
+        "answer": "Oui, avec des règles strictes pour les étrangers. Thomas explique leasehold, construction et budget, sans promesse impossible."
+      },
+      {
+        "question": "Quels quartiers pour une agence immobilière à Phuket ?",
+        "answer": "Rawai, Nai Harn et Chalong pour la tranquillité ; Kata et Patong plus animés. Côté Krabi : Ao Nang et Krabi town pour une maison à vendre à Krabi."
+      },
+      {
+        "question": "Location longue durée à Phuket ou appartement à louer ?",
+        "answer": "Thomas gère aussi la location à Phuket et à Krabi : bail, état des lieux, renouvellement. Idéal si vous testez la vie sur l’île avant d’acheter."
+      },
+      {
+        "question": "Villa à vendre à Phuket ou à Krabi : par où commencer ?",
+        "answer": "Contactez Thomas via le formulaire : budget, quartier, achat ou location. Il organise les visites et la négociation en français."
       }
     ]
   },

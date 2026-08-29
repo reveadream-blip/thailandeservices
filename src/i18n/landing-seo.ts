@@ -19,15 +19,15 @@ const phuket: LandingCopy = {
   fr: {
     documentTitle: 'Assurance santé Phuket Thaïlande | Souscription en ligne & agence Surin',
     metaDescription:
-      'Assurance santé Phuket Thaïlande : à distance ou avec une collaboratrice sur l’île. À Surin, tous les services sur place. Partout en Thaïlande : téléphone et visio.',
+      'Assurance santé Thaïlande pour expatriés : Bangkok, Chiang Mai, Phuket, Pattaya, Hua Hin, Koh Samui. Hospitalisation, devis en français. Surin sur place, ailleurs en visio avec Tammy (AXA).',
     pageH1: 'Assurance santé Phuket Thaïlande',
     lead:
-      'Phuket : assurance à distance ou avec une collaboratrice. Surin : tous les services sur place. Partout en Thaïlande : téléphone, WhatsApp et visio.',
+      'Assurance santé Thaïlande : Phuket à distance ou avec une collaboratrice, Surin sur place, Bangkok et Chiang Mai en visio pour comparer hospitalisation et plafonds AXA.',
     breadcrumbCurrent: 'Assurance santé Phuket Thaïlande',
     jsonLdName: 'Assurance santé Phuket Thaïlande et agence Surin',
     bodyHtml: `
 <article class="landing-seo-body">
-<p>Vous nous connaissiez à <strong>Phuket</strong> ? Cette page <strong>assurance santé Phuket Thaïlande</strong> reste votre point d’entrée : même interlocutrice, même ligne WhatsApp. À <strong>Phuket</strong>, Tammy vous accompagne <strong>à distance ou avec une collaboratrice locale</strong> selon le dossier. À <strong>Surin</strong>, <strong>tous les services</strong> (assurance, interprète, visas, admin) se font <strong>sur place</strong>. <strong>Partout ailleurs en Thaïlande</strong> — Bangkok, Chiang Mai, Pattaya, Hua Hin — : téléphone, WhatsApp et visio, avec souscription via les outils <strong>Krungthai AXA</strong>.</p>
+<p>Vous nous connaissiez à <strong>Phuket</strong> ? Cette page <strong>assurance santé Phuket Thaïlande</strong> reste votre point d’entrée : même interlocutrice, même ligne WhatsApp. À <strong>Phuket</strong>, Tammy vous accompagne <strong>à distance ou avec une collaboratrice locale</strong> selon le dossier. À <strong>Surin</strong>, <strong>tous les services</strong> (assurance, interprète, visas, admin) se font <strong>sur place</strong>. Ailleurs en Thaïlande (<strong>Bangkok</strong>, <strong>Chiang Mai</strong>, <strong>Pattaya</strong>, <strong>Hua Hin</strong>, <strong>Koh Samui</strong>) : téléphone, WhatsApp et visio, avec souscription via les outils <strong>Krungthai AXA</strong>.</p>
 
 <h2>Phuket : à distance ou avec une collaboratrice</h2>
 <p>Sur l’île, pas besoin de venir à Surin pour souscrire. Tammy propose des rendez-vous en <strong>visio</strong> (WhatsApp, Google Meet) ou fait intervenir une <strong>collaboratrice locale</strong> quand la situation le demande. Comparaison des garanties hospitalisation, plafonds annuels et options visa ou famille.</p>
@@ -40,8 +40,11 @@ const phuket: LandingCopy = {
 </ul>
 
 <h2>Surin : tous les services sur place</h2>
-<p>Quand la situation devient concrète (admission à l’hôpital, commissariat, rendez-vous immigration), la présence sur place change tout. L’<a href="${LANDING_SURIN_PATH}">agence de Surin</a> accueille tous les dossiers : assurance, interprète, visas et admin — Tammy parle thaï, français et anglais.</p>
-<p>Beaucoup de clients à Phuket ou ailleurs en Thaïlande souscrivent à distance, puis contactent Surin le jour où ils ont besoin d’un interprète sur place.</p>
+<p>Quand la situation devient concrète (admission à l’hôpital, commissariat, rendez-vous immigration), la présence sur place change tout. L’<a href="${LANDING_SURIN_PATH}">agence de Surin</a> accueille tous les dossiers : assurance, interprète, visas et admin. Tammy parle thaï, français et anglais.</p>
+<p>Beaucoup de clients à Bangkok, Chiang Mai, Pattaya ou sur Koh Samui souscrivent à distance, puis passent par Surin le jour où ils ont besoin d’un interprète sur place.</p>
+
+<h2>Assurance santé Bangkok, Chiang Mai, Pattaya, Hua Hin…</h2>
+<p>Vous cherchez une <strong>assurance santé en Thaïlande</strong> depuis Bangkok, Chiang Mai, Pattaya, Hua Hin ou Koh Samui ? Même WhatsApp, même interlocutrice. On compare souvent les garanties en visio depuis Silom, Nimman ou une villa à Hua Hin : hospitalisation, ambulatoire, plafonds visa. Pas besoin de voler jusqu’à Surin pour souscrire.</p>
 
 <p><a href="#devis-assurance">Devis assurance santé</a> · <a href="${LANDING_SURIN_PATH}">Découvrir l’agence Surin</a> · <a href="/interprete-thai-francais-anglais-a-phuket/">Interprète thaï français anglais en Thaïlande</a></p>
 </article>`,
@@ -49,15 +52,15 @@ const phuket: LandingCopy = {
   en: {
     documentTitle: 'Phuket Thailand Health Insurance | Online & Surin Office',
     metaDescription:
-      'Phuket Thailand health insurance: remote or with a local collaborator on the island. Surin: all services on site. All of Thailand: phone and video.',
+      'Thailand health insurance for expats: Bangkok, Chiang Mai, Phuket, Pattaya, Hua Hin, Koh Samui. Hospital cover, quotes in French. Surin on site, elsewhere by video with Tammy (AXA).',
     pageH1: 'Phuket Thailand health insurance',
     lead:
-      'Phuket: insurance remotely or with a collaborator. Surin: all services on site. All of Thailand: phone, WhatsApp and video.',
+      'Thailand health insurance: Phuket remotely or with a collaborator, Surin on site, Bangkok and Chiang Mai by video to compare hospital cover and AXA limits.',
     breadcrumbCurrent: 'Phuket Thailand health insurance',
     jsonLdName: 'Phuket Thailand health insurance and Surin branch',
     bodyHtml: `
 <article class="landing-seo-body">
-<p>Used to work with us in <strong>Phuket</strong>? This <strong>Phuket Thailand health insurance</strong> page is still your entry point: same contact, same WhatsApp. In <strong>Phuket</strong>, Tammy supports you <strong>remotely or with a local collaborator</strong> depending on the case. In <strong>Surin</strong>, <strong>all services</strong> (insurance, interpreter, visas, admin) are <strong>on site</strong>. <strong>Everywhere else in Thailand</strong> — Bangkok, Chiang Mai, Pattaya, Hua Hin — phone, WhatsApp and video, with subscription through <strong>Krungthai AXA</strong> tools.</p>
+<p>Used to work with us in <strong>Phuket</strong>? This <strong>Phuket Thailand health insurance</strong> page is still your entry point: same contact, same WhatsApp. In <strong>Phuket</strong>, Tammy supports you <strong>remotely or with a local collaborator</strong> depending on the case. In <strong>Surin</strong>, <strong>all services</strong> (insurance, interpreter, visas, admin) are <strong>on site</strong>. Elsewhere in Thailand (<strong>Bangkok</strong>, <strong>Chiang Mai</strong>, <strong>Pattaya</strong>, <strong>Hua Hin</strong>, <strong>Koh Samui</strong>): phone, WhatsApp and video, with subscription through <strong>Krungthai AXA</strong> tools.</p>
 
 <h2>Phuket: remote or with a collaborator</h2>
 <p>On the island, no need to travel to Surin to subscribe. Tammy books <strong>video appointments</strong> (WhatsApp or Google Meet) or brings in a <strong>local collaborator</strong> when needed. Compare hospital cover, annual limits and family or visa options.</p>
@@ -70,8 +73,11 @@ const phuket: LandingCopy = {
 </ul>
 
 <h2>Surin: all services on site</h2>
-<p>When things get real (hospital admission, police station, immigration appointment), on-site support matters. The <a href="/en/agence-surin/">Surin branch</a> handles everything: insurance, interpreting, visas and admin — Tammy speaks Thai, French and English.</p>
-<p>Many clients in Phuket or elsewhere subscribe remotely, then contact Surin the day they need an interpreter on site.</p>
+<p>When things get real (hospital admission, police station, immigration appointment), on-site support matters. The <a href="/en/agence-surin/">Surin branch</a> handles everything: insurance, interpreting, visas and admin. Tammy speaks Thai, French and English.</p>
+<p>Many clients in Bangkok, Chiang Mai, Pattaya or on Koh Samui subscribe remotely, then reach out to Surin the day they need an interpreter on site.</p>
+
+<h2>Health insurance in Bangkok, Chiang Mai, Pattaya, Hua Hin…</h2>
+<p>Searching for <strong>health insurance in Thailand</strong> from Bangkok, Chiang Mai, Pattaya, Hua Hin or Koh Samui? Same WhatsApp, same contact. We often compare cover by video from Silom, Nimman or a house in Hua Hin: inpatient, outpatient, visa limits. No need to fly to Surin to subscribe.</p>
 
 <p><a href="#devis-assurance">Insurance quote</a> · <a href="/en/agence-surin/">Surin branch</a> · <a href="/en/interprete-thai-francais-anglais-a-phuket/">Thai French English interpreter in Thailand</a></p>
 </article>`,
@@ -112,7 +118,7 @@ const surin: LandingCopy = {
   fr: {
     documentTitle: 'Agence Surin, assurance santé Surin et interprète thaï français anglais Surin',
     metaDescription:
-      'Agence Thailande-services à Surin : Tammy vous accueille pour l’assurance santé Surin (AXA), l’interprétariat FR/EN/TH (hôpital, police, immigration).',
+      'Agence Surin : assurance santé Thaïlande sur place (AXA). Expatriés Bangkok, Chiang Mai, Phuket, Pattaya : devis hospitalisation en visio avec Tammy.',
     pageH1: 'Agence Thailande-services à Surin : visas, assurance santé Surin, interprète thaï français anglais Surin en Thaïlande',
     lead:
       'Tammy reçoit sur place à Surin pour tous les services (assurance, interprète, visas, admin). À Phuket, à distance ou avec une collaboratrice. Partout en Thaïlande, au téléphone et en visio.',
@@ -120,7 +126,7 @@ const surin: LandingCopy = {
     jsonLdName: 'Agence Thailande-services Surin',
     bodyHtml: `
 <article class="landing-seo-body">
-<p>L’antenne <strong>Surin</strong> est l’adresse physique de Thailande-services : <strong>tous les services sur place</strong> — assurance, interprète, visas, admin. Hospitalisation, dépôt de plainte, rendez-vous immigration, lecture d’un contrat en thaï. Tammy est agent <strong>Krungthai AXA</strong> et <strong>interprète thaï français anglais Surin en Thaïlande</strong>.</p>
+<p>L’antenne <strong>Surin</strong> est l’adresse physique de Thailande-services : <strong>tous les services sur place</strong>, assurance, interprète, visas, admin. Hospitalisation, dépôt de plainte, rendez-vous immigration, lecture d’un contrat en thaï. Tammy est agent <strong>Krungthai AXA</strong> et <strong>interprète thaï français anglais Surin en Thaïlande</strong>.</p>
 
 <h2>Surin : tous les services sur place</h2>
 <p>À l’agence, on prend le temps de comprendre votre dossier avant d’aller quelque part. Tammy a vécu sept ans en France : elle sait où les malentendus culturels bloquent une admission ou un visa. Elle peut se déplacer avec vous à l’hôpital de Surin ou dans la région.</p>
@@ -132,8 +138,8 @@ const surin: LandingCopy = {
 </ul>
 <p>Le premier contact se fait par WhatsApp ou le <a href="/formulaire-de-contact/">formulaire</a>. On fixe ensuite un créneau à l’agence ou sur le lieu de la démarche.</p>
 
-<h2>Phuket et toute la Thaïlande : à distance</h2>
-<p>À <strong>Phuket</strong>, Tammy intervient à distance ou avec une collaboratrice locale. <strong>Partout ailleurs en Thaïlande</strong>, même ligne WhatsApp : téléphone, visio, e-mail, portail AXA. Utilisez le <a href="#devis-assurance">devis assurance santé</a> ou le <a href="/formulaire-de-contact/">formulaire de contact</a>.</p>
+<h2>Assurance santé Thaïlande depuis Bangkok, Chiang Mai, Pattaya…</h2>
+<p>Beaucoup de clients souscrivent leur <strong>assurance santé en Thaïlande</strong> à distance depuis Bangkok, Chiang Mai, Pattaya, Hua Hin ou Koh Samui, puis passent par Surin le jour où il faut un interprète à l’hôpital. Même ligne WhatsApp : visio pour le devis, présence sur place quand ça compte.</p>
 
 <p><a href="#devis-assurance">Devis assurance santé</a> · <a href="/formulaire-de-contact/">Nous écrire (autres demandes)</a> · <a href="${LANDING_PHUKET_PATH}">Assurance santé Phuket Thaïlande</a></p>
 </article>`,
@@ -149,7 +155,7 @@ const surin: LandingCopy = {
     jsonLdName: 'Thailande-services Surin branch office',
     bodyHtml: `
 <article class="landing-seo-body">
-<p>The <strong>Surin</strong> branch is Thailande-services’ physical address: <strong>all services on site</strong> — insurance, interpreting, visas, admin. Hospital admissions, police reports, immigration appointments, Thai contracts read aloud. Tammy is a <strong>Krungthai AXA</strong> agent and <strong>Thai French English interpreter Surin in Thailand</strong>.</p>
+<p>The <strong>Surin</strong> branch is Thailande-services’ physical address: <strong>all services on site</strong>, insurance, interpreting, visas, admin. Hospital admissions, police reports, immigration appointments, Thai contracts read aloud. Tammy is a <strong>Krungthai AXA</strong> agent and <strong>Thai French English interpreter Surin in Thailand</strong>.</p>
 
 <h2>Surin: all services on site</h2>
 <p>At the office we review your file before going anywhere. Tammy spent seven years in France and knows where cultural gaps stall a medical or visa case. She can accompany you to local hospitals or arrange a trip to Phuket when needed.</p>

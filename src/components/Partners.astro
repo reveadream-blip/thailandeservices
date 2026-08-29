@@ -1,5 +1,7 @@
 ---
 import { translations, type Lang } from '../i18n/translations'
+import { WP_PAGES } from '../config'
+import { localePath } from '../lib/locale-path'
 
 export interface Props {
   lang: Lang
@@ -7,19 +9,31 @@ export interface Props {
 const { lang } = Astro.props
 const t = translations[lang]
 
-const partners = [
+type PartnerKey = 'tammy' | 'thomas' | 'consulate'
+
+function partnerHref(key: PartnerKey, lang: Lang): string {
+  if (key === 'tammy') return localePath(lang, WP_PAGES.assuranceThailandeArticle)
+  if (key === 'thomas') return localePath(lang, WP_PAGES.expatriationImmobilier)
+  return localePath(lang, WP_PAGES.consulat)
+}
+
+const partners: Array<{
+  key: PartnerKey
+  image: string
+  fallbackEmoji: string
+}> = [
   {
-    key: 'tammy' as const,
+    key: 'tammy',
     image: '/images/tammy.jpg',
     fallbackEmoji: '👩',
   },
   {
-    key: 'thomas' as const,
+    key: 'thomas',
     image: '/images/thomas.jpg',
     fallbackEmoji: '👨',
   },
   {
-    key: 'consulate' as const,
+    key: 'consulate',
     image: '/images/consulat.png',
     fallbackEmoji: '🇫🇷',
   },
@@ -35,7 +49,12 @@ const partners = [
 
     <div class="partners-grid">
       {partners.map((p, i) => (
-        <article class="partner-card" data-reveal style={`animation-delay:${i * 0.1}s`}>
+        <a
+          href={partnerHref(p.key, lang)}
+          class="partner-card"
+          data-reveal
+          style={`animation-delay:${i * 0.1}s`}
+        >
           <div class="partner-photo">
             <img
               src={p.image}
@@ -50,7 +69,7 @@ const partners = [
             <p class="role">{t.partners[p.key].role}</p>
             <p class="desc">{t.partners[p.key].description}</p>
           </div>
-        </article>
+        </a>
       ))}
     </div>
   </div>
@@ -97,11 +116,18 @@ const partners = [
     display: flex;
     flex-direction: column;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
+    text-decoration: none;
+    color: inherit;
   }
 
   .partner-card:hover {
     transform: translateY(-6px);
     box-shadow: var(--shadow-lg), 0 0 0 1px color-mix(in srgb, var(--color-coral) 22%, transparent);
+  }
+
+  .partner-card:focus-visible {
+    outline: 2px solid var(--color-ocean-mid);
+    outline-offset: 3px;
   }
 
   .partner-photo {

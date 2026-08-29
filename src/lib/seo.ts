@@ -32,6 +32,17 @@ export function truncateMeta(text: string, max = 160): string {
   return (lastSpace > 40 ? cut.slice(0, lastSpace) : cut).trimEnd() + '…'
 }
 
+/** Titre <title> seul (ex. accueil) : ≤ 60 car. pour Google. */
+export function truncateDocumentTitle(text: string, max = 60): string {
+  const t = text.replace(/\s+/g, ' ').trim()
+  if (t.length <= max) return t
+  const cut = t.slice(0, max)
+  const lastSep = cut.lastIndexOf(' · ')
+  const lastSpace = cut.lastIndexOf(' ')
+  const breakAt = lastSep > 20 ? lastSep : lastSpace > 15 ? lastSpace : max
+  return cut.slice(0, breakAt).trimEnd()
+}
+
 const TITLE_SEP = ' | '
 
 /** Titre document ≤ 60 car. : « Page | Site ». */

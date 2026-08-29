@@ -36,8 +36,8 @@
   "assurance-sante-et-biens-en-thailande": {
     "fr": {
       "pageTitle": "Assurance santé Thaïlande",
-      "metaDescription": "Assurance santé, auto, maison en Thaïlande. Tammy (AXA) répond en français.",
-      "introHtml": "<p><strong>Assurance santé Surin</strong> sur place et <strong>assurance santé Thaïlande</strong> à distance (KrungThai AXA, auto, habitation). <a href=\"#devis-assurance\">Devis assurance santé</a> ou WhatsApp.</p>",
+      "metaDescription": "Assurance santé Thaïlande pour expatriés : hospitalisation, visa, AXA. Bangkok, Chiang Mai, Phuket, Pattaya, Surin. Tammy répond en français.",
+      "introHtml": "<p><strong>Assurance santé Thaïlande</strong> pour expatriés : <strong>assurance santé Surin</strong> sur place, <strong>Bangkok, Chiang Mai, Phuket, Pattaya, Hua Hin, Koh Samui</strong> en visio (KrungThai AXA, auto, habitation). <a href=\"#devis-assurance\">Devis assurance santé</a> ou WhatsApp.</p>",
       "faq": [
         {
           "question": "Quel budget hospitalisation pour Phuket ?",
@@ -47,8 +47,8 @@
     },
     "en": {
       "pageTitle": "Thailand health insurance",
-      "metaDescription": "Health, car and home insurance in Thailand. Tammy (AXA) answers in French.",
-      "introHtml": "<p><strong>Surin health insurance</strong> on site and <strong>Thailand health insurance</strong> remotely (KrungThai AXA, car, home). <a href=\"#devis-assurance\">Insurance quote</a> or WhatsApp.</p>",
+      "metaDescription": "Thailand health insurance for expats: hospitalisation, visa, AXA. Bangkok, Chiang Mai, Phuket, Pattaya, Surin. Tammy answers in French.",
+      "introHtml": "<p><strong>Thailand health insurance</strong> for expats: <strong>Surin health insurance</strong> on site, <strong>Bangkok, Chiang Mai, Phuket, Pattaya, Hua Hin, Koh Samui</strong> by video (KrungThai AXA, car, home). <a href=\"#devis-assurance\">Insurance quote</a> or WhatsApp.</p>",
       "faq": [
         {
           "question": "How much hospital cover for Phuket?",
@@ -70,19 +70,19 @@
   },
   "services-expatriation-en-thailande": {
     "fr": {
-      "pageTitle": "Expatriation & immobilier Phuket",
-      "metaDescription": "Immo Phuket/Krabi avec Thomas, assurance santé Surin et assurance santé Thaïlande à distance avec Tammy.",
-      "introHtml": "<p><strong>Surin</strong> : Tammy (assurance santé Surin, interprète thaï français anglais Surin en Thaïlande, aide admin). <strong>Assurance santé Thaïlande</strong> à distance ; Thomas pour l’immo (<a href=\"/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/\">achat ou location</a>).</p>"
+      "pageTitle": "Assurance santé Thaïlande · expatriés Bangkok, Chiang Mai, Phuket",
+      "metaDescription": "Assurance santé Thaïlande pour expatriés : hospitalisation, visa, devis AXA. Bangkok, Chiang Mai, Phuket, Pattaya, Hua Hin, Koh Samui, Surin. Tammy et Thomas.",
+      "introHtml": "<p>Vous cherchez une <strong>assurance santé en Thaïlande</strong> depuis <strong>Bangkok</strong>, <strong>Chiang Mai</strong>, <strong>Phuket</strong>, <strong>Pattaya</strong>, <strong>Hua Hin</strong>, <strong>Koh Samui</strong> ou <strong>Surin</strong> ? Tammy (AXA, interprète, admin) et Thomas pour l’immo Phuket/Krabi (<a href=\"/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/\">achat ou location</a>).</p>"
     },
     "en": {
-      "pageTitle": "Expat services & real estate Phuket",
-      "metaDescription": "Phuket/Krabi property with Thomas; Surin health insurance and Thailand health insurance remotely with Tammy.",
-      "introHtml": "<p><strong>Surin</strong>: Tammy (Surin health insurance, Thai French English interpreter Surin in Thailand, admin help). <strong>Thailand health insurance</strong> remotely; <strong>Thomas</strong> for property (<a href=\"/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/\">buy or rent</a>).</p>"
+      "pageTitle": "Thailand health insurance · expats Bangkok, Chiang Mai, Phuket",
+      "metaDescription": "Thailand health insurance for expats: hospitalisation, visa, AXA quotes. Bangkok, Chiang Mai, Phuket, Pattaya, Hua Hin, Koh Samui, Surin. Tammy and Thomas.",
+      "introHtml": "<p>Looking for <strong>health insurance in Thailand</strong> from <strong>Bangkok</strong>, <strong>Chiang Mai</strong>, <strong>Phuket</strong>, <strong>Pattaya</strong>, <strong>Hua Hin</strong>, <strong>Koh Samui</strong> or <strong>Surin</strong>? Tammy (AXA, interpreter, admin) and Thomas for Phuket/Krabi property (<a href=\"/expatriation-a-phuket-besoin-achat-immobilier-ou-locatif/\">buy or rent</a>).</p>"
     },
     "th": {
-      "pageTitle": "บริการชาวต่างชาติภูเก็ต",
-      "metaDescription": "ย้ายมาภูเก็ต: โทมาส อสังหาฯ กระบี่ แทมมี่ ประกันสุขภาพและล่ามฉุกเฉิน, ติดต่อได้จริง",
-      "introHtml": "<p><strong>สุรินทร์</strong>: แทมมี่ ประกันสุขภาพสุรินทร์ ล่ามไทย ฝรั่งเศส อังกฤษสุรินทร์ในไทย ธุรการ <strong>ประกันสุขภาพไทย</strong>ระยะไกล โทมาส<strong>อสังหาฯ</strong></p>"
+      "pageTitle": "ประกันสุขภาพไทย · ชาวต่างชาติ กรุงเทพ เชียงใหม่ ภูเก็ต",
+      "metaDescription": "ประกันสุขภาพไทยสำหรับชาวต่างชาติ: โรงพยาบาล วีซ่า ใบเสนอราคา AXA กรุงเทพ เชียงใหม่ ภูเก็ต พัทยา หัวหิน เกาะสมุย สุรินทร์",
+      "introHtml": "<p>กำลังหา<strong>ประกันสุขภาพในไทย</strong>จาก<strong>กรุงเทพ</strong> <strong>เชียงใหม่</strong> <strong>ภูเก็ต</strong> <strong>พัทยา</strong> <strong>หัวหิน</strong> <strong>เกาะสมุย</strong> หรือ<strong>สุรินทร์</strong>? แทมมี่ (AXA ล่าม ธุรการ) และโทมาสอสังหาภูเก็ต/กระบี่</p>"
     }
   }
 }
