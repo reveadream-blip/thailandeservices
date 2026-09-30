@@ -26,6 +26,11 @@ const jsonLdExtra = buildCategorySchemaGraph({
   articleUrls: posts.map((p) => absoluteUrl(actualiteHref(p))),
 })
 const homeHref = lang === 'fr' ? '/' : `/${lang}/`
+const hreflangAlternates = {
+  fr: absoluteUrl('/actualites/'),
+  en: absoluteUrl('/en/actualites/'),
+  th: absoluteUrl('/th/actualites/'),
+}
 ---
 
 <BaseLayout
@@ -33,6 +38,7 @@ const homeHref = lang === 'fr' ? '/' : `/${lang}/`
   pageTitle={t.pageTitle}
   metaDescription={metaDescription}
   canonicalPath={listPath}
+  hreflangAlternates={hreflangAlternates}
   jsonLdExtra={jsonLdExtra}
 >
   <div class="actualites-page">

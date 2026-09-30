@@ -116,7 +116,7 @@ const phuket: LandingCopy = {
 
 const surin: LandingCopy = {
   fr: {
-    documentTitle: 'Agence Surin, assurance santé Surin et interprète thaï français anglais Surin',
+    documentTitle: 'Agence Surin : assurance santé et interprète thaï français',
     metaDescription:
       'Agence Surin : assurance santé Thaïlande sur place (AXA). Expatriés Bangkok, Chiang Mai, Phuket, Pattaya : devis hospitalisation en visio avec Tammy.',
     pageH1: 'Agence Thailande-services à Surin : visas, assurance santé Surin, interprète thaï français anglais Surin en Thaïlande',
@@ -145,7 +145,7 @@ const surin: LandingCopy = {
 </article>`,
   },
   en: {
-    documentTitle: 'Surin Branch Office, Surin Health Insurance & Thai French English interpreter Surin',
+    documentTitle: 'Surin Branch : health insurance & Thai-French interpreter',
     metaDescription:
       'Thailande-services Surin office: Tammy for Surin health insurance (AXA), FR/EN/TH interpreting (hospital, police, immigration).',
     pageH1: 'Thailande-services Surin office: visas, Surin health insurance, Thai French English interpreter Surin in Thailand',
